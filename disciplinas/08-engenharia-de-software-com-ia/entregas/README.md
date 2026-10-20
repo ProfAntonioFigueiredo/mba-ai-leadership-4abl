@@ -1,0 +1,5 @@
+# Entregas — Engenharia de Software com IA Assistida para…
+
+Registre rascunho, revisado, submetido ou confirmado, com evidência. Nunca inferir submissão pelo nome do arquivo.
+
+Nenhum item adicional foi catalogado nesta seção.

@@ -1,0 +1,29 @@
+{
+  "id": "02",
+  "slug": "ai-core-concepts",
+  "nome_exibido": "AI Core Concepts",
+  "nome_oficial_pendente": false,
+  "pasta": "disciplinas/02-ai-core-concepts",
+  "status": "com-projetos",
+  "origem_nome": "lista fornecida pelo usuário em imagem",
+  "ordem": "ordem da imagem; não representa ordem cronológica",
+  "aulas": [
+    {
+      "data": "2026-09-28",
+      "pasta": "aulas/2026-09-28-ia-classica",
+      "cobertura": "resumo disponível; validar com fonte"
+    },
+    {
+      "data": "2026-10-19",
+      "pasta": "aulas/2026-10-19-aula-02",
+      "cobertura": "parcial; aguarda transcrição completa"
+    }
+  ],
+  "projetos": [
+    {
+      "nome": "Correlação CX e caderno de hipóteses",
+      "pasta": "projetos/correlacao-cx",
+      "status": "artefatos disponíveis; entrega no portal não verificada"
+    }
+  ]
+}

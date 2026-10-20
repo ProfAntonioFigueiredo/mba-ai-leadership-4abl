@@ -1,0 +1,18 @@
+{
+  "id": "03",
+  "slug": "ai-sociedades-do-futuro",
+  "nome_exibido": "AI Sociedades do Futuro Dessincronizao e…",
+  "nome_oficial_pendente": true,
+  "pasta": "disciplinas/03-ai-sociedades-do-futuro",
+  "status": "com-material",
+  "origem_nome": "lista fornecida pelo usuário em imagem",
+  "ordem": "ordem da imagem; não representa ordem cronológica",
+  "aulas": [],
+  "projetos": [
+    {
+      "nome": "Reflexão sobre futuros e regeneração",
+      "pasta": "entregas",
+      "status": "rascunho localizado no acervo; submissão não verificada"
+    }
+  ]
+}

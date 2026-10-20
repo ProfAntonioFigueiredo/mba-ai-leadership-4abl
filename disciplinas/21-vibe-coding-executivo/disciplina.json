@@ -1,0 +1,23 @@
+{
+  "id": "21",
+  "slug": "vibe-coding-executivo",
+  "nome_exibido": "Vibe Coding Executivo",
+  "nome_oficial_pendente": false,
+  "pasta": "disciplinas/21-vibe-coding-executivo",
+  "status": "com-projetos",
+  "origem_nome": "lista fornecida pelo usuário em imagem",
+  "ordem": "ordem da imagem; não representa ordem cronológica",
+  "aulas": [],
+  "projetos": [
+    {
+      "nome": "SpeakUp: original e SDD",
+      "pasta": "projetos/speakup",
+      "status": "piloto local; constituição em revisão"
+    },
+    {
+      "nome": "Discovery SpeakUp",
+      "pasta": "projetos/discovery-speakup",
+      "status": "material disponível; sem comprovação de entrega"
+    }
+  ]
+}

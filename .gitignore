@@ -1,0 +1,29 @@
+# Regeneráveis
+**/node_modules/
+**/dist/
+**/.venv/
+**/__pycache__/
+**/test-results/
+**/playwright-report/
+**/.ipynb_checkpoints/
+.DS_Store
+*.pyc
+# Credenciais
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+# Acervo original e entregas não revisadas
+/acervo-local/
+**/dados/*.xlsx
+**/entrega/*.docx
+**/discovery-speakup/*.docx
+**/discovery-speakup/*.pdf
+**/*.log
+**/specs/sources/Prompt_Interpretador*.txt
+# Gerados pelo usuário após importar
+**/saida/

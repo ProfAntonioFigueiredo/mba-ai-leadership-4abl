@@ -1,0 +1,288 @@
+[
+  {
+    "id": "01",
+    "slug": "advocacy-e-influencia",
+    "nome_exibido": "Advocacy e Influência",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/01-advocacy-e-influencia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "02",
+    "slug": "ai-core-concepts",
+    "nome_exibido": "AI Core Concepts",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/02-ai-core-concepts",
+    "status": "com-projetos",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [
+      {
+        "data": "2026-09-28",
+        "pasta": "aulas/2026-09-28-ia-classica",
+        "cobertura": "resumo disponível; validar com fonte"
+      },
+      {
+        "data": "2026-10-19",
+        "pasta": "aulas/2026-10-19-aula-02",
+        "cobertura": "parcial; aguarda transcrição completa"
+      }
+    ],
+    "projetos": [
+      {
+        "nome": "Correlação CX e caderno de hipóteses",
+        "pasta": "projetos/correlacao-cx",
+        "status": "artefatos disponíveis; entrega no portal não verificada"
+      }
+    ]
+  },
+  {
+    "id": "03",
+    "slug": "ai-sociedades-do-futuro",
+    "nome_exibido": "AI Sociedades do Futuro Dessincronizao e…",
+    "nome_oficial_pendente": true,
+    "pasta": "disciplinas/03-ai-sociedades-do-futuro",
+    "status": "com-material",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": [
+      {
+        "nome": "Reflexão sobre futuros e regeneração",
+        "pasta": "entregas",
+        "status": "rascunho localizado no acervo; submissão não verificada"
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "slug": "arquitetura-corporativa-para-ia",
+    "nome_exibido": "Arquitetura Corporativa para IA Estrategia",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/04-arquitetura-corporativa-para-ia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "05",
+    "slug": "arquitetura-de-agentes",
+    "nome_exibido": "Arquitetura de Agentes",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/05-arquitetura-de-agentes",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "06",
+    "slug": "capacitacao-organizacional-para-ia",
+    "nome_exibido": "Capacitação Organizacional para IA",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/06-capacitacao-organizacional-para-ia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "07",
+    "slug": "encontro-com-a-coordenacao",
+    "nome_exibido": "Encontro com a Coordenação",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/07-encontro-com-a-coordenacao",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "08",
+    "slug": "engenharia-de-software-com-ia",
+    "nome_exibido": "Engenharia de Software com IA Assistida para…",
+    "nome_oficial_pendente": true,
+    "pasta": "disciplinas/08-engenharia-de-software-com-ia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "09",
+    "slug": "estrategia-de-ia",
+    "nome_exibido": "Estratégia de IA",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/09-estrategia-de-ia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "10",
+    "slug": "experiencias-de-produto",
+    "nome_exibido": "Experiências de Produto",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/10-experiencias-de-produto",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "11",
+    "slug": "gestao-de-produto",
+    "nome_exibido": "Gestão de Produto",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/11-gestao-de-produto",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "12",
+    "slug": "gestao-de-projetos-e-equipes",
+    "nome_exibido": "Gestão de Projetos e Equipes",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/12-gestao-de-projetos-e-equipes",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "13",
+    "slug": "governanca-de-dados-ia-e-etica",
+    "nome_exibido": "Governança de Dados IA e Ética",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/13-governanca-de-dados-ia-e-etica",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "14",
+    "slug": "implementacao-de-agentes",
+    "nome_exibido": "Implementação de Agentes",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/14-implementacao-de-agentes",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "15",
+    "slug": "orquestracao-e-integracao-de-agentes",
+    "nome_exibido": "Orquestração e Integração de Agentes",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/15-orquestracao-e-integracao-de-agentes",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "16",
+    "slug": "processamento-de-aprendizagem",
+    "nome_exibido": "Processamento de Aprendizagem",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/16-processamento-de-aprendizagem",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "17",
+    "slug": "reengenharia-de-processos-com-agentes",
+    "nome_exibido": "Reengenharia de Processos com Agentes",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/17-reengenharia-de-processos-com-agentes",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "18",
+    "slug": "seguranca-e-confiabilidade",
+    "nome_exibido": "Segurança e Confiabilidade",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/18-seguranca-e-confiabilidade",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "19",
+    "slug": "transformacao-de-modelos-operacionais",
+    "nome_exibido": "Transformação de Modelos Operacionais e de Neg…",
+    "nome_oficial_pendente": true,
+    "pasta": "disciplinas/19-transformacao-de-modelos-operacionais",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "20",
+    "slug": "valor-e-investimento-governance-de-ia",
+    "nome_exibido": "Valor e Investment Governance de IA",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/20-valor-e-investimento-governance-de-ia",
+    "status": "sem-material-local",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": []
+  },
+  {
+    "id": "21",
+    "slug": "vibe-coding-executivo",
+    "nome_exibido": "Vibe Coding Executivo",
+    "nome_oficial_pendente": false,
+    "pasta": "disciplinas/21-vibe-coding-executivo",
+    "status": "com-projetos",
+    "origem_nome": "lista fornecida pelo usuário em imagem",
+    "ordem": "ordem da imagem; não representa ordem cronológica",
+    "aulas": [],
+    "projetos": [
+      {
+        "nome": "SpeakUp: original e SDD",
+        "pasta": "projetos/speakup",
+        "status": "piloto local; constituição em revisão"
+      },
+      {
+        "nome": "Discovery SpeakUp",
+        "pasta": "projetos/discovery-speakup",
+        "status": "material disponível; sem comprovação de entrega"
+      }
+    ]
+  }
+]

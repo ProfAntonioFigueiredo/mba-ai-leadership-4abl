@@ -1,0 +1,3 @@
+# Login público autentica matrícula/senha dentro da função.
+[functions.student-login]
+verify_jwt = false

@@ -1,0 +1,14 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{COLUMNS,parseCSV,validateImport,assertSlot,book,frequency,csvCell}from'../src/domain.mjs';import{seed}from'../src/demo.mjs';
+const row=()=>COLUMNS.map(c=>({id_aluno:'00123',nome:'Maria Souza',email:'maria@example.com',data_matricula:'2026-10-14',status_matricula:'Ativa','Valor Mensalidade':'450.90'}[c]||''));
+test('CSV suporta BOM, ponto e vírgula, aspas e quebra dentro de célula',()=>assert.deepEqual(parseCSV('\ufeffnome;texto\r\n"Ana; B";"a\n""b"""'),[['nome','texto'],['Ana; B','a\n"b"']]));
+test('CSV com aspas incompletas é rejeitado',()=>assert.throws(()=>parseCSV('a,b\n"oops'),/aspas/));
+test('importação preserva matrícula com zero e reconhece upsert',()=>{const p=validateImport([COLUMNS,row()],['00123']);assert.equal(p.rows[0].id_aluno,'00123');assert.equal(p.updated,1);assert.equal(p.inserted,0);assert.equal(p.errors.length,0);});
+test('cabeçalho faltante ou na ordem errada é rejeitado',()=>{assert.throws(()=>validateImport([COLUMNS.slice(0,15),row()]),/19 colunas/);assert.throws(()=>validateImport([[...COLUMNS].reverse(),row()]),/19 colunas/);});
+test('data impossível, decimal e duplicidade reportam linha e coluna',()=>{const a=row();a[3]='2026-02-30';a[18]='R$ 200';const p=validateImport([COLUMNS,a,row()]);assert.ok(p.errors.some(e=>e.line===2&&e.column==='data_nascimento'));assert.ok(p.errors.some(e=>e.column==='Valor Mensalidade'));assert.ok(p.errors.some(e=>e.line===3&&e.column==='id_aluno'));});
+test('números fora de faixa e status inválidos são rejeitados',()=>{const a=row();a[14]='101';a[16]='apagado';assert.equal(validateImport([COLUMNS,a]).errors.length,2);});
+test('professor e turma não podem ter sobreposição; intervalos adjacentes podem',()=>{const s={id:1,teacher:'A',group:'G',start:'2026-10-15T09:00Z',end:'2026-10-15T10:00Z'};assert.throws(()=>assertSlot([s],{...s,id:2,start:'2026-10-15T09:30Z'}),/Conflito/);assert.doesNotThrow(()=>assertSlot([s],{...s,id:2,start:'2026-10-15T10:00Z',end:'2026-10-15T11:00Z'}));});
+test('remarcação cancela original e mantém nova reserva',()=>{const s=seed();book(s,'10045',3,1);assert.equal(s.bookings.find(b=>b.id===1).status,'cancelada');assert.equal(s.bookings.at(-1).slot,3);});
+test('falha na remarcação preserva original',()=>{const s=seed();s.slots[2].capacity=0;assert.throws(()=>book(s,'10045',3,1),/vagas/);assert.equal(s.bookings[0].status,'agendada');});
+test('aluno inativo e conflito do aluno bloqueiam reserva',()=>{const s=seed();assert.throws(()=>book(s,'10045',1),/horário/);s.students[0].status_matricula='Pausada';assert.throws(()=>book(s,'10045',3),/inativa/);});
+test('frequência desconsidera chamada pendente',()=>assert.equal(frequency([{attendance:'Presente'},{attendance:'Falta justificada'},{attendance:null}]),50));
+test('exportação escapa aspas e fórmulas',()=>{assert.equal(csvCell('=SUM(A1)'), '"\'=SUM(A1)"');assert.equal(csvCell('Ana "B"'),'"Ana ""B"""');});

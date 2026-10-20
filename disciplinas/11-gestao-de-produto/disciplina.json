@@ -1,0 +1,12 @@
+{
+  "id": "11",
+  "slug": "gestao-de-produto",
+  "nome_exibido": "Gestão de Produto",
+  "nome_oficial_pendente": false,
+  "pasta": "disciplinas/11-gestao-de-produto",
+  "status": "sem-material-local",
+  "origem_nome": "lista fornecida pelo usuário em imagem",
+  "ordem": "ordem da imagem; não representa ordem cronológica",
+  "aulas": [],
+  "projetos": []
+}

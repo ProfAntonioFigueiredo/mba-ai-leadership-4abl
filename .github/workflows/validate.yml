@@ -1,0 +1,43 @@
+name: Validate MBA 4ABL
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    outputs:
+      sdd_available: ${{ steps.sources.outputs.available }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 tools/validate_repo.py
+      - id: sources
+        run: |
+          if [ -f disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/package-lock.json ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::SpeakUp SDD sources pending OneDrive import; application job skipped."
+          fi
+  speakup:
+    needs: structure
+    if: needs.structure.outputs.sdd_available == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: python3 scripts/compare.py
