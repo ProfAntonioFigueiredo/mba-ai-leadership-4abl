@@ -30,6 +30,10 @@ def main():
     imported=json.loads((ROOT/'catalogo/importacao.json').read_text())
     origins.update({e['origem']:ROOT/e['destino'] for e in imported if (ROOT/e['destino']).suffix=='.md'})
     targets={(ROOT/e['destino']).resolve():origins[e['origem']] for e in imported if e['origem'] in origins}
+    tracked={ROOT/p for p in subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0') if p}
+    def shareable(p):
+        if p.is_dir():return any(p in f.parents for f in tracked) or lib==p or lib in p.parents
+        return p in tracked or lib in p.parents or p in outputs.values()
     records=[];issues=[]
     for md in files:
         rel=md.relative_to(ROOT).as_posix();text=md.read_text();entry=meta.get(rel)
@@ -64,7 +68,7 @@ def main():
             if not target.exists():
                 matches={p for key,p in origins.items() if Path(key).name==Path(path).name}
                 if len(matches)==1:target=matches.pop()
-            if not target.exists():
+            if not target.exists() or not shareable(target):
                 issues.append({'documento':rel,'referencia':raw})
                 # Preserve the reference as text without a broken clickable link.
                 return attr+'="'+('#referencia-indisponivel' if attr=='href' else '')+'"'

@@ -2,5 +2,37 @@
   {
     "documento": "disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md",
     "referencia": "../01_Material_da_Aula/prints_da_aula/"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "tests-original.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "tests-sdd.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "regression-original.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "database-original-regression.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "browser-original.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "browser-sdd.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "build-original.log"
+  },
+  {
+    "documento": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "referencia": "build-sdd.log"
   }
 ]
