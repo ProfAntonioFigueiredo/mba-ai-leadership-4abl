@@ -1,8 +1,8 @@
 {
   "reference_date": "2026-10-19",
   "disciplines": 21,
-  "checked_files": 314,
-  "imported_files": 41,
+  "checked_files": 395,
+  "imported_files": 121,
   "errors": [],
   "warnings": [],
   "scope": "Structure, imported hashes, baseline identity, file policy, Python syntax, notebook JSON and generated navigation. Not an application or production certification."

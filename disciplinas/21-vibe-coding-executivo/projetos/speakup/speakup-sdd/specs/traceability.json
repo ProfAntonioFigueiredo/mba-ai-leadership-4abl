@@ -1,0 +1,114 @@
+[
+  {
+    "criterion": "AC-01",
+    "requirements": [
+      "ENG-01"
+    ],
+    "implementation": "src/infrastructure/configuration.mjs",
+    "test": "tests/configuration.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-02",
+    "requirements": [
+      "RF-01",
+      "ENG-02"
+    ],
+    "implementation": "src/domain/scheduling.mjs",
+    "test": "tests/regression.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-03",
+    "requirements": [
+      "RF-02"
+    ],
+    "implementation": "src/domain/scheduling.mjs",
+    "test": "tests/regression.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-04",
+    "requirements": [
+      "RF-13"
+    ],
+    "implementation": "src/domain/import.mjs",
+    "test": "tests/regression.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-05",
+    "requirements": [
+      "RF-13"
+    ],
+    "implementation": "src/App.jsx",
+    "test": "tests/browser/import.spec.js",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-06",
+    "requirements": [
+      "RNF-01"
+    ],
+    "implementation": "src/ui/Modal.jsx",
+    "test": "tests/browser/booking.spec.js",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-07",
+    "requirements": [
+      "RF-06",
+      "RNF-05"
+    ],
+    "implementation": "supabase/migrations/202610190001_rh_occupancy.sql",
+    "test": "tests/database.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-08",
+    "requirements": [
+      "RF-02"
+    ],
+    "implementation": "src/App.jsx",
+    "test": "tests/browser/booking.spec.js",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-09",
+    "requirements": [
+      "RNF-05"
+    ],
+    "implementation": "supabase/migrations/202610140001_speakup.sql",
+    "test": "tests/database.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-10",
+    "requirements": [
+      "ENG-02"
+    ],
+    "implementation": "src/domain/scheduling.mjs",
+    "test": "tests/regression.test.mjs",
+    "validation": "local_passed",
+    "production": "not_certified"
+  },
+  {
+    "criterion": "AC-11",
+    "requirements": [
+      "RNF-01"
+    ],
+    "implementation": "src/style.css",
+    "test": "tests/browser/booking.spec.js",
+    "validation": "local_passed",
+    "production": "not_certified"
+  }
+]

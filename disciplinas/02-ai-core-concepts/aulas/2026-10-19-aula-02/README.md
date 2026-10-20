@@ -1,3 +1,5 @@
 # Aula 2 — 19/10/2026
 
-A transcrição completa ainda é necessária para consolidar a aula. O resumo parcial existente na pasta original não pôde ser importado enquanto permanece como placeholder do OneDrive. Consulte o inventário de pendências; não considerar esta aula documentada integralmente.
+- [Resumo parcial](resumo-parcial.md).
+
+O registro foi importado após o download do OneDrive. A transcrição completa ainda é necessária para consolidar a aula; não considerar a cobertura integral.

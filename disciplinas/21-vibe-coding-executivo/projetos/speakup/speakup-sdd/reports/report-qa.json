@@ -1,0 +1,24 @@
+{
+  "desktop": {
+    "title": "SpeakUp — Vibe Coding e evolução com SDD",
+    "images": [
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      },
+      {
+        "loaded": true
+      }
+    ],
+    "tables": 3,
+    "overflow": false
+  },
+  "mobile": {
+    "overflow": false
+  }
+}

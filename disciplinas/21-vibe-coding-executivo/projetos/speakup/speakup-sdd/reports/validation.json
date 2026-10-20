@@ -1,0 +1,143 @@
+{
+  "reference_date": "2026-10-19",
+  "node": "v24.15.0",
+  "baseline": "/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy",
+  "original_unchanged": true,
+  "checks": [
+    {
+      "name": "tests-original",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 1.63
+    },
+    {
+      "name": "build-original",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 1.52
+    },
+    {
+      "name": "regression-original",
+      "command": [
+        "node",
+        "--test",
+        "tests/regression.test.mjs"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {
+        "SPEAKUP_TARGET": "/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy"
+      },
+      "exit_code": 1,
+      "expected_failure": true,
+      "elapsed_seconds": 0.115
+    },
+    {
+      "name": "database-original-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/database.test.mjs"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {
+        "SPEAKUP_BASELINE_DB": "1"
+      },
+      "exit_code": 1,
+      "expected_failure": true,
+      "elapsed_seconds": 1.266
+    },
+    {
+      "name": "tests-sdd",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 1.515
+    },
+    {
+      "name": "build-sdd",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 1.04
+    },
+    {
+      "name": "format-sdd",
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.453
+    },
+    {
+      "name": "browser-original",
+      "command": [
+        "npm",
+        "run",
+        "test:e2e"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {
+        "SPEAKUP_BASELINE_UI": "/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy"
+      },
+      "exit_code": 1,
+      "expected_failure": true,
+      "elapsed_seconds": 14.311
+    },
+    {
+      "name": "browser-sdd",
+      "command": [
+        "npm",
+        "run",
+        "test:e2e"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 3.233
+    },
+    {
+      "name": "dependencies",
+      "command": [
+        "npm",
+        "ls",
+        "--depth=0",
+        "--json"
+      ],
+      "cwd": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd",
+      "environment": {},
+      "exit_code": 0,
+      "expected_failure": false,
+      "elapsed_seconds": 0.333
+    }
+  ]
+}

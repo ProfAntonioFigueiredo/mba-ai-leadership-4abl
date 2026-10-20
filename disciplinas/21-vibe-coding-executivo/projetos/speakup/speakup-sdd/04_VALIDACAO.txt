@@ -1,0 +1,7 @@
+VALIDAÇÃO DA BASE LOCAL SPEAKUP
+
+Build de produção com Vite concluído. Resultado final: 25 verificações aprovadas, zero falhas (inclui o teste agrupador PostgreSQL). Testes de domínio e de PostgreSQL em memória com btree_gist executados. Verificam parser CSV, 19 cabeçalhos, validação por linha/coluna, upsert, rollback de lote, matrícula com zeros, conflitos, reserva/remarcação, lotação e permissões entre papéis/empresas. O contexto auth.uid() é simulado nos testes SQL; Supabase Auth e a Edge Function não foram executados em uma conta real.
+
+Não foram executados testes de concorrência em múltiplas conexões, carga, SLA, TLS/AES, retenção externa ou entrega de notificações. Não foi possível concluir revisão visual interativa: o controle do Safari retornou repetidamente noWindowsAvailable e avisos de mudança da aplicação durante as ações. O projeto Lovable não foi criado ou confirmado por esses controles.
+
+A demonstração local funciona sem credenciais Supabase. O modo conectado não utiliza dados fictícios caso falhe a consulta ao backend. Dependências instaladas e pnpm-lock.yaml incluído para reprodutibilidade.

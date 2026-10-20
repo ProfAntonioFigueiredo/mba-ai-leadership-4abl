@@ -1,5 +1,8 @@
-# Discovery SpeakUp — importação pendente
+# Discovery SpeakUp
 
-Foram inventariados o laboratório HTML, os requisitos e a simulação do exercício de 05/10/2026. Os arquivos aguardam disponibilização local pelo OneDrive e ainda não foram importados nesta cópia.
+Material de exercício da aula de 05/10/2026. O laboratório HTML foi importado, assim como cópias locais dos documentos de requisitos e simulação, que permanecem fora do Git.
 
-Evolução relacionada: [SpeakUp](../speakup/README.md). Submissão acadêmica não verificada.
+- [Laboratório integrado](SpeakUp_Discovery_Lab_Fluxo_Integrado.html).
+- [Evolução SpeakUp](../speakup/README.md).
+
+Submissão acadêmica não verificada.

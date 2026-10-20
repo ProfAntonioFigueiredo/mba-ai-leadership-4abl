@@ -11,3 +11,7 @@ Acervo não versionado: slides, transcrição integral, PDFs/Word de referência
 O resumo da aula de 19/10 permanece parcial. A transcrição completa ainda é necessária para encerrar seu material de estudo. Uma entrega encontrada não significa submissão confirmada.
 
 O arquivo de encerramento do MBA foi inventariado como material geral, sem inferir que a turma ou as disciplinas já foram concluídas.
+
+## Retomada concluída
+
+Após o download do OneDrive, todas as 246 fontes foram lidas e comparadas por SHA-256. Os snapshots iniciais foram confirmados contra os originais atuais. Não há pendências de importação no inventário de 19/10/2026. As ressalvas sobre cobertura parcial de aulas e submissões não verificadas continuam válidas.

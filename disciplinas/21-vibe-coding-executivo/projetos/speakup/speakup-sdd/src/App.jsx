@@ -1,0 +1,914 @@
+import { executeDemoCommand } from "./application/demo-command.mjs";
+import { LoginView } from "./features/auth/LoginView.jsx";
+import { ImportView } from "./features/import/ImportView.jsx";
+import React, { useState, useEffect } from "react";
+
+import {
+  COLUMNS,
+  parseCSV,
+  validateImport,
+  assertSlot,
+  book,
+  frequency,
+  csvCell,
+} from "./domain.mjs";
+import { seed } from "./demo.mjs";
+import {
+  supabase,
+  rpc,
+  signIn,
+  profile,
+  load,
+  configurationError,
+} from "./backend.js";
+import "./style.css";
+import { Modal } from "./ui/Modal.jsx";
+const roles = {
+  admin: "Coordenação",
+  student: "Aluno",
+  teacher: "Professor",
+  rh: "Gestor de RH",
+};
+const date = (s) =>
+  new Date(s).toLocaleDateString("pt-BR", { day: "2-digit", month: "short" });
+const time = (s) =>
+  new Date(s).toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+const initial = () => {
+  if (configurationError)
+    return { students: [], slots: [], bookings: [], audit: [] };
+  try {
+    return JSON.parse(localStorage.getItem("speakup-sdd-demo-v1")) || seed();
+  } catch {
+    return seed();
+  }
+};
+export default function App() {
+  const [state, setState] = useState(() =>
+      supabase
+        ? { students: [], slots: [], bookings: [], audit: [] }
+        : initial(),
+    ),
+    [user, setUser] = useState(null),
+    [page, setPage] = useState("overview"),
+    [alert, setAlert] = useState(""),
+    [pending, setPending] = useState(false),
+    [preview, setPreview] = useState(null),
+    [search, setSearch] = useState(""),
+    [pageNo, setPageNo] = useState(1),
+    [modal, setModal] = useState(null),
+    [loginType, setLoginType] = useState("student");
+  useEffect(() => {
+    if (!supabase) return;
+    profile()
+      .then(async (u) => {
+        if (u) {
+          const data = await load();
+          setState(data);
+          setUser(u);
+        }
+      })
+      .catch((e) => setAlert(e.message));
+  }, []);
+  useEffect(() => {
+    if (!alert) return;
+    const t = setTimeout(() => setAlert(""), 7000);
+    return () => clearTimeout(t);
+  }, [alert]);
+  async function action(fn) {
+    if (pending) return;
+    setPending(true);
+    try {
+      await fn();
+    } catch (e) {
+      setAlert(e.message);
+    } finally {
+      setPending(false);
+    }
+  }
+  function save(next) {
+    localStorage.setItem("speakup-sdd-demo-v1", JSON.stringify(next));
+    setState(next);
+  }
+  async function mutate(name, args, change, label) {
+    if (supabase) {
+      await rpc(name, args);
+      setState(await load());
+    } else {
+      const next = executeDemoCommand(state, change, {
+        action: label,
+        at: new Date().toISOString(),
+        actor: user.name,
+      });
+      save(next);
+    }
+    setAlert(label);
+  }
+  async function login(e) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    await action(async () => {
+      if (supabase) {
+        await signIn(
+          data.get("identifier"),
+          data.get("password"),
+          loginType === "student",
+        );
+        const u = await profile();
+        const data = await load();
+        setState(data);
+        setUser(u);
+      } else {
+        if (data.get("password") !== "Escola@@@")
+          throw Error("Na demonstração, utilize Escola@@@.");
+        if (loginType === "student") {
+          const s = state.students.find(
+            (s) =>
+              s.id_aluno === data.get("identifier") &&
+              s.status_matricula === "Ativa",
+          );
+          if (!s) throw Error("Matrícula ativa não encontrada.");
+          setUser({ role: "student", name: s.nome, student_id: s.id_aluno });
+        } else
+          setUser({
+            role: loginType,
+            name:
+              loginType === "admin"
+                ? "Marina Santos"
+                : loginType === "teacher"
+                  ? "Camila Rocha"
+                  : "Rodrigo Mendes",
+            company: "Acme Brasil",
+          });
+      }
+      setPage("overview");
+    });
+  }
+  async function logout() {
+    if (supabase) await supabase.auth.signOut();
+    setUser(null);
+    setPreview(null);
+    setModal(null);
+    setSearch("");
+    setPageNo(1);
+  }
+  async function upload(file) {
+    if (!file) return;
+    setPreview(null);
+    await action(async () => {
+      if (file.size > 5 * 1024 * 1024)
+        throw Error("Nesta versão piloto o limite é de 5 MB.");
+      const ext = file.name.split(".").pop().toLowerCase();
+      let matrix;
+      if (ext === "xlsx")
+        matrix = await (await import("read-excel-file")).default(file);
+      else if (ext === "csv") matrix = parseCSV(await file.text());
+      else throw Error("Selecione um arquivo .xlsx ou .csv.");
+      setPreview(
+        validateImport(
+          matrix,
+          state.students.map((s) => s.id_aluno),
+        ),
+      );
+    });
+  }
+  function download(text, name) {
+    const u = URL.createObjectURL(
+      new Blob(["\ufeff" + text], { type: "text/csv;charset=utf-8" }),
+    );
+    const a = document.createElement("a");
+    a.href = u;
+    a.download = name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(u), 1000);
+  }
+  if (configurationError)
+    return (
+      <main>
+        <h1>Configuração indisponível</h1>
+        <p role="alert">{configurationError.message}</p>
+      </main>
+    );
+  if (!user)
+    return (
+      <LoginView
+        {...{ roles, supabase, loginType, setLoginType, login, pending, alert }}
+      />
+    );
+  const own = user.role === "student";
+  const admin = user.role === "admin";
+  const rh = user.role === "rh";
+  const teacher = user.role === "teacher";
+  const studentId = user.student_id || "10045";
+  const students = own
+    ? state.students.filter((s) => s.id_aluno === studentId)
+    : rh && !supabase
+      ? state.students.filter((s) => s.unidade === user.company)
+      : state.students;
+  const bookings = state.bookings.filter(
+    (b) =>
+      b.status === "agendada" &&
+      (!own || b.student === studentId) &&
+      (!teacher ||
+        state.slots.find((s) => s.id === b.slot)?.teacher === user.name) &&
+      (!rh || supabase || students.some((s) => s.id_aluno === b.student)),
+  );
+  const slots = state.slots.filter(
+    (s) =>
+      (!teacher || s.teacher === user.name) &&
+      (!rh || supabase || bookings.some((b) => b.slot === s.id)),
+  );
+  const pct = frequency(bookings);
+  const myStudent = students.find((s) => s.id_aluno === studentId);
+  const nav = [
+    ["overview", "◫", "Visão geral"],
+    ["agenda", "▦", own ? "Minhas aulas" : "Agenda de aulas"],
+    ...(admin
+      ? [
+          ["students", "♙", "Gestão de alunos"],
+          ["import", "↥", "Importar alunos"],
+        ]
+      : []),
+    ...(teacher || admin ? [["attendance", "✓", "Registro de presença"]] : []),
+    ...(rh || admin ? [["reports", "▤", "Indicadores B2B"]] : []),
+  ];
+  async function commitBooking(slotId, oldId) {
+    await mutate(
+      "book_class",
+      { p_slot: Number(slotId), p_old: oldId || null },
+      (s) => book(s, studentId, slotId, oldId),
+      "Aula agendada com sucesso.",
+    );
+    setModal(null);
+  }
+  async function cancel(b) {
+    await mutate(
+      "cancel_booking",
+      { p_booking: b.id },
+      (s) => {
+        const row = s.bookings.find((x) => x.id === b.id);
+        if (
+          !row ||
+          new Date(s.slots.find((x) => x.id === row.slot).start) <= new Date()
+        )
+          throw Error("Aula não encontrada ou já iniciada.");
+        row.status = "cancelada";
+      },
+      "Aula cancelada. Política de créditos ainda não configurada.",
+    );
+  }
+  function slotCard(slot) {
+    const bs = bookings.filter((b) => b.slot === slot.id),
+      mine = bs.find((b) => b.student === studentId);
+    return (
+      <article className="lesson" key={slot.id}>
+        <div className="date-box">
+          <strong>{new Date(slot.start).getDate()}</strong>
+          <span>
+            {new Date(slot.start).toLocaleDateString("pt-BR", {
+              month: "short",
+            })}
+          </span>
+        </div>
+        <div className="lesson-text">
+          <span className="tag">
+            ONLINE · {time(slot.start)}—{time(slot.end)}
+          </span>
+          <h3>{slot.group}</h3>
+          <p>
+            {slot.teacher} <span className="dot">•</span> {date(slot.start)}
+          </p>
+        </div>
+        {own && mine ? (
+          <div className="actions">
+            <button
+              disabled={pending}
+              onClick={() => setModal({ type: "booking", old: mine.id })}
+            >
+              Remarcar
+            </button>
+            <button
+              className="text-danger"
+              disabled={pending}
+              onClick={() => action(() => cancel(mine))}
+            >
+              Cancelar
+            </button>
+          </div>
+        ) : (
+          <span className="badge">
+            {slot.occupied ??
+              state.bookings.filter(
+                (b) => b.slot === slot.id && b.status === "agendada",
+              ).length}
+            /{slot.capacity} vagas ocupadas
+          </span>
+        )}
+      </article>
+    );
+  }
+  const renderAgenda = () => (
+    <>
+      <div className="section-head">
+        <div>
+          <h2>{own ? "Sua agenda, no seu ritmo." : "Agenda de aulas"}</h2>
+          <p>Horários, professores e turmas em um só lugar.</p>
+        </div>
+        {own ? (
+          <button
+            className="primary"
+            onClick={() => setModal({ type: "booking" })}
+          >
+            + Agendar aula
+          </button>
+        ) : admin ? (
+          <button
+            className="primary"
+            onClick={() => setModal({ type: "slot" })}
+          >
+            + Nova aula
+          </button>
+        ) : null}
+      </div>
+      <div className="lesson-list">
+        {(own
+          ? slots.filter((s) => bookings.some((b) => b.slot === s.id))
+          : slots
+        ).map(slotCard)}
+        {own && !bookings.length && (
+          <div className="empty">Você ainda não tem aulas agendadas.</div>
+        )}
+      </div>
+    </>
+  );
+  return (
+    <div className="shell">
+      <aside>
+        <div className="brand">
+          speak<span>up</span>
+          <small>IDIOMAS · CORPORATE</small>
+        </div>
+        <div className="workspace">
+          SEU ESPAÇO<small>{roles[user.role]}</small>
+        </div>
+        <nav>
+          {nav.map(([id, icon, label]) => (
+            <button
+              key={id}
+              className={page === id ? "selected" : ""}
+              onClick={() => {
+                setPage(id);
+                setPageNo(1);
+                setSearch("");
+              }}
+            >
+              <span>{icon}</span>
+              {label}
+              {page === id && <i />}
+            </button>
+          ))}
+        </nav>
+        <div className="sidebar-bottom">
+          <div className="help">
+            <span>Vamos mais longe, juntos.</span>
+            <p>
+              Organização para aprender.
+              <br />
+              Clareza para evoluir.
+            </p>
+          </div>
+          <button onClick={() => action(logout)}>↪ Sair do portal</button>
+        </div>
+      </aside>
+      <div className="main">
+        <header>
+          <div>
+            Workspace <span>/</span> <b>{roles[user.role]}</b>
+          </div>
+          <div className="user">
+            <span className="avatar">
+              {user.name
+                ?.split(" ")
+                .map((n) => n[0])
+                .slice(0, 2)
+                .join("")}
+            </span>
+            <div>
+              {user.name}
+              <small>{roles[user.role]}</small>
+            </div>
+          </div>
+        </header>
+        {!supabase && (
+          <div className="demo-bar">
+            Ambiente de demonstração • Dados fictícios • Alterações salvas neste
+            navegador
+          </div>
+        )}
+        <main>
+          <div className="eyebrow">SPEAKUP WORKSPACE</div>
+          <div className="page-title">
+            <div>
+              <h1>
+                {page === "overview"
+                  ? `Olá, ${user.name?.split(" ")[0]}.`
+                  : nav.find((n) => n[0] === page)?.[2]}
+              </h1>
+              <p>
+                {page === "overview"
+                  ? "Um novo dia para conectar aprendizado e resultados."
+                  : "Tudo o que você precisa para seguir em frente."}
+              </p>
+            </div>
+            <span className="today">
+              {new Date().toLocaleDateString("pt-BR", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </span>
+          </div>
+          {page === "overview" && (
+            <>
+              <section className="hero">
+                <div>
+                  <span className="eyebrow">
+                    {own
+                      ? "SEU APRENDIZADO EM MOVIMENTO"
+                      : "A OPERAÇÃO MAIS PERTO DE VOCÊ"}
+                  </span>
+                  <h2>
+                    {own
+                      ? "O próximo nível começa\ncom a próxima aula."
+                      : "Pessoas conectadas.\nResultados à vista."}
+                  </h2>
+                  <p>
+                    {own
+                      ? "Organize sua agenda e acompanhe sua jornada."
+                      : "Uma visão clara para tomar as próximas decisões."}
+                  </p>
+                  <button
+                    onClick={() =>
+                      own ? setModal({ type: "booking" }) : setPage("agenda")
+                    }
+                  >
+                    {own ? "Agendar minha aula" : "Explorar agenda"} ↗
+                  </button>
+                </div>
+                <div className="hero-art" aria-hidden="true">
+                  <div className="orb one" />
+                  <div className="orb two" />
+                  <div className="art-label">
+                    {own ? myStudent?.nivel_curso || "—" : "speak"}
+                    <span>{own ? "SEU NÍVEL ATUAL" : "TO THE WORLD"}</span>
+                  </div>
+                  <div className="spark">✳</div>
+                </div>
+              </section>
+              <div className="stats">
+                {[
+                  [
+                    own ? "Aulas agendadas" : "Alunos ativos",
+                    own
+                      ? bookings.length
+                      : (state.metrics?.active ??
+                        students.filter((s) => s.status_matricula === "Ativa")
+                          .length),
+                    "Na sua visão autorizada",
+                  ],
+                  [
+                    "Frequência",
+                    pct === null ? "—" : `${pct}%`,
+                    "Sobre chamadas registradas",
+                  ],
+                  [
+                    own ? "Nível atual" : "Aulas na agenda",
+                    own ? myStudent?.nivel_curso || "—" : slots.length,
+                    own ? "Cadastro pedagógico" : "Horários disponíveis",
+                  ],
+                  [
+                    own ? "Créditos" : "Presenças registradas",
+                    own
+                      ? "A definir"
+                      : bookings.filter((b) => b.attendance === "Presente")
+                          .length,
+                    own
+                      ? "Política contratual pendente"
+                      : "Atualização após a chamada",
+                  ],
+                ].map(([l, v, s]) => (
+                  <div className="stat" key={l}>
+                    <span>{l}</span>
+                    <strong>{v}</strong>
+                    <small>{s}</small>
+                  </div>
+                ))}
+              </div>
+              <div className="content-grid">
+                <section className="panel">
+                  <div className="section-head">
+                    <h2>Próximas aulas</h2>
+                    <button onClick={() => setPage("agenda")}>
+                      Ver agenda ↗
+                    </button>
+                  </div>
+                  {(own
+                    ? slots.filter((s) => bookings.some((b) => b.slot === s.id))
+                    : slots
+                  )
+                    .slice(0, 3)
+                    .map(slotCard)}
+                  {own && !bookings.length && (
+                    <p className="empty">
+                      Agende sua primeira aula para começar.
+                    </p>
+                  )}
+                </section>
+                <section className="panel note">
+                  <span className="eyebrow">APRENDIZADO COM CONTINUIDADE</span>
+                  <h2>
+                    Cada encontro
+                    <br />
+                    faz a diferença.
+                  </h2>
+                  <p>
+                    Acompanhe a frequência e mantenha sua agenda em dia para
+                    aproveitar cada oportunidade.
+                  </p>
+                  <div className="level-path">
+                    A1 <span>—</span> A2 <span>—</span> B1 <span>—</span> B2
+                  </div>
+                  <small>
+                    Escala CEFR · Histórico de evolução previsto para uma
+                    próxima etapa.
+                  </small>
+                </section>
+              </div>
+            </>
+          )}
+          {page === "agenda" && renderAgenda()}
+          {page === "students" && (
+            <section className="panel">
+              <div className="section-head">
+                <div>
+                  <h2>Base de alunos</h2>
+                  <p>{state.students.length} registros na base</p>
+                </div>
+                <button className="primary" onClick={() => setPage("import")}>
+                  ↥ Importar alunos
+                </button>
+              </div>
+              <input
+                className="search"
+                placeholder="Buscar por nome ou matrícula"
+                aria-label="Buscar alunos"
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setPageNo(1);
+                }}
+              />
+              <div className="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Aluno</th>
+                      <th>Matrícula</th>
+                      <th>Unidade</th>
+                      <th>Nível</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {state.students
+                      .filter((s) =>
+                        (s.nome + " " + s.id_aluno)
+                          .toLowerCase()
+                          .includes(search.toLowerCase()),
+                      )
+                      .slice((pageNo - 1) * 20, pageNo * 20)
+                      .map((s) => (
+                        <tr key={s.id_aluno}>
+                          <td>
+                            <strong>{s.nome}</strong>
+                            <small>{s.email}</small>
+                          </td>
+                          <td>{s.id_aluno}</td>
+                          <td>{s.unidade}</td>
+                          <td>{s.nivel_curso}</td>
+                          <td>
+                            <span className="badge">{s.status_matricula}</span>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="actions">
+                <button
+                  disabled={pageNo === 1}
+                  onClick={() => setPageNo((n) => n - 1)}
+                >
+                  Anterior
+                </button>
+                <span>Página {pageNo}</span>
+                <button
+                  disabled={
+                    state.students.filter((s) =>
+                      (s.nome + " " + s.id_aluno)
+                        .toLowerCase()
+                        .includes(search.toLowerCase()),
+                    ).length <=
+                    pageNo * 20
+                  }
+                  onClick={() => setPageNo((n) => n + 1)}
+                >
+                  Próxima
+                </button>
+              </div>
+            </section>
+          )}
+          {page === "import" && (
+            <ImportView
+              {...{
+                download,
+                upload,
+                pending,
+                preview,
+                action,
+                mutate,
+                setPreview,
+              }}
+            />
+          )}
+          {page === "attendance" && (
+            <section className="panel">
+              <h2>Registro de presença</h2>
+              <p>
+                Selecione a situação de cada aluno. As alterações atualizam os
+                indicadores.
+              </p>
+              {slots.map((slot) => (
+                <section className="attendance" key={slot.id}>
+                  <h3>
+                    {slot.group} · {date(slot.start)}, {time(slot.start)}
+                  </h3>
+                  <p>{slot.teacher}</p>
+                  {bookings
+                    .filter((b) => b.slot === slot.id)
+                    .map((b) => (
+                      <div className="attendance-row" key={b.id}>
+                        <span>
+                          {state.students.find((s) => s.id_aluno === b.student)
+                            ?.nome || b.student}
+                        </span>
+                        <select
+                          aria-label={`Presença de ${b.student}`}
+                          value={b.attendance || ""}
+                          disabled={pending}
+                          onChange={(e) =>
+                            action(() =>
+                              mutate(
+                                "mark_attendance",
+                                { p_booking: b.id, p_status: e.target.value },
+                                (s) => {
+                                  s.bookings.find(
+                                    (x) => x.id === b.id,
+                                  ).attendance = e.target.value;
+                                },
+                                "Presença registrada.",
+                              ),
+                            )
+                          }
+                        >
+                          <option value="" disabled>
+                            Pendente
+                          </option>
+                          {[
+                            "Presente",
+                            "Falta justificada",
+                            "Falta não justificada",
+                          ].map((v) => (
+                            <option key={v}>{v}</option>
+                          ))}
+                        </select>
+                      </div>
+                    ))}
+                  {!bookings.some((b) => b.slot === slot.id) && (
+                    <small>Nenhum aluno nesta aula.</small>
+                  )}
+                </section>
+              ))}
+            </section>
+          )}
+          {page === "reports" && (
+            <section className="panel">
+              <div className="section-head">
+                <div>
+                  <h2>Indicadores do programa</h2>
+                  <p>
+                    {rh
+                      ? user.company || "Sua empresa"
+                      : "Visão da coordenação"}{" "}
+                    · somente dados autorizados
+                  </p>
+                </div>
+              </div>
+              <div className="stats compact">
+                <div className="stat">
+                  <span>Alunos ativos</span>
+                  <strong>
+                    {state.metrics?.active ??
+                      students.filter((s) => s.status_matricula === "Ativa")
+                        .length}
+                  </strong>
+                </div>
+                <div className="stat">
+                  <span>Frequência</span>
+                  <strong>{pct === null ? "—" : pct + "%"}</strong>
+                </div>
+                <div className="stat">
+                  <span>Aulas acompanhadas</span>
+                  <strong>{new Set(bookings.map((b) => b.slot)).size}</strong>
+                </div>
+              </div>
+              <div className="notice">
+                A medição financeira por aulas requer regras contratuais de
+                preço e cancelamento. Ela pertence à etapa P1 e ainda não está
+                disponível neste piloto.
+              </div>
+              <h3>Presença consolidada</h3>
+              {["Presente", "Falta justificada", "Falta não justificada"].map(
+                (v) => (
+                  <div className="attendance-row" key={v}>
+                    <span>{v}</span>
+                    <strong>
+                      {bookings.filter((b) => b.attendance === v).length}
+                    </strong>
+                  </div>
+                ),
+              )}
+              {admin && (
+                <>
+                  <h3>Últimas operações</h3>
+                  {state.audit.slice(0, 10).map((a, i) => (
+                    <div className="audit" key={i}>
+                      {a.action}
+                      <small>
+                        {a.actor} · {new Date(a.at).toLocaleString("pt-BR")}
+                      </small>
+                    </div>
+                  ))}
+                </>
+              )}
+            </section>
+          )}
+          <footer>
+            SpeakUp Idiomas <span>Aprendizado que conecta.</span>
+          </footer>
+        </main>
+      </div>
+      {alert && (
+        <div className="toast" role="status">
+          {alert}
+          <button aria-label="Fechar aviso" onClick={() => setAlert("")}>
+            ×
+          </button>
+        </div>
+      )}
+      {modal && (
+        <Modal
+          label={modal.type === "booking" ? "Agendar aula" : "Nova aula"}
+          onClose={() => setModal(null)}
+          pending={pending}
+        >
+          <div className="section-head">
+            <h2>
+              {modal.type === "booking"
+                ? modal.old
+                  ? "Remarcar aula"
+                  : "Agendar aula"
+                : "Nova aula"}
+            </h2>
+            <button
+              aria-label="Fechar"
+              disabled={pending}
+              onClick={() => setModal(null)}
+            >
+              ×
+            </button>
+          </div>
+          {modal.type === "booking" ? (
+            <>
+              <p>Escolha um horário disponível e confirme.</p>
+              <div className="slot-options">
+                {state.slots
+                  .filter((s) => new Date(s.start) > new Date())
+                  .map((s) => (
+                    <button
+                      className={modal.slot === s.id ? "chosen" : ""}
+                      key={s.id}
+                      onClick={() => setModal({ ...modal, slot: s.id })}
+                    >
+                      <b>
+                        {date(s.start)} · {time(s.start)}
+                      </b>
+                      <span>
+                        {s.group} · {s.teacher}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+              <p className="hint">
+                Política de créditos pendente de definição contratual.
+              </p>
+              <button
+                className="primary wide"
+                disabled={!modal.slot || pending}
+                onClick={() =>
+                  action(() => commitBooking(modal.slot, modal.old))
+                }
+              >
+                {pending ? "Confirmando…" : "Confirmar horário"}
+              </button>
+            </>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const f = new FormData(e.currentTarget);
+                action(async () => {
+                  const slot = {
+                    teacher: f.get("teacher"),
+                    group: f.get("group"),
+                    start: new Date(f.get("start")).toISOString(),
+                    end: new Date(f.get("end")).toISOString(),
+                    capacity: Number(f.get("capacity")),
+                  };
+                  await mutate(
+                    "create_slot",
+                    { p_slot: slot },
+                    (s) => {
+                      assertSlot(s.slots, slot);
+                      s.slots.push({
+                        ...slot,
+                        id: Math.max(0, ...s.slots.map((x) => x.id)) + 1,
+                      });
+                    },
+                    "Aula criada sem conflitos.",
+                  );
+                  setModal(null);
+                });
+              }}
+            >
+              <label>
+                Professor
+                <input
+                  name="teacher"
+                  required
+                  maxLength="150"
+                  list="teachers"
+                />
+                <datalist id="teachers">
+                  {[...new Set(state.slots.map((s) => s.teacher))].map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
+                </datalist>
+              </label>
+              <label>
+                Turma
+                <input name="group" required maxLength="150" />
+              </label>
+              <div className="form-grid">
+                <label>
+                  Início
+                  <input type="datetime-local" name="start" required />
+                </label>
+                <label>
+                  Fim
+                  <input type="datetime-local" name="end" required />
+                </label>
+              </div>
+              <label>
+                Capacidade
+                <input
+                  type="number"
+                  name="capacity"
+                  defaultValue="5"
+                  min="1"
+                  max="100"
+                  required
+                />
+              </label>
+              <button className="primary wide" disabled={pending}>
+                Criar aula
+              </button>
+            </form>
+          )}
+        </Modal>
+      )}
+    </div>
+  );
+}

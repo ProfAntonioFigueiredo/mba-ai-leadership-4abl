@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "name": "speakup-sdd",
+  "dependencies": {
+    "@electric-sql/pglite": {
+      "version": "0.5.10",
+      "resolved": "https://registry.npmjs.org/@electric-sql/pglite/-/pglite-0.5.10.tgz",
+      "overridden": false
+    },
+    "@playwright/test": {
+      "version": "1.64.1",
+      "resolved": "https://registry.npmjs.org/@playwright/test/-/test-1.64.1.tgz",
+      "overridden": false
+    },
+    "@supabase/supabase-js": {
+      "version": "2.118.0",
+      "resolved": "https://registry.npmjs.org/@supabase/supabase-js/-/supabase-js-2.118.0.tgz",
+      "overridden": false
+    },
+    "prettier": {
+      "version": "3.9.10",
+      "resolved": "https://registry.npmjs.org/prettier/-/prettier-3.9.10.tgz",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "19.3.1",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.1.tgz",
+      "overridden": false
+    },
+    "react": {
+      "version": "19.3.1",
+      "resolved": "https://registry.npmjs.org/react/-/react-19.3.1.tgz",
+      "overridden": false
+    },
+    "read-excel-file": {
+      "version": "6.0.3",
+      "resolved": "https://registry.npmjs.org/read-excel-file/-/read-excel-file-6.0.3.tgz",
+      "overridden": false
+    },
+    "vite": {
+      "version": "7.3.7",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-7.3.7.tgz",
+      "overridden": false
+    }
+  }
+}

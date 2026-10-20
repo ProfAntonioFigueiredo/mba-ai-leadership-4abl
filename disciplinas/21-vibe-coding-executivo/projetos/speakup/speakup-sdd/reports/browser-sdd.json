@@ -1,0 +1,262 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/playwright.config.js",
+    "rootDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "snapshotDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5174",
+          "headless": true,
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/browser-sdd.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev -- --strictPort",
+      "url": "http://127.0.0.1:5174",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "booking.spec.js",
+      "file": "booking.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AC-06: modal contém foco, fecha com Escape e restaura acionador",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 502,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:20.952Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-c4129f7fee0e32f1d2bc",
+          "file": "booking.spec.js",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "AC-08: aluno reserva um horário livre e vê confirmação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:21.607Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-f34c4934e73ee981c358",
+          "file": "booking.spec.js",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "AC-11: aluno usa dashboard mobile sem rolagem horizontal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 423,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:22.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-0a0217bcaf75b7d4d5bf",
+          "file": "booking.spec.js",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "import.spec.js",
+      "file": "import.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AC-05: arquivo inválido remove prévia anterior e impede confirmação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 447,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:22.614Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "693429a5fbf051731fdc-ffd97e85cbc71492d2af",
+          "file": "import.spec.js",
+          "line": 32,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:48:20.309Z",
+    "duration": 2790.465,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

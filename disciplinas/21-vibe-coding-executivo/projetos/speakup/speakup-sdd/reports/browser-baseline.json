@@ -1,0 +1,322 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/playwright.config.js",
+    "rootDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "snapshotDir": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5174",
+          "headless": true,
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/browser-baseline.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/vite/bin/vite.js \"/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/speakup-comparison-tmmn0tmy\" --host 127.0.0.1 --port 5174 --strictPort",
+      "url": "http://127.0.0.1:5174",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "booking.spec.js",
+      "file": "booking.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AC-06: modal contém foco, fecha com Escape e restaura acionador",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5691,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/booking.spec.js:22:6",
+                    "location": {
+                      "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/booking.spec.js",
+                      "column": 6,
+                      "line": 22
+                    },
+                    "snippet": "  20 |   await expect\n  21 |     .poll(() => dialog.evaluate((el) => el.contains(document.activeElement)))\n> 22 |     .toBe(true);\n     |      ^\n  23 |   const buttons = dialog.getByRole(\"button\");\n  24 |   await buttons.last().focus();\n  25 |   await page.keyboard.press(\"Tab\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/booking.spec.js",
+                        "column": 6,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  20 |   await expect\n  21 |     .poll(() => dialog.evaluate((el) => el.contains(document.activeElement)))\n> 22 |     .toBe(true);\n     |      ^\n  23 |   const buttons = dialog.getByRole(\"button\");\n  24 |   await buttons.last().focus();\n  25 |   await page.keyboard.press(\"Tab\");\n    at /private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/booking.spec.js:22:6"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:06.754Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results/booking-AC-06-modal-contém-1dfc2-Escape-e-restaura-acionador/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/booking.spec.js",
+                    "column": 6,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-c4129f7fee0e32f1d2bc",
+          "file": "booking.spec.js",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "AC-08: aluno reserva um horário livre e vê confirmação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:13.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-f34c4934e73ee981c358",
+          "file": "booking.spec.js",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "AC-11: aluno usa dashboard mobile sem rolagem horizontal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 398,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:13.906Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9bb7d16d706a4f421c80-0a0217bcaf75b7d4d5bf",
+          "file": "booking.spec.js",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "import.spec.js",
+      "file": "import.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AC-05: arquivo inválido remove prévia anterior e impede confirmação",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5449,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Confirmar importação em lote' })\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" getByRole('button', { name: 'Confirmar importação em lote' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Confirmar importação em lote' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button class=\"primary\">Confirmar importação em lote</button>\u001b[22m\n\u001b[2m       - unexpected value \"visible\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Confirmar importação em lote' })\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" getByRole('button', { name: 'Confirmar importação em lote' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Confirmar importação em lote' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button class=\"primary\">Confirmar importação em lote</button>\u001b[22m\n\u001b[2m       - unexpected value \"visible\"\u001b[22m\n\n    at /private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/import.spec.js:59:9",
+                    "location": {
+                      "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/import.spec.js",
+                      "column": 9,
+                      "line": 59
+                    },
+                    "snippet": "  57 |   await expect(\n  58 |     page.getByRole(\"button\", { name: \"Confirmar importação em lote\" }),\n> 59 |   ).not.toBeVisible();\n     |         ^\n  60 | });\n  61 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/import.spec.js",
+                        "column": 9,
+                        "line": 59
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Confirmar importação em lote' })\nExpected: not visible\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toBeVisible\" getByRole('button', { name: 'Confirmar importação em lote' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Confirmar importação em lote' })\u001b[22m\n\u001b[2m    14 × locator resolved to <button class=\"primary\">Confirmar importação em lote</button>\u001b[22m\n\u001b[2m       - unexpected value \"visible\"\u001b[22m\n\n\n  57 |   await expect(\n  58 |     page.getByRole(\"button\", { name: \"Confirmar importação em lote\" }),\n> 59 |   ).not.toBeVisible();\n     |         ^\n  60 | });\n  61 |\n    at /private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/import.spec.js:59:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-20T00:48:14.316Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/test-results/import-AC-05-arquivo-invál-90ca6-terior-e-impede-confirmação/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/mba-4abl-publish-20261019/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/tests/browser/import.spec.js",
+                    "column": 9,
+                    "line": 59
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "693429a5fbf051731fdc-ffd97e85cbc71492d2af",
+          "file": "import.spec.js",
+          "line": 32,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-20T00:48:06.094Z",
+    "duration": 13749.125,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

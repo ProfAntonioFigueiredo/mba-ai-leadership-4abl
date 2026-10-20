@@ -5,7 +5,7 @@
 3. Para um projeto, crie `projetos/nome-estavel/` com README, requisitos, instruções, testes e limitações. Use os manifestos adequados à stack.
 4. Registre entregas como rascunho/revisado/submetido/confirmado, com evidência quando existir.
 5. Mantenha materiais externos e registros pessoais no acervo local; não adicione .env ou dependências.
-6. Atualize disciplina.json e o catálogo global. Rode `python3 tools/validate_repo.py` e os testes do projeto alterado.
+6. Atualize disciplina.json e o catálogo global. Com Pandoc instalado, rode `python3 tools/build_portal.py`. Depois rode `python3 tools/validate_repo.py` e os testes do projeto alterado.
 7. Revise `git diff --cached` e só então faça commit/push. Não use force-push para reorganizações rotineiras.
 
 Evite editar simultaneamente o projeto na pasta antiga e na organizada. Commits sugeridos: `docs(ai-core): ...`, `feat(vibe-coding): ...`, `chore(catalogo): ...`. O número da disciplina é organizacional e não precisa entrar no nome de cada commit.

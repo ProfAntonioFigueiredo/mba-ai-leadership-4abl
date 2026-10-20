@@ -898,7 +898,7 @@ Os arquivos estão em o notebook `04_Hands_On_Correlacao/notebooks/handson_corre
 ## ✅ Checklist pós-aula
 - [ ] Anotar o grupo e os RMs dos integrantes
 - [ ] Preencher a **Etapa 1** (sem IA) com o grupo
-- [ ] Revisar com o grupo o [Caderno_de_Hipoteses_CX_preenchido.docx](<../../projetos/correlacao-cx/entrega/Caderno_de_Hipoteses_CX_preenchido.docx>), usando o notebook [Caderno_Hipoteses_Grupo.ipynb](../04_Hands_On_Correlacao/notebooks/Caderno_Hipoteses_Grupo.ipynb)
+- [ ] Revisar com o grupo o [Caderno_de_Hipoteses_CX_preenchido.docx](<../../projetos/correlacao-cx/entrega/Caderno_de_Hipoteses_CX_preenchido.docx>), usando o notebook [Caderno_Hipoteses_Grupo.ipynb](<../../projetos/correlacao-cx/notebooks/Caderno_Hipoteses_Grupo.ipynb>)
 - [ ] Preencher a coluna "Etapa 1: confirma / contradiz / nova" e a pergunta "o que resistimos a abandonar?"
 - [ ] Exportar em **PDF** e subir no portal com os **RMs separados por vírgula** (prazo: até a próxima aula)
 - [ ] Preparar-se para a próxima aula: **IA Generativa, como funcionam os LLMs**

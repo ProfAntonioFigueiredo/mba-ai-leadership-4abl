@@ -13,13 +13,13 @@ Portfólio acadêmico e memória dos projetos de **Antonio Figueiredo**, turma *
 
 ## Estado da importação
 
-O OneDrive bloqueou a leitura de parte do acervo. Foram recuperados snapshots locais de AI Core Concepts e do SpeakUp original. O código SDD e outros documentos permanecem pendentes; consulte [o registro de importação](docs/importacao-pendente.md). Arquivos pendentes não são tratados como copiados.
+**Concluída:** os 246 arquivos inventariados foram copiados e conferidos contra as fontes atuais. Nenhuma pendência de leitura; originais preservados. O acervo restrito continua fora do Git. Consulte [o registro da retomada](docs/importacao-pendente.md).
 
 ## Projetos em destaque
 
 - [AI Core Concepts — Correlação CX](disciplinas/02-ai-core-concepts/projetos/correlacao-cx/README.md): notebooks, análise, scripts e gráficos.
 - [Vibe Coding Executivo — SpeakUp](disciplinas/21-vibe-coding-executivo/projetos/speakup/README.md): original e evolução SDD lado a lado.
-- [Estado da importação SDD](disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README.md).
+- [Documentação interativa SpeakUp](disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/docs/leitura.html).
 - [Discovery SpeakUp](disciplinas/21-vibe-coding-executivo/projetos/discovery-speakup/README.md).
 - [AI Sociedades do Futuro — entrega em elaboração](disciplinas/03-ai-sociedades-do-futuro/entregas/README.md).
 
@@ -43,4 +43,4 @@ A numeração segue a imagem fornecida e não afirma ordem curricular. Três ró
 python3 tools/validate_repo.py
 ```
 
-Os testes de software pertencem a cada projeto. O pipeline executa a verificação de estrutura; os testes SpeakUp SDD ficam condicionados à importação de seus fontes e lock. não implanta projetos ou GitHub Pages. Nenhuma licença geral foi atribuída aos materiais de terceiros.
+Os testes de software pertencem a cada projeto. O pipeline verifica a estrutura e executa a comparação e os testes SpeakUp com os fontes importados. não implanta projetos ou GitHub Pages. Nenhuma licença geral foi atribuída aos materiais de terceiros.

@@ -1,11 +1,10 @@
 {
   "data_referencia": "2026-10-19",
   "inventariados": 246,
-  "copiados_verificados": 63,
-  "pendentes": 183,
-  "grupos_duplicados": 0,
-  "regra": "Duplicatas por SHA-256 identificadas; nenhum original apagado. Acervo local não versionado.",
-  "copias_diretas": 2,
-  "copias_de_snapshot": 61,
-  "observacao": "Snapshots verificados na cópia; origem OneDrive atual indisponível."
+  "copiados_verificados": 246,
+  "pendentes": 0,
+  "grupos_duplicados": 37,
+  "regra": "Todos os arquivos inventariados foram conferidos com a origem atual por SHA-256. Duplicatas preservadas; nenhum original apagado.",
+  "copias_inicialmente_recuperadas_de_snapshot": 61,
+  "observacao": "Os snapshots foram agora confirmados contra os arquivos originais disponibilizados pelo OneDrive. Acervo local permanece fora do Git."
 }

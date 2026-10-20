@@ -7,3 +7,7 @@ O portfólio adota um monorepositório com escopos explícitos. Cada software ma
 `catalogo/disciplinas.json` é o índice de navegação. `catalogo/importacao.json` relaciona arquivos versionados à origem e seus hashes antes/depois. `catalogo/adaptacoes.json` explica alterações nas cópias. O inventário integral e as duplicatas ficam em `acervo-local/`, fora do Git.
 
 Templates são pontos de partida, não comprovação de conteúdo realizado. Arquivos .gitkeep preservam seções ainda vazias quando necessário. Projetos futuros podem ter testes e pipelines próprios.
+
+## Regenerar o portal
+
+Com Pandoc instalado, execute `python3 tools/build_portal.py`. O gerador atualiza as páginas de navegação, preservando o código dos projetos e a baseline. Não publica na web.

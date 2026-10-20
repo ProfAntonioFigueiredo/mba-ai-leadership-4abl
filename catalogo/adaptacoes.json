@@ -1,6 +1,34 @@
 [
   {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/mission.md",
+    "ajuste": "Links de navegação recalculados; skill externa referenciada no acervo local ignorado."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README.md",
+    "ajuste": "Links de navegação recalculados; skill externa referenciada no acervo local ignorado."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "ajuste": "Links de navegação recalculados; skill externa referenciada no acervo local ignorado."
+  },
+  {
     "arquivo": "disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md",
-    "ajuste": "Links relativos recalculados para a nova organização."
+    "ajuste": "Links de navegação recalculados; skill externa referenciada no acervo local ignorado."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/scripts/compare.py",
+    "ajuste": "Diretório temporário compatível com macOS e Linux; sem alteração de regras de produto."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/browser-baseline.json",
+    "ajuste": "Evidência regenerada na cópia organizada recuperada; fonte original preservada."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/validation.json",
+    "ajuste": "Evidência regenerada na cópia organizada recuperada; fonte original preservada."
+  },
+  {
+    "arquivo": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/browser-sdd.json",
+    "ajuste": "Evidência regenerada na cópia organizada recuperada; fonte original preservada."
   }
 ]
