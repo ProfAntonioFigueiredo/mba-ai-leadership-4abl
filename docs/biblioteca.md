@@ -7,7 +7,7 @@ O índice reúne os documentos Markdown existentes e as conversões dos materiai
 ## Conteúdo e fidelidade
 
 - DOCX: títulos, parágrafos, listas, tabelas e imagens incorporadas, via Pandoc.
-- PDF: extração de texto por página; imagens e diagramas exigem o original. PDFs sem texto suficiente ficam pendentes de OCR.
+- PDF: extração de texto e imagem de cada página, para consultar também figuras e diagramas. Texto presente apenas nas imagens não participa da busca; não foi executado OCR.
 - PPTX: texto, tabelas, imagens incorporadas e notas por slide; layouts, gráficos e SmartArt não são reproduzidos integralmente.
 - XLSX: células e fórmulas por planilha, sem executar fórmulas ou reproduzir gráficos.
 - Notebooks: células e saídas textuais gravadas, sem executar o código.

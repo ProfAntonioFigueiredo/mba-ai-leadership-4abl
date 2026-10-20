@@ -47,9 +47,14 @@ def extract(src, folder):
     elif ext == '.pdf':
         raw = run('pdftotext', '-layout', str(src), '-')
         pages = raw.split('\f')
-        body = '\n\n'.join('## Página '+str(i)+'\n\n```text\n'+p.rstrip()+'\n```' for i,p in enumerate(pages,1) if p.strip())
-        if len(re.sub(r'\s', '', raw)) < 80: raise ValueError('PDF sem texto suficiente: exige OCR')
-        note = 'Texto extraído por página; diagramas, imagens e disposição visual devem ser consultados no original. Não é resumo nem OCR.'
+        (folder/'assets').mkdir(exist_ok=True)
+        run('pdftoppm','-jpeg','-scale-to','1400','-jpegopt','quality=78',str(src),'assets/pagina',cwd=folder)
+        parts=[]
+        for i,image in enumerate(sorted((folder/'assets').glob('pagina-*.jpg')),1):
+            text=pages[i-1].rstrip() if i<=len(pages) else ''
+            parts.append('## Página '+str(i)+'\n\n![Página '+str(i)+' do documento]('+image.relative_to(folder).as_posix()+')\n\n'+('```text\n'+text+'\n```' if text else '*Página sem texto extraível; consulte a imagem acima.*'))
+        body='\n\n'.join(parts)
+        note = 'Texto extraído e imagem de cada página para preservar a consulta a diagramas e figuras. Não é resumo nem OCR; texto presente apenas nas imagens não participa da busca.'
     elif ext == '.pptx':
         from pptx import Presentation
         prs = Presentation(src); parts = []
@@ -101,6 +106,8 @@ def main():
     parser.add_argument('--fallback', action='append', default=[], type=Path,
                         help='Additional source root with the same relative paths')
     args=parser.parse_args();source=args.source.resolve()
+    if not source.is_dir():parser.error('A pasta de origem não existe: '+str(source))
+    if source==ROOT or ROOT in source.parents:parser.error('Use a pasta do acervo original, fora da biblioteca gerada.')
     imported=json.loads((ROOT/'catalogo/importacao.json').read_text())
     lookup={e['origem']:e for e in imported}
     existing=json.loads((ROOT/'catalogo/biblioteca.json').read_text()) if (ROOT/'catalogo/biblioteca.json').exists() else []

@@ -272,8 +272,8 @@
     "sha256": "7cacf6d705a25e7f1f332c459b62f23bf90c79fefa441f0978e1c27d3f644b85",
     "formato": ".pdf",
     "markdown": "biblioteca/02/aula1-ia-classica-prof-tassiana-7cacf6d7/conteudo.md",
-    "observacao": "Texto extraído por página; diagramas, imagens e disposição visual devem ser consultados no original. Não é resumo nem OCR.",
-    "sha256_markdown": "3f170fd1718b998020419f2833e2b80a4da2e4bdfbe84fc51733ed4aa7220882"
+    "observacao": "Texto extraído e imagem de cada página para preservar a consulta a diagramas e figuras. Não é resumo nem OCR; texto presente apenas nas imagens não participa da busca.",
+    "sha256_markdown": "423ff584f617fecd77a566a61783e003805b26a70f4f007637da2520b2a307a0"
   },
   {
     "titulo": "Caderno_de_Hipoteses_CX_preenchido",

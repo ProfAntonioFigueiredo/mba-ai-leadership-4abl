@@ -49,6 +49,7 @@ def main():
                 if attr.lower().startswith('on') or attr=='srcdoc':del tag[attr]
             for attr in ['href','src']:
                 if str(tag.get(attr,'')).lstrip().lower().startswith(('javascript:','vbscript:')):del tag[attr]
+            if tag.name=='img':tag['loading']='lazy'
         rendered=str(soup)
         toc=''.join('<li><a href="#'+escape(h['id'],quote=True)+'">'+escape(h.get_text())+'</a></li>' for h in soup.find_all(['h2','h3']) if h.get('id'))
         if toc:rendered='<details><summary>Sumário do documento</summary><ul>'+toc+'</ul></details>'+rendered

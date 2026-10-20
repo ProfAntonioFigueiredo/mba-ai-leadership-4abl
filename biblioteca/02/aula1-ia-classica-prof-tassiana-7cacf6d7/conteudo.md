@@ -4,12 +4,20 @@
 
 > Fonte: `Aulas/AI-Core-Concepts/01_Material_da_Aula/Aula1_IA_Classica_Prof_Tassiana.pdf`  
 > SHA-256: `7cacf6d705a25e7f1f332c459b62f23bf90c79fefa441f0978e1c27d3f644b85`  
-> Texto extraído por página; diagramas, imagens e disposição visual devem ser consultados no original. Não é resumo nem OCR.  
+> Texto extraído e imagem de cada página para preservar a consulta a diagramas e figuras. Não é resumo nem OCR; texto presente apenas nas imagens não participa da busca.  
 > Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.
 
 ---
 
+## Página 1
+
+![Página 1 do documento](assets/pagina-01.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 2
+
+![Página 2 do documento](assets/pagina-02.jpg)
 
 ```text
             APRESENTAÇÃO
@@ -29,6 +37,8 @@ MEIA TELA   • Conteúdo programático;
 ```
 
 ## Página 3
+
+![Página 3 do documento](assets/pagina-03.jpg)
 
 ```text
 Tassiana Rugoni de Campos
@@ -76,6 +86,8 @@ Sistemas;
 
 ## Página 4
 
+![Página 4 do documento](assets/pagina-04.jpg)
+
 ```text
 OBJETIVOS DA DISCIPLINA
 
@@ -96,6 +108,8 @@ OBJETIVOS DA DISCIPLINA
 
 ## Página 5
 
+![Página 5 do documento](assets/pagina-05.jpg)
+
 ```text
 RESUMO DO CONTEÚDO PROGRAMÁTICO
 
@@ -113,6 +127,8 @@ RESUMO DO CONTEÚDO PROGRAMÁTICO
 ```
 
 ## Página 6
+
+![Página 6 do documento](assets/pagina-06.jpg)
 
 ```text
 METODOLOGIA APLICADA
@@ -133,6 +149,8 @@ METODOLOGIA APLICADA
 
 ## Página 7
 
+![Página 7 do documento](assets/pagina-07.jpg)
+
 ```text
 AVALIAÇÃO
 
@@ -141,6 +159,8 @@ Exercícios práticos durante as aulas.
 ```
 
 ## Página 8
+
+![Página 8 do documento](assets/pagina-08.jpg)
 
 ```text
 REFERÊNCIAS BIBLIOGRÁFICAS
@@ -168,6 +188,8 @@ REFERÊNCIAS BIBLIOGRÁFICAS
 
 ## Página 9
 
+![Página 9 do documento](assets/pagina-09.jpg)
+
 ```text
 REFERÊNCIAS BIBLIOGRÁFICAS
 
@@ -193,6 +215,8 @@ REFERÊNCIAS BIBLIOGRÁFICAS
 ```
 
 ## Página 10
+
+![Página 10 do documento](assets/pagina-10.jpg)
 
 ```text
 REFERÊNCIAS BIBLIOGRÁFICAS
@@ -222,11 +246,15 @@ REFERÊNCIAS BIBLIOGRÁFICAS
 
 ## Página 11
 
+![Página 11 do documento](assets/pagina-11.jpg)
+
 ```text
 AI Core Concepts
 ```
 
 ## Página 12
+
+![Página 12 do documento](assets/pagina-12.jpg)
 
 ```text
             OBJETIVO DA AULA
@@ -245,11 +273,39 @@ MEIA TELA   • Discutir cases e vieses;
 
 ## Página 13
 
+![Página 13 do documento](assets/pagina-13.jpg)
+
 ```text
 AGENDA DO ENCONTRO
 ```
 
+## Página 14
+
+![Página 14 do documento](assets/pagina-14.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 15
+
+![Página 15 do documento](assets/pagina-15.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 16
+
+![Página 16 do documento](assets/pagina-16.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 17
+
+![Página 17 do documento](assets/pagina-17.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 18
+
+![Página 18 do documento](assets/pagina-18.jpg)
 
 ```text
 Viés de Seleção
@@ -262,6 +318,8 @@ Viés de Seleção
 ```
 
 ## Página 19
+
+![Página 19 do documento](assets/pagina-19.jpg)
 
 ```text
 Outros Vieses
@@ -279,17 +337,47 @@ Outros Vieses
 
 ## Página 20
 
+![Página 20 do documento](assets/pagina-20.jpg)
+
 ```text
 Tentativas de negar a mudança de modelos
 ```
 
+## Página 21
+
+![Página 21 do documento](assets/pagina-21.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 22
+
+![Página 22 do documento](assets/pagina-22.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 23
+
+![Página 23 do documento](assets/pagina-23.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 24
+
+![Página 24 do documento](assets/pagina-24.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 25
+
+![Página 25 do documento](assets/pagina-25.jpg)
 
 ```text
 https://this-person-does-not-exist.com/pt
 ```
 
 ## Página 26
+
+![Página 26 do documento](assets/pagina-26.jpg)
 
 ```text
 Apêndice – GANs - Redes Adversariais Generativas
@@ -300,20 +388,86 @@ Apêndice – GANs - Redes Adversariais Generativas
                                      https://medium.com/@marcodelpra/generative-adversarial-networks-dba10e1b4424
 ```
 
+## Página 27
+
+![Página 27 do documento](assets/pagina-27.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 28
+
+![Página 28 do documento](assets/pagina-28.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 29
+
+![Página 29 do documento](assets/pagina-29.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 30
+
+![Página 30 do documento](assets/pagina-30.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 31
+
+![Página 31 do documento](assets/pagina-31.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 32
+
+![Página 32 do documento](assets/pagina-32.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 33
+
+![Página 33 do documento](assets/pagina-33.jpg)
 
 ```text
 INTELIGÊNCIA ARTIFICIAL
        CLÁSSICA
 ```
 
+## Página 34
+
+![Página 34 do documento](assets/pagina-34.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 35
+
+![Página 35 do documento](assets/pagina-35.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
+## Página 36
+
+![Página 36 do documento](assets/pagina-36.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 37
+
+![Página 37 do documento](assets/pagina-37.jpg)
 
 ```text
 https://www.youtube.com/watch?v=lVdh571SwOQ
 ```
 
+## Página 38
+
+![Página 38 do documento](assets/pagina-38.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 39
+
+![Página 39 do documento](assets/pagina-39.jpg)
 
 ```text
 Bruno Kenji
@@ -321,23 +475,43 @@ Bruno Kenji
 
 ## Página 40
 
+![Página 40 do documento](assets/pagina-40.jpg)
+
 ```text
 https://www.youtube.com/watch?v=qv6UVOQ0F44
 ```
 
 ## Página 41
 
+![Página 41 do documento](assets/pagina-41.jpg)
+
 ```text
 DATAGEEKS
 ```
 
+## Página 42
+
+![Página 42 do documento](assets/pagina-42.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 43
+
+![Página 43 do documento](assets/pagina-43.jpg)
 
 ```text
 Hands On
 ```
 
+## Página 44
+
+![Página 44 do documento](assets/pagina-44.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
+
 ## Página 45
+
+![Página 45 do documento](assets/pagina-45.jpg)
 
 ```text
 Vamos Aplicar?
@@ -350,6 +524,8 @@ Vamos Aplicar?
 ```
 
 ## Página 46
+
+![Página 46 do documento](assets/pagina-46.jpg)
 
 ```text
 Como foi a sua experiência com a da aula de hoje?
@@ -367,6 +543,8 @@ Como foi a sua experiência com a da aula de hoje?
 
 ## Página 47
 
+![Página 47 do documento](assets/pagina-47.jpg)
+
 ```text
 Agora você sabe um pouco mais!!! ;)
 
@@ -382,3 +560,9 @@ Agora você sabe um pouco mais!!! ;)
       Todos os direitos reservados. Reprodução ou divulgação total ou parcial deste documento, é expressamente
                           proibido sem consentimento formal, por escrito, do professor/autor.
 ```
+
+## Página 48
+
+![Página 48 do documento](assets/pagina-48.jpg)
+
+*Página sem texto extraível; consulte a imagem acima.*
