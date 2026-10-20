@@ -1,0 +1,44 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Missão — SpeakUp Idiomas</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../../../../index.html">MBA · 4ABL</a><a href="../../../../../../../index.html">Biblioteca e busca</a><a href="../../../../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/mission.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#direção-confirmada">Direção confirmada</a></li><li><a href="#propósito-e-público">Propósito e público</a></li><li><a href="#estado-de-partida-e-evidências">Estado de partida e evidências</a></li><li><a href="#fronteiras-do-produto">Fronteiras do produto</a></li><li><a href="#princípios-e-limites">Princípios e limites</a></li><li><a href="#sucesso-e-condição-de-produção">Sucesso e condição de produção</a></li><li><a href="#pendências-de-decisão">Pendências de decisão</a></li></ul></details><h1 id="missão--speakup-idiomas">Missão — SpeakUp Idiomas</h1>
+<p>Data: 19/10/2026. Estado: constituição proposta para revisão humana.</p>
+<h2 id="direção-confirmada">Direção confirmada</h2>
+<p>Antonio escolheu <strong>evoluir gradualmente até produção</strong>, preservando React/Vite/Supabase e a comparação com a implementação original. O projeto é brownfield: parte do piloto existente, não de uma reconstrução independente.</p>
+<p>Esta constituição aplica a skill local <code>spec-driven</code>, agora acessível em <code>../../../../../../acervo-local/originais/Vibe Coding Executivo/Spec-Driven Development with Coding Agents/codex-skills/skills/spec-driven/SKILL.md</code>. A implementação e o relatório anteriores foram produzidos antes de sua leitura, com um fluxo SDD genérico autorizado. Não se deve atribuir retroativamente àquela entrega a execução dos checkpoints desta skill.</p>
+<h2 id="propósito-e-público">Propósito e público</h2>
+<p>Reduzir o trabalho manual de gestão da operação B2B da SpeakUp, oferecendo autoatendimento aos alunos, organização de turmas e docentes, registro de presença e visibilidade corporativa ao RH.</p>
+<ul>
+<li>Aluno: consultar, reservar, cancelar e remarcar aulas pelo portal responsivo.</li>
+<li>Professor: acompanhar as próprias aulas e registrar chamadas autorizadas.</li>
+<li>Coordenação: administrar alunos, importações, grade e operação pedagógica.</li>
+<li>RH: acompanhar informações autorizadas de sua empresa e, futuramente, aprovar medições contratuais.</li>
+</ul>
+<p>As personas, requisitos e objetivos de negócio derivam dos Word PRD/PSS. O prompt interpretador orienta a configuração do kernel; não substitui esses requisitos nem comprova decisões de um configurador não fornecido.</p>
+<h2 id="estado-de-partida-e-evidências">Estado de partida e evidências</h2>
+<p>O piloto inclui agenda, reservas, remarcação, cancelamento, importação, presença e indicadores parciais. A evolução existente corrigiu problemas de configuração, domínio, prévia de importação, foco do modal e contagem de ocupação por empresa.</p>
+<p>Em <code>../reports/validation.json</code> estão os resultados anteriores: 40 verificações Node aprovadas, incluindo agrupadores, quatro cenários de navegador aprovados, build e formatação aprovados. As verificações SQL usam PGlite e identidade simulada. Não demonstram Supabase Auth/Edge reais, concorrência entre conexões, disponibilidade ou operação em produção.</p>
+<h2 id="fronteiras-do-produto">Fronteiras do produto</h2>
+<p>O PRD continua sendo a referência funcional completa. A entrega atual é um piloto parcial. Créditos, notificações reais, medição/faturamento, substituição, histórico CEFR e integrações SSO/ERP permanecem sujeitos às fases do roadmap.</p>
+<p>Continuam fora do escopo definido nos documentos: aplicativo nativo iOS/Android, pagamento B2C por cartão, folha completa de professores, gamificação avançada e criação de cursos próprios. Hospedagem, região, orçamento e fornecedores complementares ainda não foram escolhidos.</p>
+<h2 id="princípios-e-limites">Princípios e limites</h2>
+<ol type="1">
+<li>Preservar <code>../../speakup-lovable</code> como referência original e manter evidências comparáveis. Não equiparar contagem de testes a cobertura ou conformidade.</li>
+<li>Definir requisitos e validação antes de novas alterações. Manter a distinção entre fato observado, decisão confirmada, proposta e pendência.</li>
+<li>Usar autorização e integridade no servidor. O modo demo e o localStorage não são mecanismos de segurança multiusuário.</li>
+<li>Não inventar políticas de crédito, cancelamento, preço ou retenção para preencher lacunas. A senha universal existente exige decisão explícita antes do uso real.</li>
+<li>Não declarar LGPD, SLA, criptografia, escala ou acessibilidade integral atendidos com base somente em código ou testes locais.</li>
+<li>Tratar specs como fonte versionável. Commits, pushes e promoções de ambiente pertencem ao responsável humano; esta constituição não os executa nem os autoriza automaticamente.</li>
+<li>Revisar cada constituição e especificação antes da etapa seguinte. Mudanças relevantes de escopo exigem replanning.</li>
+</ol>
+<h2 id="sucesso-e-condição-de-produção">Sucesso e condição de produção</h2>
+<p>Os objetivos do PRD — redução de 80% no esforço de coordenação, mais de 90% de autoatendimento, tarefas principais em até três cliques, medição até o primeiro dia útil, resposta em até dois segundos, disponibilidade de 99,5% e suporte a 5.000 usuários ativos — são metas a validar, não resultados desta entrega.</p>
+<p>Cada release deverá ter escopo aceito, requisitos rastreáveis, evidências apropriadas ao ambiente e limitações conhecidas. A promoção inicial requer validação de acesso entre perfis/empresas, autenticação real, regras contratuais do escopo, migração ensaiada, recuperação testada, monitoramento e avaliação operacional/de privacidade. Metodologia de carga, percentis, RPO/RTO, responsáveis e critérios de bloqueio precisam ser definidos antes desses ensaios.</p>
+<h2 id="pendências-de-decisão">Pendências de decisão</h2>
+<ul>
+<li>Política definitiva de credenciais, recuperação e primeiro acesso.</li>
+<li>Janela de cancelamento, expiração, créditos e exceções por contrato.</li>
+<li>Fórmula de medição, competência, preços e aprovação pelo RH.</li>
+<li>Limites de acesso da coordenação e visibilidade de turmas compartilhadas.</li>
+<li>Escopo mínimo do primeiro piloto real, responsáveis, orçamento, ambiente e janela de migração.</li>
+<li>Retenção, anonimização, restore, suporte e resposta a incidentes.</li>
+</ul>
+<p>Essas pendências serão tratadas na especificação da fase correspondente; não impedem a revisão desta constituição.</p>
+<p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/mission.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

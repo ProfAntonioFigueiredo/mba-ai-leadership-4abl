@@ -1,0 +1,324 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Resultado da comparação</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../../../../index.html">MBA · 4ABL</a><a href="../../../../../../../index.html">Biblioteca e busca</a><a href="../../../../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#f-01--contagem-corporativa-além-do-escopo-autorizado">F-01 — Contagem corporativa além do escopo autorizado</a></li><li><a href="#f-02--prévia-obsoleta-depois-de-erro-de-importação">F-02 — Prévia obsoleta depois de erro de importação</a></li><li><a href="#f-03--modal-sem-gestão-de-foco">F-03 — Modal sem gestão de foco</a></li><li><a href="#f-04--configuração-parcial-abre-demonstração">F-04 — Configuração parcial abre demonstração</a></li><li><a href="#f-05--regras-cliente-e-servidor-divergentes">F-05 — Regras cliente e servidor divergentes</a></li></ul></details><h1 id="resultado-da-comparação">Resultado da comparação</h1>
+<p>A implementação original é uma base funcional de piloto com controles relevantes de engenharia: validações, transações, constraints de agenda, autorização no banco e testes. A evolução SDD preserva esses pontos, organiza o trabalho em especificações rastreáveis e corrige problemas reproduzidos nos mesmos cenários.</p>
+<p><strong>Entregue:</strong> uma cópia executável do software em <code>speakup-sdd</code>, especificações, critérios de aceite, decisões arquiteturais, migração incremental, testes e este relatório lado a lado. O original <code>speakup-lovable</code> foi preservado; os hashes dos 25 arquivos inventariados continuam iguais, excluindo dependências, build e Git.</p>
+<p><strong>Validação final:</strong> original 25/25 testes herdados; SDD 40/40 testes Node (incluem testes agrupadores) e 4/4 testes de navegador. Ambos os builds passam. Os 40 testes não são uma medida de cobertura nem diretamente equivalentes aos 25 herdados; a comparação controlada é feita pelos cenários adicionais aplicados a ambos.</p>
+<p>A nova versão é uma evolução do mesmo piloto, não uma implementação completa de todo o PRD. Não foi promovida a produção e nenhum Supabase remoto foi alterado.</p>
+<h1 id="método-e-fontes">Método e fontes</h1>
+<p>Foram lidos os três documentos originais e o código local. As extrações textuais estão em <code>specs/sources/</code>; elas não substituem a leitura visual dos Word, especialmente em formulários com escolhas. O material fornecido contém um interpretador cuja saída prevista é um prompt de configuração de kernel, e não a aplicação completa. Não foi presumido que seu texto comprove escolhas preenchidas em outro configurador.</p>
+<p>A skill exata “Spec-Driven Development with Coding Agents” não foi localizada. Após autorização para prosseguir, foi aplicado o fluxo explícito <strong>fontes → requisitos → critérios de aceite → decisões → tarefas → implementação → validação</strong>. Não se atribui esta entrega à execução daquela skill indisponível.</p>
+<p>A baseline foi copiada para diretório temporário, com os arquivos originais preservados. Para executar as duas versões sob dependências equivalentes, a baseline usou a mesma árvore instalada da versão SDD. A resolução npm não reproduz exatamente o pnpm-lock original: por exemplo, PGlite 0.5.10 em vez de 0.5.9 e React 19.3.1 em vez de 19.3.0. As versões constam em <code>dependencies.json</code>. Essa normalização permite comparar o código no ambiente desta execução, mas não prova o resultado do lock antigo em outros ambientes.</p>
+<p>O exercício não mede produtividade, custo de desenvolvimento ou superioridade universal de um método. Os cenários novos foram escolhidos durante a revisão e são direcionados a riscos identificados. Não foram atribuídas notas subjetivas de maturidade nem percentuais fictícios de conformidade.</p>
+<h1 id="o-mesmo-software-lado-a-lado">O mesmo software lado a lado</h1>
+<div class="screens"><figure><img alt="Dashboard de aluno da implementação original" src="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/dashboard-original.png"/><figcaption>Original • mesmo aluno fictício e fluxo</figcaption></figure><figure><img alt="Dashboard de aluno da evolução SDD" src="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/dashboard-sdd.png"/><figcaption>SDD • interface preservada, organização e regras evoluídas</figcaption></figure></div>
+<p>Capturas produzidas pelos testes em Chromium, viewport 1280×900, em 19/10/2026. Imagem de página inteira. A aparência semelhante é intencional: as alterações estão sobretudo na estrutura, consistência e validação.</p>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Original Vibe Coding</th>
+<th>Evolução SDD</th>
+<th>Evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produto e requisitos</td>
+<td>PRD/PSS detalhados e diagnóstico de lacunas já presentes.</td>
+<td>Especificação explícita do piloto, aceite, ADRs, tarefas e vínculos com testes.</td>
+<td>specs/requirements.md; specs/acceptance.md</td>
+</tr>
+<tr>
+<td>Arquitetura e manutenção</td>
+<td>App, fluxos, importação e interface concentrados em main.jsx; domínio e backend já separados.</td>
+<td>Entrada mínima; App.jsx; domínio por capacidade; infraestrutura; caso de uso demo; telas de login/importação; modal reutilizável. App ainda concentra agenda, presença e relatórios.</td>
+<td>src/main.jsx; src/App.jsx; src/domain/; src/features/</td>
+</tr>
+<tr>
+<td>Dados e importação</td>
+<td>19 colunas, matrícula textual, datas/decimais e rollback transacional no SQL. Prévia cliente não aplica todos os limites do servidor.</td>
+<td>Preserva integridade do SQL; bloqueia 5.001 linhas e idade fora do inteiro; apaga prévia antes de analisar novo arquivo.</td>
+<td>tests/regression.test.mjs; tests/browser/import.spec.js</td>
+</tr>
+<tr>
+<td>Agenda</td>
+<td>Constraints de sobreposição e locks no SQL já presentes. Demo compara strings e aceita casos inválidos.</td>
+<td>Compara instantes com fuso, valida datas e capacidade; rejeita remarcação para mesma aula.</td>
+<td>src/domain/scheduling.mjs; AC-02/03/10</td>
+</tr>
+<tr>
+<td>Autenticação e configuração</td>
+<td>Supabase Auth e perfil provisionado; URL/chave parcial resulta em null e abre demo.</td>
+<td>Configuração parcial gera erro; inicialização explícita; cliente Supabase sob demanda. Senha compartilhada permanece pendente.</td>
+<td>src/infrastructure/configuration.mjs; AC-01</td>
+</tr>
+<tr>
+<td>Autorização e privacidade</td>
+<td>RLS, grants e RPCs por perfil; RH tem vínculo empresa separado de unidade. Contagem occupied inclui outras empresas na aula.</td>
+<td>Preserva controles; migração incremental restringe occupied à empresa do RH. Booking IDs e metadados continuam presentes; não é anonimização formal.</td>
+<td>supabase/migrations/202610190001_rh_occupancy.sql; AC-07</td>
+</tr>
+<tr>
+<td>UX e acessibilidade</td>
+<td>Interface responsiva; reserva demo e largura mobile passam. Modal não move foco ao abrir.</td>
+<td>Mesma identidade visual; dialog nativo com foco, Tab, Escape e restauração testados. Sem certificação de acessibilidade integral.</td>
+<td>src/ui/Modal.jsx; tests/browser/booking.spec.js</td>
+</tr>
+<tr>
+<td>Testes e qualidade</td>
+<td>25 testes herdados passam; sem testes de navegador no pacote original.</td>
+<td>40 testes Node, 4 cenários de navegador, regressões aplicáveis à baseline, logs e comparação reproduzível. Não há percentual de cobertura medido.</td>
+<td>reports/validation.json; scripts/compare.py</td>
+</tr>
+<tr>
+<td>Desempenho e escala</td>
+<td>Uma resposta workspace_data carrega a coleção autorizada; paginação no cliente.</td>
+<td>Mesma limitação de escala. XLSX e SDK Supabase em chunks sob demanda; entry demo menor. Sem teste de carga ou comprovação de 2 segundos.</td>
+<td>reports/build-original.log; reports/build-sdd.log</td>
+</tr>
+<tr>
+<td>DevSecOps e dependências</td>
+<td>pnpm-lock.yaml; scripts test/build.</td>
+<td>package-lock.json, checagem de formato e workflow CI proposto. npm audit consultado sem vulnerabilidades conhecidas retornadas.</td>
+<td>reports/dependencies.json; reports/dependency-audit.json; .github/workflows/validate.yml</td>
+</tr>
+<tr>
+<td>Operação e observabilidade</td>
+<td>Logs de ações no banco e ressalvas no README.</td>
+<td>Runbook, plano de rollback e pendências explícitas. Não há métricas, alertas, traces ou rotina de recuperação implantados.</td>
+<td>docs/operations.md</td>
+</tr>
+<tr>
+<td>Escopo e governança</td>
+<td>Créditos, notificações, faturamento e integrações reconhecidos como futuros.</td>
+<td>Mesmas pendências preservadas; decisões não resolvidas são identificadas, sem inventar regras contratuais.</td>
+<td>specs/decisions.md; README.md</td>
+</tr>
+</tbody>
+</table>
+<h1 id="resultados-executados-sob-os-mesmos-cenários">Resultados executados sob os mesmos cenários</h1>
+<table>
+<thead>
+<tr>
+<th>Verificação</th>
+<th>Original</th>
+<th>SDD</th>
+<th>Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suíte própria original / suíte própria evoluída</td>
+<td>25 passam</td>
+<td>40 passam</td>
+<td>Contagens incluem agrupadores Node; suítes de tamanho diferente</td>
+</tr>
+<tr>
+<td>Nove cenários dirigidos de domínio</td>
+<td>1 passa; 8 falham</td>
+<td>9 passam</td>
+<td>Mesmas entradas aplicadas a ambos; sem rede</td>
+</tr>
+<tr>
+<td>RH em aula de duas empresas</td>
+<td>occupied = 2 para RH A</td>
+<td>occupied = 1 para RH A</td>
+<td>Novo teste SQL; correção de contagem fora do escopo corporativo</td>
+</tr>
+<tr>
+<td>Reserva pelo aluno demo</td>
+<td>Passa</td>
+<td>Passa</td>
+<td>Preservação do fluxo funcional</td>
+</tr>
+<tr>
+<td>Dashboard a 390×844</td>
+<td>Passa</td>
+<td>Passa</td>
+<td>Não há overflow horizontal no cenário testado</td>
+</tr>
+<tr>
+<td>Foco inicial do modal</td>
+<td>Falha</td>
+<td>Passa</td>
+<td>No original o foco permanece fora; verificação interrompe nesse primeiro erro</td>
+</tr>
+<tr>
+<td>Novo upload inválido após prévia válida</td>
+<td>Prévia antiga permanece</td>
+<td>Prévia antiga removida</td>
+<td>Impede confirmar acidentalmente o lote anterior</td>
+</tr>
+<tr>
+<td>Build local</td>
+<td>Passa</td>
+<td>Passa</td>
+<td>Não comprova deployment ou backend real</td>
+</tr>
+<tr>
+<td>Formatação</td>
+<td>Sem gate equivalente no pacote</td>
+<td>Passa</td>
+<td>Prettier; não equivale a lint semântico ou análise de tipos</td>
+</tr>
+</tbody>
+</table>
+<p>Os oito testes de domínio que falham no original cobrem: intervalo invertido em UTC, data inválida, capacidade fora de faixa, intervalos adjacentes com offsets distintos, remarcação para mesma aula, lote de 5.001 alunos, idade fora de inteiro PostgreSQL e reserva com data inválida. Eles agrupam falhas relacionadas; não são oito vulnerabilidades independentes.</p>
+<p>As falhas de agenda e parte dos limites de importação dizem respeito ao domínio cliente/demo: o PostgreSQL original já impõe diversas dessas regras. A interface normal converte horários para ISO UTC, o que reduz a exposição cotidiana ao caso de offsets distintos. Os testes verificam consistência do domínio sob entradas adversas; não alegam que todos esses casos são alcançáveis pela tela atual.</p>
+<h1 id="achados-corrigidos-e-sua-importância">Achados corrigidos e sua importância</h1>
+<h2 id="f-01--contagem-corporativa-além-do-escopo-autorizado">F-01 — Contagem corporativa além do escopo autorizado</h2>
+<p><strong>Prioridade: alta para isolamento de informações B2B.</strong> <code>../speakup-lovable/supabase/migrations/202610140001_speakup.sql:77</code> limita quais aulas o RH pode ver, mas a subconsulta de ocupação conta todas as reservas da aula. Em uma aula compartilhada, RH A consegue inferir ocupação além de sua própria empresa.</p>
+<p>A migração <code>202610190001_rh_occupancy.sql:14</code> acrescenta o vínculo corporativo à contagem quando o perfil é RH. O teste AC-07 cria empresas A/B e dois alunos na mesma aula: o original retorna 2, a versão corrigida retorna 1 para RH A. A capacidade física da aula continua visível; confirmar com o responsável se esse metadado faz parte do contrato. Não foi demonstrado vazamento de nome ou e-mail de outra empresa nesse cenário.</p>
+<h2 id="f-02--prévia-obsoleta-depois-de-erro-de-importação">F-02 — Prévia obsoleta depois de erro de importação</h2>
+<p><strong>Prioridade: média para integridade operacional.</strong> Em <code>../speakup-lovable/src/main.jsx:17</code>, o novo upload só substitui a prévia se a validação tiver sucesso. Se um lote válido for seguido por arquivo inválido, o erro aparece, mas a prévia antiga e sua confirmação permanecem.</p>
+<p>A versão SDD limpa a prévia antes de analisar o novo arquivo (<code>src/App.jsx</code>, função upload). AC-05 reproduz a sequência em navegador real. O backend original ainda valida o lote recebido; o problema aqui é o usuário confirmar uma prévia que já não corresponde à última seleção.</p>
+<h2 id="f-03--modal-sem-gestão-de-foco">F-03 — Modal sem gestão de foco</h2>
+<p><strong>Prioridade: média para acessibilidade.</strong> O modal original declara role/aria-modal, mas não move foco, contém navegação ou implementa Escape. O teste comparável falha já na entrada de foco, sem atribuir automaticamente resultado às etapas seguintes.</p>
+<p><code>src/ui/Modal.jsx</code> usa dialog nativo, showModal, tratamento de cancelamento e restauração do foco anterior. A versão SDD passa na sequência foco inicial → Tab → Escape → retorno ao acionador. Isso não certifica todas as necessidades de teclado, leitores de tela, contraste ou WCAG.</p>
+<h2 id="f-04--configuração-parcial-abre-demonstração">F-04 — Configuração parcial abre demonstração</h2>
+<p><strong>Prioridade: média para confiabilidade de ambiente.</strong> <code>../speakup-lovable/src/backend.js:3</code> instancia o backend apenas quando URL e chave estão presentes; uma variável isolada deixa supabase nulo e a aplicação usa demo. Isso pode confundir um operador durante configuração. O banner de demonstração original reduz essa ambiguidade, mas não a elimina.</p>
+<p><code>src/infrastructure/configuration.mjs</code> distingue ausência total, par válido e configuração parcial. A última gera erro visível, sem carregar o estado fictício. Também rejeita URL inválida e HTTP remoto. AC-01 cobre a seleção de modo; Supabase Auth e Edge Function não foram exercitados em conta real.</p>
+<h2 id="f-05--regras-cliente-e-servidor-divergentes">F-05 — Regras cliente e servidor divergentes</h2>
+<p><strong>Prioridade: média para consistência, menor onde a UI já restringe a entrada.</strong> Comparação textual em <code>../speakup-lovable/src/domain.mjs:30</code> não equivale a comparar instantes com diferentes fusos. A função assertSlot não aplica o intervalo de capacidade do SQL. O demo permite remarcar para a mesma aula, enquanto o SQL rejeita.</p>
+<p><code>src/domain/scheduling.mjs</code> compara epoch, valida instantes com fuso e capacidade e rejeita a mesma aula. <code>src/domain/import.mjs</code> antecipa os limites de lote e inteiro já relevantes no servidor. Mantiveram-se os testes de reservas, lotação, remarcação atômica, importação transacional e acesso negado.</p>
+<h1 id="rastreabilidade-dos-requisitos-do-produto">Rastreabilidade dos requisitos do produto</h1>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Situação original</th>
+<th>Situação SDD</th>
+<th>Limite ou evidência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-01 Grade</td>
+<td>Implementação piloto</td>
+<td>Preservada e domínio reforçado</td>
+<td>Constraints SQL + testes de conflito; sem concorrência real certificada</td>
+</tr>
+<tr>
+<td>RF-02 Autoatendimento</td>
+<td>Piloto funcional</td>
+<td>Preservado e regressões corrigidas</td>
+<td>Reserva demo validada; três cliques de todos os fluxos não auditados</td>
+</tr>
+<tr>
+<td>RF-13 Importação</td>
+<td>Piloto funcional</td>
+<td>Prévia e limites corrigidos</td>
+<td>CSV no navegador e SQL testados; XLSX legado preservado, sem novo E2E específico</td>
+</tr>
+<tr>
+<td>RF-05 Presença</td>
+<td>Parcial quanto a tempo real</td>
+<td>Mesmo limite</td>
+<td>Atualiza após própria mutação; sem refresh automático entre usuários</td>
+</tr>
+<tr>
+<td>RF-06 RH</td>
+<td>Parcial</td>
+<td>Isolamento de ocupação corrigido; continua parcial</td>
+<td>Aprovação de medição depende de RF-08</td>
+</tr>
+<tr>
+<td>RF-03 Créditos</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Política de cancelamento e expiração não definida</td>
+</tr>
+<tr>
+<td>RF-04 Notificações</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Sem envio real ou calendário</td>
+</tr>
+<tr>
+<td>RF-08 Medição e fatura</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Sem regras contratuais suficientes</td>
+</tr>
+<tr>
+<td>RF-09 Substituição</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Sem recomendação implementada</td>
+</tr>
+<tr>
+<td>RF-07 Histórico CEFR</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Nível cadastrado não representa histórico</td>
+</tr>
+<tr>
+<td>RF-10 SSO/ERP</td>
+<td>Pendente</td>
+<td>Pendente</td>
+<td>Sem provedores integrados</td>
+</tr>
+<tr>
+<td>RF-12 Auditoria</td>
+<td>Parcial</td>
+<td>Preservada; operação documentada</td>
+<td>Trigger bloqueia alterações comuns; proprietário não perde poderes</td>
+</tr>
+</tbody>
+</table>
+<p>A dependência RF-06 P0 → RF-08 P1 precisa de revisão do produto: a aprovação financeira é P0 no portal, mas seu módulo habilitador está em prioridade inferior. A versão SDD registra a inconsistência em vez de criar aprovação fictícia.</p>
+<h1 id="arquitetura-da-evolução">Arquitetura da evolução</h1>
+<pre class="text"><code>PRD/PSS/interpretador → specs/requirements + acceptance + decisions + tasks
+                                  ↓
+src/main.jsx → inicialização do backend → src/App.jsx
+                                          ├─ features/auth/LoginView
+                                          ├─ features/import/ImportView
+                                          ├─ ui/Modal
+                                          ├─ application/executeDemoCommand → estado demo → localStorage
+                                          └─ infrastructure/Supabase → RPCs → PostgreSQL
+                                                                              ├─ grants/RLS
+                                                                              ├─ validação/autorização
+                                                                              └─ constraints/auditoria</code></pre>
+<p>A separação melhora os pontos de mudança, mas a refatoração é incremental: App.jsx ainda concentra estado e telas de agenda, chamada e relatórios. A nova estrutura não é apresentada como arquitetura hexagonal completa nem exige microserviços sem necessidade. SQL continua como autoridade de autorização e integridade no modo conectado; o demo é apenas demonstração local.</p>
+<h1 id="segurança-dados-e-operação-ainda-pendentes">Segurança, dados e operação ainda pendentes</h1>
+<ul>
+<li><strong>Senha universal:</strong> PRD/PSS alternam senha fixa e inicial. Mantida por fidelidade ao material; resolver com o dono do produto antes de uso real. Não foi criada mudança silenciosa da política.</li>
+<li><strong>Controle de tentativas:</strong> a Edge Function não implementa limitação distribuída no código inspecionado. O README exige configuração no destino; não se presumiu que a proteção está ativa. CORS não substitui autenticação.</li>
+<li><strong>Sessão e integração:</strong> a recuperação inicial de perfil existe; não há evidência de teste de expiração/revogação entre abas nem de integração Auth/Edge real.</li>
+<li><strong>Minimização:</strong> RH não recebe cadastro completo, mas IDs de reservas e metadados continuam; chamar isso de anonimização irreversível seria incorreto. Há somente minimização parcial.</li>
+<li><strong>Escala:</strong> workspace_data retorna coleções completas. Busca/paginação administrativa no cliente não demonstra RNF-06. Projetar paginação, filtros por período e consultas medidas antes de prometer 5.000 usuários.</li>
+<li><strong>Concorrência:</strong> locks e constraints já existem. Testes PGlite em uma conexão não reproduzem corridas, deadlocks ou carga de múltiplas sessões; executar teste PostgreSQL/Supabase com conexões independentes.</li>
+<li><strong>Auditoria e recuperação:</strong> não há prova de retenção imutável externa por 12 meses, backup restaurado ou RPO/RTO atendido. O trigger não protege contra o administrador do banco.</li>
+<li><strong>Observabilidade:</strong> logs de negócio não substituem métricas, traces e alertas. O runbook propõe o que medir; nada disso foi declarado implantado.</li>
+<li><strong>Privacidade e conformidade:</strong> nenhum exame jurídico/operacional de LGPD foi executado; TLS/AES não foram medidos. Nenhuma das versões recebe declaração de conformidade integral.</li>
+<li><strong>Acessibilidade e UX:</strong> falta validação com leitores de tela, mais perfis e fluxos, contraste e tarefas completas de três cliques. O teste mobile cobre apenas o dashboard de aluno.</li>
+<li><strong>Importação:</strong> não houve ensaio de planilhas comprimidas hostis nem novo teste ponta a ponta de XLSX. Os limites de arquivo e validações não equivalem a auditoria de todos os parsers.</li>
+<li><strong>Qualidade de código:</strong> há formatação automática, testes e CI definido; não foram introduzidos TypeScript, lint semântico ou meta de cobertura. O workflow não foi executado no GitHub; não existe repositório Git nesta pasta de trabalho.</li>
+</ul>
+<h1 id="desempenho-observado-e-dependências">Desempenho observado e dependências</h1>
+<p>No build comparável <strong>sem variáveis Supabase</strong>, o entry JavaScript passou de <strong>285,44 kB (88,26 kB gzip)</strong> para <strong>255,01 kB (80,19 kB gzip)</strong>. O parser XLSX fica em chunk de 36,47 kB e o SDK Supabase em chunk de 228,59 kB, carregados quando necessários. O total de artefatos SDD é maior por incluir explicitamente a alternativa de backend e a separação de módulos. A redução do entry não demonstra menor tempo de resposta do servidor nem latência de produção. Em modo conectado, o SDK é carregado antes da aplicação renderizar.</p>
+<p>A consulta npm audit retornou <strong>zero vulnerabilidades conhecidas</strong> na árvore instalada, conforme <code>dependency-audit.json</code>. Isso é o resultado do registro consultado para essas versões, não uma prova de ausência de falhas no código ou nas dependências. Não foram medidas despesas de nuvem ou custo por usuário, pois não há ambiente implantado nem carga representativa.</p>
+<div class="screens mobile"><figure><img alt="Dashboard original em viewport mobile" src="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/mobile-original.png"/><figcaption>Original • 390×844</figcaption></figure><figure><img alt="Dashboard SDD em viewport mobile" src="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/mobile-sdd.png"/><figcaption>SDD • 390×844</figcaption></figure></div>
+<h1 id="como-reproduzir-e-evoluir">Como reproduzir e evoluir</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="bu">cd</span> speakup-sdd</span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="ex">npm</span> ci</span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="ex">npx</span> playwright install chromium</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="ex">npm</span> test</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="ex">npm</span> run format:check</span>
+<span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a><span class="ex">npm</span> run test:e2e</span>
+<span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a><span class="ex">python3</span> scripts/compare.py</span></code></pre></div>
+<p>A comparação pressupõe <code>../speakup-lovable</code>, hashes originais iguais e capacidade de abrir servidor local/Chromium. Cria uma baseline temporária, registra exit codes reais em validation.json e mantém as falhas esperadas do original nos logs. O diretório temporário da execução consta no JSON. CI proposto executa testes/formatação/build/navegador se esta pasta for a raiz do repositório; adaptar working-directory se o repositório englobar a disciplina inteira.</p>
+<p>Para comparar manualmente, execute o original com <code>npm run dev -- --port 5173</code> e a SDD com <code>npm run dev</code> na porta 5174. O original precisa de suas dependências corretamente instaladas; o pacote copiado tinha links node_modules incompletos, razão pela qual os testes usaram baseline isolada. Os dados demo são fictícios e usam namespaces diferentes de localStorage.</p>
+<p>Próximos passos, por dependência: resolver regras de senha/créditos/medição com o produto; validar Auth/Edge e segregação em desenvolvimento; implementar paginação e atualização entre usuários; realizar concorrência/carga/restore; revisar privacidade e acessibilidade; só então avaliar promoção operacional. Não são estimados prazos sem dimensionamento.</p>
+<h1 id="artefatos-e-trilha-de-evidências">Artefatos e trilha de evidências</h1>
+<ul>
+<li><a href="../specs/requirements.html">Especificação</a>, <a href="../specs/acceptance.html">aceite</a>, <a href="../specs/decisions.html">decisões</a>, <a href="../specs/tasks.html">tarefas</a> e <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/traceability.json">matriz rastreável</a>.</li>
+<li><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/validation.json">Resultados e comandos</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/tests-original.log">testes originais</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/tests-sdd.log">testes SDD</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/regression-original.log">regressões no original</a> e <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/database-original-regression.log">regressão SQL</a>.</li>
+<li><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/browser-original.log">Navegador original</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/browser-sdd.log">navegador SDD</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/build-original.log">build original</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/build-sdd.log">build SDD</a>, <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/dependencies.json">dependências</a> e <a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/dependency-audit.json">npm audit</a>.</li>
+<li><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/original-sha256.json">Hashes do original</a>, <a href="../AGENTS.html">instruções para agentes</a> e <a href="../docs/operations.html">operação</a>.</li>
+</ul>
+<h1 id="referências-técnicas-primárias">Referências técnicas primárias</h1>
+<p>O uso de funções SECURITY DEFINER exige revisão de privilégios e search_path; os controles foram inspecionados e testados no contexto local descrito. Referências: <a href="https://supabase.com/docs/guides/database/postgres/row-level-security">RLS no Supabase</a> e <a href="https://supabase.com/docs/guides/database/functions">funções de banco no Supabase</a>.</p>
+<p>A existência de locks não comprova ausência de deadlocks ou corridas sob carga: <a href="https://www.postgresql.org/docs/17/explicit-locking.html">documentação PostgreSQL sobre locking</a>.</p>
+<p>Os critérios de foco, teclado e Escape do modal foram orientados pelo <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">padrão de diálogo modal da W3C</a>. A aprovação dos testes locais não equivale a certificação de acessibilidade.</p>
+<p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

@@ -1,0 +1,534 @@
+[
+  {
+    "titulo": "01_heatmap",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/graficos/01_heatmap.png"
+    ],
+    "sha256": "65f94e0d14c1b9c3e1ea3d98c7c6e568cdaaec65bbe0b3bc6399a91cfc1fdd1e",
+    "formato": ".png",
+    "markdown": "biblioteca/02/01-heatmap-65f94e0d/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "72041fccc4b5a8d3c31ae504a06e6ab01551621310f2156582c25fde64c62a26"
+  },
+  {
+    "titulo": "01_vies_selecao",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/01_vies_selecao.png"
+    ],
+    "sha256": "6f4e2d29b52d22cdf0ca749233f784e667c67633592e9f5d6c8a85a836fb7451",
+    "formato": ".png",
+    "markdown": "biblioteca/02/01-vies-selecao-6f4e2d29/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "51cce9d1914dc21a5d5cbfd281d1f740aedbf6fa35cfdbebc16bba9afdd0bc7c"
+  },
+  {
+    "titulo": "02_simpson",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/graficos/02_simpson.png"
+    ],
+    "sha256": "4065a8b1c8a5b2dbb427084172e3472ad24d07eab336d681a7e4a488696db50e",
+    "formato": ".png",
+    "markdown": "biblioteca/02/02-simpson-4065a8b1/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "9e58fc7641516bec1161f5653142ef691e48aaad4499d9ff9f4ec716bfadc986"
+  },
+  {
+    "titulo": "03_criticidade",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/graficos/03_criticidade.png"
+    ],
+    "sha256": "550f857882f018224c9bf1ed8fb94983ee24b65741f104d82c5058765ade5cea",
+    "formato": ".png",
+    "markdown": "biblioteca/02/03-criticidade-550f8578/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "19bdd561cbcfa22b52fe5276810ff0879367db78bd0ae64f409885f3b3179548"
+  },
+  {
+    "titulo": "03_negar_mudanca_modelos",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/03_negar_mudanca_modelos.png"
+    ],
+    "sha256": "b0c5051a3a443f6493dac18c6ded88bda7ddf6fd1f6d81ed557dbe1dec2927a5",
+    "formato": ".png",
+    "markdown": "biblioteca/02/03-negar-mudanca-modelos-b0c5051a/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "c917ec0346cdc7f8e2759ca092cbf0ff3885ae4566c78ad498df34cde021b989"
+  },
+  {
+    "titulo": "04_canal_idade_ces",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/graficos/04_canal_idade_ces.png"
+    ],
+    "sha256": "5a0658b39dfc0edc3252d4e4b06273618eb4ad2d93c652e293103db582b0274a",
+    "formato": ".png",
+    "markdown": "biblioteca/02/04-canal-idade-ces-5a0658b3/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "1effb90819a5dbde77d9cad201e6c8fcc654d2e6e2285f2faf16387587d7e190"
+  },
+  {
+    "titulo": "05_satisfacao_esforco",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/graficos/05_satisfacao_esforco.png"
+    ],
+    "sha256": "984d80e5770c10f5ba5f69d7e09dd31f0e7a831253218ac07fa904e50124b2bd",
+    "formato": ".png",
+    "markdown": "biblioteca/02/05-satisfacao-esforco-984d80e5/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "b1f445cb3f81ebc03529b951ce7f19d214697fad85e064665be0dd9eed9433c7"
+  },
+  {
+    "titulo": "08_this_person_does_not_exist",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/08_this_person_does_not_exist.png"
+    ],
+    "sha256": "0cb2fc17150f68b0ba82448264d2467e0f72bfb771a7ffca31d57d9f947ac0cd",
+    "formato": ".png",
+    "markdown": "biblioteca/02/08-this-person-does-not-exist-0cb2fc17/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "f4a084df2772308078ef90f312dda2551ce9fac728e9f6201d580d260a76ab09"
+  },
+  {
+    "titulo": "09_gans_arquitetura",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/09_gans_arquitetura.png"
+    ],
+    "sha256": "ee166bc61e153704b130e4d0ae83a8f12cc6a3f8fbcca5d34ce6f9da472004bf",
+    "formato": ".png",
+    "markdown": "biblioteca/02/09-gans-arquitetura-ee166bc6/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "105c2abbf6d82494eaff64c6fefa558c0cd4c938fa03136630d3f64d27b3b873"
+  },
+  {
+    "titulo": "10_maquinas_pensam",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/10_maquinas_pensam.png"
+    ],
+    "sha256": "09ae23094f4bf3780216fc1f0d1a738f649a56f3ea5c97635d120ecd54a45181",
+    "formato": ".png",
+    "markdown": "biblioteca/02/10-maquinas-pensam-09ae2309/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "4bc40b70a1b902db3e18eb1dc6ac3da177dcbd82ce99cc0dbbd7d7459b8726cc"
+  },
+  {
+    "titulo": "11_teste_turing",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/11_teste_turing.png"
+    ],
+    "sha256": "67b9ec9f8f7d6dc52cf47d6838ff0702904d38e1098da3d23d1f888fb8dd8d7d",
+    "formato": ".png",
+    "markdown": "biblioteca/02/11-teste-turing-67b9ec9f/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "55a4dc5243a4567a066be85caa814bca64abbfc1c2ee937f7a2b7da85eb38874"
+  },
+  {
+    "titulo": "12_google_lamda_lemoine",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/12_google_lamda_lemoine.png"
+    ],
+    "sha256": "b03997fb83222adf3f3b2aa27f7425ded3a337e84541b74cafc9955297db676b",
+    "formato": ".png",
+    "markdown": "biblioteca/02/12-google-lamda-lemoine-b03997fb/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "b740b547057e4d958234986e4b245b3d8247e0d611e458e4274185cdc7871545"
+  },
+  {
+    "titulo": "13_ia_pensamento_critico_mit",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/13_ia_pensamento_critico_mit.png"
+    ],
+    "sha256": "04551aa2aa4f7a6348709883df9f13ba167ff50292cdbf290894a597bab952d7",
+    "formato": ".png",
+    "markdown": "biblioteca/02/13-ia-pensamento-critico-mit-04551aa2/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "2701ee6a929bb9a33683ff47b2e87a3fd187b5a9d6b15d9965805ebcd0610f32"
+  },
+  {
+    "titulo": "14_ia_classica_secao",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/14_ia_classica_secao.png"
+    ],
+    "sha256": "e7559d1f92c5e09ff2a693c9c5b3861f890d8b29c653758eb7e52261fc768ae4",
+    "formato": ".png",
+    "markdown": "biblioteca/02/14-ia-classica-secao-e7559d1f/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "7012e82fe3150c37c2da4f0032d99d45a785bc9ea6c569a689cbf9c9f2fb6496"
+  },
+  {
+    "titulo": "16_programacao_vs_ml",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/16_programacao_vs_ml.png"
+    ],
+    "sha256": "18e3825b6190413527a8775fcb9bf8670824d35dfb1251f5ade27a56bda2715c",
+    "formato": ".png",
+    "markdown": "biblioteca/02/16-programacao-vs-ml-18e3825b/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "471b2231a880070a87770b94f504e0c743f733032f10bfd2414896a572f3e017"
+  },
+  {
+    "titulo": "17_lobe_ai",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/17_lobe_ai.png"
+    ],
+    "sha256": "3471a4c7fccdc074af140235b55e43c1c782d167086530c1b487cc3155a3b771",
+    "formato": ".png",
+    "markdown": "biblioteca/02/17-lobe-ai-3471a4c7/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "925ca6973270bba1cb9212c3efdfc7dae07e3b72a91799c7debcf595c1564e5a"
+  },
+  {
+    "titulo": "18_tipos_ml",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/18_tipos_ml.png"
+    ],
+    "sha256": "21a07c0a57a8a935737dec8357642690ec75bf3a8107317f3e17bbcb828c0b3a",
+    "formato": ".png",
+    "markdown": "biblioteca/02/18-tipos-ml-21a07c0a/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "5ee91eb1b361df9b59dab13fcef62c6636375f394012b6527e58f879f591cdeb"
+  },
+  {
+    "titulo": "20_reforco_mario",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/20_reforco_mario.png"
+    ],
+    "sha256": "7fd516f0c863a5900ad9b95be18c03ddf16558540e916dc69440a77227264b38",
+    "formato": ".png",
+    "markdown": "biblioteca/02/20-reforco-mario-7fd516f0/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "fd035b74f7a83eb80c4d525aa4d1c766c064a3ab6d7c912c66aa481ac2334ae9"
+  },
+  {
+    "titulo": "21_reforco_mario_video",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/21_reforco_mario_video.png"
+    ],
+    "sha256": "f78d1a74c9ecfb95d38214ae27101d226c0b8ed4d7e1f96f199febda5e0ce966",
+    "formato": ".png",
+    "markdown": "biblioteca/02/21-reforco-mario-video-f78d1a74/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "99386ffc4020020eb5ad219965b4140005aee4c40b77ae70f9d024d06051a79f"
+  },
+  {
+    "titulo": "22_mapa_machine_learning",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/22_mapa_machine_learning.png"
+    ],
+    "sha256": "f66c3fb6aa7e3b37610cf53f90b4195e28265f879723c3947b89de9e2b935a50",
+    "formato": ".png",
+    "markdown": "biblioteca/02/22-mapa-machine-learning-f66c3fb6/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "b13d323d118d7243621b34ba2fce285a7c7d99c98bc2982e64111cb373bb4222"
+  },
+  {
+    "titulo": "23_caderno_hipoteses_aula",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/prints_da_aula/23_caderno_hipoteses_aula.png"
+    ],
+    "sha256": "578fb2c2d7e72c4c83b5f4228d22c214a0b5b4d8fd55fd86f0b070a62ca42829",
+    "formato": ".png",
+    "markdown": "biblioteca/02/23-caderno-hipoteses-aula-578fb2c2/conteudo.md",
+    "observacao": "Imagem original incorporada para consulta visual; o texto da imagem não foi transcrito por OCR.",
+    "sha256_markdown": "4d586ade03f1fe512e4878b2e96cd382a3eae2236cf1d51d97ff48d70f424e4b"
+  },
+  {
+    "titulo": "AI_Core_Concepts_Aula1_Estudo",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/03_Material_de_Estudo/AI_Core_Concepts_Aula1_Estudo.pptx"
+    ],
+    "sha256": "4479b40600232a4399987d9c0439f4d83c7482c48770674d3453890f932c677e",
+    "formato": ".pptx",
+    "markdown": "biblioteca/02/ai-core-concepts-aula1-estudo-4479b406/conteudo.md",
+    "observacao": "Texto, tabelas, imagens incorporadas e notas por slide. Layout, gráficos e SmartArt podem exigir consulta ao original.",
+    "sha256_markdown": "50c8b6069b1136602bed795d67cedc1bfab562600d20e7178b471d3df2dd6664"
+  },
+  {
+    "titulo": "Aula1_IA_Classica_Prof_Tassiana",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/01_Material_da_Aula/Aula1_IA_Classica_Prof_Tassiana.pdf"
+    ],
+    "sha256": "7cacf6d705a25e7f1f332c459b62f23bf90c79fefa441f0978e1c27d3f644b85",
+    "formato": ".pdf",
+    "markdown": "biblioteca/02/aula1-ia-classica-prof-tassiana-7cacf6d7/conteudo.md",
+    "observacao": "Texto extraído por página; diagramas, imagens e disposição visual devem ser consultados no original. Não é resumo nem OCR.",
+    "sha256_markdown": "3f170fd1718b998020419f2833e2b80a4da2e4bdfbe84fc51733ed4aa7220882"
+  },
+  {
+    "titulo": "Caderno_de_Hipoteses_CX_preenchido",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/Caderno_de_Hipoteses_CX_preenchido.docx"
+    ],
+    "sha256": "f05768711383fd3d0f5ed1e04ab663d12a39bed15c6e9e0d2a278fd9b20be061",
+    "formato": ".docx",
+    "markdown": "biblioteca/02/caderno-de-hipoteses-cx-preenchido-f0576871/conteudo.md",
+    "observacao": "Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.",
+    "sha256_markdown": "39fc946b8a987827be9483aba23ab1cc7b6f41527e866edf0cc3071970bc3ab1"
+  },
+  {
+    "titulo": "Caderno_de_Hipoteses_TEMPLATE",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/Caderno_de_Hipoteses_TEMPLATE.docx"
+    ],
+    "sha256": "39e7ab1334f65945620411af3cfa57cc4954af8f41a3875e4d00234cc19616ba",
+    "formato": ".docx",
+    "markdown": "biblioteca/02/caderno-de-hipoteses-template-39e7ab13/conteudo.md",
+    "observacao": "Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.",
+    "sha256_markdown": "4e0a94900e9f8ce7bce671e7af32aec3b75651f67d65705b6227d07f2a5f0d8b"
+  },
+  {
+    "titulo": "Caderno_Hipoteses_Colab",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/notebooks/Caderno_Hipoteses_Colab.ipynb"
+    ],
+    "sha256": "06bd2b84be61028c5416b9d6553da6f383ac89134a50b0634724c06b87f5cc6b",
+    "formato": ".ipynb",
+    "markdown": "biblioteca/02/caderno-hipoteses-colab-06bd2b84/conteudo.md",
+    "observacao": "Células e saídas textuais já gravadas. O notebook não foi executado na conversão.",
+    "sha256_markdown": "82f15787e8be72422de5a44c76fb7137ea34dfb43c5e0ee08b2fafee52782493"
+  },
+  {
+    "titulo": "caderno_hipoteses_CX",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/entrega/caderno_hipoteses_CX.md"
+    ],
+    "sha256": "6d93af6cb13d878383b1f6778ffc61802a91b73aceaae594464a167ca73672af",
+    "formato": ".md",
+    "markdown": "disciplinas/02-ai-core-concepts/projetos/correlacao-cx/entrega/caderno_hipoteses_CX.md",
+    "observacao": "Versão Markdown existente reutilizada, sem cópia adicional.",
+    "sha256_markdown": "6d93af6cb13d878383b1f6778ffc61802a91b73aceaae594464a167ca73672af"
+  },
+  {
+    "titulo": "Caderno_Hipoteses_Grupo",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/notebooks/Caderno_Hipoteses_Grupo.ipynb"
+    ],
+    "sha256": "cf5257db4adb8199221aaceb6c4e5c062a7a50b152ef6aa3a6d84a9aeb25da10",
+    "formato": ".ipynb",
+    "markdown": "biblioteca/02/caderno-hipoteses-grupo-cf5257db/conteudo.md",
+    "observacao": "Células e saídas textuais já gravadas. O notebook não foi executado na conversão.",
+    "sha256_markdown": "b203b6dfffc079a2291c89845a57d7d999076aae5e51fe9001a87120f1ce7d9c"
+  },
+  {
+    "titulo": "Captura_tabulado",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/dados/Captura_tabulado.xlsx"
+    ],
+    "sha256": "d58cef47e334a3ebf7e3b060b152b9858a548f11ee2f0e8811c70a0c03a99408",
+    "formato": ".xlsx",
+    "markdown": "biblioteca/02/captura-tabulado-d58cef47/conteudo.md",
+    "observacao": "Células e fórmulas exportadas por planilha. Não executa fórmulas; gráficos e formatação não são reproduzidos.",
+    "sha256_markdown": "62d0e0bd121148e0309cef0025ddae80937a621530cf14168da16fd5abc96323"
+  },
+  {
+    "titulo": "handson_correlacao",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/notebooks/handson_correlacao.ipynb"
+    ],
+    "sha256": "c22adccc8e2f8962c0e9f986434c3e2e681ac2e1fe4a6f50668cc72c27cc4cb1",
+    "formato": ".ipynb",
+    "markdown": "biblioteca/02/handson-correlacao-c22adccc/conteudo.md",
+    "observacao": "Células e saídas textuais já gravadas. O notebook não foi executado na conversão.",
+    "sha256_markdown": "35d7198fe3a0b0f9b5d68924e2d963cb22817df362c23025633e073c11d3465f"
+  },
+  {
+    "titulo": "README",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/README.md"
+    ],
+    "sha256": "e3568a837f9532d8e851289097f3f5ca4e548307a13e66be14c9c7ed9386910d",
+    "formato": ".md",
+    "markdown": "biblioteca/02/readme-e3568a83/conteudo.md",
+    "observacao": "Markdown preservado.",
+    "sha256_markdown": "cd86b153b865b3ea47c765250a4d8332dd415854a9f00c8db724978097d341c7"
+  },
+  {
+    "titulo": "resumo_aula",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/02_Resumo_e_Transcricao/resumo_aula.md"
+    ],
+    "sha256": "12228c3803431b7e674f3130f11627c32b72aa0aacd43e2266a04db90e4a362a",
+    "formato": ".md",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md",
+    "observacao": "Versão Markdown existente reutilizada, sem cópia adicional.",
+    "sha256_markdown": "2be08d339b529ead4dc89b3f1c6e63ca44a9182e9d79d3b897e13fd8f56882d8"
+  },
+  {
+    "titulo": "resumo_aula",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/Aula-02_2026-10-19/02_Resumo_e_Transcricao/resumo_aula.md"
+    ],
+    "sha256": "f9d4e2bc109e2c529add63d1a449f8a88f2eac5a535a50c5b16c8642ee3c017e",
+    "formato": ".md",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-10-19-aula-02/resumo-parcial.md",
+    "observacao": "Versão Markdown existente reutilizada, sem cópia adicional.",
+    "sha256_markdown": "f9d4e2bc109e2c529add63d1a449f8a88f2eac5a535a50c5b16c8642ee3c017e"
+  },
+  {
+    "titulo": "transcricao_completa",
+    "disciplina": "02",
+    "origens": [
+      "Aulas/AI-Core-Concepts/02_Resumo_e_Transcricao/transcricao_completa.md"
+    ],
+    "sha256": "31d6ef8e46a0937bd7f14b6a3ba11b7d3dd984444daeefe68489597f1ac25465",
+    "formato": ".md",
+    "markdown": "biblioteca/02/transcricao-completa-31d6ef8e/conteudo.md",
+    "observacao": "Markdown preservado.",
+    "sha256_markdown": "346b53b6fd17a3b42216bdd79c7496a584f09c71fa736fe366b4fc7846192c4e"
+  },
+  {
+    "titulo": "01_DIAGNOSTICO_E_CONSOLIDACAO",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-lovable/01_DIAGNOSTICO_E_CONSOLIDACAO.txt",
+      "Vibe Coding Executivo/speakup-sdd/01_DIAGNOSTICO_E_CONSOLIDACAO.txt"
+    ],
+    "sha256": "9e17db49625e183f40383f9ae017733726dad3b298eb01df82b2be4243d47215",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/01-diagnostico-e-consolidacao-9e17db49/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "25a9851db25961685ca546ae0eb7a2351aeb23eec9cce728af35a13849a40bae"
+  },
+  {
+    "titulo": "02_PROMPT_DE_IGNICAO_LOVABLE",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-lovable/02_PROMPT_DE_IGNICAO_LOVABLE.txt",
+      "Vibe Coding Executivo/speakup-sdd/02_PROMPT_DE_IGNICAO_LOVABLE.txt"
+    ],
+    "sha256": "b551fb02d123af3cc204aba2d6fc9030cedddc0911420c016d7a0ca795d3bf33",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/02-prompt-de-ignicao-lovable-b551fb02/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "af7cd0934a613e211f178bd8b4339ce4d8a8b60b3dfaad89f948a6128bec8ccb"
+  },
+  {
+    "titulo": "03_SYSTEM_PROMPT_KERNEL_SUPABASE",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-lovable/03_SYSTEM_PROMPT_KERNEL_SUPABASE.txt",
+      "Vibe Coding Executivo/speakup-sdd/03_SYSTEM_PROMPT_KERNEL_SUPABASE.txt"
+    ],
+    "sha256": "a106b9c8b935537f397a9784694616680fd8b7373576fffae58fab04ef901b7c",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/03-system-prompt-kernel-supabase-a106b9c8/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "bb74f4df730364ddef582855d3f6d6c15eea74c8fe535db1e3915c6fefb0caf8"
+  },
+  {
+    "titulo": "04_VALIDACAO",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-lovable/04_VALIDACAO.txt",
+      "Vibe Coding Executivo/speakup-sdd/04_VALIDACAO.txt"
+    ],
+    "sha256": "a0bbc7803e44e0cb792e9446ea376a482402ead8a01890328c22a3e5c54e548d",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/04-validacao-a0bbc780/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "a142439226354332f81f6346b0824eb64d968f95dae586a9743296f6fab746d1"
+  },
+  {
+    "titulo": "PRD.md",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/PRD.md.docx"
+    ],
+    "sha256": "4e6ccc93f384d3aadc0d982e88d37c97cbe18aa6697c2a400ad5e7c6b9bb5c91",
+    "formato": ".docx",
+    "markdown": "biblioteca/21/prd-md-4e6ccc93/conteudo.md",
+    "observacao": "Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.",
+    "sha256_markdown": "0e0cea59cc65e58f1d0a501a9a5e8746eba50c163f4968dac3021ff03d7f42d1"
+  },
+  {
+    "titulo": "PRD.md.docx",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-sdd/specs/sources/PRD.md.docx.txt"
+    ],
+    "sha256": "836d5542170aed6c386fc906f21ba61eae02393471547e731f889817e92e7014",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/prd-md-docx-836d5542/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "5c86989df6ca479e5ddc2003c057935dfcfa3ddff93e922fc7c8f9020f7eff2f"
+  },
+  {
+    "titulo": "PSS.md",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/PSS.md.docx"
+    ],
+    "sha256": "3eed1f376581185380b1a54c56037f91afff58da730d3af4b2e243a3b72927b2",
+    "formato": ".docx",
+    "markdown": "biblioteca/21/pss-md-3eed1f37/conteudo.md",
+    "observacao": "Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.",
+    "sha256_markdown": "f1244492b73091397987055a095ad562b0ffe2bdf0e8902dc50a00758975c9f4"
+  },
+  {
+    "titulo": "PSS.md.docx",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/speakup-sdd/specs/sources/PSS.md.docx.txt"
+    ],
+    "sha256": "aec6becfe2b02213ce1d258a0b8756fb5f32d06d98f3ca9c2fff519323c4ed17",
+    "formato": ".txt",
+    "markdown": "biblioteca/21/pss-md-docx-aec6becf/conteudo.md",
+    "observacao": "Transcrição textual integral; não é resumo.",
+    "sha256_markdown": "fd4af4d57b9c3bb3b8c05ac367d33518a3c4512d43b89eb7edf66b6fda61a012"
+  },
+  {
+    "titulo": "SpeakUp_Discovery_Lab_Fluxo_Integrado",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/ExercicioAula05102026/SpeakUp_Discovery_Lab_Fluxo_Integrado.html"
+    ],
+    "sha256": "c4eb4603f01467ef7698da8bed745f13914e91843754114851b7ce44bec5591d",
+    "formato": ".html",
+    "markdown": "biblioteca/21/speakup-discovery-lab-fluxo-integrado-c4eb4603/conteudo.md",
+    "observacao": "Conteúdo textual do HTML; código interativo e scripts não são executados.",
+    "sha256_markdown": "32755a7734949fd54aaf47ab98473e11b9349a34d43dd177b3b8bf0b11daf4ad"
+  },
+  {
+    "titulo": "SpeakUp_Requisitos_Antonio_Figueiredo",
+    "disciplina": "21",
+    "origens": [
+      "Vibe Coding Executivo/SpeakUp_Requisitos_Antonio_Figueiredo.docx"
+    ],
+    "sha256": "5433d46b15d8ddfe00e972b43b5f78809e7ff37f50b6bd9e133bf6a9eda91e50",
+    "formato": ".docx",
+    "markdown": "biblioteca/21/speakup-requisitos-antonio-figueiredo-5433d46b/conteudo.md",
+    "observacao": "Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.",
+    "sha256_markdown": "c77d5fceb5db05707c25a8770dad76e8a9c8297d97723b95307d9c5bae8f59ea"
+  }
+]

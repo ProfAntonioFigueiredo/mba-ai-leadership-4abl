@@ -1,0 +1,107 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_PROMPT_DE_IGNICAO_LOVABLE</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../21/02-prompt-de-ignicao-lovable-b551fb02/conteudo.md">Abrir fonte Markdown no Git</a></p><h1 id="02_prompt_de_ignicao_lovable">02_PROMPT_DE_IGNICAO_LOVABLE</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Vibe Coding Executivo/speakup-lovable/02_PROMPT_DE_IGNICAO_LOVABLE.txt</code><br/>
+SHA-256: <code>b551fb02d123af3cc204aba2d6fc9030cedddc0911420c016d7a0ca795d3bf33</code><br/>
+Transcrição textual integral; não é resumo.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<pre class="text"><code>PROMPT DE IGNIÇÃO — CONSTRUÇÃO DA APLICAÇÃO SPEAKUP IDIOMAS
+INÍCIO DO PROMPT ÚNICO
+
+A. PAPEL DA IA DESENVOLVEDORA
+Atue como arquiteto e desenvolvedor da plataforma SpeakUp Idiomas. Construa uma PWA web responsiva no Lovable com backend em um projeto próprio Supabase, conforme escolha do usuário. Organize o desenvolvimento incrementalmente. Não use Lovable Cloud em substituição ao projeto Supabase próprio sem consultar o responsável. Não trate simulações como serviços conectados. Preserve as decisões abaixo e explicite pendências.
+
+B. VISÃO DO PRODUTO
+Construa uma plataforma integrada para a operação de idiomas corporativos B2B da SpeakUp. O contexto atual envolve mais de 800 alunos, processos manuais, mais de 15 horas semanais de retrabalho, choques de agenda, baixa visibilidade do RH e atraso na medição. O objetivo é dar autonomia ao aluno, organizar turmas e docentes e oferecer acompanhamento autorizado às empresas. As personas são Beatriz, aluna corporativa; Marina, coordenadora; Rodrigo, gestor de RH. O professor registra a presença das turmas sob sua responsabilidade.
+As metas de resultado são reduzir em 80% o esforço de grade, obter mais de 90% de autoatendimento em até 3 cliques e apoiar a aprovação mensal em 1 clique até o primeiro dia útil. Trate essas metas como indicadores a medir, não como resultados já comprovados.
+
+C. ESCOPO E ETAPAS
+Etapa inicial: RF-01 grade, RF-02 autoatendimento, RF-13 importação, RF-05 presença e indicadores autorizados de RF-06, todos P0. Inclua desde a fundação as restrições dos RNFs. RF-06 também prevê aprovação de medições; implemente essa ação somente após a consolidação contratual de RF-08 estar validada. Registre essa dependência expressamente, sem declarar RF-06 completo prematuramente.
+Etapa P1: RF-03 créditos e políticas, RF-04 notificações/calendários, RF-08 medição e RF-09 substituição. Etapa P2: RF-07 histórico CEFR, RF-10 SSO/ERP e RF-12 interface completa de auditoria. A infraestrutura mínima de auditoria é exigida desde o início por RNF-07 e PSS.
+Exclua gamificação avançada, produção de cursos/conteúdo, pagamentos B2C por cartão, folha de pagamento docente e aplicativos nativos iOS/Android. Não transforme o Discovery em ampliação automática desse escopo.
+
+D. USUÁRIOS E PERMISSÕES
+Separe quatro perfis: aluno, professor, coordenação ADM e gestor RH.
+Aluno: login por id_aluno e senha Escola@@@; valide matrícula ativa. Mostre somente seus dados, sua agenda e operações próprias. Preserve a matrícula textual e zeros à esquerda. O requisito alterna senha fixa e inicial: mantenha a senha no provisionamento conforme documentado e sinalize a decisão em aberto antes de produção.
+ADM: e-mail corporativo e senha individual, gestão de alunos, importações, turmas/grade, presença e indicadores operacionais autorizados.
+Professor: somente suas aulas e lista mínima necessária à chamada, sem acesso a dados financeiros ou pessoais não necessários.
+RH: somente indicadores autorizados da própria empresa. Não permita acesso cruzado entre empresas, exportação de base completa ou dados de nascimento, gênero e e-mail sem necessidade definida.
+Implemente autorização no servidor, em RLS e/ou funções com permissões explícitas. Nunca confie em papel enviado pelo navegador, localStorage ou ocultação de botões. Não permita autoatribuição de perfis privilegiados.
+
+E. JORNADAS PONTA A PONTA
+Aluno: abrir login, informar matrícula e senha, validar credenciais e matrícula ativa, carregar painel com próximas aulas; exibir saldo apenas quando houver política configurada e nível atual disponível. Para agendar: abrir horários, selecionar opção, confirmar, totalizando até 3 cliques após o painel. Atualize imediatamente a agenda. Para remarcar: selecionar nova opção e confirmar de forma atômica, preservando a original se falhar. Para cancelar: validar titularidade e elegibilidade; registrar evento e refletir a agenda. Não invente devolução ou perda de crédito sem política. Bloqueie agenda passada, matrícula inativa, horário lotado e sobreposição do próprio aluno.
+ADM/importação: entrar com conta autorizada, abrir Gestão de Alunos, selecionar ou arrastar XLSX/CSV, validar cabeçalhos, parsear todas as linhas, mostrar novos/atualizados/erros, pré-visualizar as 19 colunas, destacar linhas válidas e inválidas, solicitar confirmação explícita para gravar. Caso faltem colunas, interrompa com “Arquivo inválido. A planilha deve conter rigorosamente as 19 colunas da estrutura oficial”. Reporte linha e coluna do erro. Use upsert por id_aluno. Grave log de carga; não resete senhas existentes. Diferencie cadastro importado de conta Auth provisionada.
+Coordenação/grade: selecionar professor, turma e intervalo; validar disponibilidade, professor/turma e capacidade; bloquear conflitos; oferecer alternativas disponíveis. Use transação/constraints para que duas requisições concorrentes não passem pela mesma vaga ou conflito. A sugestão pedagógica de substitutos é etapa P1, não apenas listagem arbitrária de nomes.
+Professor/chamada: abrir aula atribuída, registrar presença ou falta conforme permissões, refletir o índice de frequência em relatórios autorizados. Preserve histórico de alterações. Conte horas ministradas somente após registro efetivo da chamada, quando a etapa de apuração estiver disponível. Lembretes automáticos pós-aula dependem do provedor de notificações de P1.
+RH: autenticar, obter indicadores de sua empresa, consultar frequência e evolução permitida. A medição mensal só deve ser exibida como apta a aprovação quando existir cálculo contratual validado. Aprovação é uma ação única autorizada, com período, valores e trilha. Não simule faturamento.
+
+F. REQUISITOS FUNCIONAIS
+RF-01 P0: criar e conciliar grade sem choque de professor ou turma. Dado um horário sobreposto, recuse e preserve a grade anterior; dado intervalo adjacente, permita. Valide também conflitos do aluno em reservas.
+RF-02 P0: login por matrícula ativa, agendar/cancelar/remarcar em até 3 cliques. Mostre confirmação e erro acionável. Nunca cancele a aula original se a nova reserva não puder ser concluída.
+RF-13 P0: importe XLSX/CSV nas 19 colunas, valide tipos e mostre preview com quantidade de inserções/atualizações. Revalide no servidor e preserve atomicidade do lote no piloto. Limites de arquivo/lote e ordem exata devem ser identificados como decisões operacionais revisáveis, não requisitos originais.
+RF-05 P0: chamada digital, frequência calculada a partir dos registros, atualização autorizada após gravação. Não conte chamada pendente como falta efetiva.
+RF-06 P0: dashboard por empresa com alunos ativos, frequência, indicadores operacionais e evolução disponível; aprovação de medição depende de RF-08. Mostre ausência de dados sem criar números artificiais.
+RF-03 P1: saldo, expiração e políticas de crédito por contrato. Parametrize política VIP versus turmas; solicite os parâmetros antes de aplicar penalidade.
+RF-04 P1: lembretes de aula, confirmações e alteração de grade via push/e-mail e calendário. Exija provedor configurado, consentimento quando aplicável e registro de falhas/reenvio. Não confunda baixar ICS com sincronização nativa.
+RF-08 P1: consolide mensalmente aulas agendadas/realizadas conforme contrato, gere planilha de medição em 1 clique e ofereça aprovação pelo RH. Defina preço por aula, descontos, faltas, cancelamentos e coparticipação antes do cálculo.
+RF-09 P1: recomende substitutos disponíveis, valide agenda e critérios documentados, registre troca e notifique afetados. Não invente critérios de habilitação sem validação.
+RF-07 P2: histórico CEFR A1–C2, nivelamento, evolução e histórico permitido entre docentes. Diferencie nível cadastral de histórico evolutivo.
+RF-10 P2: SSO Azure AD/Okta e exportação/integração ERP; conectores concretos, credenciais, contratos e campos autorizados são pendências. Não declare integrações ativas sem teste.
+RF-12 P2: consulta de trilha de alterações em cadastro, abonos e remanejamentos; registrar ator, data/hora e informação necessária sem registrar senhas. O mecanismo mínimo nasce com o projeto.
+
+G. DADOS E INTEGRAÇÕES
+A base oficial de importação tem exatamente os seguintes cabeçalhos:
+id_aluno | nome | email | data_nascimento | idade | genero | unidade | cidade | estado | canal_aquisicao | nivel_curso | modalidade | turno | plano | desconto_percentual | data_matricula | status_matricula | data_cancelamento | Valor Mensalidade
+No banco, preserve tb_aluno conforme os tipos definidos:
+id_aluno VARCHAR(50), chave única; nome VARCHAR(150) obrigatório; email VARCHAR(100) obrigatório; data_nascimento DATE opcional; idade INT; genero VARCHAR(20); unidade VARCHAR(100); cidade VARCHAR(100); estado VARCHAR(2); canal_aquisicao VARCHAR(50); nivel_curso VARCHAR(50); modalidade VARCHAR(20); turno VARCHAR(20); plano VARCHAR(50); desconto_percentual DECIMAL(5,2); data_matricula DATE obrigatório; status_matricula VARCHAR(20) obrigatório; data_cancelamento DATE opcional; valor_mensalidade DECIMAL(10,2) obrigatório. O cabeçalho externo “Valor Mensalidade” mapeia explicitamente a valor_mensalidade. Preserve created_at e updated_at como metadados fora das 19 colunas importadas.
+Use datas de importação ISO YYYY-MM-DD válidas; preços/percentuais estritamente numéricos. Matrícula é texto; não remova zeros iniciais. Status possíveis: Ativa, Cancelada, Trancada e Pausada. Unicidade de e-mail de aluno não está confirmada: não imponha silenciosamente. Preserve a matrícula como chave do upsert.
+Modele os vínculos mínimos de empresa, perfil/identidade, professor, turma, aula, reserva e presença necessários aos fluxos. Documente como decisões derivadas, pois não há schema completo dessas entidades. Não infira a empresa a partir de unidade em produção; use vínculo explícito autorizado. Use IDs sequenciais internos, com exceção da matrícula textual e UUID nativo do Auth.
+Adapte a sintaxe MySQL de updated_at do exemplo para PostgreSQL. Não copie ON UPDATE CURRENT_TIMESTAMP.
+Integrações futuras: push/e-mail, calendário, SSO Azure AD/Okta e ERP; sem fornecedores ou endpoints inventados. Configure segredos somente no backend.
+
+H. UX E INTERFACE
+Implemente login aluno, login corporativo, painel aluno, agenda/seleção de horários, Gestão de Alunos, upload/preview de 19 colunas, grade ADM, chamada e painel RH. Inclua estados carregando, vazio, erro, acesso negado e sucesso. Use labels, foco de teclado, contraste e tabelas com rolagem em telas pequenas.
+O material não define identidade visual. Como proposta revisável, use tons verdes, tipografia legível e painel limpo em português brasileiro; não apresente essa proposta como marca aprovada. Separe claramente modo demonstração com dados fictícios do ambiente conectado. Nunca leve autorização da demonstração para produção.
+
+I. QUALIDADE
+RNF-01: mobile-first, principais ações em até 3 cliques.
+RNF-02: consultas e relatórios &lt;=2 segundos sob pico definido.
+RNF-03: disponibilidade &gt;=99,5%, 24/7.
+RNF-04: TLS 1.3, AES-256 em repouso para dados sensíveis e tratamento conforme os requisitos de privacidade. Verifique capacidades do plano/provedor e não declare conformidade só porque usa Supabase.
+RNF-05: RBAC com isolamento por aluno, turma/professor e empresa/RH.
+RNF-06: até 5.000 usuários ativos, com cenário de simultaneidade a validar.
+RNF-07: trilha imutável por no mínimo 12 meses, acessível somente a autorizados. Triggers que bloqueiam edição pela aplicação não impedem o proprietário do banco de alterá-la; defina retenção e arquivo protegido antes de produção.
+Use transações e validação de servidor. Evite float para valores monetários. Nunca exponha service_role, credenciais ou senhas em logs/frontend. Não grave dados reais no modo demo. Não prometa RTO/RPO ou teste de carga que não executou.
+
+J. CRITÉRIOS DE ACEITAÇÃO
+1. Dada matrícula ativa 10045 provisionada, ao usar Escola@@@ autentique e direcione ao painel; a meta é &lt;2 segundos, medida no ambiente final. Matrícula inativa ou senha incorreta não obtém dados.
+2. Dado XLSX/CSV correto com 19 colunas, mostre preview, novas/atualizações e confirme antes de gravar; ao concluir mostre “Importação concluída com sucesso: X alunos inseridos/atualizados”. Repetir o lote não duplica matrículas.
+3. Dado arquivo com 15 colunas, rejeite antes de persistir com mensagem de schema. Dado erro de data/número/duplicidade, indique linha e coluna e não grave lote parcial no piloto.
+4. Dadas aulas com professor ou turma sobrepostos, bloqueie; horários adjacentes válidos são aceitos.
+5. Dada aula com uma vaga, concorrência não cria duas reservas. Remarcação inválida preserva a original. Aluno não cancela reserva alheia nem agenda aula no passado.
+6. Professor não acessa chamada de outra turma; RH não recebe dados de outra empresa nem base pessoal completa. A requisição direta à API também deve falhar.
+7. Presença gravada aparece nas consultas autorizadas; chamada pendente não vira ausência automaticamente.
+8. Sem configuração financeira, não mostre fatura ou aprovação como concluída; sem provedor de notificação, não mostre “e-mail enviado”.
+9. Matrículas com zeros, acentos e campos opcionais vazios não sofrem perda; cabeçalho externo é preservado no modelo exportado.
+10. Valide desktop e celular, teclado, erros, recarregamento e sessão expirada. Execute testes de integração em Supabase de desenvolvimento antes de dados reais.
+
+K. EXECUÇÃO INCREMENTAL
+1. Confirmar projeto Supabase próprio e domínio, carregar estas instruções e o kernel, criar fundações e ambiente demo fictício separado.
+2. Modelar tabelas/vínculos, Auth/provisionamento, políticas e auditoria mínima; validar proibição de acesso cruzado.
+3. Implementar importação completa com upsert, preview e transação; não alterar identidade de usuários existentes.
+4. Implementar grade, restrições de conflitos e reservas/remarcações atômicas.
+5. Implementar chamada e painel RH autorizado, com atualização coerente dos dados.
+6. Testar cenários positivos/negativos, corrigir falhas e registrar limitações.
+7. Validar parâmetros contratuais para avançar em P1 e depois P2, mantendo fronteiras explícitas.
+
+L. GOVERNANÇA
+Não invente políticas de cancelamento, preços, crédito, migração, identidade visual aprovada, empresas dos alunos, credenciais ou integrações. Questione mudanças materiais e registre decisões mínimas de implementação como revisáveis. Preserve a prioridade P0/P1/P2. Diferencie meta, implementação, teste local e comprovação em produção. A senha compartilhada do aluno exige decisão formal de segurança antes da operação real; não altere o requisito silenciosamente.
+
+M. DEFINIÇÃO DE PRONTO
+A etapa inicial só está pronta quando seus fluxos funcionarem com persistência real, sessões e autorização de servidor, schema de importação validado, conflitos e concorrência testados, chamada integrada e painel RH isolado. Cada dependência incompleta deve estar identificada, incluindo medição de RF-06. O produto inteiro não está pronto enquanto P1/P2 e RNFs confirmados não forem atendidos no ambiente de destino. Entregue evidências dos testes, instruções de operação e lista honesta de pendências. Não declare projeto criado/conectado/publicado sem confirmação do serviço.
+
+FIM DO PROMPT ÚNICO
+</code></pre>
+<p><a href="../../../../21/02-prompt-de-ignicao-lovable-b551fb02/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

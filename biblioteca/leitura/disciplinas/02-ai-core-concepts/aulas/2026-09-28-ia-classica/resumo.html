@@ -1,0 +1,1175 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>resumo_aula</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../../index.html">MBA · 4ABL</a><a href="../../../../../index.html">Biblioteca e busca</a><a href="../../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../../../disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md">Abrir fonte Markdown no Git</a></p><p id="referencia-indisponivel" class="meta">Algumas referências citam arquivos externos ou não disponíveis nesta biblioteca. O destino original permanece registrado no Markdown.</p><details><summary>Sumário do documento</summary><ul><li><a href="#sobre-a-disciplina-extraído-do-pdf-oficial-aula-1---ia-clássica-48-slides">Sobre a disciplina (extraído do PDF oficial: &quot;Aula 1 - IA Clássica&quot;, 48 slides)</a></li><li><a href="#parte-1-vieses-em-análise-de-dados">Parte 1: Vieses em Análise de Dados</a></li><li><a href="#1-viés-de-seleção">1. Viés de Seleção</a></li><li><a href="#2-viés-de-confirmação">2. Viés de Confirmação</a></li><li><a href="#3-viés-de-variável-omitida">3. Viés de Variável Omitida</a></li><li><a href="#parte-2-resistência-à-mudança-de-modelos">Parte 2: Resistência à Mudança de Modelos</a></li><li><a href="#4-tentativas-de-negar-a-mudança-de-modelos">4. Tentativas de negar a mudança de modelos</a></li><li><a href="#parte-3-desafios-e-riscos-da-ia">Parte 3: Desafios e Riscos da IA</a></li><li><a href="#5-enquete-poll-everywhere-os-3-desafios-mais-críticos-da-ia">5. Enquete (Poll Everywhere): os 3 desafios mais críticos da IA</a></li><li><a href="#6-caso-real-de-deepfake-fraude-de-us-25-milhões-cnn-brasil-04022024">6. Caso real de deepfake: fraude de US$ 25 milhões (CNN Brasil, 04/02/2024)</a></li><li><a href="#7-reconhecimento-facial-quando-o-viés-vira-dano-real">7. Reconhecimento facial: quando o viés vira dano real</a></li><li><a href="#8-esta-pessoa-não-existe-rostos-gerados-por-ia">8. &quot;Esta Pessoa Não Existe&quot;: rostos gerados por IA</a></li><li><a href="#apêndice-gans-redes-adversariais-generativas">Apêndice: GANs (Redes Adversariais Generativas)</a></li><li><a href="#9-arquitetura-de-uma-gan">9. Arquitetura de uma GAN</a></li><li><a href="#parte-4-máquinas-pensam-linguagem-humana">Parte 4: Máquinas Pensam? Linguagem Humana</a></li><li><a href="#10-máquinas-são-capazes-de-pensar-elas-compreendem-a-linguagem-humana">10. &quot;Máquinas são capazes de pensar? Elas compreendem a linguagem humana?&quot;</a></li><li><a href="#11-teste-de-turing">11. Teste de Turing</a></li><li><a href="#12-caso-google-lamda-a-ia-tem-consciência-cnn-brasil--reuters-23072022">12. Caso Google LaMDA: &quot;a IA tem consciência&quot;? (CNN Brasil / Reuters, 23/07/2022)</a></li><li><a href="#parte-5-discussão-em-turma-antropomorfização-squads-híbridas-e-agentes">Parte 5: Discussão em Turma: Antropomorfização, Squads Híbridas e Agentes</a></li><li><a href="#antropomorfização-da-ia">Antropomorfização da IA</a></li><li><a href="#caso-dos-200-agentes-em-3-meses">Caso dos &quot;200 agentes em 3 meses&quot;</a></li><li><a href="#todo-mundo-precisa-saber-fazer-ia-aline">Todo mundo precisa saber fazer IA? (Aline)</a></li><li><a href="#a-ia-é-um-tsunami-peter">&quot;A IA é um tsunami&quot; (Peter)</a></li><li><a href="#hype-e-o-custo-humano">Hype e o custo humano</a></li><li><a href="#parte-6-riscos-cognitivos">Parte 6: Riscos Cognitivos</a></li><li><a href="#13-uso-de-ia-reduz-o-aprendizado-e-o-pensamento-crítico">13. &quot;Uso de IA reduz o aprendizado e o pensamento crítico&quot;</a></li><li><a href="#parte-7-inteligência-artificial-clássica">Parte 7: Inteligência Artificial Clássica</a></li><li><a href="#15-rede-neural-é-coisa-séria-quick-draw-rápido-desenhe">15. &quot;Rede Neural é coisa séria?!&quot;: Quick, Draw! (Rápido, Desenhe!)</a></li><li><a href="#16-programação-tradicional--aprendizado-de-máquina">16. Programação Tradicional × Aprendizado de Máquina</a></li><li><a href="#17-aprendizado-supervisionado-com-imagens-lobeai">17. Aprendizado Supervisionado com Imagens: lobe.ai</a></li><li><a href="#17b-yolo-o-estado-da-arte-em-visão-computacional-vídeo-mostrado-pela-professora-sem-slide">17b. YOLO: o estado da arte em visão computacional (vídeo mostrado pela professora, sem slide)</a></li><li><a href="#18-tipos-de-machine-learning">18. Tipos de Machine Learning</a></li><li><a href="#19-supervisionado-classificação--não-supervisionado-clusterização">19. Supervisionado (Classificação) × Não Supervisionado (Clusterização)</a></li><li><a href="#20-aprendizado-por-reforço-mario">20. Aprendizado por Reforço: MarI/O</a></li><li><a href="#21-mapa-do-machine-learning-datageeks">21. Mapa do Machine Learning (DATAGEEKS)</a></li><li><a href="#encerramento-da-1ª-parte-da-aula">Encerramento da 1ª parte da aula</a></li><li><a href="#parte-8-hands-on-correlação-estatística">Parte 8: Hands On: Correlação Estatística</a></li><li><a href="#enunciado-slide-vamos-aplicar">Enunciado (slide &quot;Vamos Aplicar?&quot;)</a></li><li><a href="#contexto-professora">Contexto (professora)</a></li><li><a href="#abacus-conceito-chave-correlação-de-pearson-r">🧮 Conceito-chave: Correlação de Pearson (r)</a></li><li><a href="#exemplos-da-professora">Exemplos da professora</a></li><li><a href="#como-apresentar-gráfico-de-dispersão-não-a-matriz">Como apresentar: gráfico de dispersão (não a matriz)</a></li><li><a href="#exemplo-resolvido-em-aula-case-de-trade-marketing-red-bull">Exemplo resolvido em aula: case de Trade Marketing (Red Bull)</a></li><li><a href="#notebook-o-que-é-o-caderno-de-hipóteses-professora">📓 O que é o Caderno de Hipóteses (professora)</a></li><li><a href="#pencil-caderno-de-hipóteses-montado-em-aula-print-do-excel">📝 Caderno de hipóteses montado em aula (print do Excel)</a></li><li><a href="#bar_chart-antes-da-correlação-estatística-descritiva">📊 Antes da correlação: estatística descritiva</a></li><li><a href="#robot-de-estatística-a-machine-learning-regressão-linear">🤖 De estatística a Machine Learning: regressão linear</a></li><li><a href="#white_check_mark-exemplo-resolvido-completo-base-captura_tabuladoxlsx-50-capturas">✅ Exemplo resolvido completo (base Captura_tabulado.xlsx, 50 capturas)</a></li><li><a href="#pushpin-regras-da-entrega-professora-2207">📌 Regras da entrega (professora, 22:07)</a></li><li><a href="#pushpin-orientação-etapa-por-etapa-do-template-professora-2212">📌 Orientação etapa por etapa do template (professora, 22:12)</a></li><li><a href="#como-fazer-roteiro">Como fazer (roteiro)</a></li><li><a href="#encerramento-e-logística-2217">Encerramento e logística (22:17)</a></li><li><a href="#white_check_mark-checklist-pós-aula">✅ Checklist pós-aula</a></li><li><a href="#próxima-aula">Próxima aula</a></li></ul></details><h1 id="ai-core-concepts-resumo-da-aula-28092026">AI Core Concepts: Resumo da Aula (28/09/2026)</h1>
+<blockquote>
+<p>Documento vivo, atualizado durante a aula com os slides e a transcrição. Transcrição completa: <a href="../../../../biblioteca/02/transcricao-completa-31d6ef8e/conteudo.html">transcricao_completa.md</a> · Slides: <a href="#referencia-indisponivel">prints da aula</a></p>
+</blockquote>
+<hr/>
+<h2 id="sobre-a-disciplina-extraído-do-pdf-oficial-aula-1---ia-clássica-48-slides">Sobre a disciplina <em>(extraído do PDF oficial: "Aula 1 - IA Clássica", 48 slides)</em></h2>
+<p><strong>Professora:</strong> Tassiana Rugoni de Campos. Coordenadora de MBA na FIAP, consultora de dados e professora há cerca de 20 anos, ex-Head of Data &amp; Analytics na triggo.ai. <a href="https://www.linkedin.com/in/tassianarugoni">LinkedIn</a> · <a href="mailto:proftassiana.campos@fiap.com.br">proftassiana.campos@fiap.com.br</a></p>
+<p><strong>Objetivos da disciplina:</strong></p>
+<ul>
+<li>Aperfeiçoar os conhecimentos sobre ambientes analíticos apoiados por IA.</li>
+<li>Conhecer casos de uso cujas oportunidades de negócio foram impulsionadas pelas IAs clássicas e generativas.</li>
+<li>Compreender os componentes arquiteturais que viabilizam soluções com <strong>LLMs, NLP e IAGen</strong>.</li>
+<li>Aplicar LLMs em bases de dados curadas para resolver problemas de negócio.</li>
+</ul>
+<p><strong>Conteúdo programático:</strong></p>
+<ol type="1">
+<li>O cenário atual de IA (compreensão do mercado)</li>
+<li>Tipos de aprendizado e soluções low-code</li>
+<li>NLP, LLM e IA Generativa</li>
+<li>Tokenização, embeddings, chunks e bancos de dados vetoriais</li>
+<li><strong>RAG</strong> (chats especialistas) e <strong>GraphRAG</strong> (agentes de IA)</li>
+<li>Governança, vieses e aspectos éticos</li>
+</ol>
+<p><strong>Metodologia:</strong> aula expositiva, debates e <strong>Hands On</strong> de soluções IAGen. <strong>Avaliação:</strong> exercícios práticos durante as aulas.</p>
+<p><strong>Referências:</strong> LangChain (Introduction, LangGraph), Azure (RAG no AI Search), Foreman (<em>Data Smart</em>), Barbieri (<em>Governança de Dados</em>), Russell &amp; Norvig (<em>IA: Uma Abordagem Moderna</em>), Géron (<em>Hands-On ML</em>), Chip Huyen (<em>Designing ML Systems</em>), <em>Practical MLOps</em>, entre outros. Todos estão em learning.oreilly.com.</p>
+<p><strong>Objetivos desta aula:</strong> conhecer a IA clássica, entender os tipos de ML, discutir casos e vieses e <strong>aplicar a IA clássica por meio da correlação estatística</strong>.</p>
+<hr/>
+<h2 id="parte-1-vieses-em-análise-de-dados">Parte 1: Vieses em Análise de Dados</h2>
+<h3 id="1-viés-de-seleção">1. Viés de Seleção</h3>
+<p><strong>Slide:</strong> 9 pessoas (3 mulheres e 6 homens) e sua fruta preferida. O quadrado vermelho seleciona só as 3 mulheres.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Uva</th>
+<th>Banana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amostra (só mulheres)</td>
+<td>2 (67%)</td>
+<td>1 (33%)</td>
+</tr>
+<tr>
+<td>População (9 pessoas)</td>
+<td>3 (33%)</td>
+<td>6 (67%)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Definição:</strong> a amostra não representa a população porque o critério de escolha distorce o resultado.</li>
+<li><strong>Lição:</strong> a conclusão se <strong>inverte</strong>, com "preferem uva" na amostra e "preferem banana" na realidade. Aumentar a amostra do mesmo jeito não resolve.</li>
+<li><strong>Em IA:</strong> modelos treinados com dados enviesados reproduzem e ampliam o viés (crédito, reconhecimento facial, recrutamento).</li>
+<li><strong>Mitigação:</strong> amostragem aleatória ou estratificada, comparar a amostra com a população, documentar a origem dos dados e reponderar.</li>
+</ul>
+<h3 id="2-viés-de-confirmação">2. Viés de Confirmação</h3>
+<p><strong>Slide:</strong> diagrama de Venn com "O que dizem os fatos" e "O que confirma suas crenças".</p>
+<ul>
+<li>Fatos que <strong>não</strong> confirmam a crença → <strong>subvalorizados</strong></li>
+<li>Interseção (fatos que confirmam a crença) → <strong>sobrevalorizados</strong></li>
+<li>Crença sem apoio nos fatos → <strong>insensato</strong></li>
+</ul>
+<p><strong>Exemplo da professora:</strong> o analista mostra com dados que a hipótese do gestor não se sustenta. O gestor pede para "filtrar" (usar só dados a partir de 2025, tirar certas variáveis) até a hipótese parecer verdadeira. É uma dor comum, ligada a pressões políticas e à necessidade do gestor de provar valor.</p>
+<ul>
+<li><strong>Definição:</strong> buscar, filtrar ou interpretar dados para confirmar o que já se acredita.</li>
+<li><strong>Risco:</strong> <em>p-hacking</em> ou <em>cherry picking</em>, com decisões baseadas em evidência fabricada.</li>
+<li><strong>Mitigação:</strong> definir a hipótese e o recorte de dados <strong>antes</strong> da análise, registrar todas as análises feitas e ter revisão independente.</li>
+</ul>
+<h3 id="3-viés-de-variável-omitida">3. Viés de Variável Omitida</h3>
+<p><strong>Slide:</strong> study time → points (+). O <strong>QI</strong> (variável omitida) afeta o tempo de estudo (−) e a pontuação (+). <em>Fonte: estatsite.com.br/2020/11/11/tipos-de-vieses-em-analises-estatisticas/</em></p>
+<ul>
+<li><strong>Definição:</strong> uma variável relevante fica fora da análise e distorce a relação observada entre as outras.</li>
+<li><strong>No exemplo:</strong> quem tem QI mais alto estuda menos e pontua mais. Sem considerar o QI, o efeito do tempo de estudo sobre a nota é <strong>subestimado</strong> e pode até parecer negativo.</li>
+<li><strong>Em IA:</strong> o modelo atribui o efeito à variável errada (correlação espúria, <em>confounding</em>).</li>
+<li><strong>Mitigação:</strong> conhecer o domínio, mapear as variáveis causais (diagramas causais), incluir <em>confounders</em> e usar experimentos controlados (A/B).</li>
+<li><strong>Exemplo da professora (ITA):</strong> <em>"Estudar no ITA transforma o profissional em alguém de QI elevado?"</em> A variável omitida é o <strong>vestibular</strong>, que já é um <strong>filtro</strong>: quem entrou provavelmente já tinha QI elevado.</li>
+<li><strong>Ferramenta:</strong> existem modelos que calculam a <strong>importância de cada variável</strong> (<em>feature importance</em>), atribuindo um percentual a cada campo da base para <strong>não deixar nenhuma variável importante de fora</strong>.</li>
+</ul>
+<p><strong>Crenças limitantes (professora):</strong> <em>"Temos muita dificuldade de acomodar informações novas."</em></p>
+<ul>
+<li>Desvirar o chinelo, não passar embaixo de escada ("vai que…"). Essas não afetam nada.</li>
+<li>⚠️ <strong>Crença perigosa:</strong> "é preciso esperar <strong>48 horas</strong> para registrar o desaparecimento de uma pessoa". Na verdade, <strong>as primeiras horas são as mais estratégicas</strong>, e a chance de sucesso cai drasticamente com a espera.</li>
+<li><strong>Microsoft:</strong> foi na contramão do software livre e hoje <strong>financia o open source</strong>, porque a comunidade global lança soluções que nem big techs conseguem sozinhas. <em>"A Microsoft voltou atrás algumas vezes."</em></li>
+</ul>
+<hr/>
+<h2 id="parte-2-resistência-à-mudança-de-modelos">Parte 2: Resistência à Mudança de Modelos</h2>
+<h3 id="4-tentativas-de-negar-a-mudança-de-modelos">4. Tentativas de negar a mudança de modelos</h3>
+<table>
+<thead>
+<tr>
+<th>Quem</th>
+<th>Frase</th>
+<th>Contexto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Horace Rackham</strong>, CEO do Michigan Savings Bank</td>
+<td>"Cavalos sempre existirão, mas automóveis são um modismo e logo desaparecerão."</td>
+<td>Conselho ao advogado de Henry Ford para não investir na indústria automotiva (1903)</td>
+</tr>
+<tr>
+<td><strong>Decca Records</strong></td>
+<td>"Bandas com guitarristas estão acabando."</td>
+<td>Justificativa para recusar os Beatles (1962)</td>
+</tr>
+<tr>
+<td><strong>Steve Ballmer</strong>, CEO da Microsoft</td>
+<td>"Não existe nenhuma chance do iPhone conquistar um market share significativo no mercado."</td>
+<td>2007</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Mensagem:</strong> líderes experientes e bem-sucedidos subestimam rupturas tecnológicas porque avaliam o novo com os critérios do modelo antigo.</li>
+<li><strong>Ligação com a Parte 1:</strong> é o <strong>viés de confirmação</strong> aplicado à estratégia. Valorizamos os sinais de que o modelo atual continuará funcionando.</li>
+<li><strong>Para a liderança em IA:</strong> a pergunta a fazer é "o que precisa ser verdade para isso mudar nosso negócio?", e não "a IA vai pegar?".</li>
+</ul>
+<hr/>
+<h2 id="parte-3-desafios-e-riscos-da-ia">Parte 3: Desafios e Riscos da IA</h2>
+<h3 id="5-enquete-poll-everywhere-os-3-desafios-mais-críticos-da-ia">5. Enquete (Poll Everywhere): os 3 desafios mais críticos da IA</h3>
+<ol type="1">
+<li><strong>Legislação:</strong> falta de regulação e governança, ou regulação excessiva</li>
+<li><strong>IA Geral:</strong> IA assumindo o controle</li>
+<li><strong>Déficits cognitivos:</strong> IA reduzindo nosso aprendizado e pensamento crítico</li>
+<li><strong>Vieses, discriminação algorítmica e falta de transparência dos modelos</strong></li>
+<li><strong>Deepfake:</strong> crimes cibernéticos facilitados pela IA <em>(destacado no slide)</em></li>
+<li><strong>Obsolescência humana:</strong> substituição de humanos por máquinas</li>
+<li><strong>Hype:</strong> uso de IA como "bala de prata"</li>
+</ol>
+<p><strong>🏆 Resultado da turma (34 votos), top 3:</strong></p>
+<ol type="1">
+<li><strong>Déficits cognitivos</strong> (o 1º lugar coincidiu com o top 3 da professora)</li>
+<li><strong>Legislação:</strong> falta de regulação ou regulação excessiva. A professora também se preocupa com a regulação excessiva, <em>"escrita por quem não entende do tema, porque isso trava inovação"</em>.</li>
+<li><strong>Deepfake</strong></li>
+</ol>
+<blockquote>
+<p>💡 Meus 3 votos: ______</p>
+</blockquote>
+<h3 id="6-caso-real-de-deepfake-fraude-de-us-25-milhões-cnn-brasil-04022024">6. Caso real de deepfake: fraude de US$ 25 milhões (CNN Brasil, 04/02/2024)</h3>
+<p><strong>Manchete:</strong> "Funcionário de multinacional paga US$ 25 mi a golpista que usou 'deepfake' para simular reunião"</p>
+<ul>
+<li><strong>O que aconteceu:</strong> em Hong Kong, um funcionário do setor financeiro participou de uma videoconferência com o "CFO" e outros "colegas". <strong>Todos os participantes eram deepfakes</strong> (vídeo e voz gerados por IA). Seguindo as instruções, ele fez transferências que somaram cerca de US$ 25 milhões. Depois, a empresa foi identificada como a britânica Arup.</li>
+<li><strong>Por que funcionou:</strong> a desconfiança inicial (o pedido chegou por e-mail) foi vencida pela "prova visual" da reunião com rostos e vozes conhecidos. É engenharia social potencializada por IA.</li>
+<li><strong>Lições para a liderança:</strong>
+<ul>
+<li>Vídeo e voz <strong>deixaram de ser prova de identidade</strong>.</li>
+<li>Criar processos de verificação fora do canal (ligar de volta para um número conhecido, palavra-código, dupla aprovação para transferências).</li>
+<li>Treinar os funcionários, principalmente os de finanças e os executivos, que são os alvos preferenciais.</li>
+<li>Governança: limites de valor, segregação de funções e controles que não dependam do "chefe pediu".</li>
+</ul></li>
+</ul>
+<p><strong>O que a professora comentou:</strong></p>
+<ul>
+<li>Numa turma de MBA da PwC, os alunos reagiram: o deepfake foi o <strong>gatilho</strong>, mas não o único problema. <em>"Como é que você autoriza uma transação de 25 milhões de forma verbal numa reunião do Zoom?"</em> Movimentações financeiras passam por autorizações que vão além do verbal.</li>
+<li>Um colega levantou o peso da <strong>hierarquia</strong>: quem foi clonado era um executivo sênior, e é difícil questionar "o chefe".</li>
+<li><strong>Conclusão:</strong> a falha foi <strong>tecnológica (deepfake) e de processo e governança</strong> ao mesmo tempo.</li>
+</ul>
+<h3 id="7-reconhecimento-facial-quando-o-viés-vira-dano-real">7. Reconhecimento facial: quando o viés vira dano real</h3>
+<p><strong>Slide:</strong> imagem de mapeamento facial ("PROCESSING") e manchete da StartSe (08/07/2019): "Reconhecimento facial utilizado pela polícia inglesa falha em 81% dos casos".</p>
+<ul>
+<li><strong>O caso:</strong> um estudo independente da Universidade de Essex analisou os testes de reconhecimento facial ao vivo da Polícia Metropolitana de Londres. Das 42 pessoas que o sistema apontou como procuradas, só 8 foram confirmadas como corretas. Ou seja, cerca de <strong>81% dos alertas eram falsos positivos</strong>.</li>
+<li><strong>Por que acontece:</strong>
+<ul>
+<li><strong>Viés de seleção nos dados de treino:</strong> bases pouco diversas fazem os erros se concentrarem em mulheres, pessoas negras e outros grupos pouco representados.</li>
+<li>Condições reais (luz, ângulo, multidão) são diferentes das do laboratório.</li>
+<li>Listas de "procurados" desatualizadas.</li>
+</ul></li>
+<li><strong>Impacto:</strong> pessoas inocentes abordadas pela polícia. É <strong>discriminação algorítmica</strong> (item 4 da enquete) com consequência direta sobre direitos civis.</li>
+<li><strong>Lições para a liderança:</strong>
+<ul>
+<li>Acurácia de laboratório ≠ desempenho em produção. Meça falsos positivos e falsos negativos <strong>por grupo</strong>.</li>
+<li>Em decisões de alto impacto, mantenha um <strong>humano no processo</strong> (<em>human-in-the-loop</em>).</li>
+<li>Transparência e auditoria independente antes de usar em escala. A regulação, como o AI Act europeu, trata esses sistemas como alto risco.</li>
+</ul></li>
+<li><strong>Ligação com a Parte 1:</strong> é o viés de seleção (dados) somado ao viés de confirmação (confiar no "match" da máquina).</li>
+</ul>
+<p><strong>O que a professora comentou:</strong></p>
+<ul>
+<li><strong>Resistência social:</strong> houve protestos no mundo todo quando o reconhecimento facial começou. Em <strong>Hong Kong</strong>, manifestantes usaram máscaras e óculos para não serem identificados. Hoje a tecnologia está mais "assentada", e São Paulo e várias cidades brasileiras já usam sistemas desse tipo.</li>
+<li>A polícia inglesa <strong>precisou tirar o sistema do ar</strong> (2019).</li>
+<li><strong>A "guerra estatística":</strong> em vez de divulgar os 81% de falhas, dá para divulgar só as taxas de falso positivo e de falso negativo e <strong>mascarar a informação</strong>. É o viés de confirmação de novo, agora na comunicação dos resultados.</li>
+</ul>
+<h4 id="abacus-conceito-chave-matriz-de-confusão">🧮 Conceito-chave: Matriz de Confusão</h4>
+<p>Além dos acertos, olhamos os <strong>tipos de erro</strong>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Realmente procurado</th>
+<th>Realmente inocente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sistema diz "é procurado"</strong></td>
+<td>✅ Verdadeiro Positivo</td>
+<td>❌ <strong>Falso Positivo</strong></td>
+</tr>
+<tr>
+<td><strong>Sistema diz "não é"</strong></td>
+<td>❌ <strong>Falso Negativo</strong></td>
+<td>✅ Verdadeiro Negativo</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Falso positivo</strong> = um inocente tratado como criminoso.</li>
+<li><strong>Falso negativo</strong> = um procurado que passa sem ser detectado.</li>
+</ul>
+<p><strong>Debate da turma: qual erro é pior?</strong> A maioria respondeu <em>falso positivo</em>. O Otávio lembrou que <strong>"depende do contexto"</strong>. Aqui, o falso positivo era o grande problema do modelo: inocentes eram abordados a todo instante na rotina, o que gerou revolta. <strong>Complemento da professora:</strong></p>
+<ul>
+<li><em>Do ponto de vista da segurança pública, o falso negativo é assustador</em> (um bandido passar). Mas, para a população em geral, ser inocente e acusado a todo instante também é muito grave.</li>
+<li>Pode ter havido <strong>outras features que estereotipavam</strong> pessoas com certas características. Isso não foi divulgado.</li>
+<li><strong>Métricas:</strong> para decidir se um modelo "vai para o ar", é preciso um <strong>painel completo de métricas</strong> (acurácia, precisão, FP, FN…), e não um número isolado escolhido a dedo.</li>
+<li><strong>Ataques adversariais (comentário do Júlio no chat):</strong> um designer de moda criou uma <strong>estampa de camiseta que deixa a pessoa "invisível"</strong> para o algoritmo de reconhecimento. Antes, até uma posição específica da mão enganava o modelo. Os modelos melhoram, mas <strong>ainda existem essas brechas</strong>.</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Para líderes:</strong> a escolha entre minimizar FP ou FN é uma <strong>decisão de negócio e de ética</strong>, não só técnica. Num diagnóstico de câncer, o FN (não detectar a doença) costuma ser pior. Numa abordagem policial, o FP (acusar um inocente) costuma ser pior.</p>
+</blockquote>
+<h3 id="8-esta-pessoa-não-existe-rostos-gerados-por-ia">8. "Esta Pessoa Não Existe": rostos gerados por IA</h3>
+<p><strong>Slide:</strong> site <a href="https://this-person-does-not-exist.com/pt">this-person-does-not-exist.com/pt</a>, um gerador de faces aleatórias. A cada clique aparece o rosto realista de alguém que <strong>não existe</strong> (homem, mulher ou criança).</p>
+<ul>
+<li><strong>Tecnologia:</strong> <strong>GANs</strong> (<em>Generative Adversarial Networks</em>), em especial o StyleGAN da NVIDIA. Duas redes competem: o <strong>gerador</strong> cria imagens falsas e o <strong>discriminador</strong> tenta distinguir as falsas das reais. Com o treino, o gerador fica tão bom que o discriminador (e o olho humano) não conseguem mais diferenciar.</li>
+<li><strong>Usos legítimos:</strong> fotos de banco de imagens sem direitos de imagem, personagens de jogos, dados sintéticos para treinar modelos preservando a privacidade.</li>
+<li><strong>Riscos:</strong> perfis falsos em redes sociais e no LinkedIn, golpes de romance, bots e desinformação, fraude de identidade (KYC). É a base técnica dos <strong>deepfakes</strong> (item 6).</li>
+<li><strong>Sinais de rosto gerado (cada vez mais raros):</strong> fundo distorcido, brincos assimétricos, dentes e cabelo irregulares, pessoas "cortadas" nas bordas (como a figura à direita no slide).</li>
+<li><strong>Lição:</strong> assim como vídeo e voz, <strong>uma foto não prova mais que a pessoa existe</strong>.</li>
+</ul>
+<hr/>
+<h2 id="apêndice-gans-redes-adversariais-generativas">Apêndice: GANs (Redes Adversariais Generativas)</h2>
+<h3 id="9-arquitetura-de-uma-gan">9. Arquitetura de uma GAN</h3>
+<p><em>Fonte: medium.com/@marcodelpra/generative-adversarial-networks-dba10e1b4424</em></p>
+<pre><code>                 ┌──────── Atualiza o Gerador ◄─────────────┐
+                 ▼                                          │
+[Vetor aleatório] → [GERADOR] → [Exemplo falso] ─┐          │
+                                                 ├→ [DISCRIMINADOR] → [Classificação: Real/Falso]
+                            [Exemplo real] ──────┘         ▲                  │
+                                                           └── Atualiza o ◄───┘
+                                                               Discriminador</code></pre>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Papel</th>
+<th>Analogia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vetor de entrada aleatório</strong> (<em>random input vector</em>)</td>
+<td>"Semente" de ruído. Cada vetor diferente gera uma imagem diferente</td>
+<td>A inspiração do falsificador</td>
+</tr>
+<tr>
+<td><strong>Gerador</strong> (<em>Generator Model</em>)</td>
+<td>Transforma o ruído num exemplo falso (ex.: um rosto)</td>
+<td><strong>Falsificador</strong> de notas</td>
+</tr>
+<tr>
+<td><strong>Exemplo real</strong> (<em>Real Example</em>)</td>
+<td>Amostras verdadeiras do conjunto de treino</td>
+<td>Notas verdadeiras</td>
+</tr>
+<tr>
+<td><strong>Discriminador</strong> (<em>Discriminator Model</em>)</td>
+<td>Recebe exemplos reais e falsos e tenta distinguir um do outro</td>
+<td><strong>Perito / polícia</strong></td>
+</tr>
+<tr>
+<td><strong>Classificação binária</strong> (Real/Falso)</td>
+<td>Saída do discriminador, usada para calcular o erro dos dois</td>
+<td>O veredito do perito</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Como o treinamento funciona (o "jogo adversarial"):</strong></p>
+<ol type="1">
+<li>O gerador cria falsos a partir de ruído.</li>
+<li>O discriminador classifica os reais e os falsos. Quando erra, <strong>ele é atualizado</strong> (seta de baixo) para ficar mais exigente.</li>
+<li>Quando o discriminador pega o falso, <strong>o gerador é atualizado</strong> (seta de cima) para enganar melhor.</li>
+<li>O ciclo se repete até o equilíbrio: o discriminador <strong>não consegue mais distinguir</strong> e fica em cerca de 50%, como no chute. Nesse ponto o gerador produz exemplos indistinguíveis dos reais, como no site "Esta Pessoa Não Existe".</li>
+</ol>
+<p><strong>Como a professora explicou:</strong></p>
+<ul>
+<li>Mostrou o site ao vivo. <strong>No começo, as imagens tinham falhas</strong> (orelha deslocada, cabelo "recortado"). Hoje parecem cada vez mais reais, e o site até tem <strong>filtros</strong> para escolher características.</li>
+<li>São <strong>dois modelos de deep learning</strong> (aprendizado profundo). Para <strong>dados não estruturados</strong> (imagem, áudio, vídeo) usamos algoritmos mais complexos, como o deep learning.</li>
+<li>O discriminador é um <strong>classificador binário</strong>: 0 ou 1, real ou fake.</li>
+<li><em>"O modelo só é considerado bom se o discriminador erra pelo menos 50% das vezes"</em>, ou seja, quando não consegue mais distinguir o real do falso.</li>
+<li>Lembrete histórico: fala-se de IA <strong>desde a década de 1950, com Turing, o pai da computação</strong>. Não é um assunto novo.</li>
+</ul>
+<p><strong>Pontos-chave para a prova e para o negócio:</strong></p>
+<ul>
+<li>Proposta de <strong>Ian Goodfellow (2014)</strong>. É aprendizado <strong>não supervisionado</strong>: não precisa de rótulos, só dos dados reais.</li>
+<li><strong>Aplicações:</strong> rostos sintéticos (StyleGAN), deepfakes, aumento de dados (<em>data augmentation</em>), super-resolução de imagens, arte e design, dados sintéticos para privacidade.</li>
+<li><strong>Evolução:</strong> hoje os <strong>modelos de difusão</strong> (Stable Diffusion, Midjourney, DALL·E) dominaram a geração de imagens, mas a lógica de "gerar e avaliar" continua central na IA generativa.</li>
+<li><strong>Ligação com a aula:</strong> a mesma técnica que cria dados sintéticos úteis cria os deepfakes do caso dos US$ 25 milhões. <strong>A tecnologia é neutra; o uso e a governança definem o impacto.</strong></li>
+</ul>
+<hr/>
+<h2 id="parte-4-máquinas-pensam-linguagem-humana">Parte 4: Máquinas Pensam? Linguagem Humana</h2>
+<h3 id="10-máquinas-são-capazes-de-pensar-elas-compreendem-a-linguagem-humana">10. "Máquinas são capazes de pensar? Elas compreendem a linguagem humana?"</h3>
+<p><strong>Slide:</strong> uma mão robótica e uma mão humana brindando com taças de vinho, uma metáfora da convivência entre humanos e máquinas.</p>
+<p><strong>Contexto para estudo:</strong></p>
+<ul>
+<li><strong>Alan Turing (1950)</strong>, no artigo <em>"Computing Machinery and Intelligence"</em>, trocou a pergunta "máquinas pensam?" por uma pergunta testável: <strong>o Jogo da Imitação (Teste de Turing)</strong>. Se um avaliador humano, conversando por texto, não consegue distinguir a máquina de um humano, a máquina "passa" no teste.</li>
+<li><strong>Contraponto: o Quarto Chinês de John Searle (1980).</strong> Uma pessoa que não fala chinês segue um manual de regras e devolve respostas perfeitas em chinês sem entender nada. É a diferença entre <strong>manipular símbolos (sintaxe)</strong> e <strong>compreender significado (semântica)</strong>.</li>
+<li><strong>LLMs hoje</strong> (ChatGPT, Claude, Gemini): geram linguagem prevendo o próximo <em>token</em> com base em padrões aprendidos de enormes volumes de texto. Eles <strong>passam em versões do Teste de Turing</strong>, mas o debate continua: há compreensão ou só uma imitação estatística muito sofisticada?</li>
+<li><strong>Ligação com a aula:</strong> assim como as GANs geram rostos que "parecem reais", os LLMs geram textos que "parecem compreensão". Imitar bem não é o mesmo que entender, e isso importa para confiança, alucinações e responsabilidade.</li>
+</ul>
+<p><strong>O que a professora comentou:</strong></p>
+<ul>
+<li><em>"Se até o modelo (o discriminador) está errando, quem dirá a gente."</em> Está cada vez mais difícil distinguir o fake do real, inclusive como pessoa física, com muitos golpes usando nossas imagens.</li>
+<li><strong>Dica prática:</strong> não deixe o entregador tirar foto do seu rosto "para confirmar a entrega".</li>
+<li><strong>"Somos uma bolha tech":</strong> muita gente não entende como a tecnologia funciona e está sendo enganada.</li>
+<li>A enquete teve 34 votos (o resultado será mostrado depois).</li>
+<li><strong>A turma respondeu à pergunta do slide com "sim" e "ainda não".</strong> <em>"Há 4 ou 5 anos os alunos achavam essa pergunta ridícula. Hoje já ouço alguns 'sims'."</em> Estamos ultrapassando fronteiras.</li>
+<li><strong>Discussão filosófica sobre a AGI:</strong> <em>"Se a gente começar a definir o que é pensar, talvez a pergunta não pareça tão absurda."</em></li>
+<li><strong>IA senciente e AGI já aparecem no Hype Cycle da Gartner.</strong> O debate passou a ser legítimo.</li>
+</ul>
+<h3 id="11-teste-de-turing">11. Teste de Turing</h3>
+<p><strong>Slide:</strong> o diagrama clássico e a tirinha <em>"Turing Test 2208"</em> (geek and poke).</p>
+<p><strong>Como funciona (diagrama):</strong></p>
+<pre><code>   A (máquina)        B (humano)
+   ─────────────────────────────  ← barreira: C não vê A nem B
+            C (interrogador)
+     "Quem é o humano? Quem é a máquina?"</code></pre>
+<ul>
+<li><strong>C</strong>, o avaliador humano, conversa <strong>só por texto</strong> com <strong>A</strong> (um computador) e <strong>B</strong> (uma pessoa), sem ver nenhum dos dois.</li>
+<li>A máquina tenta se passar por humana, e o humano tenta provar que é humano.</li>
+<li>Se C <strong>não consegue identificar</strong> com segurança qual é a máquina, ela <strong>passa no teste</strong>.</li>
+<li>Turing propôs o teste em 1950 como <em>"Jogo da Imitação"</em>. Ele evita definir o que é "pensar" e mede só o <strong>comportamento observável</strong>.</li>
+</ul>
+<p><strong>A tirinha "Turing Test 2208":</strong></p>
+<blockquote>
+<p>— Ontem eu fiz um Teste de Turing. — Interessante! Qual foi o resultado? — Eu falhei! A máquina percebeu na hora que era eu o humano burro. — <em>(robô)</em> Coragem!</p>
+</blockquote>
+<p><strong>Na fala da professora:</strong> para Turing, se alguém observando uma conversa <strong>não conseguisse distinguir quem é humano e quem é máquina</strong>, teríamos alcançado a inteligência de máquina (a professora associou isso à AGI). <em>"O teste de Turing já não serve mais pra nada. Com todo respeito ao Turing."</em></p>
+<p><strong>A ironia:</strong> no futuro, os papéis se invertem. Quem precisa "provar" alguma coisa é o humano, e a máquina é que avalia e reconhece o humano como o "menos inteligente".</p>
+<p><strong>Críticas e atualidade:</strong></p>
+<ul>
+<li>O teste mede <strong>imitação</strong>, não compreensão (veja o Quarto Chinês, item 10). Uma máquina pode enganar sem "pensar".</li>
+<li>Humanos são fáceis de enganar: o chatbot <strong>ELIZA (1966)</strong> já convencia algumas pessoas com regras simples.</li>
+<li><strong>LLMs modernos</strong> passam em versões do teste com frequência, o que fez o debate migrar de "a máquina parece humana?" para "a máquina é <strong>confiável, correta e segura</strong>?".</li>
+<li>Na prática, hoje fazemos o <strong>Teste de Turing ao contrário</strong> o tempo todo: os <strong>CAPTCHAs</strong> ("prove que você não é um robô") pedem que o humano prove que é humano, como na tirinha.</li>
+<li><strong>Para líderes:</strong> isso se conecta aos deepfakes (item 6). Se não conseguimos distinguir humano de máquina, precisamos de <strong>processos de verificação</strong>, transparência ("você está falando com uma IA") e regulação.</li>
+</ul>
+<h3 id="12-caso-google-lamda-a-ia-tem-consciência-cnn-brasil--reuters-23072022">12. Caso Google LaMDA: "a IA tem consciência"? (CNN Brasil / Reuters, 23/07/2022)</h3>
+<p><strong>Manchete:</strong> "Google demite engenheiro por dizer que inteligência artificial tinha consciência"</p>
+<ul>
+<li><strong>O caso:</strong> <strong>Blake Lemoine</strong>, engenheiro do Google que testava o chatbot <strong>LaMDA</strong> (<em>Language Model for Dialogue Applications</em>), disse ao <em>Washington Post</em> que o sistema teria alcançado <strong>consciência (senciência)</strong> depois de centenas de conversas. O LaMDA dizia ter sentimentos e medo de ser desligado.</li>
+<li><strong>Resposta do Google:</strong> negou a afirmação e disse que ela não tinha fundamento, depois de revisões internas. Lemoine foi afastado e depois <strong>demitido</strong> por violar políticas de confidencialidade (publicou as conversas).</li>
+<li><strong>Visão dominante dos especialistas:</strong> o LaMDA era um modelo de linguagem que <strong>previa as palavras mais prováveis</strong>, treinado com textos humanos, que estão cheios de falas sobre sentimentos. Ele <strong>imitava</strong> a linguagem da consciência sem evidência de tê-la.</li>
+<li><strong>Ligação com os itens 10 e 11:</strong> o LaMDA "passou" num Teste de Turing informal com um especialista, o que mostra o <strong>limite do teste</strong>. Parecer humano não prova que há pensamento ou consciência. É o Quarto Chinês na prática.</li>
+<li><strong>Efeito ELIZA / antropomorfização:</strong> tendemos a atribuir mente e emoções a sistemas que conversam bem. É mais um <strong>viés cognitivo</strong>, ligado à Parte 1.</li>
+<li><strong>Contexto:</strong> poucos meses depois (nov/2022) veio o <strong>ChatGPT</strong>, e esse debate chegou ao público em geral.</li>
+</ul>
+<p><strong>Na fala da professora:</strong> o engenheiro fez a declaração pública na primeira vez que viu o LLM do Google em ação e foi demitido, <em>"porque não tinha noção das complicações éticas da declaração"</em>. <em>"Me foi chocante, lembro como se fosse hoje."</em> Ela comentou que ainda não era o Gemini, mas uma versão anterior. (Para a prova: o nome era <strong>LaMDA</strong>.)</p>
+<p><strong>Lições para a liderança:</strong></p>
+<ul>
+<li><strong>Governança e comunicação:</strong> a empresa precisa de política clara sobre o que funcionários podem dizer e publicar sobre sistemas internos de IA.</li>
+<li><strong>Expectativas realistas:</strong> evitar o <em>hype</em> (item 7 da enquete) e o alarmismo. Os LLMs são ferramentas poderosas de linguagem, não seres conscientes.</li>
+<li><strong>Risco para usuários:</strong> pessoas podem criar vínculo emocional com chatbots ou confiar demais neles. Isso exige transparência e design responsável.</li>
+</ul>
+<hr/>
+<h2 id="parte-5-discussão-em-turma-antropomorfização-squads-híbridas-e-agentes">Parte 5: Discussão em Turma: Antropomorfização, Squads Híbridas e Agentes</h2>
+<h3 id="antropomorfização-da-ia">Antropomorfização da IA</h3>
+<p><strong>Definição:</strong> colocar a IA <strong>no mesmo patamar de um humano</strong> (dar nome, cargo, personalidade).</p>
+<p><strong>Caso do banco (cliente da professora):</strong> num treinamento de GenAI para times técnicos (agentes, orquestração, multiagentes), um agente se chamava <strong>"Analista Financeiro 1"</strong>. O banco exigiu <strong>refazer todo o material</strong>: <em>"sob hipótese alguma podemos chamar um agente de IA com o título de um cargo"</em>. O nome passou a ser algo como "agente auxiliar".</p>
+<ul>
+<li><strong>Não há gabarito.</strong> O mercado está dividido:
+<ul>
+<li><strong>A favor de nomes humanos:</strong> ajuda a criar uma cultura agêntica (como foi com o <em>data driven</em>), "quebra o gelo" e aproxima as pessoas.</li>
+<li><strong>Contra:</strong> é um erro ético grave. Se esquecermos que o agente é <strong>código que erra</strong>, vamos tirar o humano do loop e os guardrails.</li>
+</ul></li>
+<li><strong>Risco extremo:</strong> adolescentes que "se consultam" com IA, com casos de suicídio. Tratar a IA como humana tem implicações muito delicadas.</li>
+</ul>
+<p><strong>Contribuições da turma:</strong></p>
+<ul>
+<li><strong>Júlio:</strong> "Então qual nome usar?" Um nome que descaracterize o humano, como "agente auxiliar".</li>
+<li><strong>Colega:</strong> <em>"Humanos também erram."</em> A máquina tem cálculo probabilístico mais assertivo. O modelo ideal é o <strong>copiloto</strong>: o humano à frente e o agente trazendo informação para a decisão. A professora concordou que essa é a visão defendida no mercado.</li>
+<li><strong>Peter:</strong> o ponto central é a <strong>responsabilização</strong> (<em>accountability</em>). Quem responde pelo erro do agente?</li>
+</ul>
+<h3 id="caso-dos-200-agentes-em-3-meses">Caso dos "200 agentes em 3 meses"</h3>
+<ul>
+<li>Uma empresa pediu <strong>200 agentes em 3 meses</strong>, um "número mágico" sem fundamento.</li>
+<li>Resultado: <strong>200 PoCs, alguns MVPs e nenhum ROI comprovado</strong>.</li>
+<li>A empresa deu passos para trás e agora está fazendo <strong>letramento em IA e arquitetura</strong>, com visão clara de objetivos, <strong>guardrails</strong>, <strong>humano no loop</strong> e <strong>FinOps</strong> (custo de tokens que faça sentido).</li>
+<li><em>"Já passou a era da galera se gabando porque acabou com a cota de tokens do dia."</em> Agora a conversa é sobre <strong>ROI</strong>.</li>
+</ul>
+<h3 id="todo-mundo-precisa-saber-fazer-ia-aline">Todo mundo precisa saber fazer IA? (Aline)</h3>
+<ul>
+<li>Um presidente de empresa procurava um <strong>analista financeiro sênior para orquestrar dezenas de agentes de IA</strong> administrativo-financeiros. A pessoa precisaria ser especialista no negócio <strong>e</strong> em IA.</li>
+<li><strong>Pergunta:</strong> se todos os cargos tiverem que se aprofundar em IA, as pessoas <strong>vão perder o foco da sua especialidade</strong>? Todo mundo quer "fazer dentro de casa", e vira um "samba do crioulo doido".</li>
+<li><strong>Professora:</strong> talvez o caminho seja <strong>entender a IA para se posicionar e estabelecer limites</strong>. Usar <strong>copilotos e low-code</strong> para ter eficiência pessoal, mas <strong>grandes implementações corporativas continuam com times de desenvolvimento</strong>, que podem até ser terceirizados.</li>
+</ul>
+<h3 id="a-ia-é-um-tsunami-peter">"A IA é um tsunami" (Peter)</h3>
+<ul>
+<li>Alguns vão surfar e a maioria vai ser atropelada. Estamos num momento de <strong>FOMO</strong> e transição.</li>
+<li><strong>Analogia da datilografia:</strong> o datilógrafo deixou de existir porque todo mundo passou a digitar sem se achar "datilógrafo". A IA vai ficar natural do mesmo jeito.</li>
+<li><strong>Pressão comercial:</strong> fornecedores empurram "tenha 32 agentes", porque <strong>cada agente é token e receita para eles</strong>. Do outro lado, as pessoas ainda precisam fechar o mês.</li>
+<li><strong>Recomendação:</strong>
+<ul>
+<li>Fazer o <strong>Pareto</strong> e uma <strong>SWOT</strong> do que vale ou não levar para a IA.</li>
+<li><strong>"Pegue UM agente e faça funcionar. Depois vá para o segundo."</strong></li>
+</ul></li>
+</ul>
+<h3 id="hype-e-o-custo-humano">Hype e o custo humano</h3>
+<ul>
+<li><strong>Final de 2023:</strong> empresas procuravam consultorias desesperadas para "implementar IA" porque estava no roadmap, sem saber <strong>por quê nem para quê</strong>. <em>"Foi rico financeiramente, mas assustador."</em> Ainda estamos no hype, usando a IA como <strong>bala de prata</strong> (item 7 da enquete).</li>
+<li><strong>Otávio:</strong> um gerente pediu demissão porque perdeu os desenvolvedores e passou a cuidar de <strong>agentes desenvolvedores</strong>. A <strong>carga cognitiva e o estresse</strong> o fizeram desistir.</li>
+<li><strong>Engenheiros de software (outra turma):</strong> <em>"Antes levávamos 4 horas para codar. Agora codamos em 30 minutos e levamos 8 horas para entender o que a IA fez"</em>: código verboso, que não segue os padrões de design da organização.</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Lições para líderes:</strong> comece pequeno e prove valor (ROI) antes de escalar. Não trate a IA como humana (nome, cargo), mantenha o humano no loop com guardrails e defina quem é responsável. Meça também o <strong>custo cognitivo</strong> para as pessoas, não só a eficiência.</p>
+</blockquote>
+<hr/>
+<h2 id="parte-6-riscos-cognitivos">Parte 6: Riscos Cognitivos</h2>
+<h3 id="13-uso-de-ia-reduz-o-aprendizado-e-o-pensamento-crítico">13. "Uso de IA reduz o aprendizado e o pensamento crítico"</h3>
+<p><strong>Slide:</strong> mapas de conectividade cerebral (EEG, banda Alfa) comparando três grupos: <strong>LLM</strong>, <strong>Search</strong> e <strong>Brain</strong>.</p>
+<ul>
+<li><strong>Grupo 1:</strong> usou o <strong>ChatGPT</strong> para gerar os textos</li>
+<li><strong>Grupo 2:</strong> usou o <strong>Google</strong> para pesquisar informações</li>
+<li><strong>Grupo 3:</strong> escreveu os textos <strong>sem qualquer apoio</strong> (só o cérebro)</li>
+</ul>
+<p><strong>O estudo</strong> (para referência): <em>"Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing"</em>, do <strong>MIT Media Lab</strong> (Nataliya Kosmyna et al., 2025). Participantes escreveram redações ao longo de várias sessões enquanto a atividade cerebral era medida por <strong>EEG</strong>.</p>
+<p><strong>Principais achados:</strong></p>
+<ul>
+<li><strong>Conectividade cerebral:</strong> foi maior no grupo <em>Brain-only</em>, intermediária no grupo <em>Search</em> e <strong>mais fraca no grupo LLM</strong>. Quanto mais apoio externo, menor o engajamento neural.</li>
+<li><strong>Memória:</strong> a maioria dos usuários de ChatGPT <strong>não conseguia citar trechos da própria redação</strong> minutos depois de escrevê-la.</li>
+<li><strong>Senso de autoria:</strong> o grupo LLM sentia menos que o texto era "seu".</li>
+<li><strong>Textos homogêneos:</strong> as redações do grupo LLM eram muito parecidas entre si.</li>
+<li><strong>"Dívida cognitiva"</strong> (<em>cognitive debt</em>): quem passou do LLM para escrever sem apoio mostrou engajamento reduzido. O "atalho" deixa um custo acumulado.</li>
+<li><strong>Ressalvas:</strong> amostra pequena, estudo ainda em pré-publicação (<em>preprint</em>), sem revisão por pares na época. O estudo <strong>não prova</strong> que a IA "deixa as pessoas burras".</li>
+</ul>
+<p><strong>Ligação com a aula:</strong></p>
+<ul>
+<li>É o item 3 da enquete, <strong>Déficits Cognitivos</strong>.</li>
+<li>Conecta com o relato dos engenheiros que "codam em 30 min e levam 8 h para entender": delegar sem entender gera dívida.</li>
+</ul>
+<p><strong>O que a professora comentou:</strong></p>
+<ul>
+<li><strong>Está no top 3 dela</strong> entre os desafios da enquete: <em>"O quanto a IA vem reduzindo o nosso aprendizado e o nosso pensamento crítico."</em></li>
+<li>O grupo sem apoio teve atividade muito maior no <strong>processamento semântico</strong> e no <strong>controle executivo</strong>. <em>"O cérebro vai desligando à medida que você recebe mais suporte, até o ponto do LLM escrever para você a partir de um prompt."</em></li>
+<li>Quem escreveu com o LLM teve <strong>muita dificuldade de defender a própria redação</strong>. <em>"Vemos isso nas reuniões: PPTs fantásticos e pessoas se perdendo para explicar os números."</em></li>
+<li><strong>Escolas:</strong> os filhos dela aprenderam técnicas de prompt para <strong>a IA fazer sem parecer que fez</strong>. <em>"Achei fantástico do ponto de vista de inteligência."</em></li>
+<li><strong>Autocrítica docente:</strong> o professor também precisa <strong>desafiar os alunos a irem além do que um LLM entrega</strong>.</li>
+<li><strong>A máquina é ótima em hard skills, mas "não tem alma".</strong> Percepção, sentir e <em>feeling</em> (soft skills) são inteligências que a IA ainda não tem e que nos diferenciam.</li>
+<li><strong>Pergunta de um aluno de outra turma:</strong> <em>"Será que não há outras áreas do cérebro, não monitoradas, que passaram a acender?"</em></li>
+</ul>
+<p><strong>Contribuições da turma:</strong></p>
+<ul>
+<li><strong>Colega de tecnologia:</strong> a meta da empresa é <strong>100% do código gerado por agentes de IA</strong>. O problema é que alguns programadores só dão o prompt e <strong>não revisam</strong>. Como um programador não compete mais em tempo com ferramentas como o Claude Code, a chave é o <strong>gerenciamento de pessoas</strong>: educar para usar a IA <strong>como ferramenta, não como substituição</strong>. A professora completou que o programador vira <strong>engenheiro e orquestrador</strong>, que pensa a solução e desenha as boas práticas, e deixa de ser "codador".</li>
+<li><strong>Peter:</strong>
+<ul>
+<li>A programação passa pela <strong>mesma automação da indústria automobilística</strong>: antes 30 pessoas faziam um carro, hoje 4 fazem 100. Mas <em>"alguém tem que saber o torque do parafuso, não necessariamente ter força para apertá-lo"</em>. Responsável: <strong>accountability</strong>.</li>
+<li><strong>Ensino e tecnologia:</strong> com a internet vieram os trabalhos copiados da Wikipedia. Os gregos temiam que a escrita acabasse com a memória. <strong>Toda tecnologia de transição muda o aprendizado, e nos adaptamos.</strong> <em>"Ninguém sabe mais fazer fogo, e tudo bem."</em></li>
+<li>O essencial é o <strong>conhecimento crítico</strong>: <em>"saber que eu não devo transferir 25 milhões numa reunião, mesmo para o CEO"</em>. Com procedimento, não importa se é IA ou não.</li>
+<li>Os modelos atuais (citou o Fable) já escrevem <strong>"igual a mim"</strong> a partir de 5 e-mails. <em>"Tem coisa que eu não sei se fui eu que escrevi."</em></li>
+<li><strong>Sobre o método do estudo:</strong> outras pesquisas questionam se <strong>medimos certo</strong>. Mais oxigenação no neurônio não quer dizer necessariamente mais funcionamento. <em>"Será que o cérebro desligou ou só não estamos olhando para o lugar certo?"</em></li>
+</ul></li>
+<li><strong>Professora, fazendo o "advogado do diabo":</strong> já vivemos outras revoluções (Revolução Industrial, calculadora), <strong>mas agora está muito mais rápido</strong>. <em>"A velocidade é o ponto que me preocupa."</em></li>
+<li><strong>Como treinar os juniores?</strong> Uma empresa <strong>cortou o acesso dos juniores a LLMs</strong> no ambiente corporativo para "não emburrecerem". É radical, mas é real. <em>"Como treinamos os juniores se a IA está fazendo justamente o papel deles?"</em></li>
+<li><strong>Wesley:</strong>
+<ul>
+<li>A IA potencializa e acelera, mas <strong>não se pode só aceitar o que ela devolve</strong>. <em>"Se ela produz e eu só aprovo o PR, está errado. A inteligência cognitiva ainda está com a gente."</em> É isso que permite reagir em incidentes e crises.</li>
+<li>Segundo uma apresentação do <strong>Gartner</strong>, quem passou pela transição e <strong>sabe fazer sem IA</strong> será o profissional <strong>valioso do futuro</strong>. As entrevistas deveriam perguntar se a pessoa <strong>sabe fazer sem a IA</strong>, e não só com ela.</li>
+<li>A professora concordou: temos uma <strong>capacidade crítica</strong> que as próximas gerações, nativas em IA, talvez não tenham.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>💡 <strong>Para líderes e para estudar:</strong> use a IA como <strong>copiloto, não como piloto</strong>. Pense primeiro e use a IA para revisar e ampliar, não para substituir o raciocínio. Em times, incentive o entendimento e a revisão crítica do que a IA produz, principalmente na formação de profissionais juniores.</p>
+</blockquote>
+<hr/>
+<h2 id="parte-7-inteligência-artificial-clássica">Parte 7: Inteligência Artificial Clássica</h2>
+<p><strong>Slide de abertura da seção.</strong> Aqui a aula passa das discussões de impacto para os <strong>fundamentos técnicos</strong>.</p>
+<p><strong>Contexto para estudo (a confirmar com os próximos slides):</strong></p>
+<ul>
+<li>A <strong>IA clássica</strong> é também chamada de <strong>IA simbólica</strong> ou <em>GOFAI</em> (<em>Good Old-Fashioned AI</em>), dominante dos anos 1950 aos 1980.</li>
+<li><strong>Ideia central:</strong> a inteligência vem de <strong>regras explícitas e lógica</strong> escritas por humanos (<em>se… então…</em>), e não de aprender com dados.</li>
+<li><strong>Marcos:</strong> a Conferência de <strong>Dartmouth (1956)</strong>, onde John McCarthy cunhou o termo "Inteligência Artificial"; os sistemas especialistas (ex.: MYCIN, anos 1970); o <strong>Deep Blue</strong> vencendo Kasparov no xadrez (1997).</li>
+<li><strong>Contraste com a IA moderna:</strong> o <strong>Machine Learning / Deep Learning</strong> aprende padrões com os dados em vez de receber regras prontas.</li>
+</ul>
+<h3 id="15-rede-neural-é-coisa-séria-quick-draw-rápido-desenhe">15. "Rede Neural é coisa séria?!": Quick, Draw! (Rápido, Desenhe!)</h3>
+<p><strong>Slide:</strong> logo do jogo do Google, com o link <a href="https://quickdraw.withgoogle.com/">quickdraw.withgoogle.com</a>.</p>
+<ul>
+<li><strong>O que é:</strong> um jogo do Google (2016). O jogo pede um objeto (bicicleta, pizza, caneca…), você tem <strong>20 segundos para desenhar</strong> e uma <strong>rede neural tenta adivinhar</strong> o que é enquanto você desenha.</li>
+<li><strong>Como funciona:</strong> uma rede neural treinada com milhões de rabiscos. Ela reconhece o <strong>padrão dos traços</strong>, não um desenho perfeito. É <strong>classificação de imagens</strong> com <strong>aprendizado supervisionado</strong> (cada desenho tem um rótulo).</li>
+<li><strong>O efeito "flywheel" de dados:</strong> cada partida vira dado de treino. O Google publicou o <strong>Quick, Draw! Dataset</strong>, com mais de <strong>50 milhões de desenhos em 345 categorias</strong>, usado em pesquisa até hoje.</li>
+<li><strong>Por que está na aula:</strong> mostra de forma lúdica a diferença para a IA clássica (Parte 7). <strong>Ninguém programou uma regra do tipo "bicicleta = dois círculos + triângulo"</strong>. A rede <strong>aprendeu com exemplos</strong>.</li>
+<li><strong>Ligação com vieses (Parte 1):</strong> o modelo reconhece melhor o jeito "mais comum" de desenhar. Desenhos de culturas diferentes (um tipo de casa ou de sapato, por exemplo) podem ser menos reconhecidos, o que é <strong>viés de seleção</strong> nos dados.</li>
+<li><strong>Para testar:</strong> jogue algumas rodadas e observe em que momento a rede "entende" o desenho, e quando ela erra.</li>
+</ul>
+<p><strong>Demonstração da professora (ao vivo):</strong></p>
+<ul>
+<li><p><em>"É algo muito profissional. Se falarem alguma coisa diferente disso, eu nego."</em> 😄</p></li>
+<li><p>Ela desenhou uma flor. A rede arriscou "nariz", "iluminação de lua"… até dizer <strong>"Já sei, é flor!"</strong>. <strong>Quando o nível de acurácia sobe o suficiente, a rede responde e passa para o próximo desenho.</strong></p></li>
+<li><p>A rede não adivinhou a luminária.</p></li>
+<li><p><strong>Como a rede concluiu que era um rato:</strong></p>
+<ol type="1">
+<li><strong>Aprendizado supervisionado:</strong> há uma <strong>base de ratos desenhados por outras pessoas</strong>, cada um com o rótulo (<em>label</em>) "rato".</li>
+<li><strong>Busca por semelhança:</strong> a rede <strong>sobrepõe o traçado</strong> ao dos desenhos da base. O rato teve o maior <em>match</em>, com acurácia altíssima. Em segundo e terceiro lugar vieram um <strong>crocodilo</strong> e um <strong>sapo</strong>, que também tinham traços parecidos.</li>
+</ol></li>
+<li><p><strong>Retreino contínuo:</strong> <em>"O meu rato entrou para a base de dados. O modelo ficou mais inteligente com o meu desenho."</em> Da próxima vez, ele acerta desenhos parecidos mais rápido.</p></li>
+</ul>
+<p><strong>Analogia da professora: o hipopótamo 🦛</strong></p>
+<blockquote>
+<p>Posso dizer ao meu filho que o hipopótamo é grande e cinza, ou posso levá-lo ao zoológico e mostrar: <em>"olha, o hipopótamo está aqui"</em>. Ele vê todas as nuances. No dia seguinte, se eu mostrar um <strong>hipopótamo rosa</strong>, ele diz: <em>"a cor está diferente, mas é um hipopótamo"</em>.</p>
+</blockquote>
+<p><strong>Definição (professora):</strong> <strong>aprendizado supervisionado</strong> é olhar para o passado (uma base de dados <strong>rotulada</strong>) para projetar o futuro e reconhecer algo novo com base no que já existe. A base vira a <strong>referência</strong> para a IA fazer suas <strong>inferências</strong>.</p>
+<p><strong>Os 3 tipos de aprendizado</strong>, que a professora vai usar ao longo do curso: | Tipo | Ideia | Exemplo | |---|---|---| | <strong>Supervisionado</strong> | Aprende com exemplos <strong>rotulados</strong> (entrada → resposta certa) | Quick, Draw!, detecção de fraude, previsão de churn | | <strong>Não supervisionado</strong> | Encontra <strong>padrões e grupos</strong> em dados <strong>sem rótulo</strong> | Segmentação de clientes, detecção de anomalias | | <strong>Por reforço</strong> | Aprende por <strong>tentativa e erro</strong>, com <strong>recompensas e punições</strong> | Jogos (AlphaGo), robótica, carros autônomos |</p>
+<h3 id="16-programação-tradicional--aprendizado-de-máquina">16. Programação Tradicional × Aprendizado de Máquina</h3>
+<p><strong>Slide:</strong></p>
+<pre><code>PROGRAMAÇÃO TRADICIONAL:  Dados de Entrada → Algoritmo    → Dados de Saída
+APRENDIZADO DE MÁQUINA:   Dados de Saída   → Algoritmo ML → Modelo</code></pre>
+<p><strong>A virada de paradigma:</strong></p>
+<ul>
+<li><strong>Programação tradicional (IA clássica / regras):</strong> o <strong>humano escreve o algoritmo</strong>, ou seja, as regras. O computador aplica as regras aos dados de entrada e produz a saída.
+<ul>
+<li><em>Ex.:</em> "se o valor da transação &gt; R$ 10 mil <strong>e</strong> o país é diferente do habitual → marcar como fraude".</li>
+</ul></li>
+<li><strong>Aprendizado de máquina:</strong> o humano fornece <strong>exemplos com as respostas</strong> (dados <strong>históricos</strong> com os resultados, ou seja, os "dados de saída" / rótulos). O <strong>algoritmo de ML descobre as regras sozinho</strong> e o resultado é um <strong>modelo</strong>.
+<ul>
+<li><em>Ex.:</em> mostrar milhões de transações já marcadas como "fraude" ou "legítima". O modelo aprende os padrões e depois classifica transações novas.</li>
+</ul></li>
+<li><strong>Depois</strong>, o modelo é usado como um "algoritmo aprendido": <strong>novos dados de entrada → Modelo → previsão</strong>.</li>
+</ul>
+<p><strong>Explicação da professora: "o ML começa pelo fim"</strong> (exemplo de detecção de fraude)</p>
+<ul>
+<li><strong>Programação tradicional:</strong> cria uma <strong>"malha fina"</strong>, um conjunto de <em>if-else</em>:
+<ul>
+<li>ticket muito acima do padrão do cliente ou do estabelecimento → suspeita;</li>
+<li>mais de 5 tentativas de senha → suspeita;</li>
+<li>IP muito distante da localidade → suspeita.</li>
+</ul></li>
+<li><strong>O problema:</strong> a malha é <strong>frágil e engessada</strong>. Encadear todas as condições é muito complexo, e <em>"somos muito criativos, para o bem e para o mal"</em>: <strong>todo dia surge uma configuração nova de fraude</strong>.</li>
+<li><strong>Machine learning:</strong> <strong>começa pelo fim</strong>, pela base histórica já <strong>rotulada</strong> ("fraude" / "não fraude"). O algoritmo <strong>não recebe condicionais</strong>. Ele olha os dados de saída, entende o comportamento com todas as nuances e cria uma malha de decisão <strong>muito mais complexa</strong>.</li>
+<li><strong>Retreino:</strong> uma fraude inédita <strong>passa uma única vez</strong>. Depois que é rotulada e o modelo é retreinado, ela deixa de ser inédita e passa a ser detectada.</li>
+<li>📌 <strong>~80% do que se faz em IA hoje é aprendizado supervisionado</strong>, inclusive a IA generativa. Segundo a professora, <strong>os LLMs também são supervisionados</strong>. (Para a prova: tecnicamente, o pré-treino dos LLMs é chamado de <strong>autossupervisionado</strong>, porque o próprio texto fornece o "rótulo", a próxima palavra, e o ajuste fino usa supervisão e reforço com feedback humano, o RLHF.)</li>
+</ul>
+<p><strong>Por que isso importa:</strong> | | Programação Tradicional | Machine Learning | |---|---|---| | Quem cria as regras | Humano (especialista) | Algoritmo, a partir dos dados | | Funciona bem quando | As regras são claras e estáveis (cálculo de imposto, folha de pagamento) | As regras são complexas ou difíceis de explicar (reconhecer imagens, voz, fraude) | | Ponto fraco | Não escala para problemas com muitas nuances | Depende da <strong>qualidade dos dados</strong> (vieses da Parte 1!) e é menos explicável | | Resultado | Determinístico | <strong>Probabilístico</strong> (acurácia, FP/FN, veja o item 7) |</p>
+<ul>
+<li><strong>Ligação com o Quick, Draw! (item 15):</strong> ninguém escreveu a regra "rato = corpo oval + rabo + orelhas redondas". A rede recebeu <strong>desenhos com o rótulo "rato"</strong> e <strong>gerou o modelo</strong>.</li>
+<li><strong>Para líderes:</strong> em ML, <strong>os dados são o novo código</strong>. Vieses nos dados viram vieses no modelo, e por isso governança de dados é governança de IA.</li>
+</ul>
+<h3 id="17-aprendizado-supervisionado-com-imagens-lobeai">17. Aprendizado Supervisionado com Imagens: lobe.ai</h3>
+<p><strong>Slide:</strong> tela do <strong>Lobe</strong> (Microsoft) com três exemplos de classificação de imagens: | Imagem | Rótulo (label) | Acerto do modelo | |---|---|---| | Cacho de bananas | <strong>banana</strong> | <strong>100% correct</strong> | | Pessoa sem máscara (webcam) | <strong>sem máscara</strong> | <strong>71% correct</strong> | | Pessoa tomando café (xícara no rosto) | <em>(parcial no slide)</em> | <strong>68% correct</strong> |</p>
+<p><strong>O que é o Lobe:</strong> um aplicativo gratuito da Microsoft, <strong>no-code</strong>, para treinar modelos de <strong>classificação de imagens</strong>:</p>
+<ol type="1">
+<li><strong>Rotular:</strong> você importa ou tira fotos pela webcam e dá o <strong>label</strong> de cada uma ("banana", "com máscara", "sem máscara").</li>
+<li><strong>Treinar:</strong> o Lobe treina automaticamente uma rede neural (usando <em>transfer learning</em> sobre um modelo pré-treinado).</li>
+<li><strong>Testar:</strong> ele mostra o <strong>percentual de acerto</strong> por classe e permite corrigir os erros, o que gera novos exemplos.</li>
+<li><strong>Exportar:</strong> o modelo pode ser exportado para apps (TensorFlow, ONNX, CoreML…).</li>
+</ol>
+<blockquote>
+<p>⚠️ A Microsoft <strong>descontinuou o Lobe</strong> (não recebe mais atualizações), mas ele continua ótimo para aprender o conceito. Alternativas atuais: <strong>Google Teachable Machine</strong>, Azure Custom Vision, AWS Rekognition Custom Labels.</p>
+</blockquote>
+<p><strong>O que o slide ensina:</strong></p>
+<ul>
+<li>É o <strong>fluxo de ML do item 16</strong> na prática: <strong>exemplos rotulados → algoritmo ML → modelo</strong>.</li>
+<li><strong>Por que a acurácia varia (100% × 71% × 68%):</strong>
+<ul>
+<li><strong>Banana</strong> é um objeto com forma e cor muito distintas, fácil de classificar.</li>
+<li><strong>Rostos com e sem máscara</strong> vêm da webcam, com luz, ângulo e fundo variando. Uma <strong>xícara na frente do rosto</strong> pode confundir o modelo ("é uma máscara?"). São <strong>casos-limite</strong> (<em>edge cases</em>).</li>
+<li>Com <strong>poucos exemplos por classe</strong>, ou exemplos pouco variados, o modelo generaliza mal. É o <strong>viés de seleção</strong> da Parte 1 de novo.</li>
+</ul></li>
+<li><strong>Caso de uso real (pandemia):</strong> detectar se as pessoas estavam usando máscara em ambientes de trabalho.</li>
+</ul>
+<p><strong>Demonstração da professora (vídeo gravado, porque o Lobe usa muita GPU e derrubava o notebook dela):</strong></p>
+<ul>
+<li><strong>Caso:</strong> a identificação de máscara, uma solução muito usada, por exemplo, <strong>em aeroportos durante a pandemia</strong>.</li>
+<li><strong>Amostra mínima:</strong> 10 imagens, <strong>5 com máscara e 5 sem máscara</strong>.</li>
+<li><strong>Boa prática, base de treino × base de teste:</strong>
+<ul>
+<li><strong>Treino:</strong> o que é mostrado ao modelo.</li>
+<li><strong>Teste:</strong> imagens <strong>reservadas e inéditas</strong>, usadas só no final. <em>"Se eu mostro algo que ele já viu, ele cola da base dele."</em></li>
+</ul></li>
+<li><strong>Rotulagem (labeling) manual:</strong> <em>"Sou eu dizendo com máscara, sem máscara… e ainda é assim."</em> É uma <strong>fragilidade</strong>: exige um <strong>esforço humano enorme e é passível de erro</strong>. A OpenAI chegou a ser <strong>acusada de subcontratar mão de obra</strong> para rotular dados. <em>"Quando olho isso, penso que não estamos tão perto da AGI."</em></li>
+<li><strong>Treinar</strong> é identificar as características das imagens para montar a "malha". O modelo atingiu <strong>80% de acurácia</strong>.</li>
+<li><strong>Teste:</strong> acertou "com máscara", mas <strong>sem absoluta convicção</strong>, e pediu confirmação. Ao confirmar, <strong>o modelo retreina na hora</strong> (os números no canto mudam) e <em>"fica mais espertinho"</em>.</li>
+<li>⚠️ <strong>Overfitting:</strong> depois de alguns retreinos, o modelo chegou a <strong>100%</strong>. <em>"Parece que 100% é bom, mas não é."</em> <strong>A realidade nunca é quadrada, tem muitas nuances.</strong> Um modelo que acerta tudo indica que a <strong>amostra é pequena ou idealizada demais</strong>. Com só 10 imagens, ela <strong>não colocaria isso em produção</strong>.</li>
+</ul>
+<h4 id="abacus-conceito-chave-overfitting-sobreajuste">🧮 Conceito-chave: Overfitting (sobreajuste)</h4>
+<ul>
+<li>O modelo <strong>"decora" a base de treino</strong> em vez de aprender o padrão geral. Vai muito bem no treino e <strong>mal com dados novos</strong>.</li>
+<li><strong>Sinais:</strong> acurácia de 100% ou perto disso, grande diferença entre o desempenho no treino e no teste.</li>
+<li><strong>Causas:</strong> amostra pequena, pouco variada ou "arrumada" demais.</li>
+<li><strong>Como evitar:</strong> mais dados e mais variados, separar treino e teste (e validação), validação cruzada, modelos mais simples.</li>
+</ul>
+<p><strong>Refino (fine tuning) e casos-limite:</strong> e se alguém <strong>puser a mão na frente da boca</strong>? E uma <strong>máscara com o desenho de uma mão estampado</strong>? <em>"Aí começamos a apertar os parafusos"</em> para <strong>generalizar</strong> o modelo e fugir dos <strong>vieses</strong> da Parte 1. <strong>É aí que se gasta muito tempo.</strong></p>
+<p><strong>Ferramenta citada: Dataiku</strong> <em>("não é merchan")</em></p>
+<ul>
+<li>Plataforma colaborativa em que <strong>cientistas de dados e gestores trabalham juntos</strong>: um levanta a hipótese e o outro já derruba.</li>
+<li>Faz o tratamento dos dados na própria ferramenta e <strong>testa 10 a 15 modelos estatísticos automaticamente</strong> (<strong>AutoML</strong>), trazendo o de melhor desempenho em <strong>cerca de 1 hora</strong>. Depois vem o <strong>fine tuning</strong>.</li>
+</ul>
+<p><strong>Para líderes:</strong> com ferramentas no-code, <strong>qualquer área de negócio pode prototipar</strong> um modelo de visão em minutos. Mas colocar em produção exige <strong>dados representativos, métricas (FP/FN) e governança</strong>.</p>
+<h3 id="17b-yolo-o-estado-da-arte-em-visão-computacional-vídeo-mostrado-pela-professora-sem-slide">17b. YOLO: o estado da arte em visão computacional <em>(vídeo mostrado pela professora, sem slide)</em></h3>
+<ul>
+<li><strong>YOLO</strong> (<em>You Only Look Once</em>) é um modelo de <strong>detecção de objetos em tempo real</strong>. Ele olha a imagem uma única vez e identifica <strong>vários objetos ao mesmo tempo</strong>, com uma caixa ao redor de cada um e a <strong>confiança entre parênteses</strong> (ex.: "pessoa 100%", "carro 90%").</li>
+<li><strong>Destaque:</strong> o <strong>tempo de resposta é baixíssimo</strong>. No vídeo (YOLO v4), a pessoa se mexe de propósito e o modelo acompanha na hora, mapeando a rua toda. As versões atuais do YOLO são bem mais altas.</li>
+<li><strong>Mas erra:</strong> no vídeo, o modelo <strong>confundiu um gato com um cachorro</strong> (90% de convicção).</li>
+<li><strong>Meme citado:</strong> uma IA rotulou como <strong>"tigre"</strong> um cachorro deitado perto do portão ao entardecer, porque a <strong>sombra das grades fazia listras</strong> no corpo dele.</li>
+<li><strong>Mensagem da professora:</strong> <em>"A AGI já é um tema em voga, mas a IA ainda comete erros absurdos como esse."</em> É preciso <strong>cuidado nas discussões</strong>, <strong>muitos guardrails</strong> nas soluções e atenção aos <strong>vieses</strong>.</li>
+</ul>
+<h3 id="18-tipos-de-machine-learning">18. Tipos de Machine Learning</h3>
+<p><strong>Slide:</strong> os três tipos: <strong>Aprendizado Supervisionado</strong>, <strong>Aprendizado Não Supervisionado</strong> e <strong>Aprendizado por Reforço</strong>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Supervisionado</strong></th>
+<th><strong>Não Supervisionado</strong></th>
+<th><strong>Por Reforço</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dados</strong></td>
+<td><strong>Rotulados</strong> (entrada + resposta certa)</td>
+<td><strong>Sem rótulo</strong></td>
+<td>Sem base fixa: um <strong>agente interage com um ambiente</strong></td>
+</tr>
+<tr>
+<td><strong>Objetivo</strong></td>
+<td>Prever ou classificar a resposta de casos novos</td>
+<td><strong>Descobrir padrões, grupos e estruturas</strong> escondidos</td>
+<td><strong>Aprender a melhor sequência de ações</strong> para maximizar a recompensa</td>
+</tr>
+<tr>
+<td><strong>Como aprende</strong></td>
+<td>Compara a previsão com o rótulo e corrige o erro</td>
+<td>Agrupa por semelhança e reduz dimensões</td>
+<td><strong>Tentativa e erro</strong>, com recompensa (+) e punição (−)</td>
+</tr>
+<tr>
+<td><strong>Tarefas típicas</strong></td>
+<td><strong>Classificação</strong> (fraude sim/não, com/sem máscara) e <strong>Regressão</strong> (prever valor, demanda, preço)</td>
+<td><strong>Clusterização</strong> (segmentar clientes), <strong>detecção de anomalias</strong>, <strong>regras de associação</strong> ("quem compra X compra Y")</td>
+<td>Jogos, robótica, carros autônomos, otimização de rotas e preços</td>
+</tr>
+<tr>
+<td><strong>Exemplos da aula</strong></td>
+<td>Quick, Draw! (item 15), Lobe/máscara (item 17), fraude (item 16)</td>
+<td><em>(a ver na aula)</em></td>
+<td><em>(a ver na aula)</em></td>
+</tr>
+<tr>
+<td><strong>Analogia</strong></td>
+<td>Professor com gabarito (o <strong>hipopótamo</strong> no zoológico)</td>
+<td>Separar peças de Lego por semelhança <strong>sem ninguém dizer as categorias</strong></td>
+<td>Treinar um cachorro com petiscos</td>
+</tr>
+<tr>
+<td><strong>Algoritmos</strong></td>
+<td>Regressão linear/logística, árvores de decisão, Random Forest, redes neurais</td>
+<td>K-means, DBSCAN, PCA</td>
+<td>Q-Learning, Deep Q-Network (AlphaGo, AlphaZero)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>📌 Segundo a professora, <strong>~80% da IA aplicada hoje é supervisionada</strong>.</li>
+<li>As <strong>GANs (item 9)</strong> são geralmente classificadas como <strong>não supervisionadas</strong>: aprendem a distribuição dos dados reais sem rótulos.</li>
+<li>Os <strong>LLMs</strong> combinam os três: pré-treino <strong>autossupervisionado</strong>, ajuste fino <strong>supervisionado</strong> e <strong>RLHF</strong>, que é aprendizado <strong>por reforço</strong> com feedback humano.</li>
+</ul>
+<blockquote>
+<p><em>(pontos da professora serão adicionados quando o próximo bloco de áudio for transcrito)</em></p>
+</blockquote>
+<h3 id="19-supervisionado-classificação--não-supervisionado-clusterização">19. Supervisionado (Classificação) × Não Supervisionado (Clusterização)</h3>
+<p><strong>Slide</strong> (crédito: Bruno Kenji):</p>
+<p><strong>🟧 Supervised Learning, algoritmo de classificação</strong></p>
+<pre><code>Treino:  🦆 "Duck"  🦆 "Duck"  🐇 "Not Duck"  🦔 "Not Duck"
+            → [Supervised Learning] → [Predictive Model]
+Uso:     🦆 (novo, nunca visto) → [Predictive Model] → "Duck"</code></pre>
+<ul>
+<li>Cada imagem de treino vem <strong>com o rótulo</strong>, a resposta certa ("pato" ou "não pato").</li>
+<li>O algoritmo gera um <strong>modelo preditivo</strong>.</li>
+<li>Um <strong>pato novo</strong>, que o modelo nunca viu, é classificado corretamente como <strong>"Duck"</strong>.</li>
+<li>A pergunta que ele responde já está <strong>definida pelo humano</strong>: "é pato ou não é?".</li>
+</ul>
+<p><strong>🟦 Unsupervised Learning, algoritmo de clusterização</strong></p>
+<pre><code>Entrada: 🦆 🦆 🐇 🦔 🦆   (sem nenhum rótulo)
+            → [Unsupervised Learning] →
+Saída:   [🦆 🦆 🦆]   [🐇]   [🦔]    (3 grupos formados por semelhança)</code></pre>
+<ul>
+<li>As imagens entram <strong>sem rótulo</strong>. Ninguém disse o que é pato.</li>
+<li>O algoritmo <strong>agrupa por semelhança</strong> (forma, cor, textura) e forma <strong>3 clusters</strong>: patos, coelho e ouriço.</li>
+<li><strong>Ele não sabe o nome dos grupos</strong>, só que os membros de cada um são parecidos entre si. <strong>Cabe ao humano interpretar</strong> ("este grupo são patos").</li>
+</ul>
+<p><strong>A diferença em uma frase:</strong></p>
+<blockquote>
+<p><strong>Supervisionado:</strong> <em>"Aprenda a reconhecer o que eu já sei que existe."</em> <strong>Não supervisionado:</strong> <em>"Me mostre o que existe nos dados e eu não sei."</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Classificação (supervisionado)</th>
+<th>Clusterização (não supervisionado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rótulos</td>
+<td>Necessários (custo humano alto, veja o item 17)</td>
+<td>Não precisa</td>
+</tr>
+<tr>
+<td>Categorias</td>
+<td>Definidas <strong>antes</strong> pelo humano</td>
+<td><strong>Descobertas</strong> pelo algoritmo</td>
+</tr>
+<tr>
+<td>Saída</td>
+<td>Rótulo previsto ("Duck")</td>
+<td>Grupos sem nome</td>
+</tr>
+<tr>
+<td>Uso em negócios</td>
+<td>Fraude, churn, crédito, diagnóstico</td>
+<td><strong>Segmentação de clientes</strong>, perfis de consumo, anomalias</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Explicação da professora:</strong></p>
+<ul>
+<li><strong>Supervisionado:</strong> "pato, pato, não pato, não pato". O modelo aprende as características. Se aparece um pato com o <strong>pescoço mais comprido</strong>: <em>"tá mais compridinho, mas é pato"</em>.</li>
+<li><strong>Pergunta da turma:</strong> <em>"E se eu não tiver uma base de dados rotulada para mostrar ao modelo?"</em> Dá para fazer, sim: <strong>clusterizar</strong>. O modelo <strong>não consegue pôr o rótulo, mas agrupa os semelhantes</strong>. <em>"Classificar pato não tem utilidade, não somos zoológicos, mas fazemos muito isso no mercado."</em></li>
+</ul>
+<p><strong>🛒 Caso de e-commerce (professora):</strong> com big data e o <strong>log de navegação</strong>, é possível <strong>clusterizar como cada cliente navega</strong> no site: | Cluster | Comportamento | Ação | |---|---|---| | <strong>Redução de preço</strong> | Navega de forma <strong>objetiva</strong>, vai direto ao produto, mas <strong>não clica em comprar</strong> | Oferecer <strong>desconto</strong>, porque <em>"quem quer muito e não compra, o motivo nº 1 é preço"</em> | | <strong>Oferta dos indecisos</strong> | Olha <strong>coisas muito diversas</strong>, não sabe o que quer | Reduzir preço <strong>não faz sentido</strong>. A abordagem é outra (ex.: recomendação, curadoria) |</p>
+<blockquote>
+<p>O cluster pode ser criado <strong>sem saber o nome dele no primeiro momento</strong>. Os nomes ("indecisos") vêm da interpretação humana depois.</p>
+</blockquote>
+<p><strong>Exemplo de negócio:</strong> um banco aplica clusterização na base de clientes e descobre 5 perfis de comportamento que ninguém tinha definido (ex.: "jovens digitais que investem pouco", "aposentados conservadores"). Depois, pode usar esses grupos como <strong>rótulos</strong> para modelos supervisionados. <strong>Os dois tipos se complementam.</strong></p>
+<h3 id="20-aprendizado-por-reforço-mario">20. Aprendizado por Reforço: MarI/O</h3>
+<p><strong>Slide:</strong> vídeo <em>"MarI/O - Machine Learning for Video Games"</em> (<a href="https://www.youtube.com/watch?v=qv6UVOQ0F44">youtube.com/watch?v=qv6UVOQ0F44</a>), de SethBling (2015). Uma IA aprende sozinha a jogar <strong>Super Mario World</strong>.</p>
+<p><strong>O que aparece na tela:</strong></p>
+<ul>
+<li><strong>Caixa à esquerda:</strong> o que a IA "enxerga", uma versão simplificada da fase (blocos = chão, pontos = inimigos). São as <strong>entradas</strong> da rede neural.</li>
+<li><strong>Linhas verdes e vermelhas:</strong> as <strong>conexões da rede neural</strong> (verde = estímulo positivo, vermelho = negativo).</li>
+<li><strong>À direita:</strong> os <strong>botões do controle</strong> (A, B, X, Y, Up, Down, Left, Right), que são as <strong>saídas</strong>, ou seja, as <strong>ações</strong> que a IA decide apertar.</li>
+<li><strong>Topo:</strong> <em>Gen 34 · species 14 · genome 14 · Fitness: 260 · Max Fitness: 4322</em>.</li>
+</ul>
+<p><strong>Como aprende (tentativa e erro com recompensa):</strong></p>
+<ol type="1">
+<li>A IA começa <strong>sem saber nada</strong>. Aperta botões aleatórios e o Mario morre ou fica parado.</li>
+<li>Cada tentativa recebe uma <strong>nota: o <em>fitness</em></strong> (recompensa), basicamente <strong>quão longe e quão rápido o Mario chegou</strong> na fase.</li>
+<li>As redes com maior fitness <strong>sobrevivem e se reproduzem com pequenas mutações</strong> na geração seguinte, e as piores são descartadas.</li>
+<li>Depois de dezenas de <strong>gerações</strong> (Gen 34 no slide), surge uma rede que atravessa a fase inteira, <strong>sem que ninguém tenha programado "pule quando vier um inimigo"</strong>.</li>
+</ol>
+<p><strong>Segundo print do vídeo (0:55 / 5:57):</strong> <em>Gen 34 · species 14 · genome 14 · <strong>Fitness: 597</strong> · Max Fitness: 4322</em>. O fitness sobe à medida que o Mario avança. A caixa de "visão" mostra um <strong>inimigo voador</strong> (Super Koopa), e a rede ativa <strong>Left</strong> e outros botões para reagir. Dá para ver quais <strong>conexões (verde/vermelho)</strong> estão ativas em cada decisão.</p>
+<p><strong>Explicação da professora:</strong></p>
+<ul>
+<li>A "hastezinha vermelha" é o Mario, e a caixa é <strong>o que a IA está enxergando</strong>. Os botões são os controles.</li>
+<li><strong>O reforço está no <em>fitness</em>:</strong> enquanto o Mario acerta (não cai no buraco, não esbarra no inimigo), <strong>o fitness sobe</strong>. Quando erra, <strong>despenca</strong>, e na próxima vez a IA <strong>muda o caminho</strong>. <em>"Ela entende que está acertando, apesar de não entender de Mario."</em></li>
+<li><strong>Analogia com a educação dos filhos:</strong> <em>"se fizer tal coisa, fica de castigo; se fizer outra, ganha um prêmio"</em>.</li>
+</ul>
+<p><strong>Pergunta do Mário (colega): isso é machine learning ou deep learning?</strong> É <strong>deep learning</strong>, pela complexidade. | Dica | Machine Learning "clássico" | Deep Learning | |---|---|---| | <strong>Tipo de dado</strong> | <strong>Estruturado</strong>: tabela, ex.: transações marcadas fraude/não fraude | <strong>Não estruturado</strong>: vídeo, imagem, áudio, <em>"são pixels, não estão tabulados"</em> | | <strong>Complexidade</strong> | Menor. <em>"Na maioria das vezes, ML é suficiente"</em> | Maior. Usa <strong>redes neurais com muitas camadas</strong>, <em>"como um funil resolvendo o problema"</em> |</p>
+<blockquote>
+<p>📌 <strong>Regra prática da professora:</strong> <strong>dado estruturado → machine learning; dado não estruturado → deep learning.</strong> Deep learning é um <strong>subconjunto</strong> de machine learning.</p>
+</blockquote>
+<p><strong>Utilidade real do reforço</strong> (além de "zerar Pokémon", como o Vitor comentou sobre o Fable):</p>
+<ul>
+<li><strong>Robótica</strong> (braços mecânicos, carregar caixas) e <strong>carros autônomos</strong>, treinados em <strong>simuladores</strong>: <em>"passou no semáforo vermelho, atropelou alguém → despenca o fitness"</em>.</li>
+<li>Hoje os carros autônomos usam <strong>uma mescla de tipos de aprendizado</strong>, mas o <strong>reforço é o principal</strong> para ensinar comportamentos "robóticos" que simulam o humano: jogar, andar na rua, carregar caixas.</li>
+</ul>
+<p>📌 <strong>Nota técnica para a prova:</strong> o MarI/O usa o <strong>NEAT</strong> (<em>NeuroEvolution of Augmenting Topologies</em>), um <strong>algoritmo genético/evolutivo</strong> que evolui redes neurais. Ele é muito usado para <strong>ilustrar o aprendizado por reforço</strong> porque compartilha a essência: <strong>um agente, um ambiente, ações e uma recompensa</strong>, sem dados rotulados. O RL "clássico" (Q-Learning, por exemplo) ajusta o próprio agente a cada ação, em vez de selecionar os melhores de uma população.</p>
+<p><strong>Os elementos do Aprendizado por Reforço:</strong> | Elemento | No MarI/O | Num negócio (ex.: precificação dinâmica) | |---|---|---| | <strong>Agente</strong> | A rede neural que controla o Mario | O sistema que define preços | | <strong>Ambiente</strong> | A fase do jogo | O mercado e os clientes | | <strong>Estado</strong> | O que a IA enxerga (blocos e inimigos) | Demanda, estoque, concorrência, horário | | <strong>Ação</strong> | Apertar A, B, ←, → … | Subir ou baixar o preço | | <strong>Recompensa</strong> | <em>Fitness</em> (distância percorrida) | Receita ou margem |</p>
+<p><strong>Onde aparece no mundo real:</strong> AlphaGo e AlphaZero (DeepMind), robótica, carros autônomos, <strong>otimização de rotas</strong> e logística, <strong>precificação dinâmica</strong> (Uber, companhias aéreas), sistemas de recomendação e o <strong>RLHF</strong>, que ajusta ChatGPT, Claude e Gemini com feedback humano.</p>
+<p><strong>Cuidado, "reward hacking":</strong> o agente otimiza <strong>exatamente</strong> a recompensa definida, não o que você <em>quis dizer</em>. Se a recompensa for mal desenhada, ele acha atalhos indesejados (ex.: um agente de jogo que descobre um bug para ganhar pontos infinitos sem terminar a fase). <strong>Para líderes:</strong> a escolha da métrica de recompensa é uma <strong>decisão de negócio e de ética</strong>, como a escolha entre FP e FN (item 7) e o risco de metas como "200 agentes" (Parte 5).</p>
+<h3 id="21-mapa-do-machine-learning-datageeks">21. Mapa do Machine Learning (DATAGEEKS)</h3>
+<p><strong>Slide:</strong> mapa mental com as grandes famílias de ML e seus algoritmos. <strong>É um ótimo slide para revisar e consultar.</strong></p>
+<pre><code>                            MACHINE LEARNING
+      ┌──────────────┬──────────┴───────┬───────────────────┐
+ CLASSICAL       REINFORCEMENT      ENSEMBLE          NEURAL NETS &amp;
+ LEARNING          LEARNING          METHODS          DEEP LEARNING
+   ├─ Supervised
+   └─ Unsupervised</code></pre>
+<p><strong>1. Classical Learning (ML "clássico", em geral com dados estruturados)</strong> | Ramo | Tarefa | Algoritmos | Exemplo de negócio | |---|---|---|---| | <strong>Supervised</strong> | <strong>Classification</strong>: prever uma <strong>categoria</strong> | Naive Bayes, K-NN, SVM, Decision Trees, Logistic Regression | Fraude sim/não, churn, spam | | | <strong>Regression</strong>: prever um <strong>número</strong> | Linear, Polynomial, Ridge/Lasso Regression | Previsão de vendas, preço de imóvel | | <strong>Unsupervised</strong> | <strong>Clustering</strong>: agrupar semelhantes | K-Means, DBSCAN, Mean-Shift, Agglomerative, Fuzzy C-Means | Segmentação de clientes, "indecisos" (item 19) | | | <strong>Pattern search</strong>: regras de associação | Apriori, Eclat, FP-Growth | "Quem compra pão compra manteiga" (cesta de compras) | | | <strong>Dimension reduction (generalization)</strong> | PCA, t-SNE, LSA, SVD, LDA | Reduzir centenas de variáveis a poucas, visualização |</p>
+<p><strong>2. Reinforcement Learning</strong>: Genetic Algorithm (como o <strong>NEAT do MarI/O</strong>, item 20), Q-Learning, SARSA, Deep Q-Network (DQN), A3C.</p>
+<p><strong>3. Ensemble Methods</strong>: combinam <strong>vários modelos</strong> para ter um resultado melhor (<em>"a sabedoria das multidões"</em>).</p>
+<ul>
+<li><strong>Bagging:</strong> vários modelos em paralelo votam. Ex.: <strong>Random Forest</strong>, que é uma "floresta" de árvores de decisão.</li>
+<li><strong>Boosting:</strong> modelos em sequência, cada um corrige os erros do anterior. Ex.: <strong>XGBoost, LightGBM, CatBoost, AdaBoost</strong>, campeões em dados tabulares (crédito, fraude).</li>
+<li><strong>Stacking:</strong> um modelo "chefe" combina as previsões dos outros.</li>
+</ul>
+<p><strong>4. Neural Nets and Deep Learning</strong> (dados não estruturados, veja a regra acima) | Arquitetura | Especialidade | Exemplos na aula | |---|---|---| | <strong>Perceptrons (MLP)</strong> | Rede neural básica, com camadas totalmente conectadas | Base de tudo | | <strong>CNN</strong> (Convolutional) / DCNN | <strong>Imagens e visão computacional</strong> | Quick, Draw!, Lobe, YOLO, reconhecimento facial | | <strong>RNN</strong> (Recurrent): LSTM, GRU, LSM | <strong>Sequências</strong>: texto, voz, séries temporais | Tradução, previsão de demanda | | <strong>GAN</strong> (Generative Adversarial Networks) | <strong>Gerar</strong> dados sintéticos | "Esta Pessoa Não Existe", deepfakes (itens 8 e 9) | | <strong>Autoencoders</strong> / seq2seq | Comprimir e reconstruir dados, detectar anomalias | Fraude, compressão |</p>
+<blockquote>
+<p>📌 <strong>O que falta no mapa:</strong> os <strong>Transformers</strong> (2017, <em>"Attention Is All You Need"</em>), a arquitetura por trás dos <strong>LLMs</strong> (GPT, Claude, Gemini) e da IA generativa atual, que substituiu as RNNs em texto. É o tema da <strong>próxima aula (IA Generativa)</strong>.</p>
+</blockquote>
+<hr/>
+<h2 id="encerramento-da-1ª-parte-da-aula">Encerramento da 1ª parte da aula</h2>
+<ul>
+<li>A professora fechou a <strong>"rápida literacia" de IA clássica</strong>: <em>"Hoje foi mais rico falarmos do mercado, das preocupações e dos desafios. Gastamos mais tempo com isso, mas eu queria trazer esses primeiros conceitos."</em></li>
+<li>➡️ <strong>A partir da próxima aula: IA Generativa.</strong> Os conceitos de hoje (tipos de aprendizado, ML × DL, overfitting, FP/FN, vieses) serão repetidos daqui em diante.</li>
+<li>Depois do café: <strong>"Mão na Massa"</strong>.</li>
+</ul>
+<hr/>
+<h2 id="parte-8-hands-on-correlação-estatística">Parte 8: Hands On: Correlação Estatística</h2>
+<h3 id="enunciado-slide-vamos-aplicar">Enunciado (slide "Vamos Aplicar?")</h3>
+<blockquote>
+<p>Aplique <strong>correlação estatística</strong> e analise as correlações com resultados <strong>maiores que 0,4 ou menores que −0,4</strong>. Liste quais <strong>hipóteses</strong> podem ser levantadas. Para a entrega, use o <strong>caderno de hipóteses</strong> (template fornecido), crie um <strong>PDF</strong> e suba no portal.</p>
+</blockquote>
+<h3 id="contexto-professora">Contexto (professora)</h3>
+<ul>
+<li>Vamos montar juntos um <strong>caderno de hipóteses para o diretor de uma área de suporte de TI</strong>.</li>
+<li>Tecnicamente é <strong>estatística descritiva/aplicada</strong>. <em>"Não chega a ser machine learning"</em>, mas mostra <strong>o que o cientista de dados faz na IA clássica</strong> e o valor disso.</li>
+<li>Não é preciso ter formação em exatas: <em>"a maturidade de carreira e as percepções de vocês já serão úteis demais"</em> para levantar hipóteses.</li>
+<li>A correlação é usada no contexto de <strong>BI e KPIs</strong> para ver <strong>o quanto as métricas caminham juntas</strong> e se há <strong>suspeita de impacto</strong> de uma sobre a outra. <strong>Correlação dá pistas, não prova causa.</strong></li>
+</ul>
+<h3 id="abacus-conceito-chave-correlação-de-pearson-r">🧮 Conceito-chave: Correlação de Pearson (r)</h3>
+<ul>
+<li>Mede a <strong>força e o sentido da relação linear</strong> entre duas variáveis numéricas. Varia de <strong>−1 a +1</strong>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Valor de r</th>
+<th>Leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>+1</strong></td>
+<td>Correlação positiva perfeita: as duas sobem juntas</td>
+</tr>
+<tr>
+<td><strong>&gt; +0,4</strong></td>
+<td>Positiva <strong>relevante</strong> (critério do exercício)</td>
+</tr>
+<tr>
+<td><strong>~0</strong></td>
+<td>Sem relação linear</td>
+</tr>
+<tr>
+<td><strong>&lt; −0,4</strong></td>
+<td>Negativa <strong>relevante</strong>: quando uma sobe, a outra desce</td>
+</tr>
+<tr>
+<td><strong>−1</strong></td>
+<td>Correlação negativa perfeita</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Faixas usuais:</strong> |r| de 0,4 a 0,5 é moderado-fraco, de 0,5 a 0,7 é moderado, de 0,7 a 0,9 é forte e acima de 0,9 é muito forte.</li>
+<li>⚠️ <strong>Correlação ≠ causalidade:</strong> pode haver <strong>variável omitida</strong> (Parte 1, item 3: o QI por trás do tempo de estudo e da nota), coincidência ou causalidade reversa. Por isso o resultado vira <strong>hipótese</strong> a ser validada, não conclusão. É também uma proteção contra o <strong>viés de confirmação</strong> (item 2).</li>
+<li><strong>Em Excel/Sheets:</strong> <code>=CORREL(A:A; B:B)</code>. <strong>Em Python:</strong> <code>df.corr()</code>.</li>
+</ul>
+<h3 id="exemplos-da-professora">Exemplos da professora</h3>
+<table>
+<thead>
+<tr>
+<th>Exemplo</th>
+<th>Coeficiente</th>
+<th>Leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🍦 <strong>Temperatura × venda de sorvete</strong></td>
+<td>Forte e <strong>positivo</strong> (perto de +1)</td>
+<td><em>"Sobem juntas e descem juntas."</em> O dono da sorveteria usa isso para planejar <strong>estoque, distribuição e sazonalidade</strong></td>
+</tr>
+<tr>
+<td>⚖️ <strong>"Como uma balança"</strong></td>
+<td>Forte e <strong>negativo</strong> (perto de −1)</td>
+<td>Quando uma sobe, a outra desce. <strong>"Atenção ao sinal!"</strong></td>
+</tr>
+<tr>
+<td>🇺🇸 <strong>Temperatura cai → vendas do varejo explodem (2º semestre nos EUA)</strong></td>
+<td>Forte e negativo, mas <strong>ESPÚRIO</strong></td>
+<td><strong>Pegadinha proposital</strong>: não é o frio nem o casaco. São as <strong>datas comemorativas (Ação de Graças e Natal)</strong> que impulsionam o varejo. É a <strong>variável omitida</strong> de novo</td>
+</tr>
+<tr>
+<td>🎬 <strong>Filmes do Nicolas Cage × afogamentos</strong></td>
+<td>Perto de +1, mas <strong>espúrio</strong></td>
+<td><em>"Tem correlação, é inegável, mas não implica relação causal. Mera coincidência."</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pontos para o exercício:</strong></p>
+<ul>
+<li>O coeficiente vai <strong>sempre de −1 a +1</strong>. <strong>Perto de 0 = sem correlação.</strong></li>
+<li>💡 <strong>Ausência de correlação também é informação:</strong> <em>"Eu esperava uma correlação e ela não apareceu. Opa! Isso também é informação."</em> Vale registrar no caderno.</li>
+<li><strong>Correlação espúria</strong> = relação causal indevida, <em>"é fake"</em>. <em>"Existe um monte de coisa acontecendo ao mesmo tempo, e não significa que uma impacta a outra."</em></li>
+<li>É preciso <strong>feeling do negócio</strong>. Se você não conhece o negócio, <strong>apoie-se no gestor ou dono do processo</strong> (<em>business owner</em>) e <strong>investigue</strong> cada correlação para garantir que ela tem significado.</li>
+<li><strong>Estrutura de cada hipótese no caderno:</strong> correlação encontrada (r e sinal) → interpretação de negócio → <strong>ela pode ser espúria? há variável omitida?</strong> → como validar → ação sugerida.</li>
+</ul>
+<h3 id="como-apresentar-gráfico-de-dispersão-não-a-matriz">Como apresentar: gráfico de dispersão (não a matriz)</h3>
+<ul>
+<li>Numa reunião, <strong>a matriz de números é "fria"</strong> e quem não é da área pode não entender. <strong>Leve o gráfico de dispersão</strong>, que existe no Power BI, no Tableau e no Excel.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Formato dos pontos</th>
+<th>Leitura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>↗️ <strong>Diagonal crescente</strong>, pontos próximos</td>
+<td>Correlação <strong>forte positiva</strong></td>
+</tr>
+<tr>
+<td>↘️ <strong>Diagonal decrescente</strong>, pontos próximos</td>
+<td>Correlação <strong>forte negativa</strong></td>
+</tr>
+<tr>
+<td>Pontos <strong>um pouco espalhados</strong>, mas com tendência</td>
+<td>Correlação <strong>moderada</strong></td>
+</tr>
+<tr>
+<td>Pontos <strong>completamente dispersos</strong></td>
+<td><strong>Sem correlação</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>💡 <strong>Exemplo de ausência de correlação útil:</strong> <em>"Fiz uma ação de marketing para alavancar vendas e não há correlação. A ação não funcionou."</em></li>
+</ul>
+<h3 id="exemplo-resolvido-em-aula-case-de-trade-marketing-red-bull">Exemplo resolvido em aula: case de Trade Marketing (Red Bull)</h3>
+<blockquote>
+<p>⚠️ <strong>É só um exemplo.</strong> <em>"Vocês vão fazer em outra base de dados, com outro tema"</em> (suporte de TI).</p>
+</blockquote>
+<ul>
+<li><strong>Contexto:</strong> na indústria de consumo (B2B), <strong>70 a 80% da decisão de compra acontece no ponto de venda</strong>, e a indústria não o enxerga. O gestor da Red Bull não sabia se havia <strong>ruptura</strong> (falta do produto) nem se o <strong>preço praticado</strong> estava bom, já que quem define o preço é o varejo. A solução foi <strong>capturar dados dentro da loja</strong>.</li>
+<li><strong>Base enxuta</strong> (uma linha por loja/visita):
+<ul>
+<li><strong>Preço</strong> praticado</li>
+<li><strong>Promotor</strong> (tem ou não tem)</li>
+<li><strong>Quantidade distribuída</strong> para a loja</li>
+<li><strong>Quantidade vendida</strong></li>
+</ul></li>
+<li><strong>Como ela fez:</strong> no <strong>Excel com o Copilot</strong> (poderia ser o Claude integrado ao Excel), com o prompt <strong>"Aplique correlação estatística"</strong>.
+<ul>
+<li>Sem Copilot: <strong>suba a base em qualquer LLM</strong> (ChatGPT, Gemini, Claude) com o mesmo pedido.</li>
+<li>Em Python: <code>dataset.corr()</code>.</li>
+</ul></li>
+<li><strong>O que a ferramenta faz:</strong> combina <strong>todo mundo com todo mundo</strong> (preço × promotor, preço × distribuída, preço × vendida, promotor × distribuída, promotor × vendida…) e devolve a <strong>matriz</strong> de −1 a +1. O Copilot <strong>já gerou o mapa de calor</strong> sozinho.</li>
+<li><strong>Método:</strong> <strong>Pearson</strong>, <em>"uma forma de calcular, mas existem outras"</em>. Para estudar: <strong>Spearman</strong> (usa postos; boa para relações monotônicas não lineares e com outliers) e <strong>Kendall</strong>.</li>
+</ul>
+<p><strong>Correlações fortes encontradas na base Red Bull:</strong> | Par | r | Leitura | |---|---|---| | <strong>Qtd. distribuída × Qtd. vendida</strong> | <strong>+0,92</strong> | Forte <strong>positiva</strong> (Felipe identificou) | | <strong>Promotor × Preço</strong> | forte <strong>negativa</strong> | Quando há promotor, o preço é menor (ou o contrário) |</p>
+<ul>
+<li>Nesta base, <em>"a partir de 0,8 já faria sentido"</em> como corte. <strong>No exercício o corte é |r| &gt; 0,4.</strong></li>
+</ul>
+<h3 id="notebook-o-que-é-o-caderno-de-hipóteses-professora">📓 O que é o Caderno de Hipóteses (professora)</h3>
+<ul>
+<li><strong>Hipóteses são insights e percepções.</strong> Podem vir <strong>do que já sei do negócio</strong>, então o caderno pode começar <strong>antes da correlação</strong>, no <strong>levantamento de requisitos com o cliente</strong>.</li>
+<li>Também são <strong>o que aparece na matriz</strong> e que depois precisa ser <strong>discutido, provado</strong> e virar <strong>ação</strong>, como uma <strong>recomendação de ação corretiva</strong>.</li>
+<li><strong>Hipóteses podem ser derrubadas.</strong> Por isso <strong>tudo é escrito como pergunta</strong>, com "?".</li>
+<li><strong>Roteiro de discussão de cada correlação:</strong>
+<ol type="1">
+<li>O que significa? (sobem juntas, descem juntas / sentido oposto)</li>
+<li><strong>Faz sentido para o negócio ou é espúria?</strong></li>
+<li>Se faz, <strong>por quê?</strong> Quais hipóteses explicam?</li>
+<li>Que <strong>ação</strong> recomendar?</li>
+</ol></li>
+</ul>
+<p><strong>Hipóteses levantadas pela turma (H1: distribuída × vendida, r = +0,92):</strong></p>
+<ul>
+<li><strong>Felipe, disponibilidade do produto:</strong> se o produto está disponível no ponto de venda, <strong>a venda acompanha</strong>. A distribuição <strong>causa</strong> a venda.</li>
+<li><strong>Raul, causalidade reversa:</strong> <em>"Para mim seria o contrário: por eu vender mais, ele vem mais para mim."</em> A <strong>venda puxa a distribuição</strong>. É provavelmente uma visão histórica/mensal de reposição.</li>
+<li><strong>Rafael, proporção:</strong> olhando os números absolutos (170, 240, 50, 30…), a <strong>proporção entre distribuído e vendido se mantém</strong>, com uma diferença de cerca de 25 a 30%. As lojas vendem de 60 a 80% do que recebem.</li>
+<li><strong>Otávio:</strong> <em>"Quanto mais distribuo, mais vendo."</em></li>
+<li><strong>Pergunta da professora:</strong> <em>"Será que, se eu aumentar a distribuição, aumento as vendas? Será que temos um risco?"</em> (por exemplo, encalhe ou validade).</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Lição:</strong> a mesma correlação admite <strong>explicações em sentidos opostos</strong> (distribuição → venda <strong>ou</strong> venda → distribuição). A correlação <strong>não diz qual causa qual</strong>. Por isso ela é <strong>hipótese</strong>.</p>
+</blockquote>
+<h3 id="pencil-caderno-de-hipóteses-montado-em-aula-print-do-excel">📝 Caderno de hipóteses montado em aula (print do Excel)</h3>
+<p><strong>Matriz (Pearson, 50 observações, CODIGO_CAPTURA excluído por ser identificador):</strong> | | PRECO | PROMOTOR | QTD_DISTRIBUIDA | QTD_VENDIDA | |---|---|---|---|---| | <strong>PRECO</strong> | 1,00 | <strong>−0,98</strong> | −0,06 | <strong>−0,43</strong> | | <strong>PROMOTOR</strong> | −0,98 | 1,00 | −0,03 | 0,33 | | <strong>QTD_DISTRIBUIDA</strong> | −0,06 | −0,03 | 1,00 | <strong>0,92</strong> | | <strong>QTD_VENDIDA</strong> | −0,43 | 0,33 | 0,92 | 1,00 |</p>
+<blockquote>
+<p><em>"Correlação mede associação linear; não comprova causalidade."</em></p>
+</blockquote>
+<p><strong>Hipóteses registradas pela turma:</strong></p>
+<p><em>Distribuída × Vendida (+0,92)</em></p>
+<ol type="1">
+<li>Disponibilidade do produto</li>
+<li>Porque vendo mais, preciso de mais distribuição (causalidade reversa)</li>
+<li>Proporção sendo mantida</li>
+<li>Quanto mais distribuo, mais vendo</li>
+<li><strong>Giro de estoque</strong></li>
+</ol>
+<p><em>Promotor × Preço (−0,98)</em> 6. <strong>O promotor está atuando na negociação</strong> (consegue preço menor na loja) 7. <strong>O promotor está diminuindo a margem</strong> (o preço menor reduz a margem do varejo ou da indústria)</p>
+<p><strong>Discussão de Promotor × Preço (−0,98), passo a passo da professora:</strong></p>
+<ol type="1">
+<li><strong>Primeiro explique a correlação e só depois levante hipóteses.</strong> <em>"Sobe promotor, cai preço. Desce promotor, sobe preço."</em> Como <strong>PROMOTOR é binário (0/1)</strong>, "sobe" = <strong>presença</strong> e "desce" = <strong>ausência</strong> do promotor.</li>
+<li><strong>Hipóteses da turma:</strong>
+<ul>
+<li>O promotor <strong>convence o estabelecimento</strong> a cobrar um preço melhor (<strong>negociação</strong>).</li>
+<li>O promotor negocia uma taxa que <strong>reduz a margem</strong> (de lucro, para a comissão dele ou para custo).</li>
+<li><strong>Raul, preço tabelado/sugerido:</strong> com promotor, a loja tem a informação do preço sugerido. Sem promotor, pratica preço maior e <strong>a venda cai</strong>. É como o <strong>preço sugerido na tampa da Coca</strong>, uma tentativa da indústria de <strong>regular o preço para baixo</strong>, que o promotor reforça.</li>
+<li><strong>Peter, promoções:</strong> o promotor costuma ser <strong>enviado em época de promoção</strong> ("leve 3, pague 2"), então <strong>o preço já está baixo por causa da campanha</strong>, e não por causa do promotor. É uma possível <strong>variável omitida: a promoção</strong>. A professora registrou: <em>"promotor atuando com pacotes promocionais"</em>.</li>
+</ul></li>
+<li><strong>Pergunta para fechar o raciocínio:</strong> <em>"Mantemos ou demitimos o promotor? Ele está fazendo o papel dele?"</em>
+<ul>
+<li><p>Ele <strong>impacta o preço, isso é fato</strong>. Mas <strong>está impactando a venda?</strong> (Promotor × Vendida é só <strong>+0,33</strong>, abaixo do corte.)</p></li>
+<li><p>A turma disse: <em>"falta estratégia"</em> e <em>"qual é a meta dele?"</em>. Se a meta for vender mais, ele corta preço, e isso pode <strong>sacrificar margem sem aumentar tanto a venda</strong>.</p></li>
+<li><p><strong>Leitura da professora:</strong> Promotor × Vendida = <strong>0,33</strong>, <em>"bem tímido, mais perto do zero"</em>. A impressão inicial é que <strong>o promotor não está alavancando a venda</strong> (em valor absoluto). Valeria trazer outras métricas, como a <strong>taxa de conversão</strong>. (No exemplo resolvido abaixo, Promotor × Taxa de conversão dá <strong>+0,92</strong>. Com essa métrica a conclusão muda!)</p></li>
+<li><p><em>"Nunca escrevemos no caderno 'o produto é ruim'"</em>, mas buscamos caminhos para <strong>mostrar deficiências no processo</strong>.</p></li>
+</ul></li>
+</ol>
+<h3 id="bar_chart-antes-da-correlação-estatística-descritiva">📊 Antes da correlação: estatística descritiva</h3>
+<ul>
+<li>A correlação é uma função do <strong>primeiro passo estatístico</strong>, a <strong>estatística descritiva</strong> (<code>.corr()</code> no Python).</li>
+<li>Seria ótimo começar com um <strong>overview descritivo</strong>: <strong>média, mediana, máximo, mínimo e desvio padrão</strong>.
+<ul>
+<li><strong>Média:</strong> soma ÷ quantidade.</li>
+<li><strong>Desvio padrão:</strong> o quanto os dados variam.</li>
+<li><strong>Mínimo e máximo:</strong> ajudam a achar <strong>outliers</strong>.</li>
+</ul></li>
+<li><em>"Coisas simples de fazer, mas que já dizem muito sobre os dados."</em> A planilha tem uma aba <strong>"Estatística Descritiva"</strong> com isso.</li>
+</ul>
+<h3 id="robot-de-estatística-a-machine-learning-regressão-linear">🤖 De estatística a Machine Learning: regressão linear</h3>
+<ul>
+<li>A professora pegou <strong>Distribuída × Vendida</strong>, pediu o <strong>gráfico de dispersão</strong> e depois a <strong>linha de tendência (equação da reta)</strong>. Ela disse 0,98, mas o valor da matriz é <strong>0,92</strong>.</li>
+<li><strong>Equação da reta:</strong> <em>"uma reta que tenta ficar posicionada o mais próximo possível dos pontos"</em>.</li>
+<li>💡 <strong>"Acabei de fazer uma regressão linear, que é inteligência artificial, é machine learning."</strong> É aprendizado <strong>supervisionado</strong> do tipo <strong>regressão</strong> (Mapa do ML, item 21).</li>
+<li><strong>Para que serve:</strong> fazer <strong>inferências</strong>, ou seja, olhar os dados históricos e projetar o futuro. <strong>Dado o valor de um eixo, infiro o outro.</strong> Ex.: <em>"se eu distribuir 150 unidades, quanto devo vender?"</em></li>
+<li><strong>Inferência da turma:</strong> <em>"Para vender mais, eu teria que aumentar a distribuição e não trabalhar com promotoria, porque o promotor não estava resolvendo e o preço estava caindo."</em> A professora achou uma <strong>hipótese interessante, mas que precisa ser validada</strong>.</li>
+<li><strong>Fórmula (para estudo):</strong> <code>vendida = a × distribuída + b</code>. O <strong>a</strong> (inclinação) diz quantas unidades a mais se vende para cada unidade a mais distribuída.</li>
+<li><strong>Calculado na base de exemplo:</strong> <strong>vendida ≈ 0,65 × distribuída − 7,6</strong>. A cada 100 unidades distribuídas, vendem-se cerca de 57 (ex.: 150 distribuídas → cerca de 90 vendidas). ⚠️ Projetar além do máximo observado (200) é <strong>extrapolação</strong>, e é arriscado.</li>
+</ul>
+<blockquote>
+<p>🧪 <strong>Como testar as hipóteses (professora):</strong> use a base de exemplo e <strong>simule</strong>. Por exemplo, <strong>aumente a distribuição e veja se o coeficiente muda</strong>. <em>"Depois vamos ter que pensar em como testar essas hipóteses."</em> ⚠️ <strong>Não confunda:</strong> esta é a <strong>base de exemplo</strong>. O exercício entregue usa <strong>outra base</strong>.</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>Para sua entrega:</strong> o modelo da aula é uma <strong>lista curta de hipóteses por correlação</strong>. Dá para aprofundar cada uma com: por que pode ser espúria, como validar e que ação tomar (como no exemplo completo abaixo).</p>
+</blockquote>
+<h3 id="white_check_mark-exemplo-resolvido-completo-base-captura_tabuladoxlsx-50-capturas">✅ Exemplo resolvido completo (base <code>Captura_tabulado.xlsx</code>, 50 capturas)</h3>
+<p>Rodei o script na base da aula e incluí a coluna <strong>TAXA_CONVERSAO</strong> (vendida ÷ distribuída), que também está na planilha. Os resultados batem com a matriz do Copilot.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Par</th>
+<th>r</th>
+<th>Hipótese (como pergunta)</th>
+<th>Pode ser espúria? / Cuidado</th>
+<th>Ação sugerida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Preço × Promotor</td>
+<td><strong>−0,98</strong></td>
+<td>Lojas <strong>com promotor</strong> praticam preço menor (média R$ 4,07 contra <strong>R$ 7,50</strong> sem promotor). O promotor <strong>negocia preço</strong>? Está <strong>reduzindo a margem</strong>? Ou só vai a lojas de rede com preço menor?</td>
+<td>⚠️ <strong>As duas variáveis andam praticamente juntas</strong>: toda loja com promotor tem preço de 3,5 a 4,5, e toda loja sem promotor tem 7,5. <strong>Não dá para separar o efeito do preço do efeito do promotor</strong> (colinearidade / variável omitida: tipo ou porte de loja?)</td>
+<td>Teste A/B: colocar promotor em lojas de preço alto</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>Preço × Taxa de conversão</td>
+<td><strong>−0,95</strong></td>
+<td>Preço menor → a loja vende uma parte maior do que recebe?</td>
+<td>Mesmo cuidado da H1</td>
+<td>Rever a política de preço sugerido ao varejo</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>Promotor × Taxa de conversão</td>
+<td><strong>+0,92</strong></td>
+<td>Promotor aumenta a conversão (<strong>64% contra 41%</strong>)? Ele repõe a gôndola, evita ruptura e dá visibilidade?</td>
+<td>Mesmo cuidado da H1</td>
+<td>Calcular o ROI do promotor por loja</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Distribuída × Vendida</td>
+<td><strong>+0,92</strong></td>
+<td>A disponibilidade gera venda (Felipe) <strong>ou</strong> a venda puxa a reposição (Raul)? O <strong>giro de estoque</strong> explica?</td>
+<td><strong>Causalidade reversa</strong> possível</td>
+<td>Testar aumento de distribuição em lojas-piloto e monitorar encalhe</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>Vendida × Taxa de conversão</td>
+<td>+0,56</td>
+<td>Lojas que vendem mais também convertem melhor?</td>
+<td>Em parte <strong>matemática</strong>: a taxa é calculada a partir da venda</td>
+<td>Não usar sozinha como evidência</td>
+</tr>
+<tr>
+<td>H6</td>
+<td>Preço × Vendida</td>
+<td>−0,43</td>
+<td>Preço maior → vende menos (elasticidade)?</td>
+<td>Fraca, e confundida com o promotor</td>
+<td>Analisar só as lojas sem promotor</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Promotor × Distribuída</td>
+<td>~0</td>
+<td><strong>Ausência de correlação:</strong> o promotor <strong>não influencia quanto a loja recebe</strong>. A distribuição ignora a presença do promotor?</td>
+<td><em>"Isso também é informação"</em></td>
+<td>Direcionar mais estoque às lojas com promotor, que convertem mais</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Achado de ouro para a apresentação:</strong> preço, promotor e conversão parecem ser <strong>o mesmo fenômeno</strong>. Antes de concluir que "promotor vende mais", é preciso <strong>desembaralhar</strong> as variáveis. É a lição da <strong>variável omitida</strong> (Parte 1) na prática.</p>
+</blockquote>
+<p>Os arquivos estão em o notebook <code>04_Hands_On_Correlacao/notebooks/handson_correlacao.ipynb</code> (heatmap e gráficos de dispersão).</p>
+<h3 id="pushpin-regras-da-entrega-professora-2207">📌 Regras da entrega (professora, 22:07)</h3>
+<ul>
+<li><strong>Base:</strong> <code>metrica_cx_corr_v2.csv</code>, uma <strong>pesquisa interna de satisfação</strong> feita por um gestor de Suporte de TI com seus <strong>clientes internos</strong> (colaboradores). Métricas de CX: <strong>CES</strong> (esforço), <strong>RATINGS</strong> (satisfação), <strong>e_NPS</strong> (recomendação), mais canal, criticidade, tempo, status e <strong>idade</strong> (a única característica do usuário).</li>
+<li><strong>Template:</strong> "Caderno de Hipóteses.docx" → gerar <strong>PDF</strong> → upload no <strong>portal</strong>, com os <strong>RMs separados por vírgula</strong> no campo do upload. A identificação no Word <em>"é só para constar"</em>.</li>
+<li><strong>Prazo:</strong> não acaba hoje. É possível entregar <strong>até a próxima aula</strong>.</li>
+<li><strong>Informar qual IA/LLM</strong> foi usada (qualquer uma).</li>
+<li>⚠️ <strong>Espírito do exercício:</strong> <em>"Poderíamos pedir ao GPT para fazer tudo e ir dormir, mas não é a função de vocês na liderança de IA. <strong>Vamos usar a IA e nos manter no loop.</strong>"</em></li>
+<li><strong>Processo:</strong>
+<ol type="1">
+<li><strong>Etapa 1, sem IA:</strong> hipóteses de <em>feeling</em>, só pelo dicionário de dados. <em>"É assim que a coisa começa: o gestor despeja tudo o que pensa e a gente registra."</em> Serve para ver <strong>dogmas caírem</strong>. Três hipóteses é só o número do template; pode ser mais ou menos.</li>
+<li><strong>"Aplique estatística descritiva"</strong> (o <code>describe</code>: média, máximo, mínimo, mediana, desvio padrão). Pode colar o print ou os números no template.</li>
+<li><strong>"Aplique correlação estatística"</strong>, colar a matriz e separar as correlações fortes.</li>
+</ol></li>
+</ul>
+<h3 id="pushpin-orientação-etapa-por-etapa-do-template-professora-2212">📌 Orientação etapa por etapa do template (professora, 22:12)</h3>
+<ul>
+<li><strong>Etapa 1, sem IA:</strong> <em>"Não burlem a experiência."</em></li>
+<li><strong>Etapa 2:</strong> mapeiem as correlações encontradas e também <strong>o que NÃO deu correlação</strong>, e se essa ausência tem significado para o negócio.</li>
+<li><strong>Etapa 3:</strong> escrevam o <strong>prompt</strong> e peçam à IA para analisar as correlações. <strong>A IA vai misturar tudo</strong>, então classifiquem cada afirmação:
+<ul>
+<li><strong>Constatação:</strong> só a leitura (<em>"sobe a temperatura, sobe a venda de sorvete"</em>).</li>
+<li><strong>Hipótese:</strong> uma explicação ou ação a testar (<em>"vale investir mais em estoque no verão"</em>).</li>
+<li><strong>Causal indevida / espúria:</strong> <em>"está acontecendo, mas não implica causalidade. É mera coincidência."</em></li>
+<li><em>"A IA faz tudo em 5 segundos, mas <strong>quem assina o caderno de hipóteses é você, não o LLM</strong>."</em></li>
+<li>Se a IA <strong>deixou passar algo que vocês levantaram na Etapa 1</strong>, anotem.</li>
+</ul></li>
+<li><strong>Etapa 4:</strong> <em>"O que interessa no fim, o que vai para o gestor, é a partir do item 4."</em> Vocês <strong>decidem quais hipóteses entram e quais ficam de fora</strong>.</li>
+<li><strong>Etapa 5:</strong> ajudem o gestor, que <em>"não entende de hipóteses nem de correlação"</em>: recomendação, evidência, <strong>experimento para testar causalidade</strong> e <strong>custo do erro</strong>, estimado para deixá-lo confortável na decisão.</li>
+<li><strong>Resumo:</strong> <em>"Um bom caderno de hipóteses é um ensaio com a IA como copiloto e um relatório final assinado por você, quando você filtra e decide o que fazer."</em></li>
+<li><strong>Contexto da base:</strong> o time de suporte atende a empresa em qualquer necessidade tecnológica (passar cabo, trocar monitor, instalar software, atualizar a máquina). O gestor quer entender se a empresa está sendo bem ou mal atendida.</li>
+</ul>
+<h3 id="como-fazer-roteiro">Como fazer (roteiro)</h3>
+<ol type="1">
+<li>Carregar a base e manter só as <strong>colunas numéricas</strong>.</li>
+<li>Calcular a <strong>matriz de correlação</strong> (todas × todas).</li>
+<li>Filtrar os pares com <strong>r &gt; 0,4 ou r &lt; −0,4</strong>.</li>
+<li>Para cada par, escrever a <strong>hipótese de negócio</strong>: <em>"Acreditamos que [X] influencia [Y] porque [razão]. Para validar, [como testar]."</em></li>
+<li>Preencher o <strong>caderno de hipóteses</strong> (template), gerar o PDF e subir no portal.</li>
+</ol>
+<blockquote>
+<p>🛠️ Script pronto: <code>04_Hands_On_Correlacao/scripts/correlacao.py</code>, que gera a matriz, o heatmap, os pares relevantes e os gráficos de dispersão.</p>
+</blockquote>
+<hr/>
+<h2 id="encerramento-e-logística-2217">Encerramento e logística (22:17)</h2>
+<ul>
+<li><strong>Material:</strong> o PDF dos slides de cada aula sempre termina com um <strong>Hands On</strong> e o <strong>dicionário de dados</strong>. O template (Word) e a base foram enviados no chat do Teams.</li>
+<li><strong>Grupos:</strong> sorteados, com <strong>4 a 5 integrantes</strong>. ⚠️ <strong>Anote o seu grupo.</strong> A professora não controla os grupos (tem muitas turmas), e ele segue <strong>até o fim da disciplina</strong> (trocar não é proibido).</li>
+<li><strong>Tempo:</strong> cerca de 40 minutos em grupo, até as 23h (horário oficial). Não é preciso voltar para a sala principal. O upload fica aberto no portal <strong>até a próxima aula</strong>.</li>
+<li><strong>Contato:</strong> a professora atende pelo direct do Teams durante a semana.</li>
+<li><em>"Aqui vocês têm liberdade para controlar o tempo. Estamos aprendendo a nos autoajustar."</em></li>
+</ul>
+<blockquote>
+<p>📝 <strong>Meu grupo:</strong> ______ · <strong>Integrantes / RMs:</strong> ______</p>
+</blockquote>
+<hr/>
+<h2 id="white_check_mark-checklist-pós-aula">✅ Checklist pós-aula</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"/>Anotar o grupo e os RMs dos integrantes</label></li>
+<li><label><input type="checkbox"/>Preencher a <strong>Etapa 1</strong> (sem IA) com o grupo</label></li>
+<li><label><input type="checkbox"/>Revisar com o grupo o <a href="../../../../biblioteca/02/caderno-de-hipoteses-cx-preenchido-f0576871/conteudo.html">Caderno_de_Hipoteses_CX_preenchido.docx</a>, usando o notebook <a href="../../../../biblioteca/02/caderno-hipoteses-grupo-cf5257db/conteudo.html">Caderno_Hipoteses_Grupo.ipynb</a></label></li>
+<li><label><input type="checkbox"/>Preencher a coluna "Etapa 1: confirma / contradiz / nova" e a pergunta "o que resistimos a abandonar?"</label></li>
+<li><label><input type="checkbox"/>Exportar em <strong>PDF</strong> e subir no portal com os <strong>RMs separados por vírgula</strong> (prazo: até a próxima aula)</label></li>
+<li><label><input type="checkbox"/>Preparar-se para a próxima aula: <strong>IA Generativa, como funcionam os LLMs</strong></label></li>
+</ul>
+<h2 id="próxima-aula">Próxima aula</h2>
+<p><strong>IA Generativa:</strong> como funcionam os LLMs, o ramo do Mapa de ML que desce de Deep Learning para GenAI (tokenização, embeddings, Transformers).</p>
+<p><a href="../../../../../../disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md">Abrir fonte Markdown no Git</a></p><p id="referencia-indisponivel" class="meta">Algumas referências citam arquivos externos ou não disponíveis nesta biblioteca. O destino original permanece registrado no Markdown.</p></article></main></body></html>

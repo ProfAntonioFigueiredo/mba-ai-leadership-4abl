@@ -1,0 +1,63 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Biblioteca de leitura e consulta</title><style>*{box-sizing:border-box}body{margin:0;background:#f5f7f3;color:#20382e;font:17px/1.7 system-ui,sans-serif}header{background:#fff;border-bottom:1px solid #dce3d8;padding:22px max(20px,calc((100% - 1200px)/2))}header a{color:#20382e;font-weight:750;text-decoration:none}main{max-width:1200px;margin:auto;padding:42px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2;letter-spacing:-1px;margin:12px 0 24px}h2{font-size:25px;margin-top:38px}p{max-width:80ch}a{color:#245c40;text-underline-offset:3px}small,.meta{font-size:13px;color:#5c7062}.lede{font-size:20px;color:#5c7062;max-width:75ch}.controls{display:flex;gap:14px;margin:30px 0;flex-wrap:wrap}.controls input,.controls select{font:inherit;border:1px solid #b9c9b8;border-radius:5px;padding:10px;background:#fff;color:#20382e}.controls input{flex:1;min-width:200px}.disciplines{list-style:none;padding:0}.discipline{display:grid;grid-template-columns:46px 1fr 150px;gap:18px;border-top:1px solid #d9e1d5;padding:22px 0;align-items:start}.discipline .n{font-size:13px;color:#657b68}.discipline a{font-size:20px;font-weight:650;text-decoration:none}.discipline p{margin:7px 0;font-size:14px;color:#5c7062}.badge{font-size:12px;padding:4px 8px;background:#e7eddd;border-radius:4px;justify-self:end;white-space:nowrap}.quick{display:grid;grid-template-columns:1fr 1fr;gap:30px;background:#e8eedf;padding:25px;border-radius:7px;margin:28px 0}.quick a{display:block;font-weight:650;margin:8px 0}.count{font-size:13px;margin:12px 0;color:#5c7062}pre{overflow:auto;background:#e8eedf;padding:20px;font-size:13px}code{font-size:.85em;overflow-wrap:anywhere}li{margin:8px 0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:12px;border-bottom:1px solid #d9e1d5;text-align:left}.content{max-width:90ch;overflow-wrap:anywhere}.foot{margin-top:45px;border-top:1px solid #d9e1d5;padding-top:20px;font-size:13px;color:#5c7062}:focus-visible{outline:3px solid #507638;outline-offset:3px}[hidden]{display:none!important}@media(max-width:650px){main{padding:28px 18px}.quick{grid-template-columns:1fr;gap:12px}.discipline{grid-template-columns:28px 1fr;gap:10px}.badge{grid-column:2;justify-self:start}.controls{display:block}.controls input,.controls select{width:100%;margin:6px 0}.discipline a{font-size:18px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}.discipline{break-inside:avoid}}
+</style></head><body><header><a href="../index.html">MBA AI Leadership · 4ABL</a></header><main><div class="content"><h1 id="biblioteca-de-leitura-e-consulta">Biblioteca de leitura e
+consulta</h1>
+<p><a href="../biblioteca/index.html">Abrir biblioteca HTML com
+busca</a> · <a href="../biblioteca/index.html">Navegar em Markdown pelo
+GitHub</a></p>
+<p>O índice reúne os documentos Markdown existentes e as conversões dos
+materiais do curso. A busca HTML consulta títulos e conteúdo completo,
+funciona sem servidor e permite filtrar por disciplina. No GitHub, use o
+índice Markdown: os arquivos <code>.md</code> são apresentados como
+páginas de leitura, com tabelas, imagens e links. Para consultar pelo
+navegador local, abra <code>biblioteca/index.html</code> ou o portal
+principal.</p>
+<h2 id="conteúdo-e-fidelidade">Conteúdo e fidelidade</h2>
+<ul>
+<li>DOCX: títulos, parágrafos, listas, tabelas e imagens incorporadas,
+via Pandoc.</li>
+<li>PDF: extração de texto por página; imagens e diagramas exigem o
+original. PDFs sem texto suficiente ficam pendentes de OCR.</li>
+<li>PPTX: texto, tabelas, imagens incorporadas e notas por slide;
+layouts, gráficos e SmartArt não são reproduzidos integralmente.</li>
+<li>XLSX: células e fórmulas por planilha, sem executar fórmulas ou
+reproduzir gráficos.</li>
+<li>Notebooks: células e saídas textuais gravadas, sem executar o
+código.</li>
+<li>Imagens: incorporadas em páginas Markdown para consulta visual, sem
+OCR.</li>
+<li>TXT e HTML: conteúdo textual; scripts das aplicações não são
+executados.</li>
+<li>Markdown: versões existentes são reutilizadas sempre que já
+importadas; nenhuma baseline de aplicação é alterada.</li>
+</ul>
+<p>As conversões são transcrições, não resumos. Nenhum arquivo original
+é apagado. Entradas de conteúdo binário idêntico compartilham uma
+conversão; as origens ficam registradas em
+<code>catalogo/biblioteca.json</code>. Não se declara equivalência entre
+versões diferentes apenas pelo nome. O catálogo de pendências indica as
+fontes que ainda não puderam ser lidas ou convertidas; não confundir a
+importação anterior de binários com cobertura textual integral.</p>
+<p>Materiais de aula e de terceiros permanecem atribuídos às fontes e
+aos respectivos titulares. O repositório continua privado. Imagens são
+extraídas apenas quando incorporadas nos formatos compatíveis;
+referências não resolvidas ficam registradas no catálogo e no texto
+original.</p>
+<h2 id="atualização">Atualização</h2>
+<p>Instale Pandoc e Poppler, além das dependências Python listadas em
+<code>tools/requirements-library.txt</code>. Os passos abaixo são
+executados na raiz do repositório:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/ingest_library.py <span class="at">--source</span> /caminho/para/MBAAILEADERSHIP</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build_portal.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/build_library.py</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/validate_library.py</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> tools/validate_repo.py</span></code></pre></div>
+<p>O conversor não abre placeholders do OneDrive: mantenha as fontes no
+dispositivo e aguarde sua sincronização. Uma conversão existente
+continua disponível quando o original é posteriormente removido do
+armazenamento local pelo OneDrive. A ferramenta não publica
+automaticamente no GitHub nem expõe um site público. Confira as
+alterações antes de fazer commit e push.</p>
+<p>O HTML é gerado para consulta local. No GitHub, arquivos HTML são
+exibidos como código; a leitura navegável usa os índices Markdown. Não
+foi ativado GitHub Pages nem alterada a visibilidade do repositório.</p>
+</div><p class="foot"><a href="biblioteca.md">Fonte Markdown</a> · Material localizado não comprova entrega acadêmica.</p></main></body></html>

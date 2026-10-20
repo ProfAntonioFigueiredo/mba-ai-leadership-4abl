@@ -11,6 +11,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python3 tools/validate_repo.py
+      - run: python3 tools/validate_library.py
   speakup:
     runs-on: ubuntu-latest
     defaults:
@@ -29,3 +30,4 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: python3 scripts/compare.py
+      - run: node "$GITHUB_WORKSPACE/tools/check_library_browser.cjs"

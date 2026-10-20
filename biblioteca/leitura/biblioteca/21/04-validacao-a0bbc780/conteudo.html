@@ -1,0 +1,18 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04_VALIDACAO</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../21/04-validacao-a0bbc780/conteudo.md">Abrir fonte Markdown no Git</a></p><h1 id="04_validacao">04_VALIDACAO</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Vibe Coding Executivo/speakup-lovable/04_VALIDACAO.txt</code><br/>
+SHA-256: <code>a0bbc7803e44e0cb792e9446ea376a482402ead8a01890328c22a3e5c54e548d</code><br/>
+Transcrição textual integral; não é resumo.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<pre class="text"><code>VALIDAÇÃO DA BASE LOCAL SPEAKUP
+
+Build de produção com Vite concluído. Resultado final: 25 verificações aprovadas, zero falhas (inclui o teste agrupador PostgreSQL). Testes de domínio e de PostgreSQL em memória com btree_gist executados. Verificam parser CSV, 19 cabeçalhos, validação por linha/coluna, upsert, rollback de lote, matrícula com zeros, conflitos, reserva/remarcação, lotação e permissões entre papéis/empresas. O contexto auth.uid() é simulado nos testes SQL; Supabase Auth e a Edge Function não foram executados em uma conta real.
+
+Não foram executados testes de concorrência em múltiplas conexões, carga, SLA, TLS/AES, retenção externa ou entrega de notificações. Não foi possível concluir revisão visual interativa: o controle do Safari retornou repetidamente noWindowsAvailable e avisos de mudança da aplicação durante as ações. O projeto Lovable não foi criado ou confirmado por esses controles.
+
+A demonstração local funciona sem credenciais Supabase. O modo conectado não utiliza dados fictícios caso falhe a consulta ao backend. Dependências instaladas e pnpm-lock.yaml incluído para reprodutibilidade.
+</code></pre>
+<p><a href="../../../../21/04-validacao-a0bbc780/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

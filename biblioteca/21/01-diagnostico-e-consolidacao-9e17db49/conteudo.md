@@ -1,0 +1,69 @@
+# 01_DIAGNOSTICO_E_CONSOLIDACAO
+
+[Índice da biblioteca](../../README.md)
+
+> Fonte: `Vibe Coding Executivo/speakup-lovable/01_DIAGNOSTICO_E_CONSOLIDACAO.txt`  
+> SHA-256: `9e17db49625e183f40383f9ae017733726dad3b298eb01df82b2be4243d47215`  
+> Transcrição textual integral; não é resumo.  
+> Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.
+
+---
+
+```text
+DIAGNÓSTICO E CONSOLIDAÇÃO DA PLATAFORMA SPEAKUP
+Data de referência 14 de outubro de 2026
+
+PARTE 1 — DIAGNÓSTICO DE LEITURA
+Foram lidos integralmente os textos e tabelas de PRD.md.docx e PSS.md.docx, documentos de produto da pasta raiz. Não há imagens incorporadas nesses dois arquivos. Não foi identificado um Service Blueprint específico do produto. Os slides e modelos genéricos da aula não foram tratados como requisitos do produto.
+O arquivo SpeakUp_Requisitos_Antonio_Figueiredo.docx foi consultado como contexto de Discovery; não substitui a priorização P0/P1/P2 do PRD. Traz RF-11 de ciclo do aluno e volumes adicionais, que não devem ampliar silenciosamente o MVP.
+Foram lidos Prompt_de_Ignicao_Mestre_Independente_V2.docx e Prompt_Interpretador_Mestre_Vibe_Coding_V1.docx. O primeiro traz internamente versão 1.0, apesar do nome V2. As duas cópias do Interpretador têm texto idêntico.
+Os dois Configurador de System Prompt.docx também têm texto idêntico: 27 perguntas, 1 resposta explícita, 26 sem resposta, nenhuma marcação indeterminada identificada. A resposta está em Q4.1: número sequencial automático. Os campos de contexto e observações estão em branco. Não há imagens nem controles de checkbox armazenados; a escolha é um X textual.
+Produto identificado: plataforma B2B SpeakUp Idiomas. Público: aluno, professor, coordenação e gestor de RH. Plataforma: PWA responsivo, segundo PSS §7. Tecnologia: Lovable com Supabase, escolha explícita do usuário nesta conversa.
+Cobertura: PRD define objetivos, prioridades, 19 campos e RNFs. PSS detalha login, importação, upsert e critérios de aceitação. Não há regras suficientes para cálculo financeiro por aula, créditos, políticas VIP/grupo, integração real de calendário, gestão contratual ou plano de migração.
+MVP adotado para o piloto: requisitos P0 do PRD §9, conservando os demais em etapas posteriores. Essa interpretação operacional de P0 como primeira etapa está explícita; não há aprovação de uma entrega de produção completa.
+
+PARTE 2 — MATRIZ DE CONSOLIDAÇÃO
+Item | Descrição | Tipo | Fonte | Prioridade | Situação
+RF-01 | Grade sem choque de professor/turma | funcional | PRD §9; Discovery RF-01 | P0 | confirmado
+RF-02 | Agendar/cancelar/remarcar em até 3 cliques; matrícula e senha padrão | funcional/jornada | PRD §§4,9,12; PSS §§2,3,6 | P0 | confirmado; política de crédito pendente
+RF-13 | Importação XLSX/CSV, 19 cabeçalhos, prévia e confirmação | funcional | PRD §§8,9,11; PSS §§2–6 | P0 | confirmado
+RF-05 | Chamada digital e frequência | funcional | PRD §§9,11; Discovery RF-05 | P0 | confirmado
+RF-06 | Portal RH, indicadores por empresa e aprovação de medição | funcional | PRD §§3,9; Discovery RF-06/RF-08 | P0 | indicadores confirmados; cálculo/aprovação depende de RF-08 e contrato
+RF-03 | Saldo, expiração e cancelamento parametrizados | regra/funcional | PRD §§9,13 | P1 | confirmado, regras pendentes
+RF-04 | Push/e-mail, lembretes e calendário | integração | PRD §9; PSS §2 | P1 | canais citados; provedores pendentes
+RF-08 | Medição mensal em 1 clique | funcional | PRD §§6,9,12 | P1 | cálculo contratual pendente
+RF-09 | Sugerir substitutos disponíveis | funcional | PRD §9 | P1 | critérios pedagógicos pendentes
+RF-07 | Histórico de evolução CEFR | funcional | PRD §9; PSS §1 | P2 | confirmado, não ampliar MVP
+RF-10 | SSO Azure AD/Okta e ERP | integração | PRD §9 | P2 | conectores/provisionamento pendentes
+RF-12 | Auditoria de alterações | funcional | PRD §9 | P2 | prioridade P2, infraestrutura mínima já necessária pelo RNF-07 e PSS §8
+RNF-01 | Mobile-first e até 3 cliques | qualidade | PRD §10 | sem prioridade expressa | confirmado
+RNF-02 | Resposta <=2 segundos | qualidade | PRD §10 | sem prioridade expressa | meta confirmada, carga a validar
+RNF-03 | Disponibilidade 99,5%, 24/7 | qualidade | PRD §10 | sem prioridade expressa | meta confirmada, não certificada no piloto
+RNF-04 | TLS 1.3 e AES-256; privacidade | qualidade | PRD §10; PSS §8 | sem prioridade expressa | depende de infraestrutura e validação
+RNF-05 | Papéis Aluno, Professor, Coordenação e RH | autorização | PRD §10 | sem prioridade expressa | confirmado
+RNF-06 | Até 5.000 usuários ativos | capacidade | PRD §10 | sem prioridade expressa | Discovery menciona simultaneidade, cenário de carga pendente
+RNF-07 | Logs imutáveis por 12 meses | qualidade | PRD §10; PSS §8 | sem prioridade expressa | aplicação pode bloquear edição; retenção/integridade externa pendentes
+AUX-01 | Cabeçalho Valor Mensalidade mapeado a valor_mensalidade | dados | PRD §8; PSS §§3,5 | ID auxiliar criado na análise | confirmado
+AUX-02 | Upsert por matrícula existente | regra | PSS §3 | ID auxiliar criado na análise | confirmado
+AUX-03 | Vínculo aluno-empresa separado de unidade | inferência técnica | isolamento RH, PRD personas/RNF-05 | ID auxiliar criado na análise | necessário ao piloto; não presumir unidade=empresa em produção
+AUX-04 | Lote atômico, ordem exata, até 5 MB/5.000 linhas | decisão do piloto | não especificado integralmente nos documentos | ID auxiliar criado na análise | escolha operacional revisável, não requisito aprovado
+
+PARTE 3 — VALIDAÇÃO
+1. Fluxo dos prompts: o Interpretador é destinado ao Configurador de System Prompt, e não ao prompt de ignição. Os entregáveis foram separados para preservar a finalidade de cada material. A implementação é uma etapa posterior autorizada explicitamente pelo usuário.
+2. Identificadores: Q4.1 escolhe sequenciais, enquanto PSS define matrícula VARCHAR(50) como chave de tb_aluno. Preservar a matrícula textual como exceção explícita; usar sequenciais em entidades internas. Supabase Auth exige UUID para usuários; registrar essa exceção técnica, sem converter matrículas ou renumerar legados.
+3. Sintaxe SQL do PSS é parcialmente MySQL (ON UPDATE CURRENT_TIMESTAMP); traduzir comportamento para PostgreSQL. Não copiar SQL incompatível. Manter updated_at por operações de atualização controladas.
+4. Senha fixa versus inicial: PRD §§4/12 e PSS §§2/3 empregam ambas as expressões. O piloto provisiona Escola@@@ e autentica pelo Supabase Auth. Não afirmar conformidade de produção desse mecanismo. Mudança obrigatória da senha ou alteração de política requer decisão do responsável.
+5. Medição: RF-06 P0 cita aprovação, RF-08 P1 contém a consolidação. Indicadores são implementáveis; cálculo financeiro e aprovação real aguardam preços/contratos. Não substituir por soma de mensalidades ou valores fictícios e não simular aprovação financeira.
+6. Banco e plataforma antes ausentes foram resolvidos pelo usuário: Lovable + Supabase. Tipos, fuso de exibição, paginação e identidade visual não foram escolhidos no formulário; padrões empregados no piloto são decisões técnicas revisáveis, não respostas do aluno.
+7. Importação não cria automaticamente contas Auth: cadastro e identidade são recursos distintos. Script de provisionamento é separado e restrito ao operador. Não resetar senhas de usuários existentes em um upsert.
+8. Não há um conflito que impeça gerar o prompt de construção completo com pendências explícitas. Há lacunas que impedem declarar o produto pronto para operação real: políticas VIP/grupo, créditos, contrato, integrações, migração, backups, escala, TLS/AES e retenção de auditoria.
+
+PERGUNTAS PENDENTES PARA ETAPAS POSTERIORES
+Quais as janelas de cancelamento por modalidade e contrato, e seus efeitos no crédito?
+Como as aulas são precificadas e medidas, inclusive faltas e cancelamentos?
+Como serão vinculados os alunos às empresas e os usuários aos quatro perfis?
+A senha padrão permanecerá fixa ou será somente inicial?
+Qual é o projeto Supabase de desenvolvimento, domínio e cronograma de migração?
+Nenhum dado real foi carregado nem qualquer ambiente externo foi configurado nesta execução.
+
+```

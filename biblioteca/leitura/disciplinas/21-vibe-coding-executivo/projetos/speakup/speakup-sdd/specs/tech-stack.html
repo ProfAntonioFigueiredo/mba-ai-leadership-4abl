@@ -1,0 +1,60 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stack e restrições — SpeakUp</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../../../../index.html">MBA · 4ABL</a><a href="../../../../../../../index.html">Biblioteca e busca</a><a href="../../../../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tech-stack.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#base-preservada">Base preservada</a></li><li><a href="#runtime-dependências-e-reprodução">Runtime, dependências e reprodução</a></li><li><a href="#estrutura-existente">Estrutura existente</a></li><li><a href="#segurança-e-integração">Segurança e integração</a></li><li><a href="#verificação-disponível">Verificação disponível</a></li><li><a href="#restrições-operacionais-e-lacunas">Restrições operacionais e lacunas</a></li><li><a href="#hierarquia-de-referência">Hierarquia de referência</a></li></ul></details><h1 id="stack-e-restrições--speakup">Stack e restrições — SpeakUp</h1>
+<p>Data: 19/10/2026. Estado: constituição proposta para revisão humana.</p>
+<h2 id="base-preservada">Base preservada</h2>
+<ul>
+<li>Interface: React e React DOM, JavaScript/JSX, CSS, aplicação web responsiva.</li>
+<li>Desenvolvimento e build: Vite; diretório de saída <code>dist/</code>.</li>
+<li>Backend conectado: Supabase Auth, cliente Supabase JS, PostgreSQL e funções RPC; Edge Function de login do aluno em TypeScript/Deno.</li>
+<li>Importação: parser CSV local e <code>read-excel-file</code> para XLSX, carregado sob demanda.</li>
+<li>Demonstração: dados fictícios e persistência local com namespace próprio da versão SDD.</li>
+</ul>
+<p>Não há decisão de migrar a aplicação inteira para TypeScript, trocar framework, criar microserviços ou escolher hospedagem. Essas expansões exigem especificação posterior.</p>
+<h2 id="runtime-dependências-e-reprodução">Runtime, dependências e reprodução</h2>
+<p>O manifesto atual exige Node &gt;=22.12.0. A execução registrada utilizou Node 24.15.0; padronizar uma linha suportada para os ambientes futuros durante a especificação de ambiente.</p>
+<p>A versão SDD utiliza npm e <code>package-lock.json</code>; instalar com <code>npm ci</code>. A origem usa pnpm, e seu lock foi preservado em <code>../reports/original-pnpm-lock.yaml</code>. As versões efetivamente instaladas constam em <code>../reports/dependencies.json</code>.</p>
+<p>Os testes comparativos anteriores usaram as mesmas dependências instaladas para os dois códigos. Não reproduzem exatamente o lock pnpm original. Não alterar essa ressalva nem tratar uma atualização futura de dependências como parte invisível da comparação.</p>
+<p>O HTML deve continuar em português brasileiro. Eventos de calendário são instantes com fuso explícito; datas civis usam YYYY-MM-DD; dinheiro usa tipo decimal exato no banco. Matrícula é identificador textual e deve preservar zeros iniciais. As 19 colunas oficiais permanecem regidas pelo PRD/PSS.</p>
+<h2 id="estrutura-existente">Estrutura existente</h2>
+<pre class="text"><code>src/main.jsx                 entrada e inicialização
+src/App.jsx                  estado e composição; ainda concentra algumas telas
+src/domain/                  importação, agenda e indicadores
+src/application/             caso de uso de mutação demo
+src/infrastructure/          configuração e cliente Supabase
+src/features/                login e importação
+src/ui/                      modal compartilhado
+supabase/migrations/         migração original e correção incremental
+supabase/functions/          login do aluno
+tests/                       domínio, configuração, SQL e navegador
+docs/operations.md           instruções e pendências operacionais
+reports/                     comparação, capturas, logs e hashes
+specs/                       memória do projeto</code></pre>
+<p>Não se presume que essa organização já concluiu a modularização de App.jsx.</p>
+<h2 id="segurança-e-integração">Segurança e integração</h2>
+<ul>
+<li>PostgreSQL mantém a autoridade de autorização/integridade; revisar grants, RLS e funções SECURITY DEFINER em conjunto.</li>
+<li>Manter <code>search_path</code> explícito e validação de papel e vínculo dentro das RPCs privilegiadas.</li>
+<li>Service role somente em backend/terminal autorizado; nunca em variáveis VITE, interface, fixtures ou logs.</li>
+<li>Nenhuma variável Supabase: demo. Configuração parcial: erro visível. Par configurado: inicializar backend antes da aplicação.</li>
+<li>A migração de 19/10 restringe a ocupação informada ao RH; não representa anonimização formal de todos os metadados.</li>
+<li>A senha compartilhada, rate limiting distribuído, recuperação de conta e ciclo de sessão exigem especificação e validação antes de produção.</li>
+<li>CORS não substitui autenticação; PGlite não substitui teste de Auth, Edge, rede ou sessões concorrentes reais.</li>
+</ul>
+<h2 id="verificação-disponível">Verificação disponível</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="ex">npm</span> test</span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a><span class="ex">npm</span> run format:check</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a><span class="ex">npx</span> playwright install chromium</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a><span class="ex">npm</span> run test:e2e</span></code></pre></div>
+<p>Há Node Test Runner, PGlite, Playwright/Chromium e Prettier. Prettier verifica formato, não tipos ou lint semântico. O workflow GitHub Actions está definido, mas não foi executado remotamente. A pasta de trabalho não era um repositório Git na inspeção anterior.</p>
+<p>Esta etapa altera somente Markdown; usa os resultados anteriores como histórico, sem apresentá-los como uma nova execução. Não acrescenta runtime, dependências, scripts ou integrações à skill, que é Markdown-only.</p>
+<h2 id="restrições-operacionais-e-lacunas">Restrições operacionais e lacunas</h2>
+<p>Backend de produção, região, domínios, política de segredos, notificações e calendário não estão provisionados por esta entrega. <code>workspace_data</code> ainda retorna coleções completas autorizadas; paginação é local. Atualização entre usuários, telemetria de serviço, carga, concorrência em múltiplas conexões, backup/restore e retenção externa permanecem sem comprovação.</p>
+<p>Mudanças de contratos RPC devem incluir compatibilidade da interface, migração revisável e reversão planejada. Não executar migrações, provisionar usuários ou promover para produção por consequência automática da escrita de specs.</p>
+<h2 id="hierarquia-de-referência">Hierarquia de referência</h2>
+<ol type="1">
+<li>Decisões explícitas do responsável e requisitos confirmados do produto.</li>
+<li>Constituição revisada: mission.md, tech-stack.md e roadmap.md.</li>
+<li>Specs futuras em <code>YYYY-MM-DD-feature-name/</code>, revisadas antes de implementação.</li>
+<li>Artefatos anteriores requirements.md, acceptance.md, decisions.md e tasks.md: histórico técnico ainda útil; conflitos serão reconciliados em etapa posterior, sem reescrever a história dos testes.</li>
+</ol>
+<p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tech-stack.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

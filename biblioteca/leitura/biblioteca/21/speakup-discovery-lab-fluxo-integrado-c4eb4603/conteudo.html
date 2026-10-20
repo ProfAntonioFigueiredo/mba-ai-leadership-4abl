@@ -1,0 +1,397 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SpeakUp_Discovery_Lab_Fluxo_Integrado</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../21/speakup-discovery-lab-fluxo-integrado-c4eb4603/conteudo.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#1-como-usar">1. Como usar</a></li><li><a href="#2-personas">2. Personas</a></li><li><a href="#fernanda-lima">Fernanda Lima</a></li><li><a href="#marcos-andrade">Marcos Andrade</a></li><li><a href="#beatriz-souza">Beatriz Souza</a></li><li><a href="#3-fluxo-integrado-de-desenvolvimento-do-design-thinking-ao-agile">3. Fluxo Integrado de Desenvolvimento: do Design Thinking ao Agile</a></li><li><a href="#1-design-thinking--design-sprint">1. Design Thinking / Design Sprint</a></li><li><a href="#2-lean-startup--lean-inception">2. Lean Startup / Lean Inception</a></li><li><a href="#3-pbb--product-backlog-building">3. PBB — Product Backlog Building</a></li><li><a href="#4-agile--scrum">4. Agile / Scrum</a></li><li><a href="#como-as-10-perguntas-entram-no-fluxo">Como as 10 perguntas entram no fluxo</a></li><li><a href="#4-bloco-pronto-para-usar-no-gemini">4. Bloco pronto para usar no Gemini</a></li><li><a href="#sequência-p-01-a-p-10">Sequência P-01 a P-10</a></li><li><a href="#5-registro-detalhado-das-10-perguntas-e-respostas">5. Registro detalhado das 10 perguntas e respostas</a></li><li><a href="#processo-atual-e-dor-central">Processo atual e dor central</a></li><li><a href="#operação-pedagógica">Operação pedagógica</a></li><li><a href="#volume-escala-e-retenção">Volume, escala e retenção</a></li><li><a href="#gestão-corporativa-e-roi">Gestão corporativa e ROI</a></li><li><a href="#integrações-e-governança">Integrações e governança</a></li><li><a href="#experiência-do-aluno">Experiência do aluno</a></li><li><a href="#progresso-e-usabilidade">Progresso e usabilidade</a></li><li><a href="#falhas-e-exceções">Falhas e exceções</a></li><li><a href="#qualidade-e-rnfs">Qualidade e RNFs</a></li><li><a href="#prioridade-e-sucesso">Prioridade e sucesso</a></li><li><a href="#6-requisitos-funcionais">6. Requisitos Funcionais</a></li><li><a href="#7-requisitos-não-funcionais">7. Requisitos Não Funcionais</a></li><li><a href="#8-salvar-e-levar-ao-codexgemini">8. Salvar e levar ao Codex/Gemini</a></li></ul></details><h1 id="speakup_discovery_lab_fluxo_integrado">SpeakUp_Discovery_Lab_Fluxo_Integrado</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Vibe Coding Executivo/ExercicioAula05102026/SpeakUp_Discovery_Lab_Fluxo_Integrado.html</code><br/>
+SHA-256: <code>c4eb4603f01467ef7698da8bed745f13914e91843754114851b7ce44bec5591d</code><br/>
+Conteúdo textual do HTML; código interativo e scripts não são executados.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<div class="section panel" id="guia">
+<h2 id="1-como-usar">1. Como usar</h2>
+<div class="note">
+<p><strong>Regra crítica:</strong> o exercício permite somente <strong>10 perguntas</strong>. Faça uma por vez no GEM/Gemini e cole aqui a resposta completa antes de avançar.</p>
+</div>
+<p>Estratégia baseada nos materiais da aula: começar pelo problema, cobrir as três perspectivas, investigar processo atual, volumes, prazos, integrações, restrições e exceções. Só depois transformar evidências em RFs e RNFs.</p>
+<p><strong>Fluxo:</strong> Discovery → evidências → RF/RNF → critérios de aceitação → futura especificação/prototipação.</p>
+</div>
+<div class="section" id="personas">
+<h2 id="2-personas">2. Personas</h2>
+<div class="grid3">
+<div class="persona">
+<h3 id="fernanda-lima">Fernanda Lima</h3>
+<p><strong>Coordenadora Pedagógica</strong></p>
+<p>Turmas, professores, agenda, eficiência operacional, ocupação e retenção.</p>
+</div>
+<div class="persona">
+<h3 id="marcos-andrade">Marcos Andrade</h3>
+<p><strong>Gerente de T&amp;D</strong></p>
+<p>Orçamento, política de inglês, relatórios de progresso, compliance e ROI.</p>
+</div>
+<div class="persona">
+<h3 id="beatriz-souza">Beatriz Souza</h3>
+<p><strong>Aluna corporativa</strong></p>
+<p>Flexibilidade, faltas/reposições, comunicação e acompanhamento do progresso.</p>
+</div>
+</div>
+</div>
+<div class="section panel" id="fluxo">
+<h2 id="3-fluxo-integrado-de-desenvolvimento-do-design-thinking-ao-agile">3. Fluxo Integrado de Desenvolvimento: do Design Thinking ao Agile</h2>
+<p>Use este roteiro como uma sequência de raciocínio. No exercício Speak Up, as 10 perguntas estão concentradas principalmente na fase de <strong>Descoberta/Discovery</strong>; as respostas alimentam as fases seguintes.</p>
+<div class="grid2">
+<div class="persona">
+<h3 id="1-design-thinking--design-sprint">1. Design Thinking / Design Sprint</h3>
+<p><strong>Fase de Descoberta:</strong> definição, empatia, ideação, protótipo, experimento e hipóteses de melhoria.</p>
+</div>
+<div class="persona">
+<h3 id="2-lean-startup--lean-inception">2. Lean Startup / Lean Inception</h3>
+<p><strong>Fase de Estratégia:</strong> visão do produto, estratégia, mapeamento e ciclo mensurar → aprender.</p>
+</div>
+<div class="persona">
+<h3 id="3-pbb--product-backlog-building">3. PBB — Product Backlog Building</h3>
+<p><strong>Fase de Refinamento:</strong> refinamento, iteração e MVP, preparando o que será construído.</p>
+</div>
+<div class="persona">
+<h3 id="4-agile--scrum">4. Agile / Scrum</h3>
+<p><strong>Fase de Entrega:</strong> Sprint Planning, Product Backlog, execução da Sprint, Review e incremento/MVP.</p>
+</div>
+</div>
+<h3 id="como-as-10-perguntas-entram-no-fluxo">Como as 10 perguntas entram no fluxo</h3>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Perguntas</th>
+<th>O que buscamos descobrir</th>
+<th>Saída para a próxima fase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definição + Empatia</td>
+<td>P-01, P-02, P-04, P-06</td>
+<td>Processo atual, atores, dores e impacto.</td>
+<td>Problem Statement e necessidades reais.</td>
+</tr>
+<tr>
+<td>Hipóteses / Experimento</td>
+<td>P-03, P-07, P-08</td>
+<td>Escala, comportamento, exceções e evidências que validam ou invalidam hipóteses.</td>
+<td>Hipóteses priorizadas e critérios para validar solução.</td>
+</tr>
+<tr>
+<td>Estratégia / Mapeamento</td>
+<td>P-05, P-09</td>
+<td>Integrações, restrições, segurança, disponibilidade, desempenho e governança.</td>
+<td>RFs, RNFs e restrições para refinamento.</td>
+</tr>
+<tr>
+<td>Priorização → MVP</td>
+<td>P-10</td>
+<td>O que gera maior valor e como medir sucesso.</td>
+<td>Prioridades para backlog/MVP e futura entrega Agile.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><strong>Importante:</strong> não use as fases seguintes para presumir respostas. Primeiro obtenha evidências das personas. Depois converta os achados em requisitos, hipóteses, backlog e critérios de aceitação.</p>
+</div>
+</div>
+<div class="section panel" id="prompt-gemini">
+<h2 id="4-bloco-pronto-para-usar-no-gemini">4. Bloco pronto para usar no Gemini</h2>
+<p>Você pode copiar o contexto abaixo antes de iniciar a entrevista. Depois envie <strong>uma pergunta por vez</strong>, porque o exercício limita a entrevista a 10 perguntas.</p>
+<p>Contexto / orientação inicial</p>
+<div class="actions">
+<p>Copiar contexto para Gemini</p>
+</div>
+<h3 id="sequência-p-01-a-p-10">Sequência P-01 a P-10</h3>
+<div id="geminiQuestions">
+</div>
+</div>
+<div class="section" id="perguntas">
+<h2 id="5-registro-detalhado-das-10-perguntas-e-respostas">5. Registro detalhado das 10 perguntas e respostas</h2>
+<p>As perguntas são uma estratégia inicial. Preserve no registro exatamente o que o Gemini responder; não transforme hipótese em fato.</p>
+<div class="qhead">
+<p><span class="badge">P-01</span></p>
+<div>
+<h3 id="processo-atual-e-dor-central">Processo atual e dor central</h3>
+<p>Todas as personas</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Mapear o processo atual e identificar dores sem antecipar a solução.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-01">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-02</span></p>
+<div>
+<h3 id="operação-pedagógica">Operação pedagógica</h3>
+<p>Fernanda Lima</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Extrair necessidades de agenda, alocação, exceções e consistência operacional.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-02">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-03</span></p>
+<div>
+<h3 id="volume-escala-e-retenção">Volume, escala e retenção</h3>
+<p>Fernanda Lima</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Gerar evidências para requisitos funcionais, escala, desempenho e indicadores.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-03">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-04</span></p>
+<div>
+<h3 id="gestão-corporativa-e-roi">Gestão corporativa e ROI</h3>
+<p>Marcos Andrade</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Descobrir relatórios, indicadores, periodicidade e necessidades da empresa cliente.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-04">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-05</span></p>
+<div>
+<h3 id="integrações-e-governança">Integrações e governança</h3>
+<p>Marcos Andrade</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Revelar integrações, segurança, privacidade e governança.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-05">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-06</span></p>
+<div>
+<h3 id="experiência-do-aluno">Experiência do aluno</h3>
+<p>Beatriz Souza</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Mapear a jornada do aluno, comunicação, faltas e reposições.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-06">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-07</span></p>
+<div>
+<h3 id="progresso-e-usabilidade">Progresso e usabilidade</h3>
+<p>Beatriz Souza</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Extrair requisitos de acompanhamento, experiência, mobile e usabilidade.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-07">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-08</span></p>
+<div>
+<h3 id="falhas-e-exceções">Falhas e exceções</h3>
+<p>Todas as personas</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Identificar fluxos de exceção, alertas, auditoria, segurança e consistência.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-08">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-09</span></p>
+<div>
+<h3 id="qualidade-e-rnfs">Qualidade e RNFs</h3>
+<p>Todas as personas</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Obter RNFs mensuráveis sem inventar metas.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-09">Salvo localmente</span></p>
+</div>
+<div class="qhead">
+<p><span class="badge">P-10</span></p>
+<div>
+<h3 id="prioridade-e-sucesso">Prioridade e sucesso</h3>
+<p>Todas as personas</p>
+</div>
+</div>
+<p>Pergunta planejada</p>
+<p><strong>Objetivo:</strong> Priorizar o MVP e obter critérios de sucesso de negócio.</p>
+<div class="grid2">
+<div>
+<p>Persona(s) que respondeu(ram)</p>
+</div>
+<div>
+<p>Tags / possíveis requisitos</p>
+</div>
+</div>
+<p>Resposta completa do Gemini</p>
+<p>Síntese / evidências observadas</p>
+<div class="actions">
+<p>Copiar pergunta para Gemini</p>
+<p><span class="saved" id="saved-P-10">Salvo localmente</span></p>
+</div>
+</div>
+<div class="section panel" id="rf">
+<h2 id="6-requisitos-funcionais">6. Requisitos Funcionais</h2>
+<p>Use o padrão da aula: <strong>“O sistema DEVE + verbo de ação + complemento + condição quando necessária.”</strong> O exercício exige no mínimo 8 RFs, critério de aceitação e origem.</p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Critério de aceitação</th>
+<th>Origem P/Persona</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<p>+ Adicionar RF</p>
+</div>
+<div class="section panel" id="rnf">
+<h2 id="7-requisitos-não-funcionais">7. Requisitos Não Funcionais</h2>
+<p>Registre somente metas sustentadas pelas respostas. O exercício pede no mínimo 5 categorias distintas, como desempenho, segurança, usabilidade, escalabilidade, disponibilidade, manutenibilidade ou portabilidade.</p>
+<div class="scroll">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Categoria</th>
+<th>Descrição mensurável</th>
+<th>Justificativa / origem</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<p>+ Adicionar RNF</p>
+</div>
+<div class="section panel" id="exportar">
+<h2 id="8-salvar-e-levar-ao-codexgemini">8. Salvar e levar ao Codex/Gemini</h2>
+<p>Os campos são salvos automaticamente no <em>localStorage</em> do navegador. Você também pode exportar um backup JSON, importar depois, copiar o roteiro das 10 perguntas ou imprimir/salvar em PDF.</p>
+<div class="actions no-print">
+<p>Copiar as 10 perguntas</p>
+<p>Exportar JSON</p>
+<p>Importar JSON</p>
+<p>Imprimir / PDF</p>
+<p>Limpar dados</p>
+</div>
+<p>Dica: mantenha o HTML e o JSON de backup juntos no seu projeto do Codex. Depois da entrevista, use as evidências para preencher RF/RNF — sem antecipar respostas das personas.</p>
+</div>
+<p><a href="../../../../21/speakup-discovery-lab-fluxo-integrado-c4eb4603/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

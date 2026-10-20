@@ -9,6 +9,7 @@ def shell(title,body,back):return '<!doctype html><html lang="pt-BR"><head><meta
 readmes=[r/'README.md',*list((r/'docs').glob('*.md')),*list((r/'disciplinas').rglob('README.md'))]
 readmes=[p for p in readmes if '/speakup-lovable/' not in p.as_posix() and '/speakup-sdd/' not in p.as_posix()]
 outputs={p.resolve():(p.with_name('index.html') if p.name=='README.md' else p.with_suffix('.html')) for p in readmes if p!=r/'README.md'}
+outputs[(r/'biblioteca/README.md').resolve()]=r/'biblioteca/index.html'
 for md in readmes:
  if md==r/'README.md':continue
  out=outputs[md.resolve()];body=subprocess.check_output(['pandoc',str(md),'-t','html5'],text=True)
@@ -34,6 +35,7 @@ body='''<span class="meta">ANTONIO FIGUEIREDO · PORTFÓLIO ACADÊMICO · 2026</
 if not (r/speak/'speakup-sdd/docs/leitura.html').is_file():
  body=body.replace(speak+'/speakup-sdd/docs/leitura.html',speak+'/index.html').replace('Ler a documentação e comparação SpeakUp →','Ver versões e pendências do SpeakUp →')
  body=body.replace('<h2>Disciplinas</h2>','<p class="meta"><strong>Importação parcial:</strong> arquivos do OneDrive ainda indisponíveis. Código SDD aguarda download; <a href="docs/importacao-pendente.html">consulte as pendências</a>.</p><h2>Disciplinas</h2>')
+body=body.replace('<h2>Disciplinas</h2>','<section class="quick"><div><strong>Biblioteca de estudo</strong><a href="biblioteca/index.html">Buscar no conteúdo e ler em HTML →</a><a href="biblioteca/README.md">Navegar em Markdown pelo GitHub →</a></div><div><p>Documentos, materiais de aula, transcrições e referências por disciplina.</p><a href="docs/biblioteca.html">Cobertura e atualização</a></div></section><h2>Disciplinas</h2>')
 (r/'index.html').write_text(shell('MBA AI Leadership — 4ABL',body,'index.html'))
 
 print('Portal atualizado:', r/'index.html')

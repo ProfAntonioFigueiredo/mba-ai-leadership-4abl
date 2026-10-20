@@ -1,0 +1,131 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PSS.md</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../21/pss-md-3eed1f37/conteudo.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#fluxo-1-aluno-autoatendimento-mobile">Fluxo 1: Aluno (Autoatendimento Mobile)</a></li><li><a href="#fluxo-2-administrativo-importação-de-base-de-alunos-via-excel">Fluxo 2: Administrativo (Importação de Base de Alunos via Excel)</a></li><li><a href="#regras-de-autenticação">Regras de Autenticação</a></li><li><a href="#regras-do-módulo-de-carga-em-lote-excel">Regras do Módulo de Carga em Lote (Excel)</a></li><li><a href="#mapeamento-relacional--banco-de-dados-tb_aluno">Mapeamento Relacional / Banco de Dados (TB_ALUNO)</a></li><li><a href="#cenário-1-autenticação-de-aluno-com-sucesso">Cenário 1: Autenticação de Aluno com Sucesso</a></li><li><a href="#cenário-2-importação-em-lote-via-excel-com-sucesso">Cenário 2: Importação em Lote via Excel com Sucesso</a></li><li><a href="#cenário-3-tentativa-de-upload-com-colunas-inválidas">Cenário 3: Tentativa de Upload com Colunas Inválidas</a></li></ul></details><h1 id="pssmd">PSS.md</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Vibe Coding Executivo/PSS.md.docx</code><br/>
+SHA-256: <code>3eed1f376581185380b1a54c56037f91afff58da730d3af4b2e243a3b72927b2</code><br/>
+Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<h1 id="1-visão-geral-da-solução">1. Visão Geral da Solução</h1>
+<p>A solução consiste em uma plataforma SaaS composta por duas frentes de interface unificadas por uma API central:</p>
+<ul>
+<li><p><strong>Portal/App do Aluno:</strong> Focado em autoatendimento <em>mobile-first</em>, permitindo autenticação simples por matrícula, agendamento/cancelamento de aulas em até 3 cliques, controle de créditos, notificações e acompanhamento de progresso CEFR.</p></li>
+<li><p><strong>Painel Administrativo (ADM / Escola / RH):</strong> Focado em gestão operacional, montagem e conciliação de grade sem choques, importação/sincronização de alunos via carga em lote em Excel, controle de presença, dashboard B2B e fechamento de medição para faturamento.</p></li>
+</ul>
+<h1 id="2-fluxos-do-usuário-user-flows">2. Fluxos do Usuário (User Flows)</h1>
+<h2 id="fluxo-1-aluno-autoatendimento-mobile">Fluxo 1: Aluno (Autoatendimento Mobile)</h2>
+<ol type="1">
+<li><p><strong>Login:</strong> Aluno acessa a tela de login → Informa id_aluno (Matrícula) e a Senha Fixa Escola@@@ → Clique em "Entrar".</p></li>
+<li><p><strong>Dashboard Aluno:</strong> Visualiza próximas aulas, saldo de créditos e gráfico de evolução CEFR.</p></li>
+<li><p><strong>Agendamento / Reagendamento:</strong></p>
+<ul>
+<li><p>Clica em "Agendar / Reagendar Aula".</p></li>
+<li><p>Seleciona horário e professor disponível.</p></li>
+<li><p>Confirma a alteração em até 3 cliques → Recebe confirmação visual e notificação push/e-mail com sincronização de calendário.</p></li>
+</ul></li>
+</ol>
+<h2 id="fluxo-2-administrativo-importação-de-base-de-alunos-via-excel">Fluxo 2: Administrativo (Importação de Base de Alunos via Excel)</h2>
+<ol type="1">
+<li><p><strong>Login ADM:</strong> Coordenador/Gestor acessa o portal → Informa e-mail institucional e senha individual (ou via SSO) → Acessa o Painel ADM.</p></li>
+<li><p><strong>Módulo Base de Alunos:</strong> Seleciona a opção "Gestão de Alunos" → Clica em "Importar Alunos (Excel)".</p></li>
+<li><p><strong>Upload &amp; Validação:</strong></p>
+<ul>
+<li><p>Arrasta e solta (<em>drag-and-drop</em>) ou seleciona arquivo .xlsx ou .csv.</p></li>
+<li><p>Sistema executa <em>parser</em> e validação de <em>schema</em> das 19 colunas obrigatórias.</p></li>
+<li><p>Exibe pré-visualização com total de novos cadastros, atualizações e erros por linha.</p></li>
+<li><p>Clica em "Confirmar Importação" → Sistema grava registros e gera log auditável de carga.</p></li>
+</ul></li>
+</ol>
+<h1 id="3-especificação-funcional-detalhada--regras-de-negócio">3. Especificação Funcional Detalhada &amp; Regras de Negócio</h1>
+<h2 id="regras-de-autenticação">Regras de Autenticação</h2>
+<ul>
+<li><p><strong>Aluno:</strong> Identificador único é o id_aluno. Senha inicial universal é Escola@@@. A autenticação valida a existência do id_aluno ativo na base de dados.</p></li>
+<li><p><strong>Administrador / RH:</strong> Autenticação por e-mail institucional com senha criptografada via <em>hash</em> forte (BCrypt) ou integração via protocolo SAML2/OAuth2 (Azure AD/Okta).</p></li>
+</ul>
+<h2 id="regras-do-módulo-de-carga-em-lote-excel">Regras do Módulo de Carga em Lote (Excel)</h2>
+<ul>
+<li><strong>Obrigatoriedade de Esquema:</strong> O arquivo DEVE possuir o cabeçalho idêntico às 19 colunas oficiais:</li>
+</ul>
+<p>id_aluno | nome | email | data_nascimento | idade | genero | unidade | cidade | estado | canal_aquisicao | nivel_curso | modalidade | turno | plano | desconto_percentual | data_matricula | status_matricula | data_cancelamento | Valor Mensalidade</p>
+<ul>
+<li><p><strong>Chave Primária e Unicidade:</strong> O campo id_aluno deve ser único. Se já existir na base, a importação atuará no modo <em>Upsert</em> (atualização dos dados cadastrais).</p></li>
+<li><p><strong>Tratamento de Erros:</strong></p>
+<ul>
+<li><p>Se faltar qualquer uma das 19 colunas obrigatórias, a importação é abortada com erro de estrutura.</p></li>
+<li><p>Campos de data (data_nascimento, data_matricula, data_cancelamento) devem seguir o padrão ISO YYYY-MM-DD.</p></li>
+<li><p>Valor Mensalidade e desconto_percentual devem ser estritamente numéricos.</p></li>
+<li><p>Linhas inconsistentes devem ser destacadas em um relatório de log para correção do usuário.</p></li>
+</ul></li>
+</ul>
+<h1 id="4-especificação-de-interface-ui">4. Especificação de Interface (UI)</h1>
+<ul>
+<li><p><strong>Tela de Login Aluno:</strong></p>
+<ul>
+<li><p>Campo 1: Matrícula / ID do Aluno (id_aluno).</p></li>
+<li><p>Campo 2: Senha (padrão preenchida ou mascarada Escola@@@).</p></li>
+<li><p>Botão principal: "Acessar Portal".</p></li>
+</ul></li>
+<li><p><strong>Painel ADM - Área de Upload Excel:</strong></p>
+<ul>
+<li><p>Container <em>Drag-and-Drop</em> com ícone de planilha e instrução: <em>"Arraste aqui o arquivo Excel (.xlsx / .csv) da base de alunos ou clique para buscar"</em>.</p></li>
+<li><p>Tabela de Pré-visualização (<em>Preview</em>): exibe as 19 colunas mapeadas com status de validação (Linha Válida [Verde] / Erro [Vermelho]).</p></li>
+<li><p>Botão de Ação: "Processar Importação em Lote".</p></li>
+</ul></li>
+</ul>
+<h1 id="5-integrações-e-engenharia-de-dados">5. Integrações e Engenharia de Dados</h1>
+<h2 id="mapeamento-relacional--banco-de-dados-tb_aluno">Mapeamento Relacional / Banco de Dados (TB_ALUNO)</h2>
+<p>CREATE TABLE tb_aluno (</p>
+<p>id_aluno VARCHAR(50) PRIMARY KEY,</p>
+<p>nome VARCHAR(150) NOT NULL,</p>
+<p>email VARCHAR(100) NOT NULL,</p>
+<p>data_nascimento DATE,</p>
+<p>idade INT,</p>
+<p>genero VARCHAR(20),</p>
+<p>unidade VARCHAR(100),</p>
+<p>cidade VARCHAR(100),</p>
+<p>estado VARCHAR(2),</p>
+<p>canal_aquisicao VARCHAR(50),</p>
+<p>nivel_curso VARCHAR(50),</p>
+<p>modalidade VARCHAR(20),</p>
+<p>turno VARCHAR(20),</p>
+<p>plano VARCHAR(50),</p>
+<p>desconto_percentual DECIMAL(5,2),</p>
+<p>data_matricula DATE NOT NULL,</p>
+<p>status_matricula VARCHAR(20) NOT NULL,</p>
+<p>data_cancelamento DATE,</p>
+<p>valor_mensalidade DECIMAL(10,2) NOT NULL,</p>
+<p>created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</p>
+<p>updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</p>
+<p>);</p>
+<h1 id="6-critérios-de-aceite-given--when--then">6. Critérios de Aceite (Given / When / Then)</h1>
+<h2 id="cenário-1-autenticação-de-aluno-com-sucesso">Cenário 1: Autenticação de Aluno com Sucesso</h2>
+<ul>
+<li><p><strong>Given</strong> que o aluno possui matrícula ativa de id_aluno "10045"</p></li>
+<li><p><strong>When</strong> ele inserir o id_aluno "10045" e a senha "Escola@@@" na tela de login</p></li>
+<li><p><strong>Then</strong> o sistema deve autenticar o usuário e redirecioná-lo para a Dashboard do Aluno em menos de 2 segundos.</p></li>
+</ul>
+<h2 id="cenário-2-importação-em-lote-via-excel-com-sucesso">Cenário 2: Importação em Lote via Excel com Sucesso</h2>
+<ul>
+<li><p><strong>Given</strong> que o usuário ADM está logado e no módulo de Gestão de Alunos</p></li>
+<li><p><strong>When</strong> fizer upload de um arquivo .xlsx válido contendo as 19 colunas corretas</p></li>
+<li><p><strong>Then</strong> o sistema exibe a pré-visualização, processa os registros em lote, grava no banco de dados e apresenta a mensagem <em>"Importação concluída com sucesso: X alunos inseridos/atualizados"</em>.</p></li>
+</ul>
+<h2 id="cenário-3-tentativa-de-upload-com-colunas-inválidas">Cenário 3: Tentativa de Upload com Colunas Inválidas</h2>
+<ul>
+<li><p><strong>Given</strong> que o usuário ADM tenta fazer upload de uma planilha com apenas 15 colunas</p></li>
+<li><p><strong>When</strong> o sistema processar a validação da planilha</p></li>
+<li><p><strong>Then</strong> a operação deve ser interrompida, apresentando a mensagem de erro <em>"Arquivo inválido. A planilha deve conter rigorosamente as 19 colunas da estrutura oficial"</em>.</p></li>
+</ul>
+<h1 id="7-fora-de-escopo-técnico">7. Fora de Escopo Técnico</h1>
+<ul>
+<li><p>Desenvolvimento de aplicativo nativo iOS/Android (será utilizado PWA responsivo <em>mobile-first</em>).</p></li>
+<li><p>Leitura e processamento de arquivos em formatos PDF, DOCX ou planilhas sem estrutura padrão.</p></li>
+</ul>
+<h1 id="8-considerações-de-segurança-e-privacidade-lgpd">8. Considerações de Segurança e Privacidade (LGPD)</h1>
+<ul>
+<li><p>Criptografia TLS 1.3 em trânsito e AES-256 para dados sensíveis em repouso.</p></li>
+<li><p>Mascaramento de dados sensíveis dos alunos nas telas de pré-visualização do RH B2B (exibindo apenas consolidados quando aplicável).</p></li>
+<li><p>Logs de auditoria para todas as operações de upload, alteração de cadastro e exclusão/inativação de alunos mantidos por 12 meses.</p></li>
+</ul>
+<p><a href="../../../../21/pss-md-3eed1f37/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

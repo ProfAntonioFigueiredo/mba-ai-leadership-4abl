@@ -1,0 +1,371 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PRD.md</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../21/prd-md-4e6ccc93/conteudo.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#1-contexto-e-problema">1. Contexto e Problema</a></li><li><a href="#2-objetivo-do-produto">2. Objetivo do Produto</a></li><li><a href="#3-público-alvo-e-personas">3. Público-Alvo e Personas</a></li><li><a href="#4-arquitetura-de-versões-do-sistema">4. Arquitetura de Versões do Sistema</a></li><li><a href="#41-versão-do-aluno-mobile-first--web">4.1. Versão do Aluno (Mobile-First / Web)</a></li><li><a href="#42-versão-administrativa-adm--escola--rh">4.2. Versão Administrativa (ADM / Escola / RH)</a></li><li><a href="#5-hipóteses-e-evidências">5. Hipóteses e Evidências</a></li><li><a href="#6-métricas-de-sucesso-kpis">6. Métricas de Sucesso (KPIs)</a></li><li><a href="#7-escopo-do-projeto">7. Escopo do Projeto</a></li><li><a href="#dentro-do-escopo">Dentro do Escopo</a></li><li><a href="#fora-do-escopo">Fora do Escopo</a></li><li><a href="#8-modelo-de-dados--estrutura-da-base-de-alunos">8. Modelo de Dados — Estrutura da Base de Alunos</a></li><li><a href="#9-requisitos-funcionais">9. Requisitos Funcionais</a></li><li><a href="#10-requisitos-não-funcionais">10. Requisitos Não-Funcionais</a></li><li><a href="#11-análise-de-riscos-e-mitigações">11. Análise de Riscos e Mitigações</a></li><li><a href="#12-premissas-do-projeto">12. Premissas do Projeto</a></li><li><a href="#13-questões-em-aberto">13. Questões em Aberto</a></li></ul></details><h1 id="prdmd">PRD.md</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Vibe Coding Executivo/PRD.md.docx</code><br/>
+SHA-256: <code>4e6ccc93f384d3aadc0d982e88d37c97cbe18aa6697c2a400ad5e7c6b9bb5c91</code><br/>
+Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<h1 id="sistema-de-gestão-plataforma-b2b--speakup-idiomas">Sistema de Gestão Plataforma B2B — SpeakUp Idiomas</h1>
+<h2 id="1-contexto-e-problema">1. Contexto e Problema</h2>
+<p>A <strong>Speak Up Idiomas</strong> atende atualmente mais de 800 alunos corporativos B2B e enfrenta sérias limitações operacionais decorrentes do uso de planilhas manuais, canais descentralizados (WhatsApp) e um sistema legado lento com baixa usabilidade mobile.</p>
+<p>O modelo operacional vigente gera:</p>
+<ul>
+<li><p><strong>Retrabalho constante:</strong> Mais de 15 horas semanais consumidas na coordenação pedagógica.</p></li>
+<li><p><strong>Conflitos de agenda:</strong> Erros e sobreposições na alocação de docentes.</p></li>
+<li><p><strong>Opacidade de dados:</strong> Baixa visibilidade em tempo real para os gestores de RH das empresas clientes.</p></li>
+<li><p><strong>Gargalos financeiros:</strong> Atrasos na medição contratual e no faturamento mensal.</p></li>
+<li><p><strong>Riscos operacionais:</strong> Vulnerabilidades de compliance e não conformidade com a LGPD.</p></li>
+</ul>
+<h2 id="2-objetivo-do-produto">2. Objetivo do Produto</h2>
+<p>Desenvolver uma plataforma web e mobile integrada para administrar de ponta a ponta a operação B2B da Speak Up Idiomas. O sistema deve promover:</p>
+<ol type="1">
+<li><p><strong>Autonomia total no autoatendimento do aluno</strong> via interface mobile.</p></li>
+<li><p><strong>Gestão eficiente e automatizada de turmas e docentes</strong> para a equipe pedagógica.</p></li>
+<li><p><strong>Controle consolidado e em tempo real</strong> de frequência, evolução pedagógica e medição financeira para os gestores de RH corporativos.</p></li>
+</ol>
+<h2 id="3-público-alvo-e-personas">3. Público-Alvo e Personas</h2>
+<ul>
+<li><p><strong>Beatriz (Aluno Corporativo)</strong></p>
+<ul>
+<li><em>Necessidade:</em> Autonomia mobile para agendar, cancelar e remarcar aulas em até 3 cliques, sincronização nativa com agenda corporativa e acompanhamento claro do seu progresso na escala CEFR.</li>
+</ul></li>
+<li><p><strong>Marina (Coordenadora Pedagógica)</strong></p>
+<ul>
+<li><em>Necessidade:</em> Eliminar planilhas manuais, gerenciar com precisão mais de 830 alunos, 120 turmas e 35 professores sem choque de horários, automatizando o remanejamento e a substituição de docentes.</li>
+</ul></li>
+<li><p><strong>Rodrigo (Gestor de RH / Cliente B2B)</strong></p>
+<ul>
+<li><em>Necessidade:</em> Visibilidade em tempo real sobre frequência e evolução dos colaboradores para comprovação de ROI, facilidade em auditorias de coparticipação e aprovação de faturamento sem atrasos.</li>
+</ul></li>
+</ul>
+<h2 id="4-arquitetura-de-versões-do-sistema">4. Arquitetura de Versões do Sistema</h2>
+<p>┌─────────────────────────────────┐</p>
+<p>│ Plataforma SpeakUp Idiomas │</p>
+<p>└────────────────┬────────────────┘</p>
+<p>│</p>
+<p>┌───────────────────────┴───────────────────────┐</p>
+<p>▼ ▼</p>
+<p>┌───────────────────────────────────┐ ┌───────────────────────────────────┐</p>
+<p>│ Versão do Aluno │ │ Versão Administrativa (ADM) │</p>
+<p>│ (App Mobile / Portal) │ │ (Web Dashboard / RH / ADM) │</p>
+<p>├───────────────────────────────────┤ ├───────────────────────────────────┤</p>
+<p>│ • Autoatendimento (&lt;= 3 cliques) │ │ • Gestão Pedagógica &amp; Turmas │</p>
+<p>│ • Agendamentos e Cancelamentos │ │ • Alocação e Prevenção Conflitos │</p>
+<p>│ • Consulta de Presença e CEFR │ │ • Importação de Alunos (19 cols) │</p>
+<p>│ │ │ • Portal B2B / RH &amp; Faturamento │</p>
+<p>├───────────────────────────────────┤ ├───────────────────────────────────┤</p>
+<p>│ Autenticação: │ │ Autenticação: │</p>
+<p>│ Login: `id_aluno` (Matrícula) │ │ Login: E-mail Corporativo │</p>
+<p>│ Senha Padrão: `Escola@@@` │ │ Senha Individual / SSO Corporativo│</p>
+<p>└───────────────────────────────────┘ └───────────────────────────────────┘</p>
+<h3 id="41-versão-do-aluno-mobile-first--web">4.1. Versão do Aluno (Mobile-First / Web)</h3>
+<ul>
+<li><p><strong>Foco:</strong> Autoatendimento, agendamentos, cancelamentos, consulta de aulas, presença e perfil do aluno.</p></li>
+<li><p><strong>Regras de Acesso:</strong> Autenticação simplificada utilizando o campo id_aluno (número de matrícula) como login e a senha padrão fixa Escola@@@.</p></li>
+</ul>
+<h3 id="42-versão-administrativa-adm--escola--rh">4.2. Versão Administrativa (ADM / Escola / RH)</h3>
+<ul>
+<li><p><strong>Foco:</strong> Painel de coordenação pedagógica, alocação de grade docente, gestão de turmas, relatórios B2B e administração da base de alunos.</p></li>
+<li><p><strong>Regras de Acesso:</strong> Autenticação corporativa segura via login (e-mail institucional) e senha individual cadastrada (com suporte opcional a SSO via Azure AD/Okta).</p></li>
+</ul>
+<h2 id="5-hipóteses-e-evidências">5. Hipóteses e Evidências</h2>
+<ul>
+<li><p><strong>Hipótese 1:</strong> Fornecer autonomia de autoatendimento mobile reduzirá o absenteísmo e os chamados no suporte via WhatsApp.</p>
+<ul>
+<li><em>Evidência:</em> Entrevistas P-06/P-08 indicaram perda de créditos e frustração do aluno devido ao tempo de resposta do suporte manual.</li>
+</ul></li>
+<li><p><strong>Hipótese 2:</strong> A automação da grade de horários reduzirá em 80% o tempo gasto pela coordenação na resolução de conflitos.</p>
+<ul>
+<li><em>Evidência:</em> Entrevistas P-01/P-02/P-03 apontaram que a coordenação gasta mais de 15 horas semanais operando planilhas mestres sujeitas a falhas humanadas.</li>
+</ul></li>
+<li><p><strong>Hipótese 3:</strong> Disponibilizar dashboard de frequência e faturamento B2B em tempo real elimina ruídos nas auditorias de RH.</p>
+<ul>
+<li><em>Evidência:</em> Entrevistas P-04/P-10 demonstraram a exigência dos gestores de RH por relatórios imediatos, sem a necessidade de aguardar o fechamento mensal.</li>
+</ul></li>
+</ul>
+<h2 id="6-métricas-de-sucesso-kpis">6. Métricas de Sucesso (KPIs)</h2>
+<ul>
+<li><p><strong>Eficiência Operacional:</strong> Redução de 80% no tempo gasto pela coordenação na montagem e remanejamento da grade.</p></li>
+<li><p><strong>Adoção do Aluno:</strong> 90%+ das ações de agendamento e cancelamento realizadas diretamente via autoatendimento mobile (&lt;= 3 cliques).</p></li>
+<li><p><strong>Agilidade Financeira:</strong> Emissão e aprovação da medição de faturamento B2B em 1 clique até o 1º dia útil do mês.</p></li>
+<li><p><strong>Performance:</strong> SLA de disponibilidade do sistema de 99,5% e tempo de resposta &lt;= 2 segundos sob picos de acesso.</p></li>
+</ul>
+<h2 id="7-escopo-do-projeto">7. Escopo do Projeto</h2>
+<h3 id="dentro-do-escopo">Dentro do Escopo</h3>
+<ul>
+<li><p>Autoatendimento mobile para alunos (agendamento, cancelamento, reposição e saldo de créditos).</p></li>
+<li><p>Gestão e automação da grade docente com prevenção algorítmica de conflitos de agenda.</p></li>
+<li><p>Módulo Administrativo com <strong>Carga em Lote de Alunos (Importação via Excel .xlsx / .csv)</strong>.</p></li>
+<li><p>Painel B2B para RH com acompanhamento de frequência, evolução CEFR e consolidação de medição.</p></li>
+<li><p>Registro digital de presença e disparos automatizados de notificações.</p></li>
+<li><p>Estruturação estrita do cadastro de alunos baseada nas 19 colunas oficiais.</p></li>
+</ul>
+<h3 id="fora-do-escopo">Fora do Escopo</h3>
+<ul>
+<li><p>Módulos de gamificação avançada ou criação de conteúdos/cursos próprios dentro do app.</p></li>
+<li><p>Gateway de pagamento B2C direto por cartão de crédito no app (foco exclusivo em faturamento B2B).</p></li>
+<li><p>Gestão financeira completa de folha de pagamento de professores (apenas apuração de horas ministradas).</p></li>
+</ul>
+<h2 id="8-modelo-de-dados--estrutura-da-base-de-alunos">8. Modelo de Dados — Estrutura da Base de Alunos</h2>
+<p>A entidade de alunos na versão ADM e no arquivo de importação em lote deve seguir rigorosamente o esquema de <strong>19 colunas oficiais</strong> descrito abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nome da Coluna</th>
+<th>Tipo de Dado</th>
+<th>Regra de Negócio / Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>id_aluno</td>
+<td>Texto / Inteiro</td>
+<td>Identificador único / Matrícula (Login do Aluno)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>nome</td>
+<td>Texto</td>
+<td>Nome completo do aluno</td>
+</tr>
+<tr>
+<td>3</td>
+<td>email</td>
+<td>Texto</td>
+<td>E-mail corporativo ou pessoal</td>
+</tr>
+<tr>
+<td>4</td>
+<td>data_nascimento</td>
+<td>Data (YYYY-MM-DD)</td>
+<td>Data de nascimento</td>
+</tr>
+<tr>
+<td>5</td>
+<td>idade</td>
+<td>Numérico Inteiro</td>
+<td>Idade calculada ou informada</td>
+</tr>
+<tr>
+<td>6</td>
+<td>genero</td>
+<td>Texto / Sigla</td>
+<td>Identificação de gênero</td>
+</tr>
+<tr>
+<td>7</td>
+<td>unidade</td>
+<td>Texto</td>
+<td>Unidade, campus ou polo</td>
+</tr>
+<tr>
+<td>8</td>
+<td>cidade</td>
+<td>Texto</td>
+<td>Cidade da unidade ou residência</td>
+</tr>
+<tr>
+<td>9</td>
+<td>estado</td>
+<td>Texto (UF)</td>
+<td>Sigla do Estado (2 caracteres)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>canal_aquisicao</td>
+<td>Texto</td>
+<td>Canal de entrada/venda B2B</td>
+</tr>
+<tr>
+<td>11</td>
+<td>nivel_curso</td>
+<td>Texto</td>
+<td>Nível de proficiência (ex: Basic, CEFR A1-C2)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>modalidade</td>
+<td>Texto</td>
+<td>Presencial ou Online</td>
+</tr>
+<tr>
+<td>13</td>
+<td>turno</td>
+<td>Texto</td>
+<td>Manhã, Tarde ou Noite</td>
+</tr>
+<tr>
+<td>14</td>
+<td>plano</td>
+<td>Texto</td>
+<td>Tipo de contrato (Semestral, Anual, etc.)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>desconto_percentual</td>
+<td>Numérico (Decimal)</td>
+<td>Percentual de desconto ou subsídio</td>
+</tr>
+<tr>
+<td>16</td>
+<td>data_matricula</td>
+<td>Data (YYYY-MM-DD)</td>
+<td>Data de início do vínculo</td>
+</tr>
+<tr>
+<td>17</td>
+<td>status_matricula</td>
+<td>Texto</td>
+<td>Status (Ativa, Cancelada, Trancada, Pausada)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>data_cancelamento</td>
+<td>Data (YYYY-MM-DD)</td>
+<td>Data de cancelamento (opcional)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Valor Mensalidade</td>
+<td>Moeda (Decimal)</td>
+<td>Valor financeiro mensal em BRL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-requisitos-funcionais">9. Requisitos Funcionais</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito</th>
+<th>Prioridade</th>
+<th>Módulo</th>
+<th>Descrição Funcional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RF-01</strong></td>
+<td>Gestão de Grade</td>
+<td><strong>P0</strong></td>
+<td>ADM / Pedagógico</td>
+<td>Montagem e conciliação de grade horária com validação algorítmica contra sobreposição de agendas.</td>
+</tr>
+<tr>
+<td><strong>RF-02</strong></td>
+<td>Autoatendimento</td>
+<td><strong>P0</strong></td>
+<td>Aluno / Mobile</td>
+<td>Fluxo de agendamento, cancelamento e remarcação em até 3 cliques. Autenticação via id_aluno e senha Escola@@@.</td>
+</tr>
+<tr>
+<td><strong>RF-13</strong></td>
+<td>Importação Excel</td>
+<td><strong>P0</strong></td>
+<td>ADM / Sistema</td>
+<td>Upload e validação em lote de arquivos .xlsx/.csv estruturados estritamente nas 19 colunas oficiais.</td>
+</tr>
+<tr>
+<td><strong>RF-05</strong></td>
+<td>Registro de Presença</td>
+<td><strong>P0</strong></td>
+<td>Professor / ADM</td>
+<td>Chamada digital em tempo real com consolidação instantânea do índice de frequência.</td>
+</tr>
+<tr>
+<td><strong>RF-06</strong></td>
+<td>Portal do RH B2B</td>
+<td><strong>P0</strong></td>
+<td>B2B / RH</td>
+<td>Dashboard corporativo para acompanhamento de frequência, indicadores operacionais e aprovação de medições.</td>
+</tr>
+<tr>
+<td><strong>RF-03</strong></td>
+<td>Gestão de Créditos</td>
+<td><strong>P1</strong></td>
+<td>Aluno / ADM</td>
+<td>Regras parametrizadas de saldo, prazos de expiração e políticas de cancelamento prévio.</td>
+</tr>
+<tr>
+<td><strong>RF-04</strong></td>
+<td>Notificações</td>
+<td><strong>P1</strong></td>
+<td>Sistema</td>
+<td>Disparo de alertas push/e-mail para lembretes de aula e alterações na grade com integração de calendário.</td>
+</tr>
+<tr>
+<td><strong>RF-08</strong></td>
+<td>Medição e Fatura</td>
+<td><strong>P1</strong></td>
+<td>ADM / B2B</td>
+<td>Consolidação e geração da planilha de medição mensal em 1 clique para aprovação do RH.</td>
+</tr>
+<tr>
+<td><strong>RF-09</strong></td>
+<td>Substituição</td>
+<td><strong>P1</strong></td>
+<td>ADM / Pedagógico</td>
+<td>Algoritmo de recomendação de professores substitutos disponíveis em caso de ausência.</td>
+</tr>
+<tr>
+<td><strong>RF-07</strong></td>
+<td>Evolução CEFR</td>
+<td><strong>P2</strong></td>
+<td>Aluno / B2B</td>
+<td>Mapeamento do histórico de proficiência alinhado ao quadro comum europeu (CEFR).</td>
+</tr>
+<tr>
+<td><strong>RF-10</strong></td>
+<td>Integrações</td>
+<td><strong>P2</strong></td>
+<td>Arquitetura</td>
+<td>Conectores para autenticação SSO (Azure AD/Okta) e exportação de dados para ERPs.</td>
+</tr>
+<tr>
+<td><strong>RF-12</strong></td>
+<td>Trilha de Auditoria</td>
+<td><strong>P2</strong></td>
+<td>Segurança</td>
+<td>Registros imutáveis de alterações em cadastros, abonos e remanejamentos de aulas.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-requisitos-não-funcionais">10. Requisitos Não-Funcionais</h2>
+<ul>
+<li><p><strong>RNF-01 (Usabilidade):</strong> Interface mobile-first otimizada para o perfil do aluno, garantindo a conclusão das tarefas principais em no máximo 3 cliques.</p></li>
+<li><p><strong>RNF-02 (Desempenho):</strong> Tempo de resposta do servidor de no máximo 2 segundos para relatórios e consultas em horários de pico.</p></li>
+<li><p><strong>RNF-03 (Disponibilidade):</strong> Disponibilidade mínima de 99,5% (SLA) operando em regime 24/7.</p></li>
+<li><p><strong>RNF-04 (Segurança e LGPD):</strong> Criptografia de dados sensíveis em trânsito (TLS 1.3) e em repouso (AES-256), atendendo integralmente à LGPD.</p></li>
+<li><p><strong>RNF-05 (Controle de Acesso):</strong> Controle de acesso baseado em papéis (RBAC) para os perfis: Aluno, Professor, Coordenação ADM e Gestor RH.</p></li>
+<li><p><strong>RNF-06 (Escalabilidade):</strong> Suporte arquitetural para até 5.000 usuários ativos sem degradação de performance.</p></li>
+<li><p><strong>RNF-07 (Auditabilidade):</strong> Manutenção de logs auditáveis e imutáveis por no mínimo 12 meses.</p></li>
+</ul>
+<h2 id="11-análise-de-riscos-e-mitigações">11. Análise de Riscos e Mitigações</h2>
+<ul>
+<li><p><strong>Risco 1: Inconsistência nos Dados Legados</strong></p>
+<ul>
+<li><p><em>Descrição:</em> Dados incorretos ou incompletos nas planilhas históricas de alunos durante a migração.</p></li>
+<li><p><em>Mitigação:</em> Implementar validador rigoroso no módulo de importação (RF-13), com relatório detalhado de erros apontando linha e coluna exatas antes da persistência.</p></li>
+</ul></li>
+<li><p><strong>Risco 2: Baixa Adesão dos Docentes ao Registro de Presença</strong></p>
+<ul>
+<li><p><em>Descrição:</em> Atrasos dos professores no preenchimento do diário de classe digital impactando a visão do RH.</p></li>
+<li><p><em>Mitigação:</em> Envio de lembretes automáticos pós-aula e condicionamento do cômputo de horas ministradas ao registro efetivo da chamada.</p></li>
+</ul></li>
+</ul>
+<h2 id="12-premissas-do-projeto">12. Premissas do Projeto</h2>
+<ul>
+<li><p>A senha inicial padrão para todos os alunos importados será obrigatoriamente Escola@@@.</p></li>
+<li><p>O identificador de login do aluno no app será estritamente o seu código de matrícula (id_aluno).</p></li>
+<li><p>O faturamento B2B baseia-se na consolidação mensal das aulas efetivamente agendadas/realizadas, validadas pela gestão de RH.</p></li>
+</ul>
+<h2 id="13-questões-em-aberto">13. Questões em Aberto</h2>
+<ul>
+<li><p><strong>Política de Cancelamento:</strong> Qual a janela exata de antecedência mínima necessária para cancelamento sem perda de crédito em aulas individuais (VIP) versus turmas em grupo (3 a 5 alunos)?</p></li>
+<li><p><strong>Plano de Migração:</strong> Qual será o cronograma e a janela de execução para o saneamento e carga inicial dos 830 alunos legados?</p></li>
+</ul>
+<p><a href="../../../../21/prd-md-4e6ccc93/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

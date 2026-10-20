@@ -1,0 +1,67 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Roadmap — evolução gradual até produção</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../../../../index.html">MBA · 4ABL</a><a href="../../../../../../../index.html">Biblioteca e busca</a><a href="../../../../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/roadmap.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#processo-de-cada-fase">Processo de cada fase</a></li><li><a href="#fase-0--constituição-e-enquadramento-do-projeto">Fase 0 — Constituição e enquadramento do projeto</a></li><li><a href="#fase-1--consolidar-a-baseline-e-o-primeiro-incremento">Fase 1 — Consolidar a baseline e o primeiro incremento</a></li><li><a href="#fase-2--credenciais-e-primeiro-acesso">Fase 2 — Credenciais e primeiro acesso</a></li><li><a href="#fase-3--integração-real-em-desenvolvimento">Fase 3 — Integração real em desenvolvimento</a></li><li><a href="#fase-4--reservas-sob-concorrência">Fase 4 — Reservas sob concorrência</a></li><li><a href="#fase-5--consultas-e-paginação-no-servidor">Fase 5 — Consultas e paginação no servidor</a></li><li><a href="#fase-6--presença-e-indicadores-entre-usuários">Fase 6 — Presença e indicadores entre usuários</a></li><li><a href="#fase-7--créditos-e-cancelamento-contratual">Fase 7 — Créditos e cancelamento contratual</a></li><li><a href="#fase-8--medição-mensal">Fase 8 — Medição mensal</a></li><li><a href="#fase-9--aprovação-de-medição-pelo-rh">Fase 9 — Aprovação de medição pelo RH</a></li><li><a href="#fase-10--notificações-e-calendário">Fase 10 — Notificações e calendário</a></li><li><a href="#fase-11--preparar-e-executar-piloto-controlado">Fase 11 — Preparar e executar piloto controlado</a></li><li><a href="#fase-12--expansão-e-evolução-contínua">Fase 12 — Expansão e evolução contínua</a></li><li><a href="#próxima-ação-após-a-revisão">Próxima ação após a revisão</a></li></ul></details><h1 id="roadmap--evolução-gradual-até-produção">Roadmap — evolução gradual até produção</h1>
+<p>Data: 19/10/2026. Direção confirmada por Antonio. Estado: proposta para revisão humana; as fases futuras não estão autorizadas para implementação apenas por constarem neste documento.</p>
+<h2 id="processo-de-cada-fase">Processo de cada fase</h2>
+<p>Antes de especificar uma fase, inspecionar o estado real e esclarecer em conjunto apenas as decisões ainda ausentes. Produzir <code>requirements.md</code>, <code>plan.md</code> com grupos numerados e <code>validation.md</code> em <code>specs/YYYY-MM-DD-feature-name/</code>. Pausar para revisão humana dos arquivos antes de implementar.</p>
+<p>Implementar em grupos revisáveis, executar a validação aplicável e registrar aprovados, falhas, não executados e riscos residuais. Pausar após a implementação para revisão. Commit, push e promoção de ambiente são decisões humanas. Novas dependências ou automações precisam estar previstas na spec da fase que as introduzir.</p>
+<p>Não há cronograma ou orçamento aprovado. A ordem abaixo explicita dependências; datas e responsáveis serão definidos com o escopo de cada fase. Nenhuma fase está marcada concluída por conter apenas documentação.</p>
+<h2 id="fase-0--constituição-e-enquadramento-do-projeto">Fase 0 — Constituição e enquadramento do projeto</h2>
+<p>Estado: três arquivos propostos; revisão humana pendente.</p>
+<p>Entrega: mission.md, tech-stack.md e este roadmap. Preservar a distinção entre a evolução anterior com SDD genérico e a aplicação atual da skill específica.</p>
+<p>Saída: responsável revisa propósito, stack, limites e ordem; alterações solicitadas são incorporadas. Depois disso, especificar a fase 1.</p>
+<h2 id="fase-1--consolidar-a-baseline-e-o-primeiro-incremento">Fase 1 — Consolidar a baseline e o primeiro incremento</h2>
+<p>Estado: implementação anterior disponível; formalização conforme a skill ainda pendente.</p>
+<p>Escopo: especificar o fechamento das correções existentes, reconciliar os documentos anteriores e a matriz de aceite, atualizar a comparação com a aplicação real da skill e definir o limite do primeiro piloto real. Registrar quais testes são históricos e quais precisam ser repetidos conforme o código efetivamente mudar.</p>
+<p>Saída: requisitos e validação datados, rastreabilidade coerente, original preservado e revisão das evidências. Não atribuir à skill checkpoints que não aconteceram antes do código existente.</p>
+<h2 id="fase-2--credenciais-e-primeiro-acesso">Fase 2 — Credenciais e primeiro acesso</h2>
+<p>Dependência: fase 1 e decisão do responsável sobre senha fixa versus inicial.</p>
+<p>Escopo: política de credenciais, provisionamento, recuperação, sessão, revogação e limitação de tentativas. Preservar matrícula como login sem usar exposição de e-mail como atalho.</p>
+<p>Saída: política aceita e cenários negativos definidos e verificados; nenhuma dependência de senha universal sem resolução explícita para usuários reais. Não confundir manter a senha no demo com aprová-la para produção.</p>
+<h2 id="fase-3--integração-real-em-desenvolvimento">Fase 3 — Integração real em desenvolvimento</h2>
+<p>Dependência: fase 2 e acesso a ambiente de desenvolvimento autorizado.</p>
+<p>Escopo: Auth/Edge, migrações, quatro perfis, duas empresas e professores distintos. Verificar chamadas diretas de API, matrícula inativa, expiração/revogação e privacidade de aulas compartilhadas.</p>
+<p>Saída: evidências ponta a ponta do ambiente real e ensaio das migrações com reversão definida. PGlite permanece como teste local complementar.</p>
+<h2 id="fase-4--reservas-sob-concorrência">Fase 4 — Reservas sob concorrência</h2>
+<p>Dependência: fase 3.</p>
+<p>Escopo: duas sessões disputando última vaga, reservas simultâneas do mesmo aluno, remarcações concorrentes e cancelamentos. Investigar ordem de locks e tratamento de falhas a partir de reprodução, sem presumir defeitos ou ausência deles.</p>
+<p>Saída: invariantes de lotação, conflito e atomicidade demonstradas em conexões independentes; falhas e comportamento de recuperação documentados.</p>
+<h2 id="fase-5--consultas-e-paginação-no-servidor">Fase 5 — Consultas e paginação no servidor</h2>
+<p>Dependência: fase 3; preservar invariantes da fase 4.</p>
+<p>Escopo: recortes temporais, filtros e paginação autorizados, índices baseados em consultas medidas e compatibilidade da interface. Definir previamente o significado de carga e das metas RNF-02/RNF-06.</p>
+<p>Saída: ausência de coleções desnecessariamente completas nos fluxos escolhidos e medições reproduzíveis com distribuição representativa. Não declarar 5.000 usuários validados por testar somente um lote de importação de 5.000 linhas.</p>
+<h2 id="fase-6--presença-e-indicadores-entre-usuários">Fase 6 — Presença e indicadores entre usuários</h2>
+<p>Dependência: fase 5.</p>
+<p>Escopo: sincronização de chamada e indicadores entre professor, coordenação e RH, estratégia de atualização, erros e recuperação. Validar opções de realtime/polling na spec antes de escolher uma.</p>
+<p>Saída: atualizações observadas entre sessões sem vazamento corporativo; sem confundir recarregar após a própria mutação com atualização multiusuário.</p>
+<h2 id="fase-7--créditos-e-cancelamento-contratual">Fase 7 — Créditos e cancelamento contratual</h2>
+<p>Dependência: fases 3–4 e política de negócio confirmada.</p>
+<p>Escopo: RF-03, janela de cancelamento por modalidade, saldo, expiração, reposição e exceções; registrar efeitos transacionais nas reservas.</p>
+<p>Saída: cenários de contrato, bordas de horário/fuso e ausência de consumo/devolução duplicados verificados. Valores e prazos não serão inventados pelo agente.</p>
+<h2 id="fase-8--medição-mensal">Fase 8 — Medição mensal</h2>
+<p>Dependência: fase 7 e decisões de preço, competência e aulas faturáveis.</p>
+<p>Escopo: RF-08, geração de medição, reprocessamento, conciliação e evidência de origem dos valores. Definir contratos de exportação sem assumir uma integração financeira já existente.</p>
+<p>Saída: resultados conciliados em cenários de referência, sem duplicação financeira ou uso de aritmética monetária aproximada.</p>
+<h2 id="fase-9--aprovação-de-medição-pelo-rh">Fase 9 — Aprovação de medição pelo RH</h2>
+<p>Dependência: fase 8.</p>
+<p>Escopo: completar a parte financeira de RF-06, com autorização por empresa, estados, revisão e auditoria. Resolver a dependência do RF-06 P0 em relação ao RF-08 P1 antes de prometer o portal completo.</p>
+<p>Saída: somente o RH autorizado aprova a versão correta da medição e o histórico permite conferir alterações.</p>
+<h2 id="fase-10--notificações-e-calendário">Fase 10 — Notificações e calendário</h2>
+<p>Dependência: regras de agenda/crédito estáveis; fornecedor e orçamento escolhidos antes de integração.</p>
+<p>Escopo: RF-04 em fatias: primeiro lembretes/alterações; depois calendário. Definir idempotência, tratamento de falhas, conteúdo mínimo e preferências.</p>
+<p>Saída: entregas reais verificadas em ambiente de teste, sem duplicação ou divulgação indevida de dados. Integrações não testadas não serão apresentadas como concluídas.</p>
+<h2 id="fase-11--preparar-e-executar-piloto-controlado">Fase 11 — Preparar e executar piloto controlado</h2>
+<p>Dependência: integração, concorrência e consultas validadas; escopo de lançamento confirmado na fase 1. Se funções das fases 6–10 forem excluídas do piloto, registrar a redução explicitamente; não declarar todo o PRD atendido.</p>
+<p>Fatias a especificar e revisar separadamente:</p>
+<ol type="1">
+<li>Operação: logs sem segredos/PII excessiva, métricas, alertas, suporte e resposta a incidentes.</li>
+<li>Recuperação e dados: backups/restauração, migração ensaiada, plano de reversão e retenção; definir e medir RPO/RTO.</li>
+<li>Aceite: acessibilidade com tarefas reais, privacidade, segurança, carga representativa e restrições conhecidas.</li>
+<li>Promoção: checklist de release, responsáveis e decisão humana sobre ambiente, custo e janela; entrada progressiva dos usuários e acompanhamento.</li>
+</ol>
+<p>Saída: pacote de evidências por fatia e decisão explícita de go/no-go. Aprovação desta constituição não autoriza implantação nem gasto. Produção controlada não equivale a comprovação imediata do SLA mensal.</p>
+<h2 id="fase-12--expansão-e-evolução-contínua">Fase 12 — Expansão e evolução contínua</h2>
+<p>Dependência: resultados e necessidades observadas no piloto.</p>
+<p>Tratar RF-09 (substituição), RF-07 (histórico CEFR) e RF-10 (SSO/ERP) como specs próprias, com prioridades confirmadas pelo responsável. A auditoria RF-12 e RNF-07 evolui junto de cada fluxo e exige política operacional; não deve ser adiada integralmente a esta fase.</p>
+<p>Saída de cada incremento: requisito delimitado, validação, revisão humana e atualização da memória do projeto. Mudanças de contrato, stack, hospedagem, carga ou política de acesso acionam replanning.</p>
+<h2 id="próxima-ação-após-a-revisão">Próxima ação após a revisão</h2>
+<p>Especificar a fase 1 em diretório datado, usando os arquivos anteriores como evidência de brownfield. A implementação existente fica preservada enquanto a constituição é revisada. O relatório comparativo histórico continuará identificando o método utilizado na execução original até sua atualização especificada na fase 1.</p>
+<p><a href="../../../../../../../../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/roadmap.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

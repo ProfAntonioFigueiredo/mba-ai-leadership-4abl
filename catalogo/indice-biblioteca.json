@@ -1,0 +1,618 @@
+[
+  {
+    "titulo": "01_heatmap",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/01-heatmap-65f94e0d/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/01-heatmap-65f94e0d/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "01_vies_selecao",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/01-vies-selecao-6f4e2d29/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/01-vies-selecao-6f4e2d29/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "02_simpson",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/02-simpson-4065a8b1/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/02-simpson-4065a8b1/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "03_criticidade",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/03-criticidade-550f8578/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/03-criticidade-550f8578/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "03_negar_mudanca_modelos",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/03-negar-mudanca-modelos-b0c5051a/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/03-negar-mudanca-modelos-b0c5051a/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "04_canal_idade_ces",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/04-canal-idade-ces-5a0658b3/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/04-canal-idade-ces-5a0658b3/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "05_satisfacao_esforco",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/05-satisfacao-esforco-984d80e5/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/05-satisfacao-esforco-984d80e5/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "08_this_person_does_not_exist",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/08-this-person-does-not-exist-0cb2fc17/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/08-this-person-does-not-exist-0cb2fc17/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "09_gans_arquitetura",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/09-gans-arquitetura-ee166bc6/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/09-gans-arquitetura-ee166bc6/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "10_maquinas_pensam",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/10-maquinas-pensam-09ae2309/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/10-maquinas-pensam-09ae2309/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "11_teste_turing",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/11-teste-turing-67b9ec9f/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/11-teste-turing-67b9ec9f/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "12_google_lamda_lemoine",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/12-google-lamda-lemoine-b03997fb/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/12-google-lamda-lemoine-b03997fb/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "13_ia_pensamento_critico_mit",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/13-ia-pensamento-critico-mit-04551aa2/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/13-ia-pensamento-critico-mit-04551aa2/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "14_ia_classica_secao",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/14-ia-classica-secao-e7559d1f/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/14-ia-classica-secao-e7559d1f/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "16_programacao_vs_ml",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/16-programacao-vs-ml-18e3825b/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/16-programacao-vs-ml-18e3825b/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "17_lobe_ai",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/17-lobe-ai-3471a4c7/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/17-lobe-ai-3471a4c7/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "18_tipos_ml",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/18-tipos-ml-21a07c0a/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/18-tipos-ml-21a07c0a/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "20_reforco_mario",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/20-reforco-mario-7fd516f0/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/20-reforco-mario-7fd516f0/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "21_reforco_mario_video",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/21-reforco-mario-video-f78d1a74/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/21-reforco-mario-video-f78d1a74/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "22_mapa_machine_learning",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/22-mapa-machine-learning-f66c3fb6/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/22-mapa-machine-learning-f66c3fb6/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "23_caderno_hipoteses_aula",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/23-caderno-hipoteses-aula-578fb2c2/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/23-caderno-hipoteses-aula-578fb2c2/conteudo.html",
+    "formato": ".png"
+  },
+  {
+    "titulo": "AI Core Concepts",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "AI_Core_Concepts_Aula1_Estudo",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/ai-core-concepts-aula1-estudo-4479b406/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/ai-core-concepts-aula1-estudo-4479b406/conteudo.html",
+    "formato": ".pptx"
+  },
+  {
+    "titulo": "Aula 1 — IA clássica",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Aula 2 — 19/10/2026",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-10-19-aula-02/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/aulas/2026-10-19-aula-02/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Aula1_IA_Classica_Prof_Tassiana",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/aula1-ia-classica-prof-tassiana-7cacf6d7/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/aula1-ia-classica-prof-tassiana-7cacf6d7/conteudo.html",
+    "formato": ".pdf"
+  },
+  {
+    "titulo": "Aulas — AI Core Concepts",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/aulas/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Caderno_de_Hipoteses_CX_preenchido",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/caderno-de-hipoteses-cx-preenchido-f0576871/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/caderno-de-hipoteses-cx-preenchido-f0576871/conteudo.html",
+    "formato": ".docx"
+  },
+  {
+    "titulo": "Caderno_de_Hipoteses_TEMPLATE",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/caderno-de-hipoteses-template-39e7ab13/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/caderno-de-hipoteses-template-39e7ab13/conteudo.html",
+    "formato": ".docx"
+  },
+  {
+    "titulo": "Caderno_Hipoteses_Colab",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/caderno-hipoteses-colab-06bd2b84/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/caderno-hipoteses-colab-06bd2b84/conteudo.html",
+    "formato": ".ipynb"
+  },
+  {
+    "titulo": "caderno_hipoteses_CX",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/projetos/correlacao-cx/entrega/caderno_hipoteses_CX.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/projetos/correlacao-cx/entrega/caderno_hipoteses_CX.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Caderno_Hipoteses_Grupo",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/caderno-hipoteses-grupo-cf5257db/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/caderno-hipoteses-grupo-cf5257db/conteudo.html",
+    "formato": ".ipynb"
+  },
+  {
+    "titulo": "Captura_tabulado",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/captura-tabulado-d58cef47/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/captura-tabulado-d58cef47/conteudo.html",
+    "formato": ".xlsx"
+  },
+  {
+    "titulo": "Correlação CX — caderno de hipóteses",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/projetos/correlacao-cx/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/projetos/correlacao-cx/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "handson_correlacao",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/handson-correlacao-c22adccc/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/handson-correlacao-c22adccc/conteudo.html",
+    "formato": ".ipynb"
+  },
+  {
+    "titulo": "Projetos — AI Core Concepts",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/projetos/README.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/projetos/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "README",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/readme-e3568a83/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/readme-e3568a83/conteudo.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "resumo_aula",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/aulas/2026-09-28-ia-classica/resumo.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "resumo_aula",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "disciplinas/02-ai-core-concepts/aulas/2026-10-19-aula-02/resumo-parcial.md",
+    "html": "biblioteca/leitura/disciplinas/02-ai-core-concepts/aulas/2026-10-19-aula-02/resumo-parcial.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "transcricao_completa",
+    "disciplina": "02",
+    "grupo": "AI Core Concepts",
+    "markdown": "biblioteca/02/transcricao-completa-31d6ef8e/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/02/transcricao-completa-31d6ef8e/conteudo.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "AI Sociedades do Futuro Dessincronizao e…",
+    "disciplina": "03",
+    "grupo": "AI Sociedades do Futuro Dessincronizao e…",
+    "markdown": "disciplinas/03-ai-sociedades-do-futuro/README.md",
+    "html": "biblioteca/leitura/disciplinas/03-ai-sociedades-do-futuro/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Entrega — futuros, dessincronização e regeneração",
+    "disciplina": "03",
+    "grupo": "AI Sociedades do Futuro Dessincronizao e…",
+    "markdown": "disciplinas/03-ai-sociedades-do-futuro/entregas/README.md",
+    "html": "biblioteca/leitura/disciplinas/03-ai-sociedades-do-futuro/entregas/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "01_DIAGNOSTICO_E_CONSOLIDACAO",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/01-diagnostico-e-consolidacao-9e17db49/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/01-diagnostico-e-consolidacao-9e17db49/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "02_PROMPT_DE_IGNICAO_LOVABLE",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/02-prompt-de-ignicao-lovable-b551fb02/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/02-prompt-de-ignicao-lovable-b551fb02/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "03_SYSTEM_PROMPT_KERNEL_SUPABASE",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/03-system-prompt-kernel-supabase-a106b9c8/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/03-system-prompt-kernel-supabase-a106b9c8/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "04_VALIDACAO",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/04-validacao-a0bbc780/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/04-validacao-a0bbc780/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "Cenários de aceite",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/acceptance.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/acceptance.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Decisões e pendências",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/decisions.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/decisions.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Discovery SpeakUp",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/discovery-speakup/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/discovery-speakup/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Especificação de produto e escopo",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/requirements.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/requirements.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Execução e operação",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/docs/operations.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/docs/operations.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Instruções para agentes — SpeakUp SDD",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/AGENTS.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/AGENTS.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Missão — SpeakUp Idiomas",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/mission.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/mission.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Plano de execução verificável",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tasks.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tasks.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "PRD.md",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/prd-md-4e6ccc93/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/prd-md-4e6ccc93/conteudo.html",
+    "formato": ".docx"
+  },
+  {
+    "titulo": "PRD.md.docx",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/prd-md-docx-836d5542/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/prd-md-docx-836d5542/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "Projetos — Vibe Coding Executivo",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "PSS.md",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/pss-md-3eed1f37/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/pss-md-3eed1f37/conteudo.html",
+    "formato": ".docx"
+  },
+  {
+    "titulo": "PSS.md.docx",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/pss-md-docx-aec6becf/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/pss-md-docx-aec6becf/conteudo.html",
+    "formato": ".txt"
+  },
+  {
+    "titulo": "Resultado da comparação",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/reports/relatorio-comparativo.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Roadmap — evolução gradual até produção",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/roadmap.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/roadmap.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "SpeakUp Idiomas",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-lovable/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-lovable/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "SpeakUp Idiomas",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README_ORIGEM.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README_ORIGEM.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "SpeakUp Idiomas — original e evolução SDD",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "SpeakUp — evolução com Spec-Driven Development",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "SpeakUp_Discovery_Lab_Fluxo_Integrado",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/speakup-discovery-lab-fluxo-integrado-c4eb4603/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/speakup-discovery-lab-fluxo-integrado-c4eb4603/conteudo.html",
+    "formato": ".html"
+  },
+  {
+    "titulo": "SpeakUp_Requisitos_Antonio_Figueiredo",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "biblioteca/21/speakup-requisitos-antonio-figueiredo-5433d46b/conteudo.md",
+    "html": "biblioteca/leitura/biblioteca/21/speakup-requisitos-antonio-figueiredo-5433d46b/conteudo.html",
+    "formato": ".docx"
+  },
+  {
+    "titulo": "Stack e restrições — SpeakUp",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tech-stack.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-sdd/specs/tech-stack.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Vibe Coding Executivo",
+    "disciplina": "21",
+    "grupo": "Vibe Coding Executivo",
+    "markdown": "disciplinas/21-vibe-coding-executivo/README.md",
+    "html": "biblioteca/leitura/disciplinas/21-vibe-coding-executivo/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Biblioteca de leitura e consulta",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/biblioteca.md",
+    "html": "biblioteca/leitura/docs/biblioteca.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Como manter o portfólio",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "CONTRIBUTING.md",
+    "html": "biblioteca/leitura/CONTRIBUTING.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Direitos, privacidade e publicação",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/direitos-e-privacidade.md",
+    "html": "biblioteca/leitura/docs/direitos-e-privacidade.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Disciplinas — turma 4ABL",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/disciplinas.md",
+    "html": "biblioteca/leitura/docs/disciplinas.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Estrutura do repositório",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/estrutura.md",
+    "html": "biblioteca/leitura/docs/estrutura.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Importação concluída — registro da retomada",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/importacao-pendente.md",
+    "html": "biblioteca/leitura/docs/importacao-pendente.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "MBA AI Leadership — 4ABL",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "README.md",
+    "html": "biblioteca/leitura/README.html",
+    "formato": ".md"
+  },
+  {
+    "titulo": "Organização local e integridade",
+    "disciplina": "geral",
+    "grupo": "Materiais gerais",
+    "markdown": "docs/organizacao-local.md",
+    "html": "biblioteca/leitura/docs/organizacao-local.html",
+    "formato": ".md"
+  }
+]

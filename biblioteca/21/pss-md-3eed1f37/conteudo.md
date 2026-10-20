@@ -1,0 +1,185 @@
+# PSS.md
+
+[Índice da biblioteca](../../README.md)
+
+> Fonte: `Vibe Coding Executivo/PSS.md.docx`  
+> SHA-256: `3eed1f376581185380b1a54c56037f91afff58da730d3af4b2e243a3b72927b2`  
+> Conversão do DOCX com títulos, listas, tabelas e imagens incorporadas. A paginação original não é preservada.  
+> Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.
+
+---
+
+# 1. Visão Geral da Solução
+
+A solução consiste em uma plataforma SaaS composta por duas frentes de interface unificadas por uma API central:
+
+- **Portal/App do Aluno:** Focado em autoatendimento *mobile-first*, permitindo autenticação simples por matrícula, agendamento/cancelamento de aulas em até 3 cliques, controle de créditos, notificações e acompanhamento de progresso CEFR.
+
+- **Painel Administrativo (ADM / Escola / RH):** Focado em gestão operacional, montagem e conciliação de grade sem choques, importação/sincronização de alunos via carga em lote em Excel, controle de presença, dashboard B2B e fechamento de medição para faturamento.
+
+# 2. Fluxos do Usuário (User Flows)
+
+## Fluxo 1: Aluno (Autoatendimento Mobile)
+
+1.  **Login:** Aluno acessa a tela de login → Informa id_aluno (Matrícula) e a Senha Fixa Escola@@@ → Clique em "Entrar".
+
+2.  **Dashboard Aluno:** Visualiza próximas aulas, saldo de créditos e gráfico de evolução CEFR.
+
+3.  **Agendamento / Reagendamento:**
+
+    - Clica em "Agendar / Reagendar Aula".
+
+    - Seleciona horário e professor disponível.
+
+    - Confirma a alteração em até 3 cliques → Recebe confirmação visual e notificação push/e-mail com sincronização de calendário.
+
+## Fluxo 2: Administrativo (Importação de Base de Alunos via Excel)
+
+1.  **Login ADM:** Coordenador/Gestor acessa o portal → Informa e-mail institucional e senha individual (ou via SSO) → Acessa o Painel ADM.
+
+2.  **Módulo Base de Alunos:** Seleciona a opção "Gestão de Alunos" → Clica em "Importar Alunos (Excel)".
+
+3.  **Upload & Validação:**
+
+    - Arrasta e solta (*drag-and-drop*) ou seleciona arquivo .xlsx ou .csv.
+
+    - Sistema executa *parser* e validação de *schema* das 19 colunas obrigatórias.
+
+    - Exibe pré-visualização com total de novos cadastros, atualizações e erros por linha.
+
+    - Clica em "Confirmar Importação" → Sistema grava registros e gera log auditável de carga.
+
+# 3. Especificação Funcional Detalhada & Regras de Negócio
+
+## Regras de Autenticação
+
+- **Aluno:** Identificador único é o id_aluno. Senha inicial universal é Escola@@@. A autenticação valida a existência do id_aluno ativo na base de dados.
+
+- **Administrador / RH:** Autenticação por e-mail institucional com senha criptografada via *hash* forte (BCrypt) ou integração via protocolo SAML2/OAuth2 (Azure AD/Okta).
+
+## Regras do Módulo de Carga em Lote (Excel)
+
+- **Obrigatoriedade de Esquema:** O arquivo DEVE possuir o cabeçalho idêntico às 19 colunas oficiais:
+
+id_aluno \| nome \| email \| data_nascimento \| idade \| genero \| unidade \| cidade \| estado \| canal_aquisicao \| nivel_curso \| modalidade \| turno \| plano \| desconto_percentual \| data_matricula \| status_matricula \| data_cancelamento \| Valor Mensalidade
+
+- **Chave Primária e Unicidade:** O campo id_aluno deve ser único. Se já existir na base, a importação atuará no modo *Upsert* (atualização dos dados cadastrais).
+
+- **Tratamento de Erros:**
+
+  - Se faltar qualquer uma das 19 colunas obrigatórias, a importação é abortada com erro de estrutura.
+
+  - Campos de data (data_nascimento, data_matricula, data_cancelamento) devem seguir o padrão ISO YYYY-MM-DD.
+
+  - Valor Mensalidade e desconto_percentual devem ser estritamente numéricos.
+
+  - Linhas inconsistentes devem ser destacadas em um relatório de log para correção do usuário.
+
+# 4. Especificação de Interface (UI)
+
+- **Tela de Login Aluno:**
+
+  - Campo 1: Matrícula / ID do Aluno (id_aluno).
+
+  - Campo 2: Senha (padrão preenchida ou mascarada Escola@@@).
+
+  - Botão principal: "Acessar Portal".
+
+- **Painel ADM - Área de Upload Excel:**
+
+  - Container *Drag-and-Drop* com ícone de planilha e instrução: *"Arraste aqui o arquivo Excel (.xlsx / .csv) da base de alunos ou clique para buscar"*.
+
+  - Tabela de Pré-visualização (*Preview*): exibe as 19 colunas mapeadas com status de validação (Linha Válida \[Verde\] / Erro \[Vermelho\]).
+
+  - Botão de Ação: "Processar Importação em Lote".
+
+# 5. Integrações e Engenharia de Dados
+
+## Mapeamento Relacional / Banco de Dados (TB_ALUNO)
+
+CREATE TABLE tb_aluno (
+
+id_aluno VARCHAR(50) PRIMARY KEY,
+
+nome VARCHAR(150) NOT NULL,
+
+email VARCHAR(100) NOT NULL,
+
+data_nascimento DATE,
+
+idade INT,
+
+genero VARCHAR(20),
+
+unidade VARCHAR(100),
+
+cidade VARCHAR(100),
+
+estado VARCHAR(2),
+
+canal_aquisicao VARCHAR(50),
+
+nivel_curso VARCHAR(50),
+
+modalidade VARCHAR(20),
+
+turno VARCHAR(20),
+
+plano VARCHAR(50),
+
+desconto_percentual DECIMAL(5,2),
+
+data_matricula DATE NOT NULL,
+
+status_matricula VARCHAR(20) NOT NULL,
+
+data_cancelamento DATE,
+
+valor_mensalidade DECIMAL(10,2) NOT NULL,
+
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+);
+
+# 6. Critérios de Aceite (Given / When / Then)
+
+## Cenário 1: Autenticação de Aluno com Sucesso
+
+- **Given** que o aluno possui matrícula ativa de id_aluno "10045"
+
+- **When** ele inserir o id_aluno "10045" e a senha "Escola@@@" na tela de login
+
+- **Then** o sistema deve autenticar o usuário e redirecioná-lo para a Dashboard do Aluno em menos de 2 segundos.
+
+## Cenário 2: Importação em Lote via Excel com Sucesso
+
+- **Given** que o usuário ADM está logado e no módulo de Gestão de Alunos
+
+- **When** fizer upload de um arquivo .xlsx válido contendo as 19 colunas corretas
+
+- **Then** o sistema exibe a pré-visualização, processa os registros em lote, grava no banco de dados e apresenta a mensagem *"Importação concluída com sucesso: X alunos inseridos/atualizados"*.
+
+## Cenário 3: Tentativa de Upload com Colunas Inválidas
+
+- **Given** que o usuário ADM tenta fazer upload de uma planilha com apenas 15 colunas
+
+- **When** o sistema processar a validação da planilha
+
+- **Then** a operação deve ser interrompida, apresentando a mensagem de erro *"Arquivo inválido. A planilha deve conter rigorosamente as 19 colunas da estrutura oficial"*.
+
+# 7. Fora de Escopo Técnico
+
+- Desenvolvimento de aplicativo nativo iOS/Android (será utilizado PWA responsivo *mobile-first*).
+
+- Leitura e processamento de arquivos em formatos PDF, DOCX ou planilhas sem estrutura padrão.
+
+# 8. Considerações de Segurança e Privacidade (LGPD)
+
+- Criptografia TLS 1.3 em trânsito e AES-256 para dados sensíveis em repouso.
+
+- Mascaramento de dados sensíveis dos alunos nas telas de pré-visualização do RH B2B (exibindo apenas consolidados quando aplicável).
+
+- Logs de auditoria para todas as operações de upload, alteração de cadastro e exclusão/inativação de alunos mantidos por 12 meses.
+

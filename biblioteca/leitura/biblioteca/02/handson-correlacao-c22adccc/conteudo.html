@@ -1,0 +1,756 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>handson_correlacao</title><style>*{box-sizing:border-box}body{overflow-wrap:anywhere}select{max-width:100%}body{margin:0;color:#20382e;background:#f5f7f3;font:17px/1.7 system-ui,sans-serif}header{padding:18px 5%;background:white;border-bottom:1px solid #ccd7ca}a{color:#245c40;text-underline-offset:3px}main{max-width:1200px;margin:auto;padding:32px 24px 70px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2}h2{margin-top:2em}nav{display:flex;gap:20px;flex-wrap:wrap}article{max-width:90ch;margin:auto;overflow-wrap:anywhere}input,select{font:inherit;padding:12px;border:1px solid #80917e;border-radius:5px;background:white;color:#20382e}input{flex:1;min-width:180px}.controls{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}li{margin:14px 0}#results{list-style:none;padding:0}#results li{padding:18px 0;border-top:1px solid #ccd7ca}small,.meta{color:#53654e;font-size:13px}pre{background:#e8eedf;padding:18px;overflow:auto;white-space:pre-wrap}code{font-size:.86em}img{max-width:100%;height:auto}table{display:block;overflow-x:auto;border-collapse:collapse;font-size:14px}td,th{border:1px solid #ccd7ca;padding:9px}blockquote{margin:20px 0;background:#e8eedf;padding:16px 22px}summary{cursor:pointer}button{font:inherit}#count{min-height:2em}:focus-visible{outline:3px solid #507638;outline-offset:3px}@media(max-width:650px){main{padding:24px 16px}input,select{width:100%}nav{gap:12px}pre{font-size:13px;padding:10px}}@media print{header,.controls{display:none}body{background:white}main{padding:0}}</style></head><body><header><nav><a href="../../../../../index.html">MBA · 4ABL</a><a href="../../../../index.html">Biblioteca e busca</a><a href="../../../../README.md">Índice Markdown</a></nav></header><main><article><p><a href="../../../../02/handson-correlacao-c22adccc/conteudo.md">Abrir fonte Markdown no Git</a></p><details><summary>Sumário do documento</summary><ul><li><a href="#como-usar-este-notebook">Como usar este notebook</a></li><li><a href="#gear-0--preparação-do-ambiente">⚙️ 0 · Preparação do ambiente</a></li><li><a href="#00--identificação-do-grupo">00 · Identificação do grupo</a></li><li><a href="#01--hipóteses-antes-dos-dados-10-min--no_entry_sign-sem-ia">01 · Hipóteses ANTES dos dados (10 min · 🚫 SEM IA)</a></li><li><a href="#writing_hand-sua-resposta-etapa-1">✍️ Sua resposta, Etapa 1</a></li><li><a href="#02--matriz-de-correlação-e-leituras-15-min--ia-liberada">02 · Matriz de correlação e leituras (15 min · IA liberada)</a></li><li><a href="#21-clipboard-antes-da-matriz-olhem-os-dados-mínimo-máximo-valores-estranhos-colunas-que-não-variam-o-que-chamou-atenção">2.1 📋 &quot;Antes da matriz, olhem os dados. Mínimo, máximo, valores estranhos, colunas que não variam. O que chamou atenção?&quot;</a></li><li><a href="#bulb-insight-como-ler-a-estatística-descritiva">💡 Insight: como ler a estatística descritiva</a></li><li><a href="#writing_hand-sua-resposta-o-que-chamou-atenção">✍️ Sua resposta: o que chamou atenção?</a></li><li><a href="#22-preparar-os-dados-para-a-matriz">2.2 Preparar os dados para a matriz</a></li><li><a href="#bulb-insight-por-que-codificar-assim">💡 Insight: por que codificar assim?</a></li><li><a href="#23-clipboard-captura-da-matriz-de-correlação-colem-a-imagem-aqui">2.3 📋 &quot;Captura da matriz de correlação (colem a imagem aqui)&quot;</a></li><li><a href="#bulb-insight-como-ler-o-mapa-de-calor">💡 Insight: como ler o mapa de calor</a></li><li><a href="#24-clipboard-listem-as-correlações-maiores-que-04-ou-menores-que-04-na-coluna-leitura-escrevam-apenas-o-que-o-número-diz-sem-explicar-o-porquê">2.4 📋 &quot;Listem as correlações maiores que 0,4 ou menores que −0,4. Na coluna &#x27;Leitura&#x27;, escrevam apenas o que o número diz, sem explicar o porquê.&quot;</a></li><li><a href="#bulb-insight-como-escrever-a-leitura-e-como-ler-a-dispersão">💡 Insight: como escrever a &quot;Leitura&quot; (e como ler a dispersão)</a></li><li><a href="#writing_hand-sua-resposta-tabela-de-correlações">✍️ Sua resposta, tabela de correlações</a></li><li><a href="#25-clipboard-quais-colunas-da-base-ficaram-fora-da-matriz-o-que-elas-poderiam-explicar">2.5 📋 &quot;Quais colunas da base ficaram fora da matriz? O que elas poderiam explicar?&quot;</a></li><li><a href="#bulb-insight-o-que-fica-de-fora-também-conta">💡 Insight: o que fica de fora também conta</a></li><li><a href="#writing_hand-sua-resposta-colunas-fora-e-o-que-poderiam-explicar">✍️ Sua resposta: colunas fora e o que poderiam explicar</a></li><li><a href="#03--auditoria-da-ia-10-min">03 · Auditoria da IA (10 min)</a></li><li><a href="#31-clipboard-peçam-à-ia-que-interprete-a-matriz-e-sugira-hipóteses-depois-auditem-cada-afirmação-como-se-ela-viesse-de-um-analista-júnior-da-sua-squad">3.1 📋 &quot;Peçam à IA que interprete a matriz e sugira hipóteses. Depois, auditem cada afirmação como se ela viesse de um analista júnior da sua squad.&quot;</a></li><li><a href="#writing_hand-prompt-que-eu-usei-cole-aqui">✍️ Prompt que eu usei (cole aqui)</a></li><li><a href="#writing_hand-o-que-a-ia-respondeu-resuma-as-principais-afirmações">✍️ O que a IA respondeu (resuma as principais afirmações)</a></li><li><a href="#bulb-insight-as-três-classificações">💡 Insight: as três classificações</a></li><li><a href="#32-mag-auditoria-a-chamados-que-demoram-mais-deixam-o-colaborador-mais-satisfeito">3.2 🔍 Auditoria A: &quot;Chamados que demoram mais deixam o colaborador mais satisfeito&quot;?</a></li><li><a href="#bulb-insight-paradoxo-de-simpson-star">💡 Insight: Paradoxo de Simpson ⭐</a></li><li><a href="#33-mag-auditoria-b-colaboradores-mais-velhos-têm-mais-dificuldade-a-idade-aumenta-o-esforço-ces">3.3 🔍 Auditoria B: &quot;Colaboradores mais velhos têm mais dificuldade: a idade aumenta o esforço (CES)&quot;?</a></li><li><a href="#bulb-insight-correlação-indireta-controlar-por-outra-variável">💡 Insight: correlação indireta (controlar por outra variável)</a></li><li><a href="#34-mag-auditoria-c-pearson-é-adequado-para-escalas-de-1-a-5">3.4 🔍 Auditoria C: Pearson é adequado para escalas de 1 a 5?</a></li><li><a href="#bulb-insight-pearson--spearman">💡 Insight: Pearson × Spearman</a></li><li><a href="#writing_hand-sua-resposta-auditoria">✍️ Sua resposta, auditoria</a></li><li><a href="#clipboard-o-que-a-ia-deixou-de-questionar">📋 O que a IA deixou de questionar?</a></li><li><a href="#04--caderno-de-hipóteses-final">04 · Caderno de hipóteses final</a></li><li><a href="#bulb-insight-o-que-torna-uma-hipótese-boa">💡 Insight: o que torna uma hipótese boa</a></li><li><a href="#writing_hand-sua-resposta-caderno-final">✍️ Sua resposta, caderno final</a></li><li><a href="#clipboard-hipóteses-que-derrubamos-e-por-quê">📋 Hipóteses que derrubamos e por quê:</a></li><li><a href="#clipboard-das-expectativas-da-etapa-1-alguma-resistimos-a-abandonar-mesmo-com-os-dados-contra">📋 Das expectativas da Etapa 1, alguma resistimos a abandonar mesmo com os dados contra?</a></li><li><a href="#05--recomendação-ao-diretor-de-suporte">05 · Recomendação ao Diretor de Suporte</a></li><li><a href="#bulb-insight-como-desenhar-o-experimento-provar-causa">💡 Insight: como desenhar o experimento (provar causa)</a></li><li><a href="#writing_hand-sua-resposta-recomendação">✍️ Sua resposta, recomendação</a></li><li><a href="#decisão-que-recomendamos">Decisão que recomendamos:</a></li><li><a href="#evidência-que-temos-e-o-que-ela-não-prova">Evidência que temos (e o que ela não prova):</a></li><li><a href="#experimento-para-testar-se-há-causa">Experimento para testar se há causa:</a></li><li><a href="#custo-de-errar-se-agirmos-e-a-hipótese-for-falsa-se-não-agirmos-e-ela-for-verdadeira">Custo de errar (se agirmos e a hipótese for falsa; se não agirmos e ela for verdadeira):</a></li><li><a href="#writing_hand-assinatura-do-caderno">✍️ Assinatura do caderno</a></li><li><a href="#white_check_mark-checklist-de-entrega">✅ Checklist de entrega</a></li></ul></details><h1 id="handson_correlacao">handson_correlacao</h1>
+<p><a href="../../../../index.html">Índice da biblioteca</a></p>
+<blockquote>
+<p>Fonte: <code>Aulas/AI-Core-Concepts/04_Hands_On_Correlacao/notebooks/handson_correlacao.ipynb</code><br/>
+SHA-256: <code>c22adccc8e2f8962c0e9f986434c3e2e681ac2e1fe4a6f50668cc72c27cc4cb1</code><br/>
+Células e saídas textuais já gravadas. O notebook não foi executado na conversão.<br/>
+Material do acervo acadêmico fornecido pelo usuário. Autoria e direitos permanecem com os titulares indicados na fonte.</p>
+</blockquote>
+<hr/>
+<h1 id="notebook-hands-on-guiado-caderno-de-hipóteses-suporte-de-ti">📓 Hands On guiado: Caderno de Hipóteses (Suporte de TI)</h1>
+<p><strong>AI Core Concepts, Aula 1</strong> · Profª Tassiana Rugoni de Campos · FIAP MBA <strong>Base:</strong> <code>metrica_cx_corr_v2.csv</code>, pesquisa interna de satisfação dos colaboradores atendidos pelo Suporte de TI (420 respostas).</p>
+<h3 id="como-usar-este-notebook">Como usar este notebook</h3>
+<p>Ele segue <strong>exatamente a ordem do template "Caderno de Hipóteses.docx"</strong>. Em cada pergunta:</p>
+<table>
+<thead>
+<tr>
+<th>Ícone</th>
+<th>O que é</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📋</td>
+<td>A pergunta do template</td>
+</tr>
+<tr>
+<td>▶️</td>
+<td>Código: rode com <strong>Shift+Enter</strong> e veja o gráfico ou a tabela</td>
+</tr>
+<tr>
+<td>💡</td>
+<td><strong>Insight</strong>: o conceito por trás, para você aprender a ler o resultado</td>
+</tr>
+<tr>
+<td>✍️</td>
+<td><strong>Sua resposta</strong>: escreva com as suas palavras (clique duas vezes na célula)</td>
+</tr>
+<tr>
+<td>🔎</td>
+<td>Referência: <strong>leia só depois de responder</strong>, para comparar</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>"Quem assina o caderno de hipóteses é você, não o LLM."</em> Use as referências para checar o raciocínio, não para copiar. No fim, copie as suas respostas para o Word, exporte em PDF e assine.</p>
+</blockquote>
+<h2 id="gear-0--preparação-do-ambiente">⚙️ 0 · Preparação do ambiente</h2>
+<p>▶️ Rode a célula abaixo primeiro. Ela confere se o Python certo está ativo e carrega as ferramentas.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Python em uso:'</span>, sys.executable)</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="cf">if</span> <span class="st">'CloudStorage'</span> <span class="kw">in</span> sys.executable:</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'⚠️ Este kernel está dentro do OneDrive e pode travar. Troque o kernel (canto superior direito) para '</span></span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a>          <span class="st">'"Python (MBA IA)" ou ~/AulasMBA/.venv/bin/python'</span>)</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, pandas <span class="im">as</span> pd, matplotlib.pyplot <span class="im">as</span> plt, seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span>
+<span id="cb1-9"><a aria-hidden="true" href="#cb1-9" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-10"><a aria-hidden="true" href="#cb1-10" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">'whitegrid'</span>, font_scale<span class="op">=</span><span class="fl">1.05</span>)</span>
+<span id="cb1-11"><a aria-hidden="true" href="#cb1-11" tabindex="-1"></a>pd.set_option(<span class="st">'display.precision'</span>, <span class="dv">2</span>)</span>
+<span id="cb1-12"><a aria-hidden="true" href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a aria-hidden="true" href="#cb1-13" tabindex="-1"></a>LIMIAR <span class="op">=</span> <span class="fl">0.4</span></span>
+<span id="cb1-14"><a aria-hidden="true" href="#cb1-14" tabindex="-1"></a>ORDEM_CRIT <span class="op">=</span> [<span class="st">'Baixa'</span>, <span class="st">'Media'</span>, <span class="st">'Alta'</span>]</span>
+<span id="cb1-15"><a aria-hidden="true" href="#cb1-15" tabindex="-1"></a>CORES_CRIT <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(ORDEM_CRIT, [<span class="st">'#4C9F70'</span>, <span class="st">'#E0A030'</span>, <span class="st">'#C0392B'</span>]))</span>
+<span id="cb1-16"><a aria-hidden="true" href="#cb1-16" tabindex="-1"></a>CORES_CANAL <span class="op">=</span> {<span class="st">'Chat'</span>: <span class="st">'#3A7CA5'</span>, <span class="st">'Portal'</span>: <span class="st">'#81B29A'</span>, <span class="st">'Telefone'</span>: <span class="st">'#E07A5F'</span>}</span>
+<span id="cb1-17"><a aria-hidden="true" href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a aria-hidden="true" href="#cb1-18" tabindex="-1"></a><span class="kw">def</span> forca(r):</span>
+<span id="cb1-19"><a aria-hidden="true" href="#cb1-19" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">abs</span>(r)</span>
+<span id="cb1-20"><a aria-hidden="true" href="#cb1-20" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'muito forte'</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="fl">.9</span> <span class="cf">else</span> <span class="st">'forte'</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="fl">.7</span> <span class="cf">else</span> <span class="st">'moderada'</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="fl">.5</span> <span class="cf">else</span> <span class="st">'moderada-fraca'</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="fl">.4</span> <span class="cf">else</span> <span class="st">'fraca'</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="fl">.2</span> <span class="cf">else</span> <span class="st">'desprezível'</span></span>
+<span id="cb1-21"><a aria-hidden="true" href="#cb1-21" tabindex="-1"></a></span>
+<span id="cb1-22"><a aria-hidden="true" href="#cb1-22" tabindex="-1"></a><span class="kw">def</span> explorar(x, y, por<span class="op">=</span><span class="va">None</span>, dados<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1-23"><a aria-hidden="true" href="#cb1-23" tabindex="-1"></a>    <span class="co">"""Ferramenta de investigação: mostra a correlação x × y no geral e, opcionalmente, DENTRO de cada grupo `por`.</span></span>
+<span id="cb1-24"><a aria-hidden="true" href="#cb1-24" tabindex="-1"></a><span class="co">    Ex.: explorar('Tempo_Resolucao_h', 'RATINGS', por='Criticidade')"""</span></span>
+<span id="cb1-25"><a aria-hidden="true" href="#cb1-25" tabindex="-1"></a>    d0 <span class="op">=</span> dados <span class="cf">if</span> dados <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> d</span>
+<span id="cb1-26"><a aria-hidden="true" href="#cb1-26" tabindex="-1"></a>    r <span class="op">=</span> d0[x].corr(d0[y])</span>
+<span id="cb1-27"><a aria-hidden="true" href="#cb1-27" tabindex="-1"></a>    ncols <span class="op">=</span> <span class="dv">2</span> <span class="cf">if</span> por <span class="cf">else</span> <span class="dv">1</span></span>
+<span id="cb1-28"><a aria-hidden="true" href="#cb1-28" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, ncols, figsize<span class="op">=</span>(<span class="fl">6.5</span> <span class="op">*</span> ncols, <span class="fl">4.3</span>), squeeze<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-29"><a aria-hidden="true" href="#cb1-29" tabindex="-1"></a>    sns.regplot(data<span class="op">=</span>d0, x<span class="op">=</span>x, y<span class="op">=</span>y, ax<span class="op">=</span>ax[<span class="dv">0</span>, <span class="dv">0</span>], x_jitter<span class="op">=</span><span class="fl">.15</span>, y_jitter<span class="op">=</span><span class="fl">.15</span>, scatter_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.3</span>}, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'black'</span>})</span>
+<span id="cb1-30"><a aria-hidden="true" href="#cb1-30" tabindex="-1"></a>    ax[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="ss">f'Geral: r = </span><span class="sc">{</span>r<span class="sc">:+.2f}</span><span class="ss"> (</span><span class="sc">{</span>forca(r)<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb1-31"><a aria-hidden="true" href="#cb1-31" tabindex="-1"></a>    linhas <span class="op">=</span> [(<span class="st">'Geral'</span>, <span class="bu">len</span>(d0), r)]</span>
+<span id="cb1-32"><a aria-hidden="true" href="#cb1-32" tabindex="-1"></a>    <span class="cf">if</span> por:</span>
+<span id="cb1-33"><a aria-hidden="true" href="#cb1-33" tabindex="-1"></a>        grupos <span class="op">=</span> [g <span class="cf">for</span> g <span class="kw">in</span> (ORDEM_CRIT <span class="cf">if</span> por <span class="op">==</span> <span class="st">'Criticidade'</span> <span class="cf">else</span> <span class="bu">sorted</span>(d0[por].dropna().unique()))]</span>
+<span id="cb1-34"><a aria-hidden="true" href="#cb1-34" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> grupos:</span>
+<span id="cb1-35"><a aria-hidden="true" href="#cb1-35" tabindex="-1"></a>            sub <span class="op">=</span> d0[d0[por] <span class="op">==</span> g]</span>
+<span id="cb1-36"><a aria-hidden="true" href="#cb1-36" tabindex="-1"></a>            rg <span class="op">=</span> sub[x].corr(sub[y])<span class="op">;</span> linhas.append((<span class="ss">f'</span><span class="sc">{</span>por<span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>g<span class="sc">}</span><span class="ss">'</span>, <span class="bu">len</span>(sub), rg))</span>
+<span id="cb1-37"><a aria-hidden="true" href="#cb1-37" tabindex="-1"></a>            cor <span class="op">=</span> CORES_CRIT.get(g) <span class="kw">or</span> CORES_CANAL.get(g)</span>
+<span id="cb1-38"><a aria-hidden="true" href="#cb1-38" tabindex="-1"></a>            sns.regplot(data<span class="op">=</span>sub, x<span class="op">=</span>x, y<span class="op">=</span>y, ax<span class="op">=</span>ax[<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span>cor, x_jitter<span class="op">=</span><span class="fl">.15</span>, y_jitter<span class="op">=</span><span class="fl">.15</span>, scatter_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.3</span>}, label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>g<span class="sc">}</span><span class="ss">: r = </span><span class="sc">{</span>rg<span class="sc">:+.2f}</span><span class="ss">'</span>)</span>
+<span id="cb1-39"><a aria-hidden="true" href="#cb1-39" tabindex="-1"></a>        ax[<span class="dv">0</span>, <span class="dv">1</span>].legend()<span class="op">;</span> ax[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="ss">f'Dentro de cada </span><span class="sc">{</span>por<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-40"><a aria-hidden="true" href="#cb1-40" tabindex="-1"></a>    plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb1-41"><a aria-hidden="true" href="#cb1-41" tabindex="-1"></a>    display(pd.DataFrame(linhas, columns<span class="op">=</span>[<span class="st">'Recorte'</span>, <span class="st">'n'</span>, <span class="st">'r'</span>]).set_index(<span class="st">'Recorte'</span>))</span>
+<span id="cb1-42"><a aria-hidden="true" href="#cb1-42" tabindex="-1"></a></span>
+<span id="cb1-43"><a aria-hidden="true" href="#cb1-43" tabindex="-1"></a>d <span class="op">=</span> pd.read_csv(<span class="st">'../dados/metrica_cx_corr_v2.csv'</span>)</span>
+<span id="cb1-44"><a aria-hidden="true" href="#cb1-44" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'✅ Base carregada:'</span>, d.shape[<span class="dv">0</span>], <span class="st">'linhas ×'</span>, d.shape[<span class="dv">1</span>], <span class="st">'colunas'</span>)</span></code></pre></div>
+<pre class="text"><code>Python em uso: /Users/antoniosergiorfigueiredo/AulasMBA/.venv/bin/python
+✅ Base carregada: 420 linhas × 9 colunas
+</code></pre>
+<h2 id="00--identificação-do-grupo">00 · Identificação do grupo</h2>
+<p>📋 <em>RM, nome e ferramentas de IA usadas.</em> (No portal, os RMs vão <strong>separados por vírgula</strong> no campo do upload.)</p>
+<table>
+<thead>
+<tr>
+<th>RM</th>
+<th>Nome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ferramenta(s) de IA usada(s):</strong></p>
+<h2 id="01--hipóteses-antes-dos-dados-10-min--no_entry_sign-sem-ia">01 · Hipóteses ANTES dos dados (10 min · 🚫 SEM IA)</h2>
+<p>📋 <em>"Sem abrir a base, apenas pelo dicionário de dados: o que a experiência de vocês como gestores diz que vai aparecer? Registrem agora; vocês vão confrontar isso com os dados na Etapa 4."</em></p>
+<blockquote>
+<p>⚠️ <strong>Regra da professora:</strong> nada de IA nesta etapa, e <strong>não rode as células de análise antes de responder</strong>. Não há insight nem referência aqui de propósito: o valor está em registrar o seu <em>feeling</em> para depois ver quais "dogmas caem".</p>
+</blockquote>
+<p><strong>Dicionário de dados</strong> | Campo | Descrição | |---|---| | Id | Identificador único da resposta | | Age | Idade do colaborador atendido | | Canal | Chat, Telefone ou Portal | | Criticidade | Baixa, Media, Alta | | Tempo_Resolucao_h | Horas entre a abertura e a resolução do chamado | | Status_Chamado | Situação do chamado | | e_NPS | Disposição em recomendar o suporte (0 a 10) | | CES | Esforço para resolver o problema (1 = muito fácil, 5 = muito difícil) | | RATINGS | Satisfação com o atendimento (1 = muito insatisfeito, 5 = muito satisfeito) |</p>
+<p><strong>Perguntas que ajudam a pensar:</strong> Demorar mais deixa o colaborador mais ou menos satisfeito? Qual canal deve ser o melhor ou o pior? A idade influencia o quê? Chamados críticos são mais bem ou mais mal avaliados? NPS, CES e RATINGS andam juntos?</p>
+<h3 id="writing_hand-sua-resposta-etapa-1">✍️ Sua resposta, Etapa 1</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>O que esperamos encontrar</th>
+<th>Por que acreditamos nisso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="02--matriz-de-correlação-e-leituras-15-min--ia-liberada">02 · Matriz de correlação e leituras (15 min · IA liberada)</h2>
+<h3 id="21-clipboard-antes-da-matriz-olhem-os-dados-mínimo-máximo-valores-estranhos-colunas-que-não-variam-o-que-chamou-atenção">2.1 📋 <em>"Antes da matriz, olhem os dados. Mínimo, máximo, valores estranhos, colunas que não variam. O que chamou atenção?"</em></h3>
+<p>▶️ Rode a estatística descritiva, o primeiro passo que a professora recomendou (<em>"aplique estatística descritiva"</em>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>d.describe(include<span class="op">=</span><span class="st">'all'</span>).T</span></code></pre></div>
+<pre class="text"><code>                   count unique        top freq   mean     std  min     25%  \
+Id                 420.0    NaN        NaN  NaN  210.5  121.39  1.0  105.75   
+Age                420.0    NaN        NaN  NaN  38.89    12.2  0.0    30.0   
+Canal                420      3       Chat  167    NaN     NaN  NaN     NaN   
+Criticidade          420      3      Baixa  218    NaN     NaN  NaN     NaN   
+Tempo_Resolucao_h  420.0    NaN        NaN  NaN  15.92    17.4  1.1     4.5   
+Status_Chamado       420      1  Resolvido  420    NaN     NaN  NaN     NaN   
+e_NPS              420.0    NaN        NaN  NaN   7.21    2.52  0.0    5.75   
+CES                420.0    NaN        NaN  NaN   2.83    1.02  1.0     2.0   
+RATINGS            420.0    NaN        NaN  NaN   3.12    1.33  1.0     2.0   
+
+                     50%     75%    max  
+Id                 210.5  315.25  420.0  
+Age                 38.0    48.0   67.0  
+Canal                NaN     NaN    NaN  
+Criticidade          NaN     NaN    NaN  
+Tempo_Resolucao_h   7.65    20.9   71.7  
+Status_Chamado       NaN     NaN    NaN  
+e_NPS                8.0    10.0   10.0  
+CES                  3.0     4.0    5.0  
+RATINGS              3.0     4.0    5.0  </code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Valores faltantes no total:'</span>, d.isna().<span class="bu">sum</span>().<span class="bu">sum</span>())</span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Colunas que NÃO variam:'</span>, [c <span class="cf">for</span> c <span class="kw">in</span> d.columns <span class="cf">if</span> d[c].nunique() <span class="op">==</span> <span class="dv">1</span>])</span>
+<span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Idades iguais a 0 (Ids):'</span>, d.loc[d.Age <span class="op">==</span> <span class="dv">0</span>, <span class="st">'Id'</span>].tolist())</span>
+<span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Criticidade:'</span>, d.Criticidade.value_counts().to_dict())</span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Canal:'</span>, d.Canal.value_counts().to_dict())</span>
+<span id="cb5-6"><a aria-hidden="true" href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a aria-hidden="true" href="#cb5-7" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="fl">3.6</span>))</span>
+<span id="cb5-8"><a aria-hidden="true" href="#cb5-8" tabindex="-1"></a>sns.histplot(d.Age, bins<span class="op">=</span><span class="dv">25</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>]).set_title(<span class="st">'Idade: repare nos zeros'</span>)</span>
+<span id="cb5-9"><a aria-hidden="true" href="#cb5-9" tabindex="-1"></a>sns.histplot(d.Tempo_Resolucao_h, bins<span class="op">=</span><span class="dv">30</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>]).set_title(<span class="st">'Tempo de resolução (h)'</span>)</span>
+<span id="cb5-10"><a aria-hidden="true" href="#cb5-10" tabindex="-1"></a>ax[<span class="dv">1</span>].axvline(d.Tempo_Resolucao_h.mean(), color<span class="op">=</span><span class="st">'red'</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'média'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].axvline(d.Tempo_Resolucao_h.median(), color<span class="op">=</span><span class="st">'green'</span>, ls<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'mediana'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].legend()</span>
+<span id="cb5-11"><a aria-hidden="true" href="#cb5-11" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>d, x<span class="op">=</span><span class="st">'e_NPS'</span>, ax<span class="op">=</span>ax[<span class="dv">2</span>], color<span class="op">=</span><span class="st">'#3A7CA5'</span>).set_title(<span class="st">'e_NPS (0 a 10)'</span>)</span>
+<span id="cb5-12"><a aria-hidden="true" href="#cb5-12" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>d, x<span class="op">=</span><span class="st">'Criticidade'</span>, y<span class="op">=</span><span class="st">'Tempo_Resolucao_h'</span>, order<span class="op">=</span>ORDEM_CRIT, palette<span class="op">=</span>CORES_CRIT, ax<span class="op">=</span>ax[<span class="dv">3</span>]).set_title(<span class="st">'Tempo por criticidade'</span>)</span>
+<span id="cb5-13"><a aria-hidden="true" href="#cb5-13" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div>
+<pre class="text"><code>Valores faltantes no total: 0
+Colunas que NÃO variam: ['Status_Chamado']
+Idades iguais a 0 (Ids): [17, 286, 297, 320, 413]
+Criticidade: {'Baixa': 218, 'Media': 124, 'Alta': 78}
+Canal: {'Chat': 167, 'Telefone': 143, 'Portal': 110}
+</code></pre>
+<pre class="text"><code>/var/folders/79/05mjykw15yn8zywb7q76_xhr0000gn/T/ipykernel_99389/1498314426.py:12: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(data=d, x='Criticidade', y='Tempo_Resolucao_h', order=ORDEM_CRIT, palette=CORES_CRIT, ax=ax[3]).set_title('Tempo por criticidade')
+</code></pre>
+<pre class="text"><code>&lt;Figure size 1800x360 with 4 Axes&gt;</code></pre>
+<h3 id="bulb-insight-como-ler-a-estatística-descritiva">💡 Insight: como ler a estatística descritiva</h3>
+<ul>
+<li><strong>Média × mediana:</strong> quando a <strong>média é bem maior que a mediana</strong>, há uma <strong>cauda longa</strong>: poucos casos muito altos puxam a média para cima. Aqui o tempo médio é ~15,9 h e a mediana ~7,7 h, então <strong>alguns chamados demoram muito mais que o normal</strong>. Para gestão, a mediana representa melhor o "chamado típico".</li>
+<li><strong>Mínimo e máximo</strong> revelam <strong>erros de cadastro</strong> e <strong>outliers</strong>. Uma idade = 0 é impossível para um colaborador.</li>
+<li><strong>Coluna que não varia</strong> (<code>nunique = 1</code>) não pode ter correlação com nada, então sai da matriz. Mas ela diz algo sobre <strong>quem foi ouvido</strong>: se todo chamado está "Resolvido", <strong>a pesquisa só ouviu quem teve o problema resolvido</strong> (viés de seleção / sobrevivência, Parte 1 da aula).</li>
+<li><strong>Distribuição das categorias:</strong> saber que 52% dos chamados são de baixa criticidade ajuda a priorizar onde está o maior volume.</li>
+</ul>
+<h3 id="writing_hand-sua-resposta-o-que-chamou-atenção">✍️ Sua resposta: o que chamou atenção?</h3>
+<p><em>Clique duas vezes aqui e escreva com as suas palavras.</em></p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<details><summary>🔎 <b>Referência</b> (clique para abrir, só depois de responder)</summary>
+<ul>
+<li>420 respostas, sem valores faltantes.</li>
+<li><code>Status_Chamado</code> = "Resolvido" em 100%: não varia (e só ouve quem foi atendido até o fim).</li>
+<li>5 idades = 0 (Ids 17, 286, 297, 320, 413): erro de cadastro, tratar como ausente.</li>
+<li>Tempo de 1,1 h a 71,7 h; média 15,9 h ≫ mediana 7,7 h, uma cauda longa.</li>
+<li>Baixa 52%, Média 30%, Alta 19% · Chat 40%, Telefone 34%, Portal 26%.</li>
+</ul>
+</details>
+<h3 id="22-preparar-os-dados-para-a-matriz">2.2 Preparar os dados para a matriz</h3>
+<p>A correlação de Pearson só funciona com <strong>números</strong>. Decisões de preparação:</p>
+<ul>
+<li><code>Id</code> sai (identificador) · <code>Status_Chamado</code> sai (constante) · <code>Age = 0</code> vira ausente.</li>
+<li><code>Criticidade</code> → <strong>escala ordinal</strong> 1 = Baixa, 2 = Média, 3 = Alta (existe uma ordem).</li>
+<li><code>Canal</code> → <strong>one-hot</strong>: três colunas 0/1 (não existe ordem entre Chat, Portal e Telefone).</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a>d.loc[d.Age <span class="op">==</span> <span class="dv">0</span>, <span class="st">'Age'</span>] <span class="op">=</span> np.nan</span>
+<span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a>d[<span class="st">'Criticidade_num'</span>] <span class="op">=</span> d.Criticidade.<span class="bu">map</span>({<span class="st">'Baixa'</span>: <span class="dv">1</span>, <span class="st">'Media'</span>: <span class="dv">2</span>, <span class="st">'Alta'</span>: <span class="dv">3</span>})</span>
+<span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a>num <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>    <span class="st">'Idade'</span>: d.Age, <span class="st">'Criticidade'</span>: d.Criticidade_num, <span class="st">'Tempo_Resolucao_h'</span>: d.Tempo_Resolucao_h,</span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>    <span class="st">'e_NPS'</span>: d.e_NPS, <span class="st">'CES'</span>: d.CES, <span class="st">'RATINGS'</span>: d.RATINGS,</span>
+<span id="cb9-6"><a aria-hidden="true" href="#cb9-6" tabindex="-1"></a>    <span class="st">'Canal_Chat'</span>: (d.Canal <span class="op">==</span> <span class="st">'Chat'</span>).astype(<span class="bu">int</span>), <span class="st">'Canal_Portal'</span>: (d.Canal <span class="op">==</span> <span class="st">'Portal'</span>).astype(<span class="bu">int</span>),</span>
+<span id="cb9-7"><a aria-hidden="true" href="#cb9-7" tabindex="-1"></a>    <span class="st">'Canal_Telefone'</span>: (d.Canal <span class="op">==</span> <span class="st">'Telefone'</span>).astype(<span class="bu">int</span>)})</span>
+<span id="cb9-8"><a aria-hidden="true" href="#cb9-8" tabindex="-1"></a>num.head()</span></code></pre></div>
+<pre class="text"><code>   Idade  Criticidade  Tempo_Resolucao_h  e_NPS  CES  RATINGS  Canal_Chat  \
+0   45.0            3               42.5     10    3        5           0   
+1   49.0            1                3.4      4    4        1           0   
+2   34.0            1                3.3      9    2        4           0   
+3   58.0            3               28.3      9    4        5           0   
+4   38.0            1                1.2      7    2        3           1   
+
+   Canal_Portal  Canal_Telefone  
+0             1               0  
+1             0               1  
+2             1               0  
+3             0               1  
+4             0               0  </code></pre>
+<h3 id="bulb-insight-por-que-codificar-assim">💡 Insight: por que codificar assim?</h3>
+<ul>
+<li>Se transformássemos Canal em 1, 2, 3, estaríamos dizendo que "Telefone = 3 × Chat", o que não faz sentido. O <strong>one-hot</strong> evita essa ordem falsa.</li>
+<li><strong>Efeito colateral:</strong> as colunas de canal têm correlação negativa entre si <strong>por construção</strong> (se é Chat, não é Telefone). Esses pares <strong>não são insight de negócio</strong> e serão ignorados.</li>
+</ul>
+<h3 id="23-clipboard-captura-da-matriz-de-correlação-colem-a-imagem-aqui">2.3 📋 <em>"Captura da matriz de correlação (colem a imagem aqui)"</em></h3>
+<p>▶️ A imagem é salva em <code>../entrega/graficos/01_heatmap.png</code> para você colar no Word.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a>corr <span class="op">=</span> num.corr(method<span class="op">=</span><span class="st">'pearson'</span>)</span>
+<span id="cb11-2"><a aria-hidden="true" href="#cb11-2" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb11-3"><a aria-hidden="true" href="#cb11-3" tabindex="-1"></a>sns.heatmap(corr, mask<span class="op">=</span>np.triu(np.ones_like(corr, <span class="bu">bool</span>), <span class="dv">1</span>), annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'.2f'</span>, cmap<span class="op">=</span><span class="st">'RdBu_r'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb11-4"><a aria-hidden="true" href="#cb11-4" tabindex="-1"></a>            square<span class="op">=</span><span class="va">True</span>, cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'r de Pearson'</span>})</span>
+<span id="cb11-5"><a aria-hidden="true" href="#cb11-5" tabindex="-1"></a>plt.title(<span class="st">'Matriz de correlação: Suporte de TI (n = 420)'</span>)</span>
+<span id="cb11-6"><a aria-hidden="true" href="#cb11-6" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.savefig(<span class="st">'../entrega/graficos/01_heatmap.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)<span class="op">;</span> plt.show()</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1000x800 with 2 Axes&gt;</code></pre>
+<h3 id="bulb-insight-como-ler-o-mapa-de-calor">💡 Insight: como ler o mapa de calor</h3>
+<ul>
+<li>🔴 <strong>Vermelho forte</strong> = perto de <strong>+1</strong>: as duas sobem juntas. 🔵 <strong>Azul forte</strong> = perto de <strong>−1</strong>: uma sobe e a outra desce. ⚪ <strong>Branco</strong> = perto de <strong>0</strong>: sem relação linear.</li>
+<li>A diagonal é sempre 1 (a variável com ela mesma), por isso mostramos só metade da matriz.</li>
+<li><strong>Atenção ao sinal com o CES:</strong> o CES é "esforço", então <strong>maior = pior</strong>. Uma correlação <strong>negativa</strong> entre CES e RATINGS significa "mais esforço → menos satisfação", o que faz todo o sentido.</li>
+</ul>
+<h3 id="24-clipboard-listem-as-correlações-maiores-que-04-ou-menores-que-04-na-coluna-leitura-escrevam-apenas-o-que-o-número-diz-sem-explicar-o-porquê">2.4 📋 <em>"Listem as correlações maiores que 0,4 ou menores que −0,4. Na coluna 'Leitura', escrevam apenas o que o número diz, sem explicar o porquê."</em></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" href="#cb13-1" tabindex="-1"></a>canais <span class="op">=</span> {<span class="st">'Canal_Chat'</span>, <span class="st">'Canal_Portal'</span>, <span class="st">'Canal_Telefone'</span>}</span>
+<span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>pares <span class="op">=</span> []</span>
+<span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>cols <span class="op">=</span> <span class="bu">list</span>(corr.columns)</span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a><span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(cols):</span>
+<span id="cb13-5"><a aria-hidden="true" href="#cb13-5" tabindex="-1"></a>    <span class="cf">for</span> b <span class="kw">in</span> cols[i <span class="op">+</span> <span class="dv">1</span>:]:</span>
+<span id="cb13-6"><a aria-hidden="true" href="#cb13-6" tabindex="-1"></a>        r <span class="op">=</span> corr.loc[a, b]</span>
+<span id="cb13-7"><a aria-hidden="true" href="#cb13-7" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">abs</span>(r) <span class="op">&gt;</span> LIMIAR <span class="kw">and</span> <span class="kw">not</span> ({a, b} <span class="op">&lt;=</span> canais):</span>
+<span id="cb13-8"><a aria-hidden="true" href="#cb13-8" tabindex="-1"></a>            pares.append((a, b, <span class="bu">round</span>(r, <span class="dv">2</span>), <span class="st">'positiva'</span> <span class="cf">if</span> r <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'negativa'</span>, forca(r)))</span>
+<span id="cb13-9"><a aria-hidden="true" href="#cb13-9" tabindex="-1"></a>rel <span class="op">=</span> pd.DataFrame(pares, columns<span class="op">=</span>[<span class="st">'Variável 1'</span>, <span class="st">'Variável 2'</span>, <span class="st">'r'</span>, <span class="st">'Sentido'</span>, <span class="st">'Força'</span>]).sort_values(<span class="st">'r'</span>, key<span class="op">=</span><span class="bu">abs</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-10"><a aria-hidden="true" href="#cb13-10" tabindex="-1"></a>rel</span></code></pre></div>
+<pre class="text"><code>           Variável 1         Variável 2     r   Sentido           Força
+0         Criticidade  Tempo_Resolucao_h  0.89  positiva           forte
+1               e_NPS            RATINGS  0.89  positiva           forte
+2               Idade     Canal_Telefone  0.74  positiva           forte
+3                 CES     Canal_Telefone  0.65  positiva        moderada
+4               Idade         Canal_Chat -0.62  negativa        moderada
+5         Criticidade            RATINGS  0.59  positiva        moderada
+6                 CES            RATINGS -0.54  negativa        moderada
+7         Criticidade              e_NPS  0.53  positiva        moderada
+8               Idade                CES  0.50  positiva  moderada-fraca
+9               e_NPS                CES -0.48  negativa  moderada-fraca
+10                CES         Canal_Chat -0.48  negativa  moderada-fraca
+11  Tempo_Resolucao_h            RATINGS  0.42  positiva  moderada-fraca</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" href="#cb15-1" tabindex="-1"></a><span class="co"># Um gráfico de dispersão para cada par (o que a professora recomenda levar ao diretor, em vez da matriz)</span></span>
+<span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(rel)<span class="op">;</span> cols_g <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> linhas_g <span class="op">=</span> <span class="bu">int</span>(np.ceil(n <span class="op">/</span> cols_g))</span>
+<span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(linhas_g, cols_g, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">4</span> <span class="op">*</span> linhas_g))</span>
+<span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a><span class="cf">for</span> ax, (_, p) <span class="kw">in</span> <span class="bu">zip</span>(axs.flat, rel.iterrows()):</span>
+<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a>    sns.regplot(data<span class="op">=</span>num, x<span class="op">=</span>p[<span class="st">'Variável 1'</span>], y<span class="op">=</span>p[<span class="st">'Variável 2'</span>], ax<span class="op">=</span>ax, x_jitter<span class="op">=</span><span class="fl">.15</span>, y_jitter<span class="op">=</span><span class="fl">.15</span>, scatter_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.25</span>, <span class="st">'s'</span>: <span class="dv">12</span>})</span>
+<span id="cb15-6"><a aria-hidden="true" href="#cb15-6" tabindex="-1"></a>    ax.set_title(<span class="ss">f"</span><span class="sc">{</span>p[<span class="st">'Variável 1'</span>]<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>p[<span class="st">'Variável 2'</span>]<span class="sc">}</span><span class="ss">  (r = </span><span class="sc">{</span>p<span class="sc">.</span>r<span class="sc">:+.2f}</span><span class="ss">)"</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb15-7"><a aria-hidden="true" href="#cb15-7" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> <span class="bu">list</span>(axs.flat)[n:]: ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb15-8"><a aria-hidden="true" href="#cb15-8" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1600x1600 with 12 Axes&gt;</code></pre>
+<h3 id="bulb-insight-como-escrever-a-leitura-e-como-ler-a-dispersão">💡 Insight: como escrever a "Leitura" (e como ler a dispersão)</h3>
+<ul>
+<li><strong>Leitura = só o número.</strong> ✅ "Quando a criticidade sobe, o tempo de resolução tende a subir." ❌ "Chamados críticos demoram porque são complexos" (isso já é <strong>hipótese</strong>, vai para a Etapa 4).</li>
+<li><strong>Pontos em colunas verticais</strong> = a variável do eixo X tem poucos valores (binária 0/1 ou escala de 1 a 5). O <em>jitter</em> espalha um pouco os pontos só para eles ficarem visíveis.</li>
+<li><strong>Diagonal com pontos próximos da linha</strong> = forte. <strong>Pontos espalhados com uma inclinação</strong> = moderada.</li>
+</ul>
+<h3 id="writing_hand-sua-resposta-tabela-de-correlações">✍️ Sua resposta, tabela de correlações</h3>
+<table>
+<thead>
+<tr>
+<th>Par de variáveis</th>
+<th>Coeficiente</th>
+<th>Leitura (só o que o número diz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="25-clipboard-quais-colunas-da-base-ficaram-fora-da-matriz-o-que-elas-poderiam-explicar">2.5 📋 <em>"Quais colunas da base ficaram fora da matriz? O que elas poderiam explicar?"</em></h3>
+<p>▶️ Veja também as <strong>ausências de correlação</strong>: a professora lembrou que <em>"isso também é informação"</em>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a>aus <span class="op">=</span> []</span>
+<span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a><span class="cf">for</span> i, a <span class="kw">in</span> <span class="bu">enumerate</span>(cols):</span>
+<span id="cb17-3"><a aria-hidden="true" href="#cb17-3" tabindex="-1"></a>    <span class="cf">for</span> b <span class="kw">in</span> cols[i <span class="op">+</span> <span class="dv">1</span>:]:</span>
+<span id="cb17-4"><a aria-hidden="true" href="#cb17-4" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">abs</span>(corr.loc[a, b]) <span class="op">&lt;</span> <span class="fl">0.1</span> <span class="kw">and</span> <span class="kw">not</span> ({a, b} <span class="op">&lt;=</span> canais):</span>
+<span id="cb17-5"><a aria-hidden="true" href="#cb17-5" tabindex="-1"></a>            aus.append((a, b, <span class="bu">round</span>(corr.loc[a, b], <span class="dv">2</span>)))</span>
+<span id="cb17-6"><a aria-hidden="true" href="#cb17-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Pares SEM correlação (|r| &lt; 0,1):'</span>)</span>
+<span id="cb17-7"><a aria-hidden="true" href="#cb17-7" tabindex="-1"></a>pd.DataFrame(aus, columns<span class="op">=</span>[<span class="st">'Variável 1'</span>, <span class="st">'Variável 2'</span>, <span class="st">'r'</span>])</span></code></pre></div>
+<pre class="text"><code>Pares SEM correlação (|r| &lt; 0,1):
+</code></pre>
+<pre class="text"><code>          Variável 1         Variável 2     r
+0              Idade        Criticidade  0.04
+1              Idade  Tempo_Resolucao_h  0.05
+2        Criticidade                CES  0.01
+3        Criticidade         Canal_Chat -0.02
+4        Criticidade       Canal_Portal  0.04
+5        Criticidade     Canal_Telefone -0.02
+6  Tempo_Resolucao_h                CES -0.02
+7  Tempo_Resolucao_h         Canal_Chat -0.04
+8  Tempo_Resolucao_h       Canal_Portal  0.05
+9  Tempo_Resolucao_h     Canal_Telefone  0.00</code></pre>
+<h3 id="bulb-insight-o-que-fica-de-fora-também-conta">💡 Insight: o que fica de fora também conta</h3>
+<ul>
+<li><strong>O que foi excluído</strong> (Id, Status) e <strong>o que nem existe na base</strong> (técnico, nível N1/N2/N3, SLA, nº de transferências, reaberturas, área do colaborador) pode ser a <strong>variável omitida</strong> que explica uma correlação.</li>
+<li><strong>Ausência de correlação</strong> pode derrubar uma crença da Etapa 1. Ex.: se você esperava que "chamado crítico dá mais trabalho ao colaborador", veja Criticidade × CES.</li>
+</ul>
+<h3 id="writing_hand-sua-resposta-colunas-fora-e-o-que-poderiam-explicar">✍️ Sua resposta: colunas fora e o que poderiam explicar</h3>
+<p><em>Clique duas vezes aqui e escreva com as suas palavras.</em></p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<details><summary>🔎 <b>Referência</b></summary>
+<ul>
+<li><code>Status_Chamado</code>: constante; a pesquisa só ouve chamados resolvidos (e os não resolvidos? cancelados? reabertos?).</li>
+<li><code>Id</code>: identificador; se houvesse data, daria para ver sazonalidade.</li>
+<li>Canal × Canal: ignorados, porque são negativos por construção.</li>
+<li>Fazem falta: técnico e nível, SLA contratado, transferências, reaberturas, área do colaborador.</li>
+<li><strong>Ausências:</strong> Criticidade × CES ≈ 0 e Tempo × CES ≈ 0 → o esforço <strong>não</strong> depende da gravidade nem da demora. Criticidade × Canal ≈ 0 → críticos não se concentram em um canal.</li>
+</ul>
+</details>
+<h2 id="03--auditoria-da-ia-10-min">03 · Auditoria da IA (10 min)</h2>
+<h3 id="31-clipboard-peçam-à-ia-que-interprete-a-matriz-e-sugira-hipóteses-depois-auditem-cada-afirmação-como-se-ela-viesse-de-um-analista-júnior-da-sua-squad">3.1 📋 <em>"Peçam à IA que interprete a matriz e sugira hipóteses. Depois, auditem cada afirmação como se ela viesse de um analista júnior da sua squad."</em></h3>
+<p><strong>Prompt sugerido</strong> (use no ChatGPT, Gemini, Copilot ou Claude, anexando a base):</p>
+<blockquote>
+<p><em>Você é um analista de dados. Aplique correlação estatística (Pearson) na base metrica_cx_corr_v2.csv (pesquisa interna de satisfação do Suporte de TI). Liste as correlações maiores que 0,4 ou menores que -0,4, interprete a matriz e sugira hipóteses para o diretor de Suporte.</em></p>
+</blockquote>
+<h3 id="writing_hand-prompt-que-eu-usei-cole-aqui">✍️ Prompt que eu usei (cole aqui)</h3>
+<blockquote>
+</blockquote>
+<h3 id="writing_hand-o-que-a-ia-respondeu-resuma-as-principais-afirmações">✍️ O que a IA respondeu (resuma as principais afirmações)</h3>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+<h3 id="bulb-insight-as-três-classificações">💡 Insight: as três classificações</h3>
+<table>
+<thead>
+<tr>
+<th>Classificação</th>
+<th>O que é</th>
+<th>Exemplo (sorvete)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Constatação</strong></td>
+<td>Só descreve o número</td>
+<td>"Temperatura e venda de sorvete têm r = 0,9"</td>
+</tr>
+<tr>
+<td><strong>Hipótese</strong></td>
+<td>Explicação ou ação que <strong>ainda precisa ser testada</strong></td>
+<td>"Vale aumentar o estoque no verão?"</td>
+</tr>
+<tr>
+<td><strong>Causal indevida</strong></td>
+<td>Afirma <strong>causa</strong> sem evidência</td>
+<td>"O calor <strong>causa</strong> as vendas" / Nicolas Cage × afogamentos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sinais de alerta no texto da IA:</strong> "causa", "leva a", "porque", "gera", "aumenta" (afirmado como fato). Use as ferramentas abaixo para <strong>testar</strong> cada afirmação.</p>
+<h3 id="32-mag-auditoria-a-chamados-que-demoram-mais-deixam-o-colaborador-mais-satisfeito">3.2 🔍 Auditoria A: <em>"Chamados que demoram mais deixam o colaborador mais satisfeito"?</em></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a>explorar(<span class="st">'Tempo_Resolucao_h'</span>, <span class="st">'RATINGS'</span>, por<span class="op">=</span><span class="st">'Criticidade'</span>)</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1300x430 with 2 Axes&gt;</code></pre>
+<pre class="text"><code>                       n     r
+Recorte                       
+Geral                420  0.42
+Criticidade = Baixa  218 -0.51
+Criticidade = Media  124 -0.57
+Criticidade = Alta    78 -0.49</code></pre>
+<h3 id="bulb-insight-paradoxo-de-simpson-star">💡 Insight: Paradoxo de Simpson ⭐</h3>
+<p>No <strong>geral</strong> a relação é <strong>positiva</strong>, mas <strong>dentro de cada criticidade</strong> ela é <strong>negativa</strong>. A criticidade é uma <strong>variável omitida (confundidora)</strong>: chamados críticos <strong>demoram mais</strong> e <strong>também recebem notas maiores</strong>. Misturando tudo, parece que "demorar é bom". É exatamente o slide <strong>"Variável Omitida"</strong> da aula (QI → tempo de estudo e nota) e o exemplo do <strong>ITA</strong> (o vestibular como filtro). 🧪 <strong>Teste você mesmo:</strong> troque <code>RATINGS</code> por <code>e_NPS</code> na célula acima e rode de novo.</p>
+<h3 id="33-mag-auditoria-b-colaboradores-mais-velhos-têm-mais-dificuldade-a-idade-aumenta-o-esforço-ces">3.3 🔍 Auditoria B: <em>"Colaboradores mais velhos têm mais dificuldade: a idade aumenta o esforço (CES)"?</em></h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a>d[<span class="st">'Faixa etária'</span>] <span class="op">=</span> pd.cut(d.Age, [<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">70</span>], labels<span class="op">=</span>[<span class="st">'até 30'</span>, <span class="st">'31–45'</span>, <span class="st">'46+'</span>])</span>
+<span id="cb23-2"><a aria-hidden="true" href="#cb23-2" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="fl">4.5</span>))</span>
+<span id="cb23-3"><a aria-hidden="true" href="#cb23-3" tabindex="-1"></a>(pd.crosstab(d[<span class="st">'Faixa etária'</span>], d.Canal, normalize<span class="op">=</span><span class="st">'index'</span>) <span class="op">*</span> <span class="dv">100</span>).plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>], rot<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="bu">list</span>(CORES_CANAL.values()))</span>
+<span id="cb23-4"><a aria-hidden="true" href="#cb23-4" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Canal usado por faixa etária (%)'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">'%'</span>)</span>
+<span id="cb23-5"><a aria-hidden="true" href="#cb23-5" tabindex="-1"></a>d.pivot_table(index<span class="op">=</span><span class="st">'Faixa etária'</span>, columns<span class="op">=</span><span class="st">'Canal'</span>, values<span class="op">=</span><span class="st">'CES'</span>, observed<span class="op">=</span><span class="va">True</span>).plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>], rot<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="bu">list</span>(CORES_CANAL.values()))</span>
+<span id="cb23-6"><a aria-hidden="true" href="#cb23-6" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'CES médio por canal e idade (maior = pior)'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_ylim(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb23-7"><a aria-hidden="true" href="#cb23-7" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.savefig(<span class="st">'../entrega/graficos/04_canal_idade_ces.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb23-8"><a aria-hidden="true" href="#cb23-8" tabindex="-1"></a>display(d.groupby(<span class="st">'Canal'</span>)[[<span class="st">'Age'</span>, <span class="st">'CES'</span>, <span class="st">'e_NPS'</span>, <span class="st">'RATINGS'</span>]].mean().<span class="bu">round</span>(<span class="dv">2</span>))</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1400x450 with 2 Axes&gt;</code></pre>
+<pre class="text"><code>            Age   CES  e_NPS  RATINGS
+Canal                                
+Chat      30.69  2.24   7.94     3.56
+Portal    37.29  2.55   7.84     3.39
+Telefone  51.13  3.75   5.87     2.38</code></pre>
+<h3 id="bulb-insight-correlação-indireta-controlar-por-outra-variável">💡 Insight: correlação indireta (controlar por outra variável)</h3>
+<p>Para saber se é a <strong>idade</strong> ou o <strong>canal</strong>, compare o CES <strong>dentro do mesmo canal</strong> (gráfico da direita). Se as barras do mesmo canal ficam parecidas em todas as idades, <strong>o efeito é do canal</strong>. A idade só <strong>leva</strong> as pessoas ao telefone. 🧪 <strong>Teste:</strong> <code>explorar('Age', 'CES', por='Canal')</code></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" href="#cb26-1" tabindex="-1"></a>explorar(<span class="st">'Age'</span>, <span class="st">'CES'</span>, por<span class="op">=</span><span class="st">'Canal'</span>)</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1300x430 with 2 Axes&gt;</code></pre>
+<pre class="text"><code>                    n     r
+Recorte                    
+Geral             420  0.50
+Canal = Chat      167  0.11
+Canal = Portal    110 -0.03
+Canal = Telefone  143 -0.11</code></pre>
+<h3 id="34-mag-auditoria-c-pearson-é-adequado-para-escalas-de-1-a-5">3.4 🔍 Auditoria C: <em>Pearson é adequado para escalas de 1 a 5?</em></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" href="#cb29-1" tabindex="-1"></a>sp <span class="op">=</span> num.corr(method<span class="op">=</span><span class="st">'spearman'</span>)</span>
+<span id="cb29-2"><a aria-hidden="true" href="#cb29-2" tabindex="-1"></a>comp <span class="op">=</span> rel[[<span class="st">'Variável 1'</span>, <span class="st">'Variável 2'</span>, <span class="st">'r'</span>]].rename(columns<span class="op">=</span>{<span class="st">'r'</span>: <span class="st">'Pearson'</span>})</span>
+<span id="cb29-3"><a aria-hidden="true" href="#cb29-3" tabindex="-1"></a>comp[<span class="st">'Spearman'</span>] <span class="op">=</span> [<span class="bu">round</span>(sp.loc[a, b], <span class="dv">2</span>) <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(comp[<span class="st">'Variável 1'</span>], comp[<span class="st">'Variável 2'</span>])]</span>
+<span id="cb29-4"><a aria-hidden="true" href="#cb29-4" tabindex="-1"></a>comp[<span class="st">'Continua |r| &gt; 0,4?'</span>] <span class="op">=</span> np.where(comp.Spearman.<span class="bu">abs</span>() <span class="op">&gt;</span> LIMIAR, <span class="st">'✅'</span>, <span class="st">'❌'</span>)</span>
+<span id="cb29-5"><a aria-hidden="true" href="#cb29-5" tabindex="-1"></a>comp</span></code></pre></div>
+<pre class="text"><code>           Variável 1         Variável 2  Pearson  Spearman  \
+0         Criticidade  Tempo_Resolucao_h     0.89      0.91   
+1               e_NPS            RATINGS     0.89      0.90   
+2               Idade     Canal_Telefone     0.74      0.72   
+3                 CES     Canal_Telefone     0.65      0.65   
+4               Idade         Canal_Chat    -0.62     -0.63   
+5         Criticidade            RATINGS     0.59      0.59   
+6                 CES            RATINGS    -0.54     -0.54   
+7         Criticidade              e_NPS     0.53      0.55   
+8               Idade                CES     0.50      0.51   
+9               e_NPS                CES    -0.48     -0.47   
+10                CES         Canal_Chat    -0.48     -0.48   
+11  Tempo_Resolucao_h            RATINGS     0.42      0.37   
+
+   Continua |r| &gt; 0,4?  
+0                    ✅  
+1                    ✅  
+2                    ✅  
+3                    ✅  
+4                    ✅  
+5                    ✅  
+6                    ✅  
+7                    ✅  
+8                    ✅  
+9                    ✅  
+10                   ✅  
+11                   ❌  </code></pre>
+<h3 id="bulb-insight-pearson--spearman">💡 Insight: Pearson × Spearman</h3>
+<ul>
+<li><strong>Pearson</strong> mede relação <strong>linear</strong> entre variáveis contínuas.</li>
+<li><strong>Spearman</strong> usa a <strong>ordem</strong> (postos) dos valores. É mais adequado para <strong>escalas ordinais</strong> (CES, RATINGS, e_NPS) e mais robusto a outliers.</li>
+<li>Se as duas concordam, a conclusão é <strong>robusta</strong>. Se o valor cai abaixo do corte com Spearman, <strong>desconfie</strong> daquela correlação.</li>
+</ul>
+<h3 id="writing_hand-sua-resposta-auditoria">✍️ Sua resposta, auditoria</h3>
+<table>
+<thead>
+<tr>
+<th>Afirmação da IA (resumida)</th>
+<th>Classificação</th>
+<th>Concordamos? Por quê?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="clipboard-o-que-a-ia-deixou-de-questionar"><strong>📋 O que a IA deixou de questionar?</strong></h2>
+<details><summary>🔎 <b>Referência</b></summary>
+<ul>
+<li>"Demorar mais deixa mais satisfeito" → <strong>causal indevida</strong> (Paradoxo de Simpson).</li>
+<li>"A idade aumenta o esforço" → <strong>causal indevida</strong> (o efeito é do canal).</li>
+<li>"O telefone tem mais esforço e menos satisfação" → <strong>hipótese</strong> (falta medir URA, espera, transferências).</li>
+<li>"e_NPS e RATINGS têm r = 0,89" → <strong>constatação</strong>.</li>
+<li>A IA costuma não questionar: idades = 0, Status constante (viés de seleção), artefato Canal × Canal, Pearson em escala ordinal, a variável omitida criticidade, o SLA dos chamados críticos.</li>
+</ul>
+</details>
+<h2 id="04--caderno-de-hipóteses-final">04 · Caderno de hipóteses final</h2>
+<p>📋 <em>"As hipóteses que o grupo mantém depois de confrontar a Etapa 1 com os dados e com a auditoria. Na coluna 'Etapa 1', indiquem se a hipótese confirma, contradiz ou é nova."</em></p>
+<p>▶️ <strong>Laboratório livre:</strong> use <code>explorar(x, y, por=...)</code> para testar qualquer hipótese antes de escrevê-la. Variáveis: <code>Age</code>, <code>Criticidade_num</code>, <code>Tempo_Resolucao_h</code>, <code>e_NPS</code>, <code>CES</code>, <code>RATINGS</code> · grupos: <code>Criticidade</code>, <code>Canal</code>, <code>Faixa etária</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" href="#cb31-1" tabindex="-1"></a><span class="co"># Exemplos: troque e rode quantas vezes quiser</span></span>
+<span id="cb31-2"><a aria-hidden="true" href="#cb31-2" tabindex="-1"></a>explorar(<span class="st">'Criticidade_num'</span>, <span class="st">'RATINGS'</span>, por<span class="op">=</span><span class="st">'Canal'</span>)</span></code></pre></div>
+<pre class="text"><code>&lt;Figure size 1300x430 with 2 Axes&gt;</code></pre>
+<pre class="text"><code>                    n     r
+Recorte                    
+Geral             420  0.59
+Canal = Chat      167  0.63
+Canal = Portal    110  0.63
+Canal = Telefone  143  0.67</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" href="#cb34-1" tabindex="-1"></a><span class="co"># Painel de médias, útil para dar números concretos às hipóteses</span></span>
+<span id="cb34-2"><a aria-hidden="true" href="#cb34-2" tabindex="-1"></a>display(d.pivot_table(index<span class="op">=</span><span class="st">'Criticidade'</span>, columns<span class="op">=</span><span class="st">'Canal'</span>, values<span class="op">=</span><span class="st">'RATINGS'</span>).loc[ORDEM_CRIT].<span class="bu">round</span>(<span class="dv">2</span>).style.background_gradient(cmap<span class="op">=</span><span class="st">'RdYlGn'</span>, vmin<span class="op">=</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">5</span>).set_caption(<span class="st">'RATINGS médio'</span>))</span>
+<span id="cb34-3"><a aria-hidden="true" href="#cb34-3" tabindex="-1"></a>display(d.groupby(<span class="st">'Criticidade'</span>)[[<span class="st">'Tempo_Resolucao_h'</span>, <span class="st">'e_NPS'</span>, <span class="st">'CES'</span>, <span class="st">'RATINGS'</span>]].mean().loc[ORDEM_CRIT].<span class="bu">round</span>(<span class="dv">2</span>))</span></code></pre></div>
+<pre class="text"><code>&lt;pandas.io.formats.style.Styler at 0x116965e80&gt;</code></pre>
+<pre class="text"><code>             Tempo_Resolucao_h  e_NPS   CES  RATINGS
+Criticidade                                         
+Baixa                     4.50   6.05  2.80     2.44
+Media                    15.85   7.83  2.94     3.46
+Alta                     47.96   9.46  2.76     4.47</code></pre>
+<h3 id="bulb-insight-o-que-torna-uma-hipótese-boa">💡 Insight: o que torna uma hipótese boa</h3>
+<ol type="1">
+<li>Está escrita como <strong>pergunta ou afirmação testável</strong> ("Reduzir o tempo <strong>aumenta</strong> a satisfação?").</li>
+<li>Aponta a <strong>correlação que a sustenta</strong> (com o número).</li>
+<li>Reconhece o <strong>viés ou a variável omitida possível</strong> (a humildade estatística).</li>
+<li>Diz <strong>como validar</strong> (dado extra, piloto, teste A/B).</li>
+<li><strong>Hipótese que cai não é erro</strong>: registre o que derrubou e por quê.</li>
+<li><strong>Viés de confirmação:</strong> tem alguma crença da Etapa 1 que você está "protegendo" mesmo com os dados contra?</li>
+</ol>
+<h3 id="writing_hand-sua-resposta-caderno-final">✍️ Sua resposta, caderno final</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hipótese</th>
+<th>Correlação que sustenta</th>
+<th>Etapa 1: confirma / contradiz / nova</th>
+<th>Viés ou variável omitida possível</th>
+<th>Como validaríamos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="clipboard-hipóteses-que-derrubamos-e-por-quê"><strong>📋 Hipóteses que derrubamos e por quê:</strong></h2>
+<h2 id="clipboard-das-expectativas-da-etapa-1-alguma-resistimos-a-abandonar-mesmo-com-os-dados-contra"><strong>📋 Das expectativas da Etapa 1, alguma resistimos a abandonar mesmo com os dados contra?</strong></h2>
+<details><summary>🔎 <b>Referência</b> (hipóteses possíveis)</summary>
+<ol type="1">
+<li>Reduzir o tempo de resolução aumenta a satisfação <strong>em todos os níveis de criticidade</strong> (r de −0,49 a −0,57 dentro de cada nível). Variável omitida: criticidade.</li>
+<li>O Telefone gera mais esforço e menos satisfação, <strong>independentemente da idade</strong> (CES × Telefone +0,65).</li>
+<li>A idade define o canal; Age × CES é <strong>indireta</strong> (controlando o canal, some).</li>
+<li>Chamados críticos recebem atendimento diferenciado e são mais bem avaliados (Criticidade × RATINGS +0,59). Falta a variável técnico/nível.</li>
+<li>Chamados críticos demoram além do SLA? (Criticidade × Tempo +0,89; 48 h × 4,5 h.)</li>
+<li>RATINGS e e_NPS medem a mesma percepção (+0,89).</li>
+</ol>
+<p><strong>Derrubadas:</strong> "demorar deixa mais satisfeito" e "a idade aumenta o esforço".</p>
+</details>
+<h2 id="05--recomendação-ao-diretor-de-suporte">05 · Recomendação ao Diretor de Suporte</h2>
+<p>📋 <em>"Escolham a hipótese mais forte e escrevam para quem vai decidir. Uma ou duas frases por item."</em> O diretor <em>"não entende de hipóteses nem de correlação"</em>: fale de <strong>decisão, evidência, experimento e custo</strong>.</p>
+<p>▶️ Números para sustentar a recomendação:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" href="#cb37-1" tabindex="-1"></a>tempo_total <span class="op">=</span> d.Tempo_Resolucao_h.<span class="bu">sum</span>()</span>
+<span id="cb37-2"><a aria-hidden="true" href="#cb37-2" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Horas totais de chamados abertos na amostra: </span><span class="sc">{</span>tempo_total<span class="sc">:,.0f}</span><span class="ss"> h  (≈ </span><span class="sc">{</span>tempo_total<span class="op">/</span><span class="dv">420</span><span class="sc">:.1f}</span><span class="ss"> h por chamado)'</span>)</span>
+<span id="cb37-3"><a aria-hidden="true" href="#cb37-3" tabindex="-1"></a><span class="cf">for</span> red <span class="kw">in</span> [<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>]:</span>
+<span id="cb37-4"><a aria-hidden="true" href="#cb37-4" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  Reduzindo </span><span class="sc">{</span><span class="bu">int</span>(red<span class="op">*</span><span class="dv">100</span>)<span class="sc">}</span><span class="ss">% do tempo → ≈ </span><span class="sc">{</span>tempo_total<span class="op">*</span>red<span class="sc">:,.0f}</span><span class="ss"> h de colaboradores a menos com problema aberto'</span>)</span>
+<span id="cb37-5"><a aria-hidden="true" href="#cb37-5" tabindex="-1"></a></span>
+<span id="cb37-6"><a aria-hidden="true" href="#cb37-6" tabindex="-1"></a>tel <span class="op">=</span> d.groupby(<span class="st">'Canal'</span>)[[<span class="st">'CES'</span>, <span class="st">'RATINGS'</span>, <span class="st">'e_NPS'</span>]].mean().<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb37-7"><a aria-hidden="true" href="#cb37-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Experiência por canal:'</span>)<span class="op">;</span> display(tel)</span>
+<span id="cb37-8"><a aria-hidden="true" href="#cb37-8" tabindex="-1"></a></span>
+<span id="cb37-9"><a aria-hidden="true" href="#cb37-9" tabindex="-1"></a><span class="co"># Efeito do tempo sobre RATINGS dentro de cada criticidade (inclinação da reta = pontos por hora)</span></span>
+<span id="cb37-10"><a aria-hidden="true" href="#cb37-10" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> ORDEM_CRIT:</span>
+<span id="cb37-11"><a aria-hidden="true" href="#cb37-11" tabindex="-1"></a>    g <span class="op">=</span> d[d.Criticidade <span class="op">==</span> k]<span class="op">;</span> a, b <span class="op">=</span> np.polyfit(g.Tempo_Resolucao_h, g.RATINGS, <span class="dv">1</span>)</span>
+<span id="cb37-12"><a aria-hidden="true" href="#cb37-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>k<span class="sc">:&gt;5}</span><span class="ss">: cada 10 h a mais ≈ </span><span class="sc">{</span>a<span class="op">*</span><span class="dv">10</span><span class="sc">:+.2f}</span><span class="ss"> ponto no RATINGS (r = </span><span class="sc">{</span>g<span class="sc">.</span>Tempo_Resolucao_h<span class="sc">.</span>corr(g.RATINGS)<span class="sc">:+.2f}</span><span class="ss">)'</span>)</span></code></pre></div>
+<pre class="text"><code>Horas totais de chamados abertos na amostra: 6,687 h  (≈ 15.9 h por chamado)
+  Reduzindo 20% do tempo → ≈ 1,337 h de colaboradores a menos com problema aberto
+  Reduzindo 30% do tempo → ≈ 2,006 h de colaboradores a menos com problema aberto
+  Reduzindo 50% do tempo → ≈ 3,344 h de colaboradores a menos com problema aberto
+
+Experiência por canal:
+</code></pre>
+<pre class="text"><code>           CES  RATINGS  e_NPS
+Canal                         
+Chat      2.24     3.56   7.94
+Portal    2.55     3.39   7.84
+Telefone  3.75     2.38   5.87</code></pre>
+<pre class="text"><code>Baixa: cada 10 h a mais ≈ -2.88 ponto no RATINGS (r = -0.51)
+Media: cada 10 h a mais ≈ -1.35 ponto no RATINGS (r = -0.57)
+ Alta: cada 10 h a mais ≈ -0.27 ponto no RATINGS (r = -0.49)
+</code></pre>
+<h3 id="bulb-insight-como-desenhar-o-experimento-provar-causa">💡 Insight: como desenhar o experimento (provar causa)</h3>
+<ul>
+<li>Correlação <strong>não prova</strong> causa. Para provar, é preciso <strong>intervir</strong> e <strong>comparar com um grupo controle</strong>.</li>
+<li><strong>Teste A/B:</strong> sortear (<strong>aleatorizar</strong>) metade dos chamados para uma "fila expressa" e a outra metade segue normal. O sorteio garante que as duas metades sejam parecidas em criticidade, idade e canal, e assim a variável omitida some.</li>
+<li>Defina <strong>antes</strong> a métrica de sucesso (ex.: RATINGS médio +0,5) e o prazo (ex.: 8 semanas).</li>
+<li><strong>Custo de errar</strong>: pense nos dois lados. <em>Agir e estar errado</em> (custo de mudar a fila, reversível) × <em>não agir e estar certo</em> (colaboradores parados = produtividade perdida, e_NPS em queda).</li>
+</ul>
+<h3 id="writing_hand-sua-resposta-recomendação">✍️ Sua resposta, recomendação</h3>
+<h2 id="decisão-que-recomendamos"><strong>Decisão que recomendamos:</strong></h2>
+<h2 id="evidência-que-temos-e-o-que-ela-não-prova"><strong>Evidência que temos (e o que ela não prova):</strong></h2>
+<h2 id="experimento-para-testar-se-há-causa"><strong>Experimento para testar se há causa:</strong></h2>
+<h2 id="custo-de-errar-se-agirmos-e-a-hipótese-for-falsa-se-não-agirmos-e-ela-for-verdadeira"><strong>Custo de errar</strong> (se agirmos e a hipótese for falsa; se não agirmos e ela for verdadeira):</h2>
+<details><summary>🔎 <b>Referência</b></summary>
+<ul>
+<li><strong>Decisão:</strong> tratar o tempo de resolução como alavanca de satisfação: metas de redução por criticidade, começando pelo <strong>Telefone</strong>.</li>
+<li><strong>Evidência:</strong> dentro de cada criticidade, mais tempo = menos satisfação; Telefone CES 3,75 × Chat 2,24 em qualquer idade. <strong>Não prova causa:</strong> pesquisa observacional, só chamados resolvidos, sem técnico/SLA.</li>
+<li><strong>Experimento:</strong> piloto de 8 semanas com fila expressa e callback no Telefone × grupo controle sorteado; comparar RATINGS, e_NPS e CES.</li>
+<li><strong>Custo de errar:</strong> agir e errar = reorganizar a fila (reversível); não agir e acertar = horas de colaboradores paradas, e_NPS caindo, experiência pior para o público 46+.</li>
+</ul>
+</details>
+<h2 id="writing_hand-assinatura-do-caderno">✍️ Assinatura do caderno</h2>
+<blockquote>
+<p><em>"Um bom caderno de hipóteses é um ensaio com a IA como copiloto e um relatório final assinado por você: é quando você filtra e decide o que fazer."</em> (Profª Tassiana)</p>
+</blockquote>
+<p>Declaramos que as hipóteses e recomendações acima foram <strong>revisadas e decididas pelo grupo</strong>. A IA foi usada como copiloto nas etapas 02 a 05 e <strong>não foi usada na Etapa 1</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>RM</th>
+<th>Assinatura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data:</strong> <em><strong>/</strong></em>/2026</p>
+<h3 id="white_check_mark-checklist-de-entrega">✅ Checklist de entrega</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"/>Etapa 1 preenchida <strong>sem IA</strong></label></li>
+<li><label><input type="checkbox"/>Imagem <code>../entrega/graficos/01_heatmap.png</code> colada no Word</label></li>
+<li><label><input type="checkbox"/>Respostas copiadas para o <code>Caderno de Hipóteses.docx</code></label></li>
+<li><label><input type="checkbox"/>Exportado em <strong>PDF</strong> e enviado no portal, com os <strong>RMs separados por vírgula</strong></label></li>
+<li><label><input type="checkbox"/>Prazo: até a próxima aula</label></li>
+</ul>
+<p><a href="../../../../02/handson-correlacao-c22adccc/conteudo.md">Abrir fonte Markdown no Git</a></p></article></main></body></html>

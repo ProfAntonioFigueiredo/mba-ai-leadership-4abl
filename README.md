@@ -15,6 +15,12 @@ Portfólio acadêmico e memória dos projetos de **Antonio Figueiredo**, turma *
 
 **Concluída:** os 246 arquivos inventariados foram copiados e conferidos contra as fontes atuais. Nenhuma pendência de leitura; originais preservados. O acervo restrito continua fora do Git. Consulte [o registro da retomada](docs/importacao-pendente.md).
 
+## Biblioteca de leitura
+
+- [Ler e navegar no GitHub em Markdown](biblioteca/README.md).
+- [Abrir biblioteca HTML com busca no conteúdo](biblioteca/index.html).
+- [Formatos, cobertura e atualização](docs/biblioteca.md).
+
 ## Projetos em destaque
 
 - [AI Core Concepts — Correlação CX](disciplinas/02-ai-core-concepts/projetos/correlacao-cx/README.md): notebooks, análise, scripts e gráficos.
