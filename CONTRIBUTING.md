@@ -1,4 +1,6 @@
-# Como manter o portfólio
+# Como contribuir e manter o portfólio
+
+**É sua primeira participação? Comece pelo [Guia da Turma](docs/guia-da-turma.md).** Ele explica acesso, cópia do repositório e envio de atividades pelo navegador. As orientações abaixo são para manutenção da estrutura e dos projetos.
 
 1. Localize a disciplina no catálogo; confirme o nome oficial quando houver truncamento.
 2. Para uma aula, crie `aulas/YYYY-MM-DD-tema/` e copie o modelo de aula.

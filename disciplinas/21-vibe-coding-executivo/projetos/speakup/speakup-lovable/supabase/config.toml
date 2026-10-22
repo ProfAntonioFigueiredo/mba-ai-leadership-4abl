@@ -1,3 +1,7 @@
 # Login público autentica matrícula/senha dentro da função.
 [functions.student-login]
 verify_jwt = false
+
+# JWT é validado explicitamente com auth.getUser; papel admin é verificado antes de usar service role.
+[functions.import-students]
+verify_jwt = false

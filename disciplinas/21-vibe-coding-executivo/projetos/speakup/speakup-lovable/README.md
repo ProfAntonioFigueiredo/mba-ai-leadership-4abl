@@ -57,3 +57,9 @@ Os testes de domínio cobrem importação, matrícula, datas, campos, conflitos 
 A senha compartilhada `Escola@@@` foi mantida conforme o requisito de aula, que alterna os termos fixa e inicial. A política definitiva depende de decisão do responsável. Não foram certificados TLS 1.3, AES-256, conformidade LGPD, SLA, 5.000 usuários, resposta em 2 segundos, backups ou retenção imutável por 12 meses. O trigger de auditoria protege contra operações normais de alteração; o proprietário do banco continua tendo poder administrativo. Nenhuma fatura, e-mail ou calendário conectado é simulado como concluído.
 
 A identidade visual verde é uma proposta para revisão, pois o material não traz Design System aprovado. Os documentos originais permanecem preservados. O diagnóstico rastreável está em `01_DIAGNOSTICO_E_CONSOLIDACAO.txt`.
+
+## Importação administrativa com login automático
+
+A tela **Importação de Alunos** oferece prévia, mapeamento de colunas, confirmação, tratamento conservador de duplicidades e relatório de resultados. Novas contas usam Id_aluno e senha Escola@@@; contas existentes mantêm suas senhas. Todos os status podem fazer login, com reservas restritas a matrícula Ativa.
+
+Para gravar no Supabase e provisionar contas, aplique a nova migração e publique a função `import-students` conforme [docs/importacao-alunos.md](docs/importacao-alunos.md). Sem configuração, a aplicação continua em modo demo no navegador. Essa documentação atualiza as instruções anteriores de provisionamento manual e de bloqueio de login por matrícula inativa.

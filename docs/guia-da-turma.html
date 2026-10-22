@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Guia para colegas de turma e de trabalho: aprenda a acessar o repositório, criar sua cópia e contribuir pelo navegador, passo a passo."><title>Guia da Turma — aprender e contribuir juntos | 4ABL</title><style>
+:root{--ink:#19382f;--muted:#52675d;--green:#235c46;--line:#d7e3d9;--paper:#fff;--wash:#f3f7f2;--accent:#d7edb5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--wash);color:var(--ink);font:17px/1.75 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--green);text-underline-offset:4px;overflow-wrap:anywhere}a:hover{text-decoration-thickness:2px}:focus-visible{outline:3px solid #b36a17;outline-offset:5px}.skip{position:absolute;top:-100px;left:16px;background:white;padding:12px;z-index:10}.skip:focus{top:10px}.topbar{background:#fff;border-bottom:1px solid var(--line)}.topbar nav{max-width:1320px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;text-decoration:none}.toplinks{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}.hero{background:var(--ink);color:white}.hero-inner{max-width:1320px;margin:auto;padding:58px 24px 45px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.12em;color:#d2e5c4}h1{font-size:clamp(32px,5vw,56px);line-height:1.15;letter-spacing:-.035em;max-width:850px;margin:18px 0}h1+p{max-width:740px;font-size:20px;color:#e2ece4}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}.button{display:inline-block;border:1px solid #d5e5cd;border-radius:10px;padding:11px 18px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;background:var(--accent);color:var(--ink)}.button.secondary{background:transparent;color:white}.hero small{color:#d2e5c4}.journey{display:flex;flex-wrap:wrap;gap:9px;list-style:none;padding:0;margin:24px 0 0}.journey li{font-size:14px;border:1px solid #547166;border-radius:24px;padding:6px 13px}.layout{max-width:1320px;margin:auto;padding:35px 24px 70px;display:grid;grid-template-columns:265px minmax(0,1fr);gap:36px;align-items:start}aside{position:sticky;top:22px;max-height:90vh;overflow:auto;background:white;border:1px solid var(--line);border-radius:16px;padding:20px}summary{font-weight:750;cursor:pointer}.toc ul{padding-left:18px;margin-bottom:0}.toc li{margin:11px 0;font-size:14px;line-height:1.5}.toc a{text-decoration:none}article{min-width:0;background:var(--paper);padding:32px clamp(18px,3vw,42px);border:1px solid var(--line);border-radius:18px;overflow-wrap:anywhere}article>p:first-child{font-size:19px}h2{font-size:clamp(24px,3vw,30px);line-height:1.3;margin:48px 0 20px;padding-top:18px;border-top:1px solid var(--line);letter-spacing:-.02em}h3{font-size:21px;line-height:1.4;margin-top:30px}li{margin:9px 0}li p{margin:8px 0}blockquote{margin:25px 0;background:#eef5e5;border-left:4px solid #527a36;padding:16px 22px;border-radius:0 10px 10px 0}blockquote p:first-child{margin-top:0}blockquote p:last-child{margin-bottom:0}pre{background:#172e26;color:#f0f6ec;padding:20px;border-radius:12px;overflow:auto;max-width:100%;font:14px/1.7 ui-monospace,Consolas,monospace}code{font-family:ui-monospace,Consolas,monospace;font-size:.88em}p code,li code,td code{background:#edf2e8;padding:2px 5px;border-radius:4px;word-break:break-word}.table-scroll{overflow-x:auto;max-width:100%;margin:22px 0;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:13px 15px;vertical-align:top;text-align:left;border-bottom:1px solid var(--line);min-width:150px}th{background:#eaf2e2}tr:last-child td{border-bottom:0}.footer{max-width:1320px;margin:auto;padding:25px 24px 40px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}.footer a{margin-right:14px}@media(max-width:900px){.layout{grid-template-columns:1fr;gap:20px}aside{position:static;max-height:none}.hero-inner{padding-top:38px}.layout{padding:22px 16px 45px}article{border-radius:12px}.topbar nav{padding:15px 18px}.toplinks{gap:12px}h1+p{font-size:18px}.journey li{font-size:13px}}@media(max-width:420px){body{font-size:16px}.hero-inner{padding-left:18px;padding-right:18px}.button{width:100%;text-align:center}.actions{width:100%}.toplinks{font-size:13px}article{padding:22px 16px}th,td{min-width:130px;padding:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.topbar,aside,.actions,.skip,.journey{display:none}.hero,.hero-inner{background:white;color:black;padding:0}.hero p,.hero small,.eyebrow{color:black}.layout{display:block;padding:0}body,article{background:white;color:black}article{border:0;padding:0}h2,h3{break-after:avoid}pre,blockquote{background:#f2f2f2;color:black}pre{white-space:pre-wrap}a{color:inherit}.table-scroll{overflow:visible}table{font-size:12px}.footer{margin-top:25px}}
+</style></head>
+<body><a class="skip" href="#conteudo">Ir para o conteúdo</a><header class="topbar"><nav aria-label="Navegação principal"><a class="brand" href="../index.html">MBA AI Leadership · 4ABL</a><div class="toplinks"><a href="../index.html">Página principal</a><a href="../README.md">README</a><a href="guia-da-turma.md">Versão em texto</a></div></nav></header>
+<section class="hero" aria-labelledby="titulo"><div class="hero-inner"><span class="eyebrow">PARA COLEGAS DE TURMA E DE TRABALHO</span><h1 id="titulo">Vamos aprender e construir juntos.</h1><p>Seu primeiro passo para estudar, experimentar e compartilhar descobertas. Comece pelo navegador, no seu ritmo e sem precisar saber programar.</p><div class="actions"><a class="button" href="#conteudo">Começar pelo guia ↓</a><a class="button secondary" href="https://github.com/ProfAntonioFigueiredo/mba-ai-leadership-4abl">Abrir o repositório</a><button class="button secondary" type="button" onclick="window.print()">Imprimir ou salvar PDF</button></div><small>Um espaço para todas as disciplinas e para quem quer aprender com a gente.</small><ol class="journey" aria-label="Caminho da contribuição"><li>1 · Acessar</li><li>2 · Criar sua cópia</li><li>3 · Fazer a atividade</li><li>4 · Compartilhar</li></ol></div></section>
+<main class="layout"><aside><details id="menu" open><summary>Encontre seu próximo passo</summary><nav aria-label="Seções do guia"><div class="toc">
+<ul>
+<li><a href="#1-o-que-estamos-compartilhando">1. O que estamos compartilhando?</a></li>
+<li><a href="#2-cinco-palavras-que-vamos-usar">2. Cinco palavras que vamos usar</a></li>
+<li><a href="#3-primeiro-acesso-faca-uma-vez">3. Primeiro acesso: faça uma vez</a></li>
+<li><a href="#4-em-cada-aula-atualize-e-crie-seu-espaco-de-trabalho">4. Em cada aula: atualize e crie seu espaço de trabalho</a></li>
+<li><a href="#5-sua-primeira-contribuicao-pelo-navegador">5. Sua primeira contribuição — pelo navegador</a></li>
+<li><a href="#6-envie-sua-contribuicao-para-revisao">6. Envie sua contribuição para revisão</a></li>
+<li><a href="#7-quando-a-atividade-envolver-executar-uma-aplicacao">7. Quando a atividade envolver executar uma aplicação</a></li>
+<li><a href="#8-como-participar-sem-escrever-codigo">8. Como participar sem escrever código</a></li>
+<li><a href="#9-combinados-da-turma">9. Combinados da turma</a></li>
+<li><a href="#10-se-algo-nao-funcionar">10. Se algo não funcionar</a></li>
+<li><a href="#11-roteiro-sugerido-para-uma-aula-em-grupo">11. Roteiro sugerido para uma aula em grupo</a></li>
+<li><a href="#mensagem-para-compartilhar-com-a-turma">Mensagem para compartilhar com a turma</a></li>
+<li><a href="#para-o-responsavel-pela-turma">Para o responsável pela turma</a></li>
+</ul>
+</div>
+</nav></details></aside><article id="conteudo" tabindex="-1" aria-label="Guia passo a passo"><p>Bem-vindo(a)! Este é o nosso espaço para acompanhar as aulas, experimentar ideias e compartilhar descobertas do MBA AI Leadership — turma 4ABL.</p>
+<p>Você não precisa saber programar para participar. Uma dúvida bem explicada, uma melhoria no texto ou o relato de um teste já ajudam a turma.</p>
+<p><strong>Na primeira aula, nosso objetivo é simples: acessar o material, criar sua cópia e enviar uma pequena contribuição. Você pode começar usando apenas o navegador.</strong></p>
+<h2 id="1-o-que-estamos-compartilhando">1. O que estamos compartilhando?</h2>
+<p>O repositório é uma pasta de estudos na internet. Ele reúne <strong>todas as disciplinas</strong>, com materiais de aula, exercícios, projetos e entregas. Cada projeto pode ter suas próprias instruções.</p>
+<p>O link de entrada é:</p>
+<p><a href="https://github.com/ProfAntonioFigueiredo/mba-ai-leadership-4abl"><strong>Abrir o repositório da turma</strong></a></p>
+<p>Para se localizar:</p>
+<div class="table-scroll" role="region" aria-label="Tabela de orientações" tabindex="0"><table>
+<thead>
+<tr>
+<th>Você quer…</th>
+<th>Onde começar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conhecer as disciplinas</td>
+<td><a href="disciplinas.html">Catálogo de disciplinas</a></td>
+</tr>
+<tr>
+<td>Ler materiais organizados para estudo</td>
+<td><a href="../biblioteca/index.html">Biblioteca</a></td>
+</tr>
+<tr>
+<td>Encontrar o conteúdo da aula</td>
+<td>Abra <code>disciplinas</code>, escolha a disciplina e depois <code>aulas</code></td>
+</tr>
+<tr>
+<td>Encontrar uma aplicação ou trabalho prático</td>
+<td>Dentro da disciplina, abra <code>projetos</code></td>
+</tr>
+<tr>
+<td>Explorar o exemplo de hoje</td>
+<td><a href="../disciplinas/21-vibe-coding-executivo/projetos/speakup/index.html">SpeakUp — gestão de uma escola de inglês</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Você não precisa entender todas as pastas. A cada aula, o professor ou facilitador indicará <strong>qual pasta abrir e qual atividade fazer</strong>.</p>
+<h2 id="2-cinco-palavras-que-vamos-usar">2. Cinco palavras que vamos usar</h2>
+<div class="table-scroll" role="region" aria-label="Tabela de orientações" tabindex="0"><table>
+<thead>
+<tr>
+<th>Palavra na tela</th>
+<th>Pense assim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repository / repositório</strong></td>
+<td>A pasta completa de estudos, com um histórico das mudanças.</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>Sua cópia do repositório dentro da sua conta GitHub.</td>
+</tr>
+<tr>
+<td><strong>Branch</strong></td>
+<td>Um espaço de trabalho para uma atividade, dentro da sua cópia.</td>
+</tr>
+<tr>
+<td><strong>Commit</strong></td>
+<td>Um registro das alterações que você decidiu guardar. Inclui uma mensagem explicando o que mudou.</td>
+</tr>
+<tr>
+<td><strong>Pull Request / PR</strong></td>
+<td>Um pedido para a turma revisar e incorporar sua contribuição ao repositório original.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Outra palavra importante é <strong>main</strong>: é o nome da versão principal. Vamos criar uma branch para cada atividade e manter a main como ponto de partida.</p>
+<p>Nosso caminho será:</p>
+<pre><code class="language-text">Material da turma → Sua cópia (Fork) → Sua atividade (Branch)
+                  → Enviar para revisão (Pull Request)
+                  → Contribuição aprovada no material da turma
+</code></pre>
+<h2 id="3-primeiro-acesso-faca-uma-vez">3. Primeiro acesso: faça uma vez</h2>
+<h3 id="passo-1-entre-no-github">Passo 1 — Entre no GitHub</h3>
+<p>Acesse <a href="https://github.com">github.com</a>, crie sua conta se ainda não tiver e entre nela. Guarde seu nome de usuário: ele será usado para identificar suas contribuições.</p>
+<h3 id="passo-2-abra-o-link-da-turma">Passo 2 — Abra o link da turma</h3>
+<p><a href="https://github.com/ProfAntonioFigueiredo/mba-ai-leadership-4abl">Abra o repositório</a>.</p>
+<p>Se aparecer <strong>404</strong>, <strong>Not Found</strong> ou uma mensagem de acesso, confira se entrou na conta certa e envie seu nome de usuário ao responsável pela turma. Se o repositório estiver privado, você precisará receber e aceitar o convite de acesso.</p>
+<p><strong>Não precisa tentar corrigir isso com comandos. É uma questão de acesso.</strong></p>
+<h3 id="passo-3-crie-sua-copia">Passo 3 — Crie sua cópia</h3>
+<ol>
+<li>Na página inicial do repositório, procure o botão <strong>Fork</strong>, na parte superior.</li>
+<li>Clique nele e escolha sua conta como destino.</li>
+<li>Mantenha o nome <code>mba-ai-leadership-4abl</code>.</li>
+<li>Se aparecer a opção <strong>Copy the main branch only</strong>, pode deixá-la marcada: a main contém as pastas das disciplinas.</li>
+<li>Clique em <strong>Create fork</strong>.</li>
+</ol>
+<p>Confira o nome no alto da página. Agora deve aparecer algo parecido com:</p>
+<pre><code class="language-text">seu-usuario / mba-ai-leadership-4abl
+</code></pre>
+<p>Essa é sua cópia do repositório inteiro. Você não precisa criar um fork para cada aula.</p>
+<p>Se o botão Fork estiver indisponível, avise o facilitador. Repositórios privados podem ter restrições de acesso ou de cópia. <a href="https://docs.github.com/en/pull-requests/reference/forks">Referência do GitHub sobre forks</a>.</p>
+<h2 id="4-em-cada-aula-atualize-e-crie-seu-espaco-de-trabalho">4. Em cada aula: atualize e crie seu espaço de trabalho</h2>
+<h3 id="passo-1-busque-as-novidades-da-turma">Passo 1 — Busque as novidades da turma</h3>
+<ol>
+<li>Abra <strong>seu fork</strong> no GitHub.</li>
+<li>Confira se está na branch <strong>main</strong>.</li>
+<li>Procure <strong>Sync fork</strong>.</li>
+<li>Se houver novidades, clique em <strong>Update branch</strong>.</li>
+</ol>
+<p>Isso traz para sua cópia as contribuições que já foram aprovadas na turma. Se aparecer uma mensagem de conflito, peça ajuda ao facilitador antes de continuar. <a href="https://docs.github.com/en/pull-requests/how-tos/work-with-forks/syncing-a-fork">Como sincronizar um fork</a>.</p>
+<h3 id="passo-2-crie-uma-branch-para-a-atividade">Passo 2 — Crie uma branch para a atividade</h3>
+<ol>
+<li>Ainda no seu fork, clique no seletor que mostra <strong>main</strong>, acima dos arquivos.</li>
+<li>Digite um nome para sua atividade, sem espaços ou acentos.</li>
+<li>Clique na opção para criar a branch a partir da <strong>main</strong>.</li>
+</ol>
+<p>Exemplos:</p>
+<pre><code class="language-text">aula-03-ana-importacao
+vibe-coding-bruno-teste-login
+ai-core-carla-anotacoes
+</code></pre>
+<p><strong>Antes de editar, confira duas coisas:</strong> no alto da página está seu usuário e no seletor está o nome da branch da atividade.</p>
+<h2 id="5-sua-primeira-contribuicao-pelo-navegador">5. Sua primeira contribuição — pelo navegador</h2>
+<p>Vamos começar com um relato curto sobre o SpeakUp, exemplo da aula de Vibe Coding. Em outras aulas, o facilitador indicará uma pasta diferente.</p>
+<h3 id="passo-1-abra-a-pasta-da-atividade">Passo 1 — Abra a pasta da atividade</h3>
+<p>Na sua branch, navegue por estas pastas:</p>
+<pre><code class="language-text">disciplinas
+  → 21-vibe-coding-executivo
+    → projetos
+      → speakup
+</code></pre>
+<h3 id="passo-2-crie-um-arquivo-com-suas-observacoes">Passo 2 — Crie um arquivo com suas observações</h3>
+<ol>
+<li>Procure <strong>Add file</strong> e depois <strong>Create new file</strong>.</li>
+<li>No nome do arquivo, digite o exemplo abaixo, trocando <code>seu-usuario</code> pelo seu usuário GitHub:</li>
+</ol>
+<pre><code class="language-text">contribuicoes/aula-03-seu-usuario.md
+</code></pre>
+<p>A barra cria a pasta <code>contribuicoes</code> se ela ainda não existir. O final <code>.md</code> indica um arquivo de texto que o GitHub apresenta como uma página de leitura.</p>
+<p>Copie este modelo e preencha com suas palavras:</p>
+<pre><code class="language-markdown"># Meu registro da aula
+
+Nome:
+Disciplina:
+Data da aula:
+
+## O que eu entendi
+Escreva uma explicação curta com suas palavras.
+
+## O que eu fiz ou testei
+Descreva os passos que realmente executou.
+Se apenas leu o material, registre isso aqui.
+
+## O que aconteceu
+Conte o resultado. Se possível, diga o que esperava que acontecesse.
+
+## Minha dúvida ou sugestão
+O que você gostaria de esclarecer ou melhorar?
+
+## Uso de inteligência artificial
+Qual ferramenta ajudou e o que você conferiu pessoalmente?
+</code></pre>
+<h3 id="passo-3-guarde-sua-contribuicao">Passo 3 — Guarde sua contribuição</h3>
+<ol>
+<li>Clique em <strong>Commit changes</strong>.</li>
+<li>Na mensagem, escreva algo simples, por exemplo: <code>Adiciona minhas observações da aula de importação</code>.</li>
+<li>Confira se a alteração será salva na branch da atividade.</li>
+<li>Confirme o commit.</li>
+</ol>
+<p><strong>Guardar no seu fork ainda não envia sua contribuição para o material original da turma. O próximo passo faz esse pedido.</strong></p>
+<p>Para enviar um arquivo já pronto, a opção <strong>Add file → Upload files</strong> permite selecionar arquivos do computador. Use a pasta indicada para a aula e confira o nome dos arquivos antes de confirmar.</p>
+<h2 id="6-envie-sua-contribuicao-para-revisao">6. Envie sua contribuição para revisão</h2>
+<ol>
+<li>No seu fork, abra <strong>Pull requests</strong> e depois <strong>New pull request</strong>. Também pode aparecer <strong>Compare &amp; pull request</strong> após salvar uma mudança.</li>
+<li>Confira o destino e a origem:</li>
+</ol>
+<div class="table-scroll" role="region" aria-label="Tabela de orientações" tabindex="0"><table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>O que selecionar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>base repository</strong> — quem recebe</td>
+<td><code>ProfAntonioFigueiredo/mba-ai-leadership-4abl</code></td>
+</tr>
+<tr>
+<td><strong>base</strong> — versão que recebe</td>
+<td><code>main</code></td>
+</tr>
+<tr>
+<td><strong>head repository</strong> — de onde vem</td>
+<td>Seu fork, com seu nome de usuário</td>
+</tr>
+<tr>
+<td><strong>compare</strong> — qual atividade</td>
+<td>A branch que você criou</td>
+</tr>
+</tbody>
+</table></div>
+<p>Se aparecer uma opção como <strong>compare across forks</strong>, use-a para escolher os dois repositórios.</p>
+<ol>
+<li>Revise a lista de arquivos. Ela deve mostrar apenas sua contribuição para a atividade.</li>
+<li>Clique em <strong>Create pull request</strong>.</li>
+<li>Dê um título claro: <code>Aula 03 — Ana — observações sobre importação</code>.</li>
+<li>Preencha o modelo que aparecer. Explique o que fez e como conferiu o resultado. Se não executou a aplicação, diga isso.</li>
+<li>Confirme o envio.</li>
+</ol>
+<p>Seu PR terá um endereço próprio. Compartilhe esse link com o facilitador ou no canal combinado pela turma.</p>
+<p><strong>Pronto: você enviou sua contribuição.</strong> Ela será lida antes de ser incorporada ao material principal. <a href="https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request-from-a-fork">Como enviar um PR de um fork</a>.</p>
+<h3 id="e-se-pedirem-ajustes">E se pedirem ajustes?</h3>
+<p>Volte à <strong>mesma branch</strong>, edite o arquivo e faça outro commit. A atualização aparecerá no PR já aberto. Você não precisa criar outro pedido para corrigir a mesma atividade.</p>
+<p>Quando aparecer <strong>Merged</strong>, sua contribuição foi incorporada. Antes da próxima atividade, atualize a main do seu fork pelo <strong>Sync fork</strong> e crie uma nova branch.</p>
+<h2 id="7-quando-a-atividade-envolver-executar-uma-aplicacao">7. Quando a atividade envolver executar uma aplicação</h2>
+<p>Ler, escrever observações e enviar arquivos pode ser feito no navegador. Para <strong>executar ou modificar uma aplicação</strong>, a turma precisará preparar o computador com orientação do facilitador.</p>
+<p>Não use <strong>Download ZIP</strong> como substituto do fork se pretende enviar mudanças pelo fluxo ensinado: o ZIP é útil para consultar arquivos, mas não mantém o vínculo de trabalho Git no computador.</p>
+<p>Para uma primeira aula prática de código, sugerimos instalação acompanhada de GitHub Desktop, editor e das ferramentas exigidas pelo projeto. O GitHub Desktop oferece botões para baixar o fork e enviar alterações; o editor abre os arquivos e permite trabalhar com a IA.</p>
+<h3 id="exemplo-da-aula-speakup">Exemplo da aula: SpeakUp</h3>
+<p>O <a href="../disciplinas/21-vibe-coding-executivo/projetos/speakup/index.html">README do SpeakUp</a> apresenta duas versões da mesma aplicação. O facilitador deve informar qual será usada na atividade. Para a importação de alunos que trabalhamos hoje, a pasta é:</p>
+<pre><code class="language-text">disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-lovable
+</code></pre>
+<p>Depois de baixar seu fork com histórico Git e preparar as ferramentas, abra essa pasta no editor. No terminal do editor, <strong>dentro dessa pasta</strong>, execute um comando por vez:</p>
+<pre><code class="language-powershell">npm ci
+npm run dev
+</code></pre>
+<p>O primeiro instala as dependências da aplicação. O segundo a inicia e mostra um endereço local. Abra o endereço indicado; mantenha o terminal em execução enquanto utiliza a aplicação. Para encerrar, volte ao terminal e pressione <strong>Ctrl + C</strong>.</p>
+<p>Esses comandos são específicos de aplicações que os oferecem. Para outra disciplina ou projeto, consulte o README da pasta indicada pelo facilitador.</p>
+<p>No SpeakUp sem configuração Supabase, você está em <strong>demonstração local</strong>: os dados ficam no navegador. A senha demo é <code>Escola@@@</code>; o exemplo inicial de aluno é <code>10045</code>.</p>
+<p>Para estudar importação:</p>
+<ol>
+<li>Abra a aplicação em demonstração e entre como <strong>Coordenação</strong>.</li>
+<li>Abra <strong>Importação de Alunos</strong>.</li>
+<li>Use uma planilha de exemplo fornecida para a aula.</li>
+<li>Confira a prévia antes de confirmar.</li>
+<li>Registre o resultado e suas dúvidas no arquivo de contribuição.</li>
+</ol>
+<p>Veja <a href="../disciplinas/21-vibe-coding-executivo/projetos/speakup/speakup-lovable/docs/importacao-alunos.md">as instruções da importação</a>. O fork copia arquivos; <strong>não copia um banco Supabase, contas de alunos ou um site publicado</strong>. A conexão com banco real é uma etapa acompanhada pelo facilitador.</p>
+<h3 id="como-pedir-ajuda-a-ia">Como pedir ajuda à IA</h3>
+<p>Você pode começar com este texto no editor:</p>
+<blockquote>
+<p>Estou estudando com a turma 4ABL e sou iniciante. Estamos trabalhando na disciplina [nome], na pasta [caminho]. Minha atividade é [objetivo]. Primeiro leia as instruções do projeto e explique, em linguagem simples, o que encontrou. Depois me ajude a fazer uma mudança pequena nessa atividade. Preserve as outras disciplinas e explique como conferir o resultado. Informe o que foi testado e o que não foi possível testar.</p>
+</blockquote>
+<p>A IA pode ajudar a escrever e programar. Antes de enviar, leia a contribuição e confira se ela corresponde ao que você fez.</p>
+<p>Se você alterou arquivos no computador, precisa enviá-los ao seu fork antes de abrir o PR. No GitHub Desktop, confira a branch, selecione os arquivos da atividade, escreva a mensagem do commit e use <strong>Push origin</strong> ou <strong>Publish branch</strong>. Se estiver usando o terminal, peça ao facilitador para acompanhar esse primeiro envio.</p>
+<h2 id="8-como-participar-sem-escrever-codigo">8. Como participar sem escrever código</h2>
+<p>Você pode contribuir de várias formas:</p>
+<ul>
+<li>Explicar um conceito com um exemplo de negócio.</li>
+<li>Relatar uma dificuldade de uso de uma aplicação.</li>
+<li>Melhorar uma instrução que ficou confusa.</li>
+<li>Documentar um teste que fez durante a aula.</li>
+<li>Sugerir uma pergunta ou um novo exercício.</li>
+<li>Revisar a contribuição de um colega com respeito e clareza.</li>
+</ul>
+<p>Para uma dúvida rápida, use <strong>Issues → New issue</strong>, se essa opção estiver disponível no repositório original. Uma Issue é uma conversa sobre uma atividade, dúvida ou problema. Inclua disciplina, aula e os passos que levaram à dúvida. Se a turma usa outro canal para dúvidas, siga o combinado pelo facilitador.</p>
+<h2 id="9-combinados-da-turma">9. Combinados da turma</h2>
+<ul>
+<li>Uma branch para cada atividade. Uma contribuição pequena é mais fácil de entender e revisar.</li>
+<li>Trabalhe na disciplina e na pasta combinadas para a aula.</li>
+<li>Use seu usuário no nome de arquivos de observações individuais para não substituir o trabalho de colegas.</li>
+<li>Envie apenas materiais que podem ser compartilhados com a turma. Use dados fictícios nos exercícios.</li>
+<li>Senhas, chaves de serviços e arquivos <code>.env.local</code> ficam no seu computador.</li>
+<li>Ao relatar um teste, diferencie o que você executou do que apenas foi sugerido pela IA.</li>
+<li>Revise o pedido de contribuição antes de enviar e acolha sugestões dos colegas.</li>
+</ul>
+<h2 id="10-se-algo-nao-funcionar">10. Se algo não funcionar</h2>
+<div class="table-scroll" role="region" aria-label="Tabela de orientações" tabindex="0"><table>
+<thead>
+<tr>
+<th>O que apareceu?</th>
+<th>O que fazer agora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>404 ou acesso negado</td>
+<td>Confirme sua conta GitHub e peça ao responsável para conferir o convite.</td>
+</tr>
+<tr>
+<td>Fork indisponível</td>
+<td>Avise o facilitador para verificar as permissões.</td>
+</tr>
+<tr>
+<td>Não encontro minha branch</td>
+<td>Abra seu fork e confira o seletor acima da lista de arquivos.</td>
+</tr>
+<tr>
+<td>Não aparece diferença para enviar no PR</td>
+<td>Confira se guardou a alteração com commit e selecionou a branch correta como origem.</td>
+</tr>
+<tr>
+<td>O PR mostra mudanças de outra aula</td>
+<td>Pare e peça ajuda para separar os arquivos antes de enviar.</td>
+</tr>
+<tr>
+<td>Sync fork mostra conflito</td>
+<td>Peça ajuda para conciliar as versões. Não apague arquivos para tentar resolver.</td>
+</tr>
+<tr>
+<td><code>npm</code> não é reconhecido</td>
+<td>O computador ainda precisa da instalação/configuração do Node.js. Peça ajuda ao facilitador.</td>
+</tr>
+<tr>
+<td>Fechei a aplicação e ela parou</td>
+<td>Execute novamente <code>npm run dev</code> na pasta do projeto e abra o endereço informado.</td>
+</tr>
+<tr>
+<td>Alterei arquivos, mas não aparecem no GitHub</td>
+<td>Falta guardar o commit e enviar as alterações do computador ao seu fork.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ao pedir ajuda, envie a disciplina, a pasta, o que tentou fazer e a mensagem de erro. Retire senhas e informações pessoais de imagens e textos.</p>
+<h2 id="11-roteiro-sugerido-para-uma-aula-em-grupo">11. Roteiro sugerido para uma aula em grupo</h2>
+<div class="table-scroll" role="region" aria-label="Tabela de orientações" tabindex="0"><table>
+<thead>
+<tr>
+<th>Momento</th>
+<th>Atividade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abertura — 5 minutos</td>
+<td>Facilitador apresenta a disciplina, a pasta e o objetivo.</td>
+</tr>
+<tr>
+<td>Preparação — 10 minutos</td>
+<td>Cada pessoa acessa o fork, sincroniza a main e cria sua branch.</td>
+</tr>
+<tr>
+<td>Prática — 25 minutos</td>
+<td>A turma realiza a atividade; duplas podem se ajudar.</td>
+</tr>
+<tr>
+<td>Compartilhamento — 10 minutos</td>
+<td>Cada pessoa registra o resultado e envia seu PR.</td>
+</tr>
+<tr>
+<td>Conversa — 10 minutos</td>
+<td>A turma revisa algumas contribuições e registra aprendizados.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Na primeira aula, reserve tempo extra para contas e acesso. O exemplo de contribuição pelo navegador é suficiente para praticar todo o ciclo antes de instalar ferramentas.</p>
+<h2 id="mensagem-para-compartilhar-com-a-turma">Mensagem para compartilhar com a turma</h2>
+<blockquote>
+<p>Pessoal, vamos usar este repositório para acompanhar todas as disciplinas e construir nossos aprendizados juntos. Não é necessário saber programar para começar: dá para contribuir com observações, dúvidas, testes e melhorias nos materiais. A cada aula vamos indicar a pasta e a atividade. Primeiro acessem o guia, criem sua conta GitHub e façam sua cópia pelo botão Fork. Se o acesso não abrir, enviem seu usuário ao facilitador. Guia: https://github.com/ProfAntonioFigueiredo/mba-ai-leadership-4abl/blob/main/docs/guia-da-turma.md</p>
+</blockquote>
+<h2 id="para-o-responsavel-pela-turma">Para o responsável pela turma</h2>
+<p>Antes de enviar o convite geral:</p>
+<ol>
+<li>Publique as alterações que a turma deverá utilizar. Arquivos salvos apenas no seu computador não aparecem nos forks dos colegas.</li>
+<li>Confira a visibilidade atual do repositório. O README o descreve como privado; esta documentação não alterou essa configuração.</li>
+<li>Se estiver privado, convide os colegas e acompanhe a aceitação. Faça um teste de acesso e fork com uma pessoa antes da aula.</li>
+<li>Se houver política que bloqueia forks, verifique as opções da conta/organização. Não é necessário tornar o conteúdo público para seguir este guia. <a href="https://docs.github.com/en/pull-requests/reference/forks">Regras de acesso e forks do GitHub</a>.</li>
+<li>Indique para cada aula o link da pasta, o objetivo e onde os alunos devem colocar suas contribuições.</li>
+<li>Na primeira rodada, acompanhe o exemplo pelo navegador antes de pedir mudanças em código.</li>
+<li>Separe um momento para revisar os PRs e incorporar os aprovados. O merge é a ação que une a contribuição ao repositório principal.</li>
+<li>Para registrar novos materiais, atualizar o catálogo ou reorganizar pastas, consulte <a href="../CONTRIBUTING.md">as instruções de manutenção</a>.</li>
+</ol>
+<p>Configurações de acesso, convites e publicação continuam sob responsabilidade do proprietário. Este guia foi criado nos arquivos locais; o link compartilhável funcionará depois que ele for publicado no GitHub.</p></article></main><footer class="footer"><p>Este guia pode ser aberto no computador ou no celular. Para compartilhar um endereço que abra como página, o portal precisa estar hospedado; a visualização de arquivos HTML no GitHub mostra o código.</p><a href="../index.html">← Voltar à página principal</a><a href="guia-da-turma.md">Consultar o texto original</a></footer><script>const menu=document.querySelector('#menu');const mobile=window.matchMedia('(max-width:900px)');function adapt(){menu.open=!mobile.matches;}adapt();mobile.addEventListener('change',adapt);</script></body></html>

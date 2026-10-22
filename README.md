@@ -1,5 +1,15 @@
 # MBA AI Leadership — 4ABL
 
+## Para quem está chegando com a turma
+
+Vamos usar o repositório inteiro para estudar e contribuir em todas as disciplinas. Você pode começar pelo navegador, sem saber programar.
+
+**[Abrir o Guia da Turma em HTML — para colegas de turma e de trabalho](docs/guia-da-turma.html)** · [Ler o guia diretamente no GitHub](docs/guia-da-turma.md).
+
+O HTML tem leitura adaptada ao celular, menu por etapas e opção de imprimir ou salvar em PDF. No GitHub, arquivos HTML são mostrados como código: para ler a página, abra o arquivo baixado no navegador ou use o endereço do portal quando estiver hospedado. Para leitura imediata dentro do GitHub, use a versão em texto.
+
+O guia explica os nomes que aparecem no GitHub, ensina uma primeira contribuição e apresenta um roteiro para cada aula. Se o acesso estiver restrito, peça seu convite ao responsável pela turma.
+
 Portfólio acadêmico e memória dos projetos de **Antonio Figueiredo**, turma **4ABL**. Repositório privado, organizado em 19/10/2026 para evoluir junto com as disciplinas.
 
 ## Comece aqui
