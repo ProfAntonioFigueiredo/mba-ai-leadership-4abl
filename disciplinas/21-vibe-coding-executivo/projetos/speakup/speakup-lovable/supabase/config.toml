@@ -1,7 +1,13 @@
+project_id = "speakup-lovable"
+
 # Login público autentica matrícula/senha dentro da função.
 [functions.student-login]
 verify_jwt = false
 
 # JWT é validado explicitamente com auth.getUser; papel admin é verificado antes de usar service role.
 [functions.import-students]
+verify_jwt = false
+
+# A função valida o token com auth.getUser e a RPC verifica papel e autorização da empresa.
+[functions.student-grades]
 verify_jwt = false

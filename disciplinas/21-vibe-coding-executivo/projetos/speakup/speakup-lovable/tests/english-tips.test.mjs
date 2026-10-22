@@ -1,0 +1,8 @@
+﻿import test from 'node:test';
+import assert from 'node:assert/strict';
+import {fetchEnglishTips,TIPS_URL} from '../src/english-tips.mjs';
+const tip={id:1,titulo:'Dica de teste',explicacao:'Explicação',exemplo_en:'Example',traducao_pt:'Exemplo',nivel:'iniciante'};
+test('dicas usa GET público sem credenciais e mantém os campos retornados',async()=>{let called;const expected={total:1,dicas:[tip]};const data=await fetchEnglishTips({fetchImpl:async(url,options)=>{called={url,options};return Response.json(expected);}});assert.equal(called.url,TIPS_URL);assert.equal(called.options.method,'GET');assert.equal(called.options.credentials,'omit');assert.deepEqual(data,expected);});
+test('dicas informa erro de serviço e aceita lista vazia',async()=>{await assert.rejects(fetchEnglishTips({fetchImpl:async()=>new Response('',{status:503})}),/Tente novamente/);assert.deepEqual(await fetchEnglishTips({fetchImpl:async()=>Response.json({total:0,dicas:[]})}),{total:0,dicas:[]});});
+test('dicas rejeita HTML, campos ausentes e IDs duplicados',async()=>{for(const body of [{total:1,dicas:[{id:1}]},{total:2,dicas:[tip,tip]},{total:2,dicas:[tip]},null])await assert.rejects(fetchEnglishTips({fetchImpl:async()=>Response.json(body)}),/interpretar/);await assert.rejects(fetchEnglishTips({fetchImpl:async()=>new Response('<html>erro</html>')}),/formato inesperado/);});
+test('dicas encaminha cancelamento e não mascara falha de rede',async()=>{const controller=new AbortController();controller.abort();await assert.rejects(fetchEnglishTips({signal:controller.signal,fetchImpl:async(_url,options)=>{assert.equal(options.signal,controller.signal);throw new DOMException('Cancelado','AbortError');}}),{name:'AbortError'});});

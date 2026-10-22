@@ -27,3 +27,7 @@
 **/specs/sources/Prompt_Interpretador*.txt
 # Gerados pelo usuário após importar
 **/saida/
+
+# Estado local gerado pelo Supabase (pode conter chaves)
+**/supabase/.temp/
+**/supabase/.branches/

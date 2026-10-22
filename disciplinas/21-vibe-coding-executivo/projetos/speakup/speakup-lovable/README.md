@@ -63,3 +63,27 @@ A identidade visual verde é uma proposta para revisão, pois o material não tr
 A tela **Importação de Alunos** oferece prévia, mapeamento de colunas, confirmação, tratamento conservador de duplicidades e relatório de resultados. Novas contas usam Id_aluno e senha Escola@@@; contas existentes mantêm suas senhas. Todos os status podem fazer login, com reservas restritas a matrícula Ativa.
 
 Para gravar no Supabase e provisionar contas, aplique a nova migração e publique a função `import-students` conforme [docs/importacao-alunos.md](docs/importacao-alunos.md). Sem configuração, a aplicação continua em modo demo no navegador. Essa documentação atualiza as instruções anteriores de provisionamento manual e de bloqueio de login por matrícula inativa.
+
+## API de Consulta de Notas — Atividade 2
+
+Coordenação e RH encontram a página **API de Notas**, com ID, nome, botão **Testar API**, resposta HTTP integral e **Baixar Documentação**. Empresas precisam de autorização explícita e só consultam alunos vinculados à sua empresa. Veja [o documento da integração](docs/api-notas.md) e [a ativação pela escola](docs/api-notas-operacao.md).
+
+O modelo anterior não possuía notas: as estruturas novas começam vazias. Não foram criadas notas fictícias. É preciso conectar a fonte oficial para retornar disciplinas e resultados reais. A consulta fica indisponível em demo; aluno existente sem notas retorna lista vazia no ambiente configurado.
+
+## Modo atual da atividade — consulta local de ID
+
+A atividade foi ajustada: não há notas a integrar e não é necessário configurar Supabase. Na Coordenação, abra **API de Alunos**, informe apenas o ID e clique em **Testar API**. O nome é opcional no modo local. O retorno mostra ID, nome e status do cadastro, sem inventar notas. O botão **Baixar Documentação** entrega o guia local.
+
+Veja [o contrato e o uso da consulta local](docs/api-alunos-local.md). Não há endpoint HTTP público neste modo. As instruções Supabase anteriores ficam reservadas à futura integração entre sistemas.
+
+## Dicas para melhorar o inglês — Atividade 3
+
+Entre como **Aluno**, abra **Dicas para melhorar o inglês** e clique em **Buscar dicas**. A aplicação consulta por GET a API pública `https://vibe-coding-frontend-backend.lovable.app/api/public/dicas`, sem chave ou credenciais, e apresenta os cartões com número, título, explicação, exemplo em inglês, tradução e nível.
+
+Funciona também no modo atual, sem Supabase. A busca ocorre apenas ao clicar; há mensagens de carregamento, lista vazia e erro, limite de espera de 15 segundos e cancelamento ao sair da página. Nenhum dado do aluno é enviado à API. **Atualizar dicas** permite repetir a consulta. Documentação do fornecedor: https://vibe-coding-frontend-backend.lovable.app/api/public/dicas/docs.
+
+## Memory Game — Atividade 4
+
+Na área do **Aluno**, abra **Memory Game**. O tabuleiro tem cinco colunas e cinco linhas: 24 cartas (12 pares inglês/português) e o placar na última posição. Cada par vale 10 pontos; uma tentativa é contada ao escolher a segunda carta. Erros não retiram pontos. Pares incorretos ficam visíveis por um segundo, com as demais cartas bloqueadas. **Novo Jogo** zera a partida e embaralha as cartas.
+
+O painel **Como o FrontEnd funciona** acompanha estado, renderização e reatividade. A partida é mantida em memória enquanto a página do jogo permanece aberta; sair da página ou recarregar reinicia o jogo. Não exige API externa nem Supabase e não altera cadastros ou notas.
