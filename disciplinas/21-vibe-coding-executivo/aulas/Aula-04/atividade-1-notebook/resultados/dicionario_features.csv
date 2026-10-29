@@ -1,0 +1,8 @@
+Coluna,Tipo,Descrição e Tabela de Origem
+id_aluno,Identificação,Identificador do aluno. NÃO é feature — excluir antes de treinar.
+tempo_casa_meses,Feature — Cadastral,Meses desde a data de matrícula até a data de observação. Vem de: matricula.data_matricula
+taxa_inadimplencia_historica,Feature — Financeira,Proporção de parcelas com status 'atrasado' sobre o total de parcelas vencidas até a data de observação. Vem de: pagamento.status_pagamento
+n_parcelas_atrasadas_90_dias,Feature — Financeira,Contagem de parcelas com status 'atrasado' e data_vencimento nos 90 dias anteriores à data de observação. Vem de: pagamento
+taxa_presenca_30_dias,Feature — Pedagógica,Proporção de aulas com presença = 'Sim' nos 30 dias anteriores à data de observação. Vem de: presenca (join com matricula para ligar ao aluno)
+n_acessos_plataforma_30_dias,Feature — Engajamento,Contagem de sessões na plataforma digital (linhas em uso_plataforma) nos 30 dias anteriores à data de observação. Vem de: uso_plataforma.data_acesso
+cancelou_60_dias,LABEL,"1 se o aluno cancelou nos 60 dias APÓS a data de observação, 0 caso contrário. NUNCA usar como feature. É o que o modelo aprende a prever."

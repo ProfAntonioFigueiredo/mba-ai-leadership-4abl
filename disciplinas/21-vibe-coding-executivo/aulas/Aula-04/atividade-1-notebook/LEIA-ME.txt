@@ -1,0 +1,15 @@
+EnglishPro — Atividade 1 — Aula de 28/10/2026
+
+1. Abra Atividade_1_EnglishPro_Treinamento.ipynb no VS Code com as extensões Python e Jupyter.
+2. Selecione como kernel o Python em .venv/bin/python desta pasta.
+3. Clique em Executar tudo. As saídas já estão preenchidas nesta entrega.
+4. Resultados, explicação para a gestão e modelo ficam em resultados/.
+
+Para reconstruir o ambiente em outro computador (Python 3.12):
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+
+Execute o notebook a partir desta pasta. Mantenha a planilha original na pasta irmã Aula 04 - Atividades  ou configure ARQUIVO_TREINO na célula inicial. O nome original da pasta de atividades termina com um espaço. No Google Colab, envie o notebook e a planilha de treinamento e ative a célula %pip.
+
+Os dois prompts do enunciado estão atendidos por cálculos executados. Modelo: somente cinco features, 75% treino e 25% teste, semente 42. Sem re-treino após avaliação. Fontes originais preservadas. Atividades 2 e 3 não foram executadas nesta entrega.

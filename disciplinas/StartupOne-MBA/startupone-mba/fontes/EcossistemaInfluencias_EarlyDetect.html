@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecossistema de Influências - EarlyDetect Platform</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+        }
+        .ecosystem {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stakeholder-group {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .stakeholder-group h3 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .stakeholder-group ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .stakeholder-group li {
+            padding: 5px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .stakeholder-group li:last-child {
+            border-bottom: none;
+        }
+        .center-platform {
+            grid-column: 2;
+            grid-row: 2;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .center-platform h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .center-platform p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .clients {
+            grid-column: 1;
+            grid-row: 1;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .influencers {
+            grid-column: 3;
+            grid-row: 1;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .regulators {
+            grid-column: 1;
+            grid-row: 2;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+        .suppliers {
+            grid-column: 3;
+            grid-row: 2;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+        .competitors {
+            grid-column: 1;
+            grid-row: 3;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+        }
+        .partners {
+            grid-column: 3;
+            grid-row: 3;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            color: #333;
+        }
+        .connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .connection-line {
+            position: absolute;
+            background: #3498db;
+            height: 2px;
+            transform-origin: left center;
+        }
+        .connection-line::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #3498db;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        .legend {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .legend h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .legend-text {
+            font-size: 14px;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .ecosystem {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .stakeholder-group {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+            }
+            .center-platform {
+                grid-column: 1 !important;
+                grid-row: auto !important;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ecossistema de Influências - EarlyDetect Platform</h1>
+        
+        <div class="ecosystem">
+            <div class="stakeholder-group clients">
+                <h3>👥 CLIENTES</h3>
+                <ul>
+                    <li>Pais e Cuidadores</li>
+                    <li>Famílias com TEA/TDAH</li>
+                    <li>Educadores Infantis</li>
+                    <li>Profissionais de Saúde</li>
+                </ul>
+            </div>
+            
+            <div class="stakeholder-group influencers">
+                <h3>🎯 INFLUENCIADORES</h3>
+                <ul>
+                    <li>Sociedade Brasileira de Pediatria</li>
+                    <li>Associação Brasileira de Autismo</li>
+                    <li>Associação Brasileira de TDAH</li>
+                    <li>Influenciadores Digitais</li>
+                    <li>Especialistas em Neurodesenvolvimento</li>
+                </ul>
+            </div>
+            
+            <div class="stakeholder-group regulators">
+                <h3>⚖️ REGULADORES</h3>
+                <ul>
+                    <li>ANVISA</li>
+                    <li>Conselho Federal de Medicina</li>
+                    <li>Conselho Federal de Psicologia</li>
+                    <li>Ministério da Saúde</li>
+                    <li>LGPD</li>
+                </ul>
+            </div>
+            
+            <div class="center-platform">
+                <h2>🚀 EARLYDETECT PLATFORM</h2>
+                <p>Plataforma de Triagem Precoce para TEA/TDAH</p>
+            </div>
+            
+            <div class="stakeholder-group suppliers">
+                <h3>🔧 FORNECEDORES</h3>
+                <ul>
+                    <li>Desenvolvedores de Software</li>
+                    <li>Provedores Cloud</li>
+                    <li>Especialistas Científicos</li>
+                    <li>Centros de Pesquisa</li>
+                    <li>Provedores de Pagamento</li>
+                </ul>
+            </div>
+            
+            <div class="stakeholder-group competitors">
+                <h3>⚔️ CONCORRENTES</h3>
+                <ul>
+                    <li>Apps de Desenvolvimento Infantil</li>
+                    <li>Questionários Online Genéricos</li>
+                    <li>Consultas Médicas Especializadas</li>
+                    <li>Clínicas de Neurodesenvolvimento</li>
+                    <li>Plataformas de Telemedicina</li>
+                </ul>
+            </div>
+            
+            <div class="stakeholder-group partners">
+                <h3>🤝 PARCEIROS</h3>
+                <ul>
+                    <li>Universidades</li>
+                    <li>Hospitais e Clínicas</li>
+                    <li>Escolas e Creches</li>
+                    <li>Consultorias Especializadas</li>
+                    <li>Associações Profissionais</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>📊 Legenda do Ecossistema</h3>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"></div>
+                <div class="legend-text"><strong>Clientes:</strong> Usuários finais da plataforma, incluindo pais, cuidadores e profissionais de saúde</div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                <div class="legend-text"><strong>Influenciadores:</strong> Organizações e pessoas que influenciam a adoção e credibilidade da solução</div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"></div>
+                <div class="legend-text"><strong>Reguladores:</strong> Órgãos governamentais que estabelecem normas e regulamentações para o setor</div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                <div class="legend-text"><strong>Fornecedores:</strong> Empresas e profissionais que fornecem insumos e serviços essenciais</div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);"></div>
+                <div class="legend-text"><strong>Concorrentes:</strong> Empresas que oferecem soluções similares ou substitutas</div>
+            </div>
+            
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);"></div>
+                <div class="legend-text"><strong>Parceiros:</strong> Organizações estratégicas que podem apoiar o desenvolvimento e crescimento</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background-color: #e8f4fd; border-radius: 10px; border-left: 5px solid #3498db;">
+            <h3 style="margin: 0 0 15px 0; color: #2c3e50;">💡 Insights do Ecossistema</h3>
+            <ul style="margin: 0; padding-left: 20px; color: #555;">
+                <li><strong>Relação Cliente-Fornecedor:</strong> EarlyDetect fornece ferramentas de triagem para pais, que por sua vez fornecem dados e feedback para melhoria da plataforma</li>
+                <li><strong>Relação Regulador-Fornecedor:</strong> ANVISA, CFM e CFP estabelecem diretrizes que a EarlyDetect deve seguir para operar legalmente</li>
+                <li><strong>Relação Influenciador-Cliente:</strong> Sociedades médicas e especialistas influenciam a adoção e credibilidade da solução</li>
+                <li><strong>Relação Concorrente-Mercado:</strong> Concorrentes diretos e indiretos competem por market share e influenciam preços e funcionalidades</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

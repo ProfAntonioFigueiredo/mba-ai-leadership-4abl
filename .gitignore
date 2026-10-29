@@ -8,6 +8,8 @@
 **/.ipynb_checkpoints/
 .DS_Store
 *.pyc
+# Arquivos temporários de edição do Office
+~$*
 # Credenciais
 .env
 .env.*

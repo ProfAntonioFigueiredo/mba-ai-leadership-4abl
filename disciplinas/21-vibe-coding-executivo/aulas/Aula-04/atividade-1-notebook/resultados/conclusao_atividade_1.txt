@@ -1,0 +1,31 @@
+EnglishPro — Atividade 1 — Aula de 28/10/2026
+Base: 5400 alunos; 1110 cancelamentos (20.56%).
+Treino: 4050; teste: 1350. Semente: 42.
+Vencedor: Random forest; AUC de teste: 0.8733.
+O modelo vencedor obteve o maior AUC entre as duas alternativas; a diferença isolada não comprova superioridade estatística.
+No limiar de 50%: 50 falsos positivos e 140 falsos negativos.
+
+Duas diferenças de destaque:
+taxa_presenca_30_dias: permaneceu 0.678; cancelou 0.433.
+n_acessos_plataforma_30_dias: permaneceu 24.522; cancelou 15.636.
+Menor presença/uso pode indicar desengajamento; atrasos podem indicar dificuldade financeira; tempo de casa pode refletir adaptação. São hipóteses de negócio, sem prova causal.
+
+Variáveis em ordem de importância e direção no contraste P25→P75:
+taxa_presenca_30_dias: queda AUC 0.0941; reduz o risco (-10.06 pontos percentuais).
+n_parcelas_atrasadas_90_dias: queda AUC 0.0608; aumenta o risco (+7.82 pontos percentuais).
+taxa_inadimplencia_historica: queda AUC 0.0520; aumenta o risco (+4.07 pontos percentuais).
+tempo_casa_meses: queda AUC 0.0326; reduz o risco (-11.66 pontos percentuais).
+n_acessos_plataforma_30_dias: queda AUC 0.0301; reduz o risco (-10.46 pontos percentuais).
+
+Alunos fictícios:
+Perfil de permanência: 0.0% de risco estimado.
+Perfil de atenção: 97.3% de risco estimado.
+
+Limitações e conexão com hiperpersonalização:
+AUC mede ordenação, não garante probabilidades perfeitamente calibradas. Consulte o gráfico de calibração e o Brier.
+O AUC 0,870 anunciado na aba Leia-me é referência do material, não resultado garantido desta divisão.
+O teste foi usado para selecionar o vencedor conforme o roteiro; valide em outra amostra antes de uso operacional.
+As janelas das features devem terminar antes da janela futura de 60 dias. A base não contém datas para auditar essa sequência ou validar temporalmente.
+Risco pode orientar prioridade de atendimento; descontos, faixas e campanhas dependem de custos e experimento de retenção. Não há ganho financeiro medido neste exercício.
+Ações pedagógicas, apoio de adaptação ou negociação financeira são hipóteses coerentes com sinais de risco, a testar com grupo de controle.
+Não foram executadas a pontuação dos alunos atuais nem alterações no app (Atividades 2 e 3).

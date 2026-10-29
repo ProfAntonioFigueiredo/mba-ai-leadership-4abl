@@ -1,0 +1,39 @@
+{
+  "aula": "2026-10-28",
+  "etapa": "4.2 Tela administrativa de importação da previsão",
+  "arquivo": "atividade-2-notebook/resultados/EnglishPro_Previsao_Churn.xlsx",
+  "sha256_arquivo": "f02571fe5989032339264db291e65991242f3758ada0db92323d7bf4a048c05f",
+  "linhas_validas_arquivo": 13000,
+  "lotes_de_500": 26,
+  "validacao_em_memoria": {
+    "primeira_carga_inseridos": 13000,
+    "segunda_carga_atualizados": 13000,
+    "total_apos_reimportacao": 13000
+  },
+  "observacao_no_navegador": {
+    "modo": "demonstração local",
+    "previsoes_persistidas_visiveis": 13000,
+    "cadastros_vinculados": 6,
+    "sem_cadastro_vinculado": 12994,
+    "evidencia": "tela-importacao-churn.png"
+  },
+  "faixas": {
+    "0–20": 8663,
+    "20–40": 1925,
+    "40–60": 972,
+    "60–80": 888,
+    "80–100": 552
+  },
+  "testes": {
+    "total": 87,
+    "falhas": 0,
+    "inclui": "domínio, limites, reimportação, banco PostgreSQL local, permissões e regressões existentes"
+  },
+  "build": "aprovado",
+  "supabase_remoto": "não aplicado",
+  "migracao": "202610280002_churn_import.sql",
+  "fora_do_escopo": [
+    "4.3 campanhas de retenção",
+    "oferta personalizada no login"
+  ]
+}

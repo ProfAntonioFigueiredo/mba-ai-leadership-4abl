@@ -1,0 +1,6 @@
+feature,coeficiente_padronizado,razao_de_chances_por_desvio_padrao
+tempo_casa_meses,-0.7228986107758206,0.48534339348410005
+taxa_inadimplencia_historica,0.5235073826938009,1.6879375224020838
+n_parcelas_atrasadas_90_dias,0.7313200079438055,2.077821539187987
+taxa_presenca_30_dias,-0.907085662394707,0.40369902657088313
+n_acessos_plataforma_30_dias,-0.6436765113279564,0.5253573867457955

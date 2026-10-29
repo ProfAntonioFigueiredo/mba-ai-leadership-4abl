@@ -1,0 +1,126 @@
+Fonte: Aula 04 - Atividades /Atividade 2 - EnglishPro_Exercicio_Prever o churn dos alunos atuais.docx
+Aula: 28/10/2026
+
+MBA · EXERCÍCIO PRÁTICO
+Machine Learning e Hiperpersonalização
+Prevendo o cancelamento de alunos da EnglishPro com IA Generativa e transformando a previsão em ofertas personalizadas no seu app
+Item
+Detalhe
+Ferramentas
+Claude/GPT (treino do modelo e previsão) e Lovable (app da escola criado em Vibe Coding)
+Arquivos fornecidos
+EnglishPro_Churn_Treino.xlsx (histórico para treino) e EnglishPro_Dados_Alunos_Prontos_ML.xlsx (alunos atuais)
+Pré-requisito
+Ter o app administrativo e a área do aluno da EnglishPro já criados no Lovable
+Conhecimento técnico
+Não é necessário programar. Todos os passos são feitos com prompts em português
+Sumário
+1.  O desafio da EnglishPro
+2.  Etapa 1 — Treinar o modelo no Claude/GPT
+3.  Etapa 2 — Prever o churn dos alunos atuais
+1. O desafio da EnglishPro
+A EnglishPro é uma escola de inglês. Todo mês, uma parte desses alunos cancelam a matrícula. Cada cancelamento é receita perdida e, quase sempre, custa mais conquistar um aluno novo do que manter um que já está na escola.
+Hoje, a escola só percebe que perdeu um aluno quando ele já pediu o cancelamento. A diretoria quer inverter essa lógica: descobrir antes quem tem mais chance de sair e agir a tempo, oferecendo um desconto para quem antecipar a rematrícula.
+Mas há um cuidado: dar o mesmo desconto para todos sai caro. Um aluno que já ia continuar não precisa de desconto. Por isso, a oferta precisa ser diferente para cada aluno, de acordo com o risco dele. Isso é hiperpersonalização.
+Sua missão
+1. Usar o Claude/GPT/GPT/Gemini para treinar um modelo de Machine Learning com o histórico de alunos que cancelaram ou não.
+2. Usar esse modelo para calcular a probabilidade de churn (0% a 100%) de cada um dos alunos atuais.
+3. Levar essa previsão para o app da escola no Lovable: importar o resultado, cadastrar campanhas por faixa de risco e mostrar a oferta certa para cada aluno quando ele fizer login.
+1.1 Objetivos de aprendizagem
+Ao final do exercício, você será capaz de:
+Explicar, em linguagem de negócios, como um modelo de Machine Learning aprende com dados históricos.
+Conduzir uma IA Generativa para treinar, avaliar e aplicar um modelo de previsão, sem programar.
+Ler criticamente o resultado de um modelo: o que ele acerta, onde erra e quanto custa cada tipo de erro.
+1.2 Visão geral das etapas
+Etapa
+Onde
+O que você faz
+Resultado
+1. Treinar o modelo
+Claude/GPT/GPT
+Envia o histórico e pede para a IA aprender o que leva ao cancelamento
+Modelo treinado e explicado
+2. Prever o churn
+Claude/GPT/GPT
+Envia a base atual e pede a probabilidade de cada aluno
+Excel com id_aluno e probabilidade_churn
+1.3 Conceitos que você vai usar
+Termo
+O que significa (sem jargão)
+Churn
+Cancelamento. "Probabilidade de churn" é a chance de o aluno cancelar.
+Feature
+Uma característica usada para prever, como presença nas aulas ou parcelas atrasadas. É uma coluna de entrada.
+Label (rótulo)
+A resposta que o modelo aprende a prever. Aqui, a coluna cancelou_60_dias (1 = cancelou, 0 = não cancelou).
+Modelo
+Uma "receita" matemática que a IA monta a partir do histórico e que depois aplica a alunos novos.
+Treino e teste
+A base é dividida em duas partes: uma para o modelo aprender e outra, escondida, para conferir se ele acerta em casos que nunca viu.
+AUC
+Nota de 0,5 a 1,0 que mede o quanto o modelo separa bem quem sai de quem fica. 0,5 é chute; acima de 0,8 é um bom modelo.
+Falso positivo
+O modelo diz que o aluno vai sair, mas ele ficaria. Custo: um desconto dado sem necessidade.
+Falso negativo
+O modelo diz que o aluno vai ficar, mas ele sai. Custo: a receita perdida daquele aluno.
+Hiperpersonalização
+Oferecer a cada cliente uma experiência ou oferta diferente, com base em dados e previsões sobre ele.
+2. Etapa 1 — Treinar o modelo no Claude/GPT
+Nesta etapa, você vai entregar ao Claude/GPT o histórico de 5.400 alunos que estiveram na escola. Para cada um, a base mostra cinco características e se ele cancelou ou não nos 60 dias seguintes. O Claude/GPT vai procurar os padrões que diferenciam quem saiu de quem ficou.
+2.1 Antes de começar
+Abra o Claude/GPT e inicie uma conversa nova só para este exercício. Use a mesma conversa nas Etapas 1 e 2.
+Tenha os dois arquivos salvos no seu computador: EnglishPro_Churn_Treino.xlsx e EnglishPro_Dados_Alunos_Prontos_ML.xlsx.
+Por que "rodar código de verdade" importa
+Uma IA Generativa pode responder de duas formas: calculando (escreve e executa um programa que treina um modelo real) ou estimando (inventa números plausíveis só com base no texto). A segunda resposta parece correta, mas não é confiável.
+Por isso, todos os prompts deste roteiro pedem explicitamente que o Claude/GPT execute o código e mostre os resultados. Se em algum momento ele responder sem calcular, peça de novo.
+2.2 Passo 1: conhecer os dados
+Anexe o arquivo EnglishPro_Churn_Treino.xlsx na conversa e envie o prompt abaixo.
+PROMPT 1 — Explorar a base de treino
+Você é um cientista de dados ajudando a escola de inglês EnglishPro. Anexei o arquivo EnglishPro_Churn_Treino.xlsx.
+Os dados de treinamento estão na aba "base_treinamento"
+Explique em português simples, como se eu fosse um gestor sem formação técnica:
+1. Quantos alunos há na base e qual o percentual que cancelou.
+2. O que significa cada coluna.
+3. Comparando quem cancelou com quem não cancelou, quais diferenças mais chamam atenção? Mostre uma tabela com a média de cada coluna para os dois grupos.
+Anote: o percentual de alunos que cancelou e as duas diferenças que mais chamaram sua atenção. Elas fazem sentido para o negócio de uma escola de inglês?
+2.3 Passo 2: treinar e avaliar o modelo
+PROMPT 2 — Treinar o modelo
+Agora treine um modelo de Machine Learning para prever a coluna cancelou_60_dias usando as 5 features. Crie o modelo de treinamento no próprio chat da ferramenta que estamos usando. O modelo é um exercício escolar, não precisar gerar o código em python.
+Regras:
+- Não use id_aluno nem cancelou_60_dias como entrada do modelo.
+- Separe 25% dos dados para teste, que o modelo não pode ver durante o treino.
+- Teste pelo menos dois tipos de modelo (por exemplo, regressão logística e random forest) e escolha o melhor pelo AUC no conjunto de teste.
+Ao final, me mostre em linguagem de negócios:
+1. Qual modelo venceu e por quê.
+2. O AUC no conjunto de teste e o que esse número significa na prática.
+3. Quais variáveis mais pesam no cancelamento, em ordem de importância, e se cada uma aumenta ou reduz o risco.
+4. Dois alunos fictícios, um de risco baixo e um de risco alto, com a probabilidade de churn calculada para cada um.
+3. Etapa 2 — Prever o churn dos alunos atuais
+Agora o modelo já aprendeu com o passado. O próximo passo é aplicá-lo aos alunos matriculados hoje. O arquivo EnglishPro_Dados_Alunos_Prontos_ML.xlsx tem as mesmas cinco características, mas não tem a coluna de cancelamento, porque ninguém sabe ainda quem vai sair. É exatamente isso que o modelo vai estimar.
+Atenção
+Continue na mesma conversa da Etapa 1, para o Claude/GPT usar o modelo que já treinou. Se você perdeu a conversa, abra uma nova, repita os Passos 1 e 2 e só depois siga para cá.
+Anexe o arquivo EnglishPro_Dados_Alunos_Prontos_ML.xlsx e envie:
+PROMPT 1 — Gerar a previsão de churn
+Anexei o arquivo EnglishPro_Dados_Alunos_Prontos_ML.xlsx, com os alunos matriculados hoje. Ele tem as mesmas 5 features, mas não tem a coluna cancelou_60_dias.
+Use o modelo que você treinou na etapa anterior, sem treinar de novo, para calcular a probabilidade de churn de cada aluno deste arquivo anexo agora.
+Depois de analisado, gere um arquivo Excel chamado EnglishPro_Previsao_Churn.xlsx com estas regras:
+- Exatamente duas colunas, nesta ordem: id_aluno e probabilidade_churn.
+- probabilidade_churn é um número de 0 a 100, com uma casa decimal (exemplo: 37.5 significa 37,5%). Grave como número, não como texto e não como fórmula.
+- Cabeçalho na primeira linha, uma linha por aluno, sem linhas em branco, em uma única aba.
+Depois me mostre um resumo: quantos alunos ficaram em cada faixa (0–20, 20–40, 40–60, 60–80 e 80–100) e os 10 alunos de maior risco.
+3.1 Confira o arquivo antes de seguir
+Baixe o Excel gerado, abra e verifique:
+Verificação
+Como conferir
+Se der errado
+Só duas colunas
+Coluna A = id_aluno, coluna B = probabilidade_churn
+Peça para remover as colunas extras
+Valores de 0 a 100
+Classifique a coluna B do maior para o menor e confira os extremos
+Se vier de 0 a 1, peça para multiplicar por 100
+Distribuição coerente
+A maioria dos alunos deve estar em risco baixo, com grupos menores nas faixas altas
+Se quase todos estiverem acima de 90% ou abaixo de 1%, peça ao Claude/GPT para revisar o modelo e as colunas usadas
+Pare e reflita
+Olhe os 10 alunos de maior risco. O que eles têm em comum? Compare com as variáveis mais importantes que o modelo apontou na Etapa 1. A previsão é coerente com a explicação?

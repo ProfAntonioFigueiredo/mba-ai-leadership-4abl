@@ -1,0 +1,70 @@
+{
+  "data_execucao": "2026-10-28T20:42:18.621267-03:00",
+  "aula": "2026-10-28",
+  "arquivo_fonte": "Atividade 1 - EnglishPro_Churn_Treino.xlsx",
+  "sha256_fonte": "ba6c067b961bcf27fa343e777b258eb0fbfc299fab6586f80cacbf2d3b811a19",
+  "alunos": 5400,
+  "cancelamentos": 1110,
+  "taxa_churn": 0.20555555555555555,
+  "treino": 4050,
+  "teste": 1350,
+  "semente": 42,
+  "vencedor": "Random forest",
+  "metricas": [
+    {
+      "modelo": "Random forest",
+      "auc_teste": 0.8733097594046182,
+      "auc_treino": 0.9654627782104449,
+      "average_precision": 0.6906102425778352,
+      "acuracia": 0.8592592592592593,
+      "precisao": 0.732620320855615,
+      "recall": 0.49458483754512633,
+      "f1": 0.5905172413793104,
+      "brier": 0.10339966526269403
+    },
+    {
+      "modelo": "Regressão logística",
+      "auc_teste": 0.8699284370889003,
+      "auc_treino": 0.882057205847835,
+      "average_precision": 0.7019976519313433,
+      "acuracia": 0.8577777777777778,
+      "precisao": 0.73224043715847,
+      "recall": 0.48375451263537905,
+      "f1": 0.5826086956521739,
+      "brier": 0.10291352788965351
+    }
+  ],
+  "limiar_ilustrativo": 0.5,
+  "matriz_confusao": {
+    "tn": 1023,
+    "fp": 50,
+    "fn": 140,
+    "tp": 137
+  },
+  "exemplos": [
+    {
+      "index": "Perfil de permanência",
+      "tempo_casa_meses": 24,
+      "taxa_inadimplencia_historica": 0.0,
+      "n_parcelas_atrasadas_90_dias": 0,
+      "taxa_presenca_30_dias": 0.9,
+      "n_acessos_plataforma_30_dias": 40,
+      "probabilidade_churn_pct": 0.0
+    },
+    {
+      "index": "Perfil de atenção",
+      "tempo_casa_meses": 2,
+      "taxa_inadimplencia_historica": 0.5,
+      "n_parcelas_atrasadas_90_dias": 3,
+      "taxa_presenca_30_dias": 0.2,
+      "n_acessos_plataforma_30_dias": 4,
+      "probabilidade_churn_pct": 97.3
+    }
+  ],
+  "versoes": {
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

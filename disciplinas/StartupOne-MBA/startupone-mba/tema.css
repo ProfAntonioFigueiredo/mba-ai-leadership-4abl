@@ -1,0 +1,79 @@
+/* Tema editorial da Aula 04. Tipografia e cores compartilhadas, sem rede. */
+@font-face {
+  font-family: Ubuntu;
+  src: url("assets/fonts/Ubuntu-R.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Ubuntu;
+  src: url("assets/fonts/Ubuntu-B.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Ubuntu;
+  src: url("assets/fonts/Ubuntu-RI.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --fundo: #ffffff;
+  --fundo-suave: #f7fbfc;
+  --texto: #1f0a34;
+  --texto-suave: #5b5067;
+  --destaque: #43bccd;
+  --link: #145d6a;
+  --cartao: #d7f1f4;
+  --borda: #bdd7da;
+  --raio: 8px;
+  --fonte: Ubuntu, system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 17px/1.7 var(--fonte); }
+a { color: var(--link); text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+h1, h2, h3, h4 { color: var(--texto); line-height: 1.2; font-weight: 700; }
+h1 { font-size: clamp(2rem, 4.3vw, 3.4rem); letter-spacing: -.035em; }
+h2 { font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.025em; }
+h3 { font-size: 1.2rem; }
+p { margin: 12px 0 18px; }
+img { max-width: 100%; height: auto; }
+button, input, textarea { font: inherit; }
+button { background: var(--texto); color: #fff; border: 1px solid var(--texto); border-radius: var(--raio); padding: 12px 20px; font-weight: 700; cursor: pointer; }
+button:hover { background: var(--link); border-color: var(--link); }
+input, textarea { background: #fff; color: var(--texto); border: 1px solid var(--borda); border-radius: var(--raio); padding: 12px 14px; }
+input:focus, textarea:focus { border-color: var(--link); }
+:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+summary { cursor: pointer; font-weight: 700; overflow-wrap: anywhere; }
+summary::marker { color: var(--link); }
+details { background: var(--fundo); border: 1px solid var(--borda); border-radius: var(--raio); padding: 20px; margin: 14px 0; }
+details[open] > summary { margin-bottom: 18px; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { padding: 15px 16px; vertical-align: top; border-bottom: 1px solid var(--borda); }
+th { background: var(--cartao); color: var(--texto); text-align: left; font-weight: 700; }
+tbody tr:nth-child(even) { background: var(--fundo-suave); }
+td p:last-child { margin-bottom: 0; }
+.scroll, .table-scroll { overflow-x: auto; max-width: 100%; }
+.skip { position: absolute; left: -10000px; top: 12px; z-index: 10; background: #fff; padding: 12px 18px; border: 2px solid var(--link); border-radius: var(--raio); }
+.skip:focus { left: 12px; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  @page { margin: 18mm; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  h1, h2, h3, h4 { color: #000; break-after: avoid; }
+  h1 { font-size: 26pt; }
+  h2 { font-size: 20pt; }
+  a { color: #000; }
+  button, .skip { display: none; }
+  th { background: #edf5f6; }
+  th, td { color: #000; padding: 8px; }
+  tr, figure { break-inside: avoid; }
+  .scroll, .table-scroll { overflow: visible; }
+}

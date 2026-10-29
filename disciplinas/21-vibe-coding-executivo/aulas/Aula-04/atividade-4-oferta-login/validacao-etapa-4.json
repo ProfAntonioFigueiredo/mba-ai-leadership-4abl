@@ -1,0 +1,17 @@
+{
+  "aula": "2026-10-28",
+  "etapa": "Oferta personalizada no login do aluno",
+  "testes_aprovados": 116,
+  "build": "aprovado",
+  "teste_visual": {
+    "titulo": "Campanha Fidelidade",
+    "primeiro_nome": "Beatriz",
+    "desconto_percentual": 5,
+    "probabilidade_churn_exibida": false,
+    "resposta": "sem resposta",
+    "status_campanha_restaurado": "inativa"
+  },
+  "migracao": "202610280004_student_retention_offer.sql",
+  "migracao_remota_aplicada": false,
+  "persistencia_demo": "localStorage do navegador"
+}

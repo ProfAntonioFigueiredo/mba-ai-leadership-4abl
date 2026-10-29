@@ -1,0 +1,106 @@
+[
+  {
+    "id": "F01",
+    "nome": "1-Plataforma_2TDS - Fase 1_AntonioFigueriedo.docx",
+    "arquivo": "fontes/1-Plataforma_2TDS - Fase 1_AntonioFigueriedo.docx",
+    "texto": "fontes-texto/1-Plataforma_2TDS - Fase 1_AntonioFigueriedo.txt",
+    "sha256": "c6e5280ffa36c51885948dfc107f8654790e4f414ba2ae96cc9cb693d13f3f3a",
+    "html": "documentos/f01.html"
+  },
+  {
+    "id": "F02",
+    "nome": "2-2TDS - Fase 02 - Atividade - Validando o problema - Entrega.docx",
+    "arquivo": "fontes/2-2TDS - Fase 02 - Atividade - Validando o problema - Entrega.docx",
+    "texto": "fontes-texto/2-2TDS - Fase 02 - Atividade - Validando o problema - Entrega.txt",
+    "sha256": "cca9a738efdc9a65b4bc00a36a10f69fc39db8e6297acb1a203719bf8ad8885e",
+    "html": "documentos/f02.html"
+  },
+  {
+    "id": "F03",
+    "nome": "2.1-2TDS - Fase 02 - Atividade - Identificando Oportunidade - rm561148.pdf",
+    "arquivo": "fontes/2.1-2TDS - Fase 02 - Atividade - Identificando Oportunidade - rm561148.pdf",
+    "texto": "fontes-texto/2.1-2TDS - Fase 02 - Atividade - Identificando Oportunidade - rm561148.txt",
+    "sha256": "11c8233ac40973c73121164485923d9914e1bd2e0baeaedc811987c9061c69b9",
+    "html": "documentos/f03.html"
+  },
+  {
+    "id": "F04",
+    "nome": "3-FIAP ON - 2TDSOS-RM561148_AntonioSergioRFigueiredo_Cap8-Prototipacao.docx",
+    "arquivo": "fontes/3-FIAP ON - 2TDSOS-RM561148_AntonioSergioRFigueiredo_Cap8-Prototipacao.docx",
+    "texto": "fontes-texto/3-FIAP ON - 2TDSOS-RM561148_AntonioSergioRFigueiredo_Cap8-Prototipacao.txt",
+    "sha256": "a92ae79bc4a8ba0ecc24455acf45e186c22cc6f5e9703118afbb230254b717fc",
+    "html": "documentos/f04.html"
+  },
+  {
+    "id": "F05",
+    "nome": "2TDS_Fase03_Cap10_Canvas_Entrega_Final_REVISADO.html",
+    "arquivo": "fontes/2TDS_Fase03_Cap10_Canvas_Entrega_Final_REVISADO.html",
+    "texto": "fontes-texto/2TDS_Fase03_Cap10_Canvas_Entrega_Final_REVISADO.txt",
+    "sha256": "c2fc11151c76b90f85669bf6c4a71d344f3a35fa032279881136b6eeffa2a512",
+    "html": "documentos/f05.html"
+  },
+  {
+    "id": "F06",
+    "nome": "2TDS_Fase03_Cap10_Canvas_Parte1_Projeto.html",
+    "arquivo": "fontes/2TDS_Fase03_Cap10_Canvas_Parte1_Projeto.html",
+    "texto": "fontes-texto/2TDS_Fase03_Cap10_Canvas_Parte1_Projeto.txt",
+    "sha256": "11fc3db922b468224a5fee502b6b5f42153d8ed32bd174f2621a32bc418c98e9",
+    "html": "documentos/f06.html"
+  },
+  {
+    "id": "F07",
+    "nome": "2TDS_Fase03_Cap10_Canvas_Parte2_ValueProposition.html",
+    "arquivo": "fontes/2TDS_Fase03_Cap10_Canvas_Parte2_ValueProposition.html",
+    "texto": "fontes-texto/2TDS_Fase03_Cap10_Canvas_Parte2_ValueProposition.txt",
+    "sha256": "d1a0836419259c527ddaca31662c04cf4b51ae1d0b865bcf720e80c842ab6944",
+    "html": "documentos/f07.html"
+  },
+  {
+    "id": "F08",
+    "nome": "2TDS_Fase03_Cap10_Canvas_Parte3_BusinessModel.html",
+    "arquivo": "fontes/2TDS_Fase03_Cap10_Canvas_Parte3_BusinessModel.html",
+    "texto": "fontes-texto/2TDS_Fase03_Cap10_Canvas_Parte3_BusinessModel.txt",
+    "sha256": "c73933cfe3f0ca783d86126ad1638114520f21f83d1c2f031c36b76d3ac60564",
+    "html": "documentos/f08.html"
+  },
+  {
+    "id": "F09",
+    "nome": "Business_Model_Canvas_EarlyDetect.html",
+    "arquivo": "fontes/Business_Model_Canvas_EarlyDetect.html",
+    "texto": "fontes-texto/Business_Model_Canvas_EarlyDetect.txt",
+    "sha256": "1e59f9db77b6145f3563e1a00d3a50ec8b7376e3ba2bae1b9490842386dce9e0",
+    "html": "documentos/f09.html"
+  },
+  {
+    "id": "F10",
+    "nome": "Canvas_Completo_EarlyDetect.html",
+    "arquivo": "fontes/Canvas_Completo_EarlyDetect.html",
+    "texto": "fontes-texto/Canvas_Completo_EarlyDetect.txt",
+    "sha256": "1c16823c3a8ab2cd8d4c738813252d1dac21f93c54863f16f2c0c9a511611da8",
+    "html": "documentos/f10.html"
+  },
+  {
+    "id": "F11",
+    "nome": "Value_Proposition_Canvas_EarlyDetect.html",
+    "arquivo": "fontes/Value_Proposition_Canvas_EarlyDetect.html",
+    "texto": "fontes-texto/Value_Proposition_Canvas_EarlyDetect.txt",
+    "sha256": "a9daa8004136da7fbdf7439523573d5c14b3c8639a8c703cd0c0bd836c27b7c5",
+    "html": "documentos/f11.html"
+  },
+  {
+    "id": "F12",
+    "nome": "Aula0_FIAP_2026.2_MBA_HÍBRIDO.pdf",
+    "arquivo": "fontes/Aula0_FIAP_2026.2_MBA_HÍBRIDO.pdf",
+    "texto": "fontes-texto/Aula0_FIAP_2026.2_MBA_HÍBRIDO.txt",
+    "sha256": "9a6e243fd4628c4a22d41983d1040b84a50341833217564e3f2cba3a181d298d",
+    "html": "documentos/f12.html"
+  },
+  {
+    "id": "F13",
+    "nome": "EcossistemaInfluencias_EarlyDetect.html",
+    "arquivo": "fontes/EcossistemaInfluencias_EarlyDetect.html",
+    "texto": "fontes-texto/EcossistemaInfluencias_EarlyDetect.txt",
+    "sha256": "49dec493f64282650e1100cdb83dfa77209c451a9d8861ae9c3046f1ed1dd3bf",
+    "html": "documentos/f13.html"
+  }
+]

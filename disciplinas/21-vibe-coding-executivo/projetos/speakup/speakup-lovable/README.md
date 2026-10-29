@@ -87,3 +87,29 @@ Funciona também no modo atual, sem Supabase. A busca ocorre apenas ao clicar; h
 Na área do **Aluno**, abra **Memory Game**. O tabuleiro tem cinco colunas e cinco linhas: 24 cartas (12 pares inglês/português) e o placar na última posição. Cada par vale 10 pontos; uma tentativa é contada ao escolher a segunda carta. Erros não retiram pontos. Pares incorretos ficam visíveis por um segundo, com as demais cartas bloqueadas. **Novo Jogo** zera a partida e embaralha as cartas.
 
 O painel **Como o FrontEnd funciona** acompanha estado, renderização e reatividade. A partida é mantida em memória enquanto a página do jogo permanece aberta; sair da página ou recarregar reinicia o jogo. Não exige API externa nem Supabase e não altera cadastros ou notas.
+
+## Aula 04 Atividade 3 Identificação para Machine Learning
+
+Concluído o item 4.1: na **Coordenação**, abra **Identificação para ML** para conferir o ID numérico da planilha. Matrículas numéricas compatíveis recebem o mesmo ID automaticamente; matrículas legadas exigem associação explícita. A matrícula de login, os zeros iniciais, as senhas e os relacionamentos são preservados.
+
+O vínculo usa o novo campo `id_aluno_ml`, inteiro único, correspondente a `id_aluno` no Excel. Para um Supabase conectado, aplique a migração `202610280001_student_ml_identity.sql` após as anteriores. No demo, a preparação funciona localmente. Veja [o contrato, a migração e a continuação da atividade](docs/atividade-3-identificacao-ml.md).
+
+Importação de churn, campanhas e ofertas no login não integram este item. Para a próxima etapa, ficou registrada a decisão de impedir sobreposição de campanhas ativas.
+
+## Aula 04 Etapa 4.2 Importação da previsão de churn
+
+Na **Coordenação**, abra **Previsão de Churn**. A tela aceita o Excel da Atividade 2 com `id_aluno` e `probabilidade_churn` numéricos, apresenta dez linhas de prévia, valida todo o arquivo e grava em lotes de 500, com progresso e resultado por linha. A reimportação atualiza sem duplicar. O painel mostra as cinco faixas e uma tabela pesquisável por ID/nome, ordenada pelo maior risco.
+
+No demo, as previsões ficam neste navegador. Em um Supabase conectado, aplique `202610280002_churn_import.sql` após a migração de identificação. As RPCs são exclusivas da Coordenação; previsões sem cadastro são preservadas sem criar alunos. Consulte [o formato, a operação e a validação da etapa 4.2](docs/atividade-3-importacao-churn.md).
+
+## Aula 04 Etapa 4.3 Campanhas de retenção
+
+Na **Coordenação → Campanhas de Retenção**, cadastre e edite faixas, descontos, mensagens com `{nome}`, validade e status. A listagem mostra quantos alunos da previsão caem em cada faixa e permite ativar/desativar e excluir campanhas. Campanhas ativas com sobreposição de faixa e período são bloqueadas na interface e no banco.
+
+O botão **Carregar 5 exemplos da aula** cadastra os exemplos como inativos, com descontos de referência de 5% a 25%. No demo, os dados são locais. Para Supabase, a nova migração é `202610280003_retention_campaigns.sql`. Veja [as regras e a operação da etapa 4.3](docs/atividade-3-campanhas-retencao.md). A oferta no login pertence à etapa seguinte.
+
+## Aula 04 Etapa 4 Oferta personalizada no login
+
+Ao entrar como **Aluno**, uma oferta é exibida se houver vínculo com a previsão e campanha ativa, vigente e apropriada à faixa. O aluno vê título, mensagem com seu primeiro nome, desconto e validade; não vê a probabilidade de churn. Aceite, recusa e exibições sem resposta ficam registrados. Campanhas já respondidas não reaparecem.
+
+No demo, o histórico é local. No Supabase, a seleção ocorre no servidor e exige a migração `202610280004_student_retention_offer.sql`, após as anteriores. O botão de rematrícula registra interesse, sem efetivar contratação ou cobrança. Veja [o fluxo, o histórico e os controles da oferta no login](docs/atividade-3-oferta-login.md).

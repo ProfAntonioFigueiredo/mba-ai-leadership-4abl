@@ -1,0 +1,32 @@
+EnglishPro — Atividade 2 — Aula de 28/10/2026
+
+Abra Atividade_2_EnglishPro_Previsao_Churn.ipynb no VS Code.
+Selecione o kernel Python em ../atividade-1-notebook/.venv/bin/python.
+Clique em Executar tudo. As saídas desta entrega já estão preenchidas.
+
+O modelo vencedor é carregado de ../atividade-1-notebook/resultados/modelo_churn.joblib.
+Não há treinamento novo. As versões precisam coincidir com as usadas na Atividade 1.
+As planilhas originais são lidas da pasta irmã Aula 04 - Atividades  (com espaço final).
+Você pode definir caminhos explícitos na primeira célula de código.
+
+ENTREGA PARA IMPORTAÇÃO
+resultados/EnglishPro_Previsao_Churn.xlsx
+Uma aba, cabeçalho na primeira linha, somente id_aluno e probabilidade_churn.
+O número 37.5 significa 37,5%; não é texto nem fórmula.
+
+RESULTADOS DE APOIO
+Distribuição por faixas, top 10 e comparação de características estão no notebook.
+resultados/conclusao_atividade_2.txt contém a leitura para a gestão.
+resultados/resumo_execucao.json registra hashes e verificações.
+
+DEPENDÊNCIAS E PORTABILIDADE
+Python: reutiliza o ambiente da Atividade 1 e seu requirements.txt.
+Excel: o notebook chama exportar_previsao.mjs com o Node e @oai/artifact-tool do ambiente Codex.
+Neste computador os caminhos são descobertos automaticamente.
+Em outro ambiente, configure NODE_BIN com o executável Node e ARTIFACT_NODE_MODULES com a pasta node_modules que contém @oai/artifact-tool. Preserve o exportador ao mover o notebook.
+Este notebook não instala dependências automaticamente e não foi validado no Colab.
+Fontes e modelo precisam ser de origem conhecida; joblib pode executar código ao carregar.
+
+As faixas usam a previsão arredondada e são [0,20), [20,40), [40,60), [60,80), [80,100].
+A execução valida todas as linhas do Excel e confirma que os hashes do modelo e da base atual não mudaram.
+O notebook não altera o aplicativo nem cadastra campanhas (Atividade 3).

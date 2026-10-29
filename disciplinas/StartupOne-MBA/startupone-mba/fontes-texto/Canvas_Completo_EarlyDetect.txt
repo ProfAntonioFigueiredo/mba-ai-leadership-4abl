@@ -1,0 +1,195 @@
+Business Canvas Completo - EarlyDetect
+BUSINESS MODEL CANVAS
+EarlyDetect Platform - Startup One 2TDS 2025/2
+Parceiros-Chave
+Universidades e Centros de Pesquisa (validação científica, estudos clínicos)
+Profissionais de Saúde Especializados (rede credenciada, validação clínica)
+Associações de TEA/TDAH - ABRA, ABDA (parcerias estratégicas, credibilidade)
+Fornecedores de Tecnologia - AWS/Azure (infraestrutura cloud)
+Reguladores - ANVISA, LGPD (aprovação e compliance)
+Influenciadores Digitais (mães blogueiras, especialistas)
+Clínicas e Hospitais (parcerias B2B, integração)
+Atividades-Chave
+Desenvolvimento de Produto (software, IA)
+Validação Científica (parcerias, estudos clínicos)
+Marketing e Vendas (aquisição de usuários)
+Gestão de Parcerias (rede de profissionais, B2B)
+Compliance Regulatório (ANVISA, LGPD)
+Suporte ao Cliente (atendimento, feedback)
+Recursos-Chave
+Plataforma web/mobile (React.js, Node.js)
+Algoritmos de IA (Python, TensorFlow)
+Infraestrutura cloud (AWS, Azure)
+Equipe de desenvolvimento
+Especialistas em neurodesenvolvimento
+Algoritmos validados cientificamente
+Rede de profissionais credenciados
+Capital para desenvolvimento
+Proposta de Valor
+Para Pais:
+Ferramenta confiável e acessível para triagem precoce
+Orientação especializada baseada em evidências
+Conectividade com profissionais qualificados
+Redução de ansiedade e incerteza
+Para Profissionais:
+Pacientes melhor preparados
+Otimização de tempo de consulta
+Relatórios profissionais detalhados
+Relacionamento com Clientes
+Self-Service:
+Versão gratuita com acesso direto
+Assistência Pessoal:
+Suporte via chat e email
+Comunidades:
+Grupos de apoio, fóruns educativos
+Co-criação:
+Feedback para melhoria contínua
+Fidelização:
+Descontos anuais, programa de referência
+Canais
+Aquisição:
+Website e landing pages
+App stores (Play Store, App Store)
+Marketing digital (SEO/SEM, redes sociais)
+Parcerias com profissionais
+Parcerias com clínicas
+Influenciadores digitais
+Segmentos de Clientes
+Primário:
+Pais e cuidadores de crianças 0-6 anos (classe A/B/C)
+Famílias com histórico de TEA/TDAH
+Secundário:
+Profissionais de saúde infantil
+Instituições educacionais
+B2B:
+Clínicas e hospitais
+Redes de saúde
+Estrutura de Custos
+Desenvolvimento:
+40%
+Marketing:
+25%
+Operações:
+20%
+Infraestrutura:
+15%
+Fluxos de Receita
+Assinaturas Premium:
+R$ 29,90/mês (70% da receita)
+Assinaturas Profissionais:
+R$ 99,90/mês (15% da receita)
+Licenciamento B2B:
+R$ 500/mês (10% da receita)
+Comissões de Agendamento:
+Comissão por consulta (3% da receita)
+Produtos Adicionais:
+E-books, cursos (2% da receita)
+Projeções:
+Ano 1: R$ 150.000 | Ano 2: R$ 800.000 | Ano 3: R$ 2.500.000
+Métricas Principais
+CAC (Custo de Aquisição)
+R$ 50
+LTV (Lifetime Value)
+R$ 500
+LTV/CAC Ratio
+10:1
+Churn Rate
+5% mensal
+VALUE PROPOSITION CANVAS
+EarlyDetect Platform - Startup One 2TDS 2025/2
+PERFIL DO CLIENTE
+1. Tarefas que o Cliente Procura Realizar
+Identificar precocemente sinais de TEA/TDAH em crianças
+Reduzir ansiedade e incerteza sobre desenvolvimento infantil
+Obter orientação especializada e confiável
+Conectar-se com profissionais especializados
+Acompanhar o desenvolvimento da criança ao longo do tempo
+Acessar materiais educativos sobre desenvolvimento infantil
+2. Dores
+Problemas, Riscos, Barreiras
+Ansiedade e incerteza sobre o desenvolvimento da criança
+Dificuldade para identificar sinais precoces
+Tempo de espera longo para consulta especializada (2-6 meses)
+Custo elevado de consultas (R$ 200-500)
+Falta de acesso a profissionais especializados
+Informações confusas e contraditórias online
+Medo de estar preocupado sem necessidade
+Dificuldade para entender resultados de triagens genéricas
+3. Ganhos
+Resultados Desejados, Benefícios
+Redução da ansiedade e incerteza
+Identificação precoce de sinais de risco
+Orientação clara e personalizada
+Economia de tempo e recursos
+Acesso facilitado a profissionais especializados
+Materiais educativos confiáveis
+Acompanhamento contínuo do desenvolvimento
+Preparação melhor para consultas profissionais
+MAPEAMENTO DA OFERTA
+4. Produtos e Serviços
+Questionários de triagem validados cientificamente
+Sistema de pontuação inteligente com IA
+Relatórios personalizados e interpretados
+Orientações educativas baseadas em resultados
+Conectividade com rede de profissionais
+Materiais educativos sobre desenvolvimento infantil
+Histórico de triagens e acompanhamento
+Alertas e lembretes personalizados
+5. Criadores de Alívio
+Alívio das Dores
+Alivia:
+Ansiedade através de orientação clara e confiável
+Elimina:
+Espera longa para triagem inicial (acesso imediato)
+Reduz:
+Custo de avaliação inicial (versão gratuita disponível)
+Simplifica:
+Processo de identificação de sinais precoces
+Elimina:
+Confusão com informações não validadas
+Reduz:
+Barreira de acesso a profissionais (conectividade integrada)
+6. Criadores de Ganho
+Geração de Ganhos
+Cria:
+Identificação precoce de sinais de risco
+Aumenta:
+Confiança através de validação científica
+Melhora:
+Preparação para consultas profissionais
+Acelera:
+Processo de busca por ajuda especializada
+Fornece:
+Materiais educativos confiáveis e personalizados
+Facilita:
+Acompanhamento contínuo do desenvolvimento
+PROPOSTA DE VALOR
+Para Pais e Cuidadores:
+"A ferramenta confiável e acessível que ajuda você a identificar precocemente sinais de TEA/TDAH em seu filho, fornecendo orientação especializada e conectando você com profissionais qualificados - tudo isso de forma simples e baseada em evidências científicas."
+Para Profissionais de Saúde:
+"A plataforma que prepara seus pacientes com triagem prévia validada cientificamente, otimizando seu tempo de consulta e melhorando a qualidade dos encaminhamentos através de relatórios detalhados e profissionais."
+Principais Diferenciadores:
+Validação científica rigorosa (único com estudos clínicos específicos)
+Especialização exclusiva em TEA/TDAH
+Modelo freemium acessível (triagem básica gratuita)
+Conectividade integrada com profissionais especializados
+Interface intuitiva para leigos
+Validação da Proposta de Valor
+✓ 89% dos pais
+gostariam de ter uma ferramenta confiável para triagem inicial
+✓ 78% confiariam
+em ferramentas digitais validadas cientificamente
+✓ 94% dos profissionais
+apoiariam ferramentas validadas cientificamente
+✓ 78% pagariam
+por orientação especializada e confiável (valor médio: R$ 19,90/mês)
+EarlyDetect Platform - Business Canvas Completo
+Startup One - 2TDS 2025/2 | Janeiro 2025
+Nota:
+Estes canvas foram criados seguindo os frameworks Business Model Canvas e Value Proposition Canvas.
+Para visualização interativa, acesse:
+canvanizer.com
+|
+strategyzer.com
+Instruções para Exportar PDF:
+Abra este arquivo no navegador e use Ctrl+P (Cmd+P no Mac) → Salvar como PDF

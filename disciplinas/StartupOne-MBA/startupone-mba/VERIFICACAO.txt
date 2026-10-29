@@ -1,0 +1,24 @@
+Manutenção visual em 28/10/2026
+
+Portal e biblioteca compartilham tema.css: fundo branco, roxo, turquesa,
+cartões azul-claro e tipografia Ubuntu local, incluindo a licença.
+style.css e documentos/leitura.css mantêm somente os respectivos layouts.
+
+Verificações executadas nesta manutenção:
+- Texto e links das 15 páginas (portal, biblioteca e 13 leitores) preservados.
+  O portal recebeu apenas um atalho de acessibilidade adicional.
+- 66 arquivos de fontes originais e imagens conferidos por SHA-256, sem mudanças.
+- 482 links, âncoras e referências locais das 15 páginas com destinos presentes.
+- Imports CSS e os três arquivos locais de fonte presentes.
+- JavaScript existente aprovado em node --check.
+- Conversor importado sem executar conversão ou sobrescrever arquivos.
+- Atualização do index aplicada duas vezes em memória, com resultado idêntico.
+- Validação dos arquivos de estilo e compilação do conversor aprovadas.
+
+Regras de responsividade, foco por teclado, redução de movimento e impressão
+foram revisadas no CSS. A política de navegação bloqueou a abertura de file://,
+portanto a aparência e a interação não foram validadas visualmente no navegador.
+A conversão integral não foi executada: bs4 e PyMuPDF não estão disponíveis no
+runtime verificado. Esta manutenção não exige reconverter os documentos.
+Nenhum ZIP foi recriado ou verificado nesta manutenção. Os links externos não
+foram testados. As imagens originais dos documentos mantêm sua aparência.

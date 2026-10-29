@@ -1,0 +1,38 @@
+EnglishPro — Atividade 2 — Aula de 28/10/2026
+Modelo: Random forest, carregado da Atividade 1 sem re-treinamento.
+13000 alunos processados. IDs únicos, dados completos e arquivo exportado conferido.
+Risco mínimo: 0.0%; máximo: 98.9%.
+
+Distribuição por faixa (inclui o limite inferior e exclui o superior, exceto 100):
+0–20%: 8663 alunos (66.64% da base).
+20–40%: 1925 alunos (14.81% da base).
+40–60%: 972 alunos (7.48% da base).
+60–80%: 888 alunos (6.83% da base).
+80–100%: 552 alunos (4.25% da base).
+
+Dez maiores riscos:
+Aluno 8687: 98.9%.
+Aluno 6013: 98.9%.
+Aluno 8032: 98.6%.
+Aluno 12841: 98.5%.
+Aluno 3076: 98.5%.
+Aluno 1406: 98.5%.
+Aluno 8584: 98.3%.
+Aluno 7075: 98.3%.
+Aluno 9766: 98.2%.
+Aluno 5341: 98.2%.
+
+Características do grupo de maior risco:
+tempo_casa_meses: média 3.900 nos dez de maior risco, menor que a média atual 13.341.
+taxa_inadimplencia_historica: média 0.323 nos dez de maior risco, maior que a média atual 0.108.
+n_parcelas_atrasadas_90_dias: média 2.500 nos dez de maior risco, maior que a média atual 0.524.
+taxa_presenca_30_dias: média 0.176 nos dez de maior risco, menor que a média atual 0.625.
+n_acessos_plataforma_30_dias: média 2.400 nos dez de maior risco, menor que a média atual 22.512.
+
+Conclusão para a gestão: priorize a análise dos alunos de maior risco; presença e atrasos ajudam a direcionar a conversa. Risco não mede resposta a desconto. As campanhas dependem de decisão de negócio e validação por experimento.
+Não há rótulos atuais para medir AUC ou cancelamento efetivo. Não se deve ajustar a distribuição para forçar as expectativas do roteiro.
+Extremos: 1795 alunos abaixo de 1%; 216 acima de 90%.
+Valores arredondados de 0,0% ou 100,0% não representam certeza.
+A importação e as campanhas no Lovable (Atividade 3) não foram executadas.
+Arquivo de importação: EnglishPro_Previsao_Churn.xlsx. Uma aba, duas colunas, números e uma casa decimal.
+SHA-256 do modelo preservado: 103a090535450b336cd615643e2d3e1239b75c464742242f438beca60d276245

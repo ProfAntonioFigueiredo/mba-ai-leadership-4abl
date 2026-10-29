@@ -1,0 +1,67 @@
+{
+  "aula": "2026-10-28",
+  "etapa": "4.3 Campanhas de retenção (admin)",
+  "implementado": [
+    "cadastro",
+    "edição",
+    "listagem por faixa",
+    "ativação/desativação",
+    "exclusão com confirmação",
+    "mensagem com {nome} e prévia",
+    "contagem de previsões por faixa"
+  ],
+  "regra_sobreposicao": "Impedir campanhas ativas com faixa de churn e período sobrepostos",
+  "validade": "datas civis, início e fim incluídos; fim posterior ao início",
+  "modelos_da_aula": [
+    {
+      "nome": "Fidelidade",
+      "churn_min": 0,
+      "churn_max": 20,
+      "desconto_percentual": 5,
+      "alunos_faixa": 8663,
+      "status_inicial": "inativa"
+    },
+    {
+      "nome": "Renove já",
+      "churn_min": 20,
+      "churn_max": 40,
+      "desconto_percentual": 10,
+      "alunos_faixa": 1925,
+      "status_inicial": "inativa"
+    },
+    {
+      "nome": "Fique com a gente",
+      "churn_min": 40,
+      "churn_max": 60,
+      "desconto_percentual": 15,
+      "alunos_faixa": 972,
+      "status_inicial": "inativa"
+    },
+    {
+      "nome": "Não desista agora",
+      "churn_min": 60,
+      "churn_max": 80,
+      "desconto_percentual": 20,
+      "alunos_faixa": 888,
+      "status_inicial": "inativa"
+    },
+    {
+      "nome": "Última chamada",
+      "churn_min": 80,
+      "churn_max": 100,
+      "desconto_percentual": 25,
+      "alunos_faixa": 552,
+      "status_inicial": "inativa"
+    }
+  ],
+  "testes": {
+    "total": 101,
+    "falhas": 0,
+    "banco": "PostgreSQL local em memória via PGlite"
+  },
+  "build": "aprovado",
+  "conferencia_navegador": "Formulário, carregamento de exemplos, persistência e contagem por faixa conferidos; dados locais podem ser editados pela Coordenação",
+  "migração": "202610280003_retention_campaigns.sql",
+  "supabase_remoto": "não aplicado",
+  "oferta_no_login": "Etapa 4, fora desta entrega"
+}

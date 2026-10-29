@@ -1,0 +1,6 @@
+,mínimo_histórico,máximo_histórico,mínimo_atual,máximo_atual,alunos_fora_limites_históricos
+tempo_casa_meses,1.0,68.0,1.0,68.0,0
+taxa_inadimplencia_historica,0.0,0.7,0.0,0.7,0
+n_parcelas_atrasadas_90_dias,0.0,3.0,0.0,3.0,0
+taxa_presenca_30_dias,0.0,0.998,0.0,0.998,0
+n_acessos_plataforma_30_dias,0.0,54.0,0.0,57.0,1

@@ -1,0 +1,94 @@
+{
+  "aula": "2026-10-28",
+  "execucao": "2026-10-28T21:27:14.046974-03:00",
+  "modelo": "Random forest",
+  "retreinado": false,
+  "sha256_modelo": "103a090535450b336cd615643e2d3e1239b75c464742242f438beca60d276245",
+  "fonte": "Atividade 2 - EnglishPro_Dados_Alunos_Prontos_ML.xlsx",
+  "sha256_fonte": "7ff8cb6cb276da3f5749268c202e461472e4f067404759fb04958f1a2d093524",
+  "alunos": 13000,
+  "probabilidade_min_pct": 0.0,
+  "probabilidade_max_pct": 98.9,
+  "faixas": [
+    {
+      "faixa_churn_pct": "0–20",
+      "alunos": 8663,
+      "percentual_da_base": 66.64
+    },
+    {
+      "faixa_churn_pct": "20–40",
+      "alunos": 1925,
+      "percentual_da_base": 14.81
+    },
+    {
+      "faixa_churn_pct": "40–60",
+      "alunos": 972,
+      "percentual_da_base": 7.48
+    },
+    {
+      "faixa_churn_pct": "60–80",
+      "alunos": 888,
+      "percentual_da_base": 6.83
+    },
+    {
+      "faixa_churn_pct": "80–100",
+      "alunos": 552,
+      "percentual_da_base": 4.25
+    }
+  ],
+  "regra_faixas": "[0,20), [20,40), [40,60), [60,80), [80,100], sobre valores arredondados",
+  "extremos": {
+    "abaixo_1_pct": 1795,
+    "acima_90_pct": 216
+  },
+  "top10": [
+    {
+      "id_aluno": 8687,
+      "probabilidade_churn": 98.9
+    },
+    {
+      "id_aluno": 6013,
+      "probabilidade_churn": 98.9
+    },
+    {
+      "id_aluno": 8032,
+      "probabilidade_churn": 98.6
+    },
+    {
+      "id_aluno": 12841,
+      "probabilidade_churn": 98.5
+    },
+    {
+      "id_aluno": 3076,
+      "probabilidade_churn": 98.5
+    },
+    {
+      "id_aluno": 1406,
+      "probabilidade_churn": 98.5
+    },
+    {
+      "id_aluno": 8584,
+      "probabilidade_churn": 98.3
+    },
+    {
+      "id_aluno": 7075,
+      "probabilidade_churn": 98.3
+    },
+    {
+      "id_aluno": 9766,
+      "probabilidade_churn": 98.2
+    },
+    {
+      "id_aluno": 5341,
+      "probabilidade_churn": 98.2
+    }
+  ],
+  "sha256_excel": "f02571fe5989032339264db291e65991242f3758ada0db92323d7bf4a048c05f",
+  "verificacoes": "todas as linhas, tipos, precisão, ordem, esquema e hashes conferidos",
+  "versoes": {
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  }
+}

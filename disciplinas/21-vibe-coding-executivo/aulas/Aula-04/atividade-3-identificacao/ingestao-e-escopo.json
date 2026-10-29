@@ -1,0 +1,18 @@
+{
+  "aula": "2026-10-28",
+  "fonte": "Aula 04 - Atividades /Atividade 3 - EnglishPro_Exercicio_Aplicação.docx",
+  "sha256_fonte": "af1d0fd1befe6eb810f8ed7d28db2dc10d880a6d7aaad7e7b2643e81303afd5e",
+  "escopo_confirmado": "Somente item 4.1: preparação do id_aluno",
+  "aplicacao": "../../projetos/speakup/speakup-lovable",
+  "cadastro_original": "tb_aluno.id_aluno (matrícula textual única)",
+  "campo_numerico_excel": "tb_aluno.id_aluno_ml (BIGINT UNIQUE)",
+  "limite_inteiro_seguro": 9007199254740991,
+  "automatico": "Matrículas decimais canônicas positivas; identidade legada preservada",
+  "supabase_remoto": "não aplicado",
+  "regra_campanhas_proxima_etapa": "Impedir sobreposição de campanhas ativas na faixa e no período",
+  "etapas_futuras": [
+    "4.2 importação de churn",
+    "4.3 campanhas",
+    "Etapa 4 oferta no login"
+  ]
+}

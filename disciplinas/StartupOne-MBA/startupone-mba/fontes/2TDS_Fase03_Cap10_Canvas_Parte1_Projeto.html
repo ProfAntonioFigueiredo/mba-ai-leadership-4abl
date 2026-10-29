@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIVIDADE CANVAS - PARTE 1 - EarlyDetect</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+        
+        .header-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .header-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .motivation-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        @media print {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-info">
+        <h1 style="border: none; padding: 0; margin: 0 0 10px 0;">ATIVIDADE CANVAS - EXPLORING THE CANVAS</h1>
+        <h2 style="border: none; padding: 0; margin: 0 0 10px 0;">STARTUP ONE - EARLYDETECT PLATFORM</h2>
+        <p><strong>Curso:</strong> Análise e Desenvolvimento de Sistemas - 2º Ano</p>
+        <p><strong>Período:</strong> 2025/2</p>
+        <p><strong>Turma:</strong> 2TDSOS-2025</p>
+        <p><strong>Disciplina:</strong> Startup One</p>
+        <p><strong>Fase:</strong> 03 - Cap 10 - Exploring the Canvas</p>
+        <p><strong>Data de Entrega:</strong> Janeiro de 2025</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>1. EQUIPE DO PROJETO</h2>
+        
+        <h3>A. SHORT BIO DOS EMPREENDEDORES</h3>
+        
+        <p><strong>Equipe EarlyDetect:</strong></p>
+        
+        <h4>1. Founder/CEO - Liderança e Visão Estratégica</h4>
+        <ul>
+            <li><strong>Competências:</strong> Gestão estratégica, desenvolvimento de negócios, relacionamento com stakeholders</li>
+            <li><strong>Trajetória:</strong> Experiência em gestão de projetos tecnológicos, conhecimento em desenvolvimento de soluções para saúde digital</li>
+            <li><strong>Motivação Pessoal:</strong> Pai de Marcella, diagnosticada com TEA aos 3 anos de idade. A experiência pessoal com o diagnóstico tardio e a dificuldade de acesso a informações e profissionais especializados motivou o desenvolvimento desta solução para apoiar outras famílias em situação similar.</li>
+            <li><strong>Papel no Projeto:</strong> Liderança estratégica, definição de visão de negócio, gestão de parcerias estratégicas, desenvolvimento de modelo de negócio</li>
+        </ul>
+        
+        <h4>2. CTO - Desenvolvimento Técnico</h4>
+        <ul>
+            <li><strong>Competências:</strong> Desenvolvimento full-stack, arquitetura de sistemas, implementação de algoritmos de análise de dados</li>
+            <li><strong>Trajetória:</strong> Experiência em desenvolvimento de aplicações web e mobile, sistemas de saúde digital, implementação de soluções em cloud computing</li>
+            <li><strong>Papel no Projeto:</strong> Arquitetura técnica, desenvolvimento do produto, gestão de tecnologia, implementação de algoritmos de análise</li>
+        </ul>
+        
+        <h4>3. Responsável por Marketing e Comunicação</h4>
+        <ul>
+            <li><strong>Competências:</strong> Estratégia de comunicação, gestão de canais digitais, análise de métricas</li>
+            <li><strong>Trajetória:</strong> Experiência em comunicação para saúde, gestão de conteúdo educacional</li>
+            <li><strong>Papel no Projeto:</strong> Estratégia de comunicação, gestão de canais, desenvolvimento de conteúdo educativo</li>
+        </ul>
+        
+        <h4>4. Responsável por Operações e Parcerias</h4>
+        <ul>
+            <li><strong>Competências:</strong> Gestão de operações, estabelecimento de parcerias, compliance regulatório</li>
+            <li><strong>Trajetória:</strong> Experiência em operações de startups, conhecimento em regulamentações de saúde (ANVISA, LGPD)</li>
+            <li><strong>Papel no Projeto:</strong> Gestão de operações, estabelecimento de parcerias com profissionais de saúde, compliance regulatório</li>
+        </ul>
+        
+        <div class="motivation-box">
+            <p><strong>Observação sobre Formação da Equipe:</strong></p>
+            <p>A equipe está em processo de formação. Durante os encontros presenciais, há oportunidades de ampliar o network e identificar membros com competências complementares, especialmente na área de neurodesenvolvimento infantil e validação científica de instrumentos de triagem.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>2. SOBRE O PROJETO</h2>
+        
+        <h3>A. DADOS DO PROJETO</h3>
+        
+        <p><strong>Nome do Projeto:</strong> EarlyDetect</p>
+        
+        <p><strong>Descrição:</strong></p>
+        <p>EarlyDetect é uma plataforma digital que oferece ferramentas de triagem para identificação precoce de sinais de Transtorno do Espectro Autista (TEA) e Transtorno de Déficit de Atenção e Hiperatividade (TDAH) em crianças. A plataforma utiliza questionários baseados em instrumentos validados cientificamente e fornece orientações para pais e cuidadores, além de facilitar a conexão com profissionais especializados.</p>
+        
+        <div class="motivation-box">
+            <p><strong>Motivação e Contexto:</strong></p>
+            <p>Este projeto surge da experiência pessoal do fundador. Marcella, filha do fundador, foi diagnosticada com TEA aos 3 anos de idade. A dificuldade em identificar sinais precoces, a falta de acesso a informações confiáveis e a demora para conseguir avaliação especializada resultaram em diagnóstico tardio, impactando as oportunidades de intervenção precoce. Esta experiência pessoal evidenciou a necessidade de uma solução que possa apoiar outras famílias na identificação precoce de sinais de risco, facilitando o acesso a avaliação profissional quando necessário.</p>
+        </div>
+        
+        <h3>B. PROBLEMA</h3>
+        
+        <p><strong>Problema Principal:</strong></p>
+        <p>Dificuldade dos pais e cuidadores em identificar precocemente os sinais iniciais de Transtorno do Espectro Autista (TEA) e Transtorno de Déficit de Atenção e Hiperatividade (TDAH) em crianças de 0 a 6 anos, resultando em diagnóstico tardio e perda de oportunidades de intervenção precoce.</p>
+        
+        <p><strong>Como sabemos que existe este problema?</strong></p>
+        
+        <h4>1. Evidências Estatísticas:</h4>
+        <ul>
+            <li>Prevalência de TEA: 1 em cada 44 crianças (CDC, 2021)</li>
+            <li>Prevalência de TDAH: 5-8% das crianças em idade escolar</li>
+            <li>Tempo médio de espera para consulta especializada: 2-6 meses</li>
+            <li>Custo médio de consulta especializada: R$ 200-500</li>
+        </ul>
+        
+        <h4>2. Validação através de Pesquisa:</h4>
+        <ul>
+            <li>Pesquisa realizada com 78 respondentes (pais, profissionais de saúde e educadores)</li>
+            <li>89% dos pais entrevistados gostariam de ter uma ferramenta confiável para triagem inicial</li>
+            <li>92% buscam ativamente informações sobre desenvolvimento infantil</li>
+            <li>78% já enfrentaram dificuldades para acessar profissionais especializados</li>
+        </ul>
+        
+        <h4>3. Evidências de Impacto:</h4>
+        <ul>
+            <li>Estudos científicos indicam que intervenção precoce (antes dos 3 anos) melhora significativamente o prognóstico de desenvolvimento</li>
+            <li>Diagnóstico tardio está associado a maior custo de tratamento e maior impacto no desenvolvimento</li>
+            <li>Falta de conhecimento sobre sinais precoces resulta em atraso médio de 12-18 meses entre primeiros sinais e diagnóstico formal</li>
+        </ul>
+        
+        <p><strong>Isso causa desconforto a quem?</strong></p>
+        
+        <p><strong>Afetados Diretamente:</strong></p>
+        <ul>
+            <li><strong>Pais e Cuidadores:</strong> Ansiedade, incerteza, falta de orientação sobre como proceder quando identificam comportamentos que podem indicar necessidade de avaliação</li>
+            <li><strong>Crianças:</strong> Comprometimento do desenvolvimento devido ao diagnóstico tardio, perda de oportunidades de intervenção precoce</li>
+            <li><strong>Famílias:</strong> Impacto emocional, financeiro e social significativo</li>
+        </ul>
+        
+        <p><strong>Afetados Indiretamente:</strong></p>
+        <ul>
+            <li><strong>Profissionais de Saúde:</strong> Sobrecarga de demanda, necessidade de pacientes melhor preparados para consulta</li>
+            <li><strong>Sistema de Saúde:</strong> Custos elevados com diagnóstico tardio e tratamento mais complexo</li>
+            <li><strong>Sociedade:</strong> Impacto no desenvolvimento social e educacional das crianças</li>
+        </ul>
+        
+        <h3>C. MERCADO</h3>
+        
+        <p><strong>Tamanho do Mercado:</strong></p>
+        
+        <h4>TAM (Total Addressable Market) - Mercado Total Endereçável:</h4>
+        <ul>
+            <li><strong>Valor:</strong> R$ 2,5 bilhões (mercado de saúde digital no Brasil, 2024)</li>
+            <li><strong>Crescimento:</strong> 18% ao ano</li>
+            <li><strong>Justificativa:</strong> Representa todo o mercado de saúde digital, incluindo telemedicina, aplicativos de saúde, ferramentas de diagnóstico e plataformas de triagem</li>
+        </ul>
+        
+        <h4>SAM (Serviceable Available Market) - Mercado Servido:</h4>
+        <ul>
+            <li><strong>Valor:</strong> R$ 150 milhões (segmento de ferramentas de triagem e diagnóstico digital, 2024)</li>
+            <li><strong>Crescimento:</strong> 20% ao ano</li>
+            <li><strong>Justificativa:</strong> Foca especificamente em ferramentas de triagem e diagnóstico digital, incluindo aplicativos de avaliação psicológica e plataformas de screening</li>
+        </ul>
+        
+        <h4>SOM (Serviceable Obtainable Market) - Mercado Disponível:</h4>
+        <ul>
+            <li><strong>Valor:</strong> R$ 25 milhões (mercado específico de triagem TEA/TDAH, 2024)</li>
+            <li><strong>Crescimento:</strong> 30% ao ano</li>
+            <li><strong>Penetração Projetada:</strong>
+                <ul>
+                    <li>Ano 1: 0,5% (R$ 125.000)</li>
+                    <li>Ano 2: 2% (R$ 500.000)</li>
+                    <li>Ano 3: 5% (R$ 1.250.000)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p><strong>Segmentação:</strong></p>
+        <ul>
+            <li><strong>Famílias Classe A/B:</strong> 40% do mercado potencial</li>
+            <li><strong>Famílias Classe C:</strong> 45% do mercado potencial</li>
+            <li><strong>Profissionais de Saúde:</strong> 15% do mercado potencial</li>
+        </ul>
+        
+        <p><strong>Existe Demanda?</strong></p>
+        <p>Sim. A demanda foi validada através de pesquisa quantitativa:</p>
+        <ul>
+            <li>3,2 milhões de nascimentos por ano no Brasil</li>
+            <li>19,2 milhões de crianças de 0-6 anos</li>
+            <li>15,4 milhões de famílias com crianças pequenas</li>
+            <li>85% dos pais usam smartphones para buscar informações sobre saúde</li>
+            <li>89% gostariam de ter uma ferramenta confiável para triagem</li>
+        </ul>
+        
+        <p><strong>Como sabemos?</strong></p>
+        <ul>
+            <li>Pesquisa realizada com 78 respondentes (pais, profissionais de saúde e educadores)</li>
+            <li>89% expressaram necessidade de ferramenta de triagem</li>
+            <li>78% confiariam em ferramentas validadas cientificamente</li>
+            <li>92% buscam ativamente informações sobre desenvolvimento infantil</li>
+        </ul>
+        
+        <p><strong>É um mercado existente, novo ou uma ressegmentação?</strong></p>
+        <p>É uma ressegmentação de um mercado existente. O mercado de saúde digital e ferramentas de triagem já existe, mas há uma oportunidade específica de criar uma solução especializada em TEA/TDAH com:</p>
+        <ul>
+            <li>Foco em validação científica rigorosa</li>
+            <li>Especialização específica em neurodesenvolvimento infantil</li>
+            <li>Conectividade com profissionais especializados</li>
+            <li>Modelo de acesso que prioriza democratização (versão gratuita)</li>
+        </ul>
+        
+        <p><strong>Existe tendência de crescimento?</strong></p>
+        <p>Sim:</p>
+        <ul>
+            <li>Crescimento do setor HealthTech: 15-18% ao ano</li>
+            <li>Aumento da conscientização sobre TEA/TDAH: crescimento de 20% ao ano nas buscas online</li>
+            <li>Digitalização da saúde: crescimento de 25% ao ano</li>
+            <li>Demanda por soluções preventivas: crescimento de 30% ao ano no segmento específico</li>
+        </ul>
+        
+        <p><strong>As condições são propícias para conquistar os clientes?</strong></p>
+        <p>Sim:</p>
+        <ul>
+            <li>Alta aceitação de soluções digitais: 78% confiariam em ferramentas validadas</li>
+            <li>Disposição para pagamento: 78% pagariam, com valor médio aceito de R$ 19,90/mês</li>
+            <li>Acesso à tecnologia: 95% das famílias classe A/B possuem smartphones</li>
+            <li>Comportamento de busca: 85% dos pais buscam informações de saúde online</li>
+            <li>Suporte de profissionais: 94% dos profissionais apoiariam ferramentas validadas cientificamente</li>
+        </ul>
+        
+        <h3>D. CLIENTE</h3>
+        
+        <p><strong>Quem são seus clientes?</strong></p>
+        
+        <p><strong>Clientes Primários:</strong></p>
+        <ol>
+            <li><strong>Pais e Cuidadores de Crianças 0-6 anos</strong>
+                <ul>
+                    <li>Principal perfil: Pais preocupados com o desenvolvimento infantil, buscando orientação sobre sinais de desenvolvimento típico e atípico</li>
+                    <li>Classe social: A/B/C (com foco em C para versão gratuita)</li>
+                    <li>Comportamento: Busca ativa por informações sobre desenvolvimento infantil, uso frequente de smartphones e aplicativos</li>
+                </ul>
+            </li>
+            <li><strong>Famílias com Histórico de TEA/TDAH</strong>
+                <ul>
+                    <li>Buscam monitoramento precoce para filhos mais novos ou irmãos</li>
+                    <li>Necessitam de ferramentas de acompanhamento contínuo</li>
+                    <li>Valorizam recursos educativos e orientações personalizadas</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <p><strong>Clientes Secundários:</strong></p>
+        <ol>
+            <li><strong>Profissionais de Saúde Infantil</strong>
+                <ul>
+                    <li>Pediatras e médicos da família</li>
+                    <li>Psicólogos infantis</li>
+                    <li>Fonoaudiólogos e terapeutas ocupacionais</li>
+                    <li>Interessados em versão profissional para uso com pacientes</li>
+                </ul>
+            </li>
+            <li><strong>Instituições Educacionais</strong>
+                <ul>
+                    <li>Creches e berçários</li>
+                    <li>Escolas de educação infantil</li>
+                    <li>Interessados em ferramentas de triagem para alunos</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <p><strong>Quais valores ele pode perceber?</strong></p>
+        
+        <p><strong>Para Pais:</strong></p>
+        <ul>
+            <li>Redução da ansiedade através de orientação clara e baseada em evidências</li>
+            <li>Acesso a ferramenta de triagem inicial acessível (versão gratuita)</li>
+            <li>Orientação sobre quando buscar avaliação profissional</li>
+            <li>Materiais educativos sobre desenvolvimento infantil</li>
+            <li>Conexão facilitada com profissionais especializados quando necessário</li>
+        </ul>
+        
+        <p><strong>Para Profissionais de Saúde:</strong></p>
+        <ul>
+            <li>Pacientes melhor preparados para consulta (com triagem prévia)</li>
+            <li>Redução de tempo de consulta com pacientes que já realizaram triagem</li>
+            <li>Ferramenta de apoio para avaliação inicial</li>
+            <li>Acesso a histórico de triagens e evolução</li>
+            <li>Integração com prontuários eletrônicos (futuro)</li>
+        </ul>
+        
+        <p><strong>Está disposto a pagar?</strong></p>
+        <p>Sim. A pesquisa validou disposição para pagamento:</p>
+        <ul>
+            <li>78% dos entrevistados pagariam por uma ferramenta de triagem</li>
+            <li>Valor médio aceito: R$ 19,90 mensais</li>
+            <li>Modelo preferido: Freemium (triagem básica gratuita, versão premium com funcionalidades avançadas)</li>
+            <li>Segmentação por classe social:
+                <ul>
+                    <li>Classe A/B: R$ 29,90-49,90/mês</li>
+                    <li>Classe C: Modelo freemium com upgrade opcional</li>
+                    <li>Classe D: Versão gratuita com funcionalidades básicas</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p><strong>Está inserido culturalmente no seu produto?</strong></p>
+        <p>Sim:</p>
+        <ul>
+            <li>95% das famílias possuem smartphones e estão familiarizadas com aplicativos</li>
+            <li>85% dos pais buscam informações de saúde online</li>
+            <li>92% buscam ativamente informações sobre desenvolvimento infantil</li>
+            <li>Geração: Principalmente Millennials (Geração Y) e Geração Z, familiarizados com tecnologia digital</li>
+            <li>Comportamento: Uso frequente de redes sociais e aplicativos móveis para saúde</li>
+        </ul>
+        
+        <p><strong>Quais paradigmas precisam ser quebrados para ele usar seu produto/serviço?</strong></p>
+        
+        <p><strong>Paradigma 1: "Ferramentas digitais não substituem avaliação profissional"</strong></p>
+        <ul>
+            <li><strong>Abordagem:</strong> Transparência total de que a ferramenta é de triagem, não diagnóstico</li>
+            <li><strong>Mensagem:</strong> "Primeiro passo para entender o desenvolvimento do seu filho"</li>
+            <li><strong>Validação:</strong> 91% dos usuários querem garantia de que não substitui avaliação profissional</li>
+        </ul>
+        
+        <p><strong>Paradigma 2: "Ferramentas digitais não são confiáveis para saúde"</strong></p>
+        <ul>
+            <li><strong>Abordagem:</strong> Validação científica rigorosa e transparência sobre metodologia</li>
+            <li><strong>Estratégia:</strong> Parcerias com universidades, estudos clínicos, aprovação de órgãos reguladores</li>
+            <li><strong>Validação:</strong> 78% confiariam em ferramentas validadas cientificamente</li>
+        </ul>
+        
+        <p><strong>Paradigma 3: "Preciso de consulta médica imediata para qualquer suspeita"</strong></p>
+        <ul>
+            <li><strong>Abordagem:</strong> Educação sobre o valor da triagem prévia e preparação</li>
+            <li><strong>Estratégia:</strong> Conteúdo educativo sobre desenvolvimento infantil e sinais precoces</li>
+            <li><strong>Validação:</strong> 68% fariam triagem quando suspeitassem de algo, antes de buscar consulta</li>
+        </ul>
+        
+        <p><strong>Como pensa em se aproximar dele?</strong></p>
+        
+        <p><strong>Canais de Aquisição:</strong></p>
+        <ol>
+            <li><strong>Marketing Digital:</strong>
+                <ul>
+                    <li>SEO/SEM para buscas relacionadas a desenvolvimento infantil</li>
+                    <li>Redes sociais com conteúdo educativo (não promocional)</li>
+                    <li>Parcerias com influenciadores especializados (mães blogueiras, especialistas)</li>
+                </ul>
+            </li>
+            <li><strong>Parcerias Estratégicas:</strong>
+                <ul>
+                    <li>Pediatras e médicos da família (recomendação para pacientes)</li>
+                    <li>Clínicas e hospitais (integração com serviços)</li>
+                    <li>Escolas e creches (ferramenta para educadores)</li>
+                    <li>Associações de TEA/TDAH (ABRA, ABDA)</li>
+                </ul>
+            </li>
+            <li><strong>Content Marketing:</strong>
+                <ul>
+                    <li>Blog sobre desenvolvimento infantil</li>
+                    <li>Materiais educativos gratuitos</li>
+                    <li>Webinars com especialistas</li>
+                    <li>Guias sobre sinais precoces</li>
+                </ul>
+            </li>
+            <li><strong>App Stores:</strong>
+                <ul>
+                    <li>Otimização para busca em app stores</li>
+                    <li>Parcerias com outras apps de saúde</li>
+                    <li>Avaliações de usuários</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>E. OFERTA</h3>
+        
+        <p><strong>Como você irá vender?</strong></p>
+        
+        <p><strong>Modelo de Negócio: Freemium com Múltiplas Camadas</strong></p>
+        
+        <h4>1. Versão Gratuita (Freemium):</h4>
+        <ul>
+            <li>Triagem básica de TEA/TDAH</li>
+            <li>Relatório resumido com resultados</li>
+            <li>Acesso a materiais educativos básicos</li>
+            <li><strong>Objetivo:</strong> Democratizar acesso e adquirir usuários</li>
+        </ul>
+        
+        <h4>2. Versão Premium (Assinatura Mensal):</h4>
+        <ul>
+            <li><strong>Preço:</strong> R$ 29,90/mês</li>
+            <li>Relatórios detalhados e personalizados</li>
+            <li>Orientações específicas baseadas em resultados</li>
+            <li>Acesso a biblioteca completa de materiais educativos</li>
+            <li>Histórico de triagens e acompanhamento</li>
+            <li>Alertas e lembretes personalizados</li>
+            <li><strong>Público:</strong> Famílias classe A/B e C interessadas em funcionalidades avançadas</li>
+        </ul>
+        
+        <h4>3. Versão Profissional (Assinatura Mensal):</h4>
+        <ul>
+            <li><strong>Preço:</strong> R$ 99,90/mês</li>
+            <li>Dashboard para profissionais de saúde</li>
+            <li>Múltiplos pacientes e gestão de casos</li>
+            <li>Integração com prontuários eletrônicos (futuro)</li>
+            <li>Relatórios profissionais para compartilhamento</li>
+            <li>Acesso a rede de profissionais</li>
+            <li><strong>Público:</strong> Clínicas, consultórios, profissionais autônomos</li>
+        </ul>
+        
+        <h4>4. Versão B2B (Licenciamento Mensal):</h4>
+        <ul>
+            <li><strong>Preço:</strong> R$ 500/mês (até 100 usuários)</li>
+            <li>Licenciamento para clínicas e hospitais</li>
+            <li>Suporte dedicado</li>
+            <li>Treinamento da equipe</li>
+            <li>Integração personalizada</li>
+            <li><strong>Público:</strong> Instituições de saúde, redes de clínicas, hospitais</li>
+        </ul>
+        
+        <p><strong>Canais de Vendas:</strong></p>
+        
+        <p><strong>Digitais:</strong></p>
+        <ul>
+            <li>Website com landing pages</li>
+            <li>App stores (Google Play, Apple App Store)</li>
+            <li>E-commerce integrado</li>
+        </ul>
+        
+        <p><strong>Parcerias:</strong></p>
+        <ul>
+            <li>Clínicas e hospitais (modelo B2B)</li>
+            <li>Profissionais de saúde (programa de afiliados)</li>
+            <li>Escolas e creches (licenciamento institucional)</li>
+            <li>Associações e organizações (parcerias estratégicas)</li>
+        </ul>
+        
+        <p><strong>Marketing Direto:</strong></p>
+        <ul>
+            <li>Email marketing para leads qualificados</li>
+            <li>Campanhas em redes sociais (conteúdo educativo)</li>
+            <li>Webinars e eventos online</li>
+        </ul>
+        
+        <p><strong>Você vai ganhar dinheiro vendendo o quê?</strong></p>
+        
+        <p><strong>Receitas Principais:</strong></p>
+        
+        <ol>
+            <li><strong>Assinaturas Mensais (SaaS):</strong>
+                <ul>
+                    <li>Premium: R$ 29,90/mês por família</li>
+                    <li>Profissional: R$ 99,90/mês por profissional</li>
+                    <li>B2B: R$ 500/mês por instituição</li>
+                    <li><strong>Projeção:</strong> 70% da receita total</li>
+                </ul>
+            </li>
+            <li><strong>Licenciamento B2B:</strong>
+                <ul>
+                    <li>Licenças para clínicas e hospitais</li>
+                    <li><strong>Projeção:</strong> 20% da receita total</li>
+                </ul>
+            </li>
+            <li><strong>Comissões de Agendamento:</strong>
+                <ul>
+                    <li>Comissão por agendamento de consultas com profissionais da rede</li>
+                    <li><strong>Projeção:</strong> 5% da receita total</li>
+                </ul>
+            </li>
+            <li><strong>Produtos e Serviços Adicionais:</strong>
+                <ul>
+                    <li>Materiais educativos premium (e-books, cursos)</li>
+                    <li>Consultorias especializadas</li>
+                    <li><strong>Projeção:</strong> 5% da receita total</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <p><strong>Projeções de Receita (3 anos):</strong></p>
+        <ul>
+            <li><strong>Ano 1:</strong> R$ 150.000 (500 usuários premium, 50 profissionais, 5 instituições)</li>
+            <li><strong>Ano 2:</strong> R$ 800.000 (2.500 usuários premium, 200 profissionais, 20 instituições)</li>
+            <li><strong>Ano 3:</strong> R$ 2.500.000 (8.000 usuários premium, 500 profissionais, 50 instituições)</li>
+        </ul>
+        
+        <h3>F. CONCORRENTES</h3>
+        
+        <p><strong>Concorrentes Diretos:</strong></p>
+        
+        <h4>1. Aplicativos Genéricos de Desenvolvimento Infantil</h4>
+        <ul>
+            <li><strong>Exemplos:</strong> BabyCenter, Kinedu, BabySparks</li>
+            <li><strong>Modelo de Receita:</strong> Assinaturas mensais, publicidade</li>
+            <li><strong>Pontos Fortes:</strong> Base de usuários estabelecida, reconhecimento de marca</li>
+            <li><strong>Pontos Fracos:</strong> Não são especializados em TEA/TDAH, falta de validação científica específica</li>
+            <li><strong>Diferenciação:</strong> Especialização específica em TEA/TDAH com validação científica, ferramentas específicas e precisas para triagem</li>
+        </ul>
+        
+        <h4>2. Questionários Online de Triagem</h4>
+        <ul>
+            <li><strong>Exemplos:</strong> Questionários genéricos disponíveis online</li>
+            <li><strong>Modelo de Receita:</strong> Geralmente gratuitos</li>
+            <li><strong>Pontos Fortes:</strong> Acesso gratuito e imediato</li>
+            <li><strong>Pontos Fracos:</strong> Falta de validação científica rigorosa, ausência de orientação e interpretação</li>
+            <li><strong>Diferenciação:</strong> Validação científica rigorosa, interpretação profissional dos resultados, orientações personalizadas</li>
+        </ul>
+        
+        <h4>3. Plataformas de Telemedicina Infantil</h4>
+        <ul>
+            <li><strong>Exemplos:</strong> Teladoc, Doctoralia, Vitta</li>
+            <li><strong>Modelo de Receita:</strong> Comissões por consulta, assinaturas mensais</li>
+            <li><strong>Pontos Fortes:</strong> Acesso direto a profissionais, consultas por videoconferência</li>
+            <li><strong>Pontos Fracos:</strong> Foco em consulta, não em triagem prévia, custo elevado por consulta</li>
+            <li><strong>Diferenciação:</strong> Triagem prévia gratuita ou acessível, especialização específica em TEA/TDAH, preparação melhor para consulta</li>
+        </ul>
+        
+        <p><strong>Concorrentes Indiretos:</strong></p>
+        
+        <h4>1. Consultas Médicas Especializadas Presenciais</h4>
+        <ul>
+            <li><strong>Modelo de Receita:</strong> Taxa por consulta (R$ 200-500)</li>
+            <li><strong>Pontos Fortes:</strong> Avaliação profissional presencial, diagnóstico formal</li>
+            <li><strong>Pontos Fracos:</strong> Tempo de espera longo (2-6 meses), custo elevado, acesso limitado</li>
+            <li><strong>Posicionamento:</strong> Não substituímos, mas preparamos melhor para a consulta, reduzimos ansiedade enquanto aguardam consulta</li>
+        </ul>
+        
+        <h4>2. Centros de Diagnóstico Especializados</h4>
+        <ul>
+            <li><strong>Modelo de Receita:</strong> Taxas por avaliação e diagnóstico</li>
+            <li><strong>Pontos Fortes:</strong> Equipe multidisciplinar, diagnóstico completo</li>
+            <li><strong>Pontos Fracos:</strong> Custo muito elevado, acesso restrito, tempo de espera longo</li>
+            <li><strong>Posicionamento:</strong> Triagem inicial acessível antes do diagnóstico formal, redução de encaminhamentos desnecessários</li>
+        </ul>
+        
+        <p><strong>Vantagem Competitiva:</strong></p>
+        <ol>
+            <li>Especialização específica em TEA/TDAH</li>
+            <li>Validação científica rigorosa</li>
+            <li>Modelo freemium acessível</li>
+            <li>Conectividade integrada com profissionais especializados</li>
+            <li>Orientação personalizada baseada em resultados</li>
+            <li>Conformidade regulatória (ANVISA, LGPD)</li>
+            <li>Interface intuitiva para leigos</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <div class="header-info" style="margin-top: 30px;">
+        <p><strong>Documento elaborado em:</strong> Janeiro de 2025</p>
+        <p><strong>Versão:</strong> 2.0 (Revisada)</p>
+        <p><strong>Status:</strong> Para entrega na plataforma</p>
+        <p><strong>Projeto:</strong> EarlyDetect Platform</p>
+        <p><strong>Disciplina:</strong> Startup One - 2TDS 2025/2</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const style = document.createElement('style');
+            style.textContent = `
+                @media print {
+                    body { padding: 10px; }
+                    hr { page-break-after: avoid; }
+                    h2, h3 { page-break-after: avoid; }
+                }
+            `;
+            document.head.appendChild(style);
+        };
+    </script>
+</body>
+</html>
+
+
+
